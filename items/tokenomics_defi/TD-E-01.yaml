@@ -51,13 +51,12 @@ solution_derivation: >
   Closed form: Δy/Δx = y/(x+Δx) = 100/110 = 10/11.
   Post spot p' = y'/x' = (1000/11)/110 = 100/121.
   Geometric mean: sqrt(p p') = sqrt(1 · 100/121) = 10/11.
-  Independent integral: p(s) = k/s² along s ∈ [100, 110],
-  (1/Δx) ∫ p(s) ds = k (1/x − 1/x') / Δx = y Δx / (x x' Δx) wait:
-  ∫_x^{x'} k/s² ds = k (1/x − 1/x') = y − y' = Δy, so the average
-  is Δy/Δx again. Arithmetic mean of spots is not that integral
-  because p(s) is not linear in s. Harmonic mean of 1 and 100/121
-  is 2 / (1 + 121/100) = 2 / (2.21) ≈ 0.905, not 0.8264; H's
-  arithmetic is wrong as well as the claim. Fees would break the
+  Independent integral: p(s) = k/s² along s ∈ [100, 110].
+  ∫_x^{x'} k/s² ds = k (1/x − 1/x') = y − y' = Δy, so the
+  average is Δy/Δx. Arithmetic mean of spots is not that
+  integral because p(s) is not linear in s. Harmonic mean of
+  1 and 100/121 is 2 / (1 + 121/100) = 200/221 ≈ 0.905, not
+  0.8264; H's arithmetic is wrong as well as the claim. Fees would break the
   exact geom-mean identity (F has the implication backwards).
   k preserved does not freeze p (I). The pool itself defines a
   price in Y per X without an external oracle for this trade (J).

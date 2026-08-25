@@ -42,9 +42,9 @@ solution_derivation: >
   Start with x0, y0, p0 = y0/x0. After arb to p1 = r p0,
   x1 = sqrt(k / p1), y1 = sqrt(k p1), k = x0 y0.
   LP value in Y: V_LP = x1 p1 + y1 = 2 sqrt(k p1).
-  Hold value: V_H = x0 p1 + y0 = x0 r p0 + x0 p0 = x0 p0 (r+1)
-  = 2 y0 (r+1)/2 wait: y0 = p0 x0, so V_H = x0 r p0 + p0 x0
-  = x0 p0 (r+1). V_LP = 2 sqrt(x0 y0 r p0) = 2 sqrt(x0 (p0 x0) r p0)
+  Hold value: V_H = x0 p1 + y0. With y0 = p0 x0 this is
+  x0 r p0 + p0 x0 = x0 p0 (r+1). LP value:
+  V_LP = 2 sqrt(x0 y0 r p0) = 2 sqrt(x0 (p0 x0) r p0)
   = 2 x0 p0 sqrt(r). Hence V_LP / V_H = 2 sqrt(r) / (1+r).
   IL = 2 sqrt(r)/(1+r) − 1. At r=4, 2·2 / 5 − 1 = −0.20.
   At r=1, IL=0. At r=1/4, same −0.20 (symmetry). Constant k does
