@@ -1,0 +1,167 @@
+id: BF-M-01
+domain: behavioral_finance_experimental_economics
+subdomain: disposition_effect
+difficulty: MEDIUM
+learning_objective: >
+  Identify the disposition effect as a realisation pattern (sell
+  winners, hold losers) that tax-loss harvesting predicts in the
+  opposite direction.
+stem: >
+  In a taxable brokerage sample, investors realise gains on stocks
+  more readily than they realise losses, including in December, and
+  the stocks they sell as winners subsequently do not underperform
+  the losers they keep in a way that would make the pattern a
+  rational rebalancing toward losers with higher expected returns.
+  A commentator says this is just tax-loss harvesting. Which
+  statement is right?
+options:
+  A: >
+    The commentator is right. Taxable investors should realise gains and hold losses to defer tax.
+  B: >
+    Tax-loss harvesting predicts realising *losses* and deferring gains. The observed pattern is the opposite, which is the disposition effect; it is not explained by that tax motive, and the subsequent-return check is there to reject a simple rebalancing-on-information story.
+  C: >
+    Realising winners is always rational because a gain is evidence that the stock's expected return has fallen.
+  D: >
+    Holding losers is required by mean-variance rebalancing whenever a stock has fallen, because weights must be restored.
+  E: >
+    December realisations of gains prove a tax motive, because December is the tax year-end.
+  F: >
+    If the account is taxable, prospect theory cannot apply, because prospect theory is a laboratory model without prices.
+  G: >
+    The pattern is disposition only if every investor in the sample shows it; a sample mean is not a mechanism.
+  H: >
+    Subsequent returns of sold winners versus kept losers are irrelevant, because disposition is a statement about tastes only.
+  I: >
+    The pattern is explained by transaction costs, which are higher for losers.
+  J: >
+    Disposition is just another name for momentum, so selling winners is the momentum strategy.
+correct_option: B
+solution_summary: >
+  Odean's disposition pattern is the opposite of the tax-timing
+  prediction. A tax story that got the sign right would realise
+  losses, especially in December.
+solution_derivation: >
+  Let a position be a gain or a loss relative to a purchase-price
+  reference. Tax-loss harvesting: realise losses to obtain a
+  deduction, defer gains to delay the tax. That predicts more loss
+  realisations than gain realisations, especially near year-end.
+  The disposition effect is the opposite count: P(sell | gain) >
+  P(sell | loss). December gains against that tax prediction are
+  particularly informative. A rational information story — sell
+  because the winner's expected return fell — would predict that
+  sold winners subsequently underperform held losers; the stem says
+  they do not, which is Odean's check. Mean-variance rebalancing
+  after a price drop would *buy* the loser to restore weights, not
+  merely hold it, and would not systematically sell winners beyond
+  that. Transaction costs that are higher for losers would predict
+  fewer loser trades, but not the tax-sign contradiction. Momentum
+  is a return-continuation pattern, not a realisation-rate pattern.
+  Prospect theory / realisation utility is a candidate mechanism;
+  the item does not require naming it as proved.
+assumptions:
+  - >
+    Taxable accounts, as stated; tax-exempt accounts would remove the tax alternative, not the disposition pattern.
+  - >
+    Reference is purchase price, the usual brokerage implementation.
+  - >
+    "Do not underperform" is taken as the stem's empirical premise, not as a new finding of this laboratory.
+distractor_rationales:
+  A:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Tax is the first rationalisation for realisation timing.
+    why_wrong: >
+      Tax predicts the opposite sign.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Sign of the tax prediction, December, and the return check.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Prices are martingales plus mean reversion stories.
+    why_wrong: >
+      The subsequent-return check is in the stem to block this.
+  D:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Rebalancing is a real portfolio operation.
+    why_wrong: >
+      A fall in price *lowers* the weight; restoring it is a buy,
+      not a hold-versus-sell-winners pattern.
+  E:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      December is the tax month.
+    why_wrong: >
+      Tax-motivated December activity should be *loss* taking.
+  F:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Prospect theory's laboratory origin.
+    why_wrong: >
+      A laboratory origin does not forbid field patterns. The item
+      also does not require prospect theory to be the unique cause.
+  G:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      Heterogeneity is real.
+    why_wrong: >
+      A mechanism can appear as a sample average of realisation
+      rates. Universality is not required.
+  H:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Preferences versus beliefs split.
+    why_wrong: >
+      The return check is how one tests a beliefs alternative.
+  I:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Losers might be low-priced and costly to trade.
+    why_wrong: >
+      Does not reverse the tax prediction, and Odean-style analyses
+      still find the pattern after cost considerations.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Both involve winners and losers.
+    why_wrong: >
+      Momentum is a cross-sectional return sort, not a realisation
+      hazard.
+misconception_tags:
+  - SIGN_REVERSAL
+  - CORRELATION_VS_IDENTIFICATION
+  - TIMING_ERROR
+difficulty_rationale: >
+  One sign check against a tax alternative, plus a simple return
+  check. Medium.
+ambiguity_audit: >
+  The subsequent-return clause is a premise. The item does not
+  assert that prospect theory is identified.
+uniqueness_check: >
+  B is the only option that gets the tax sign right and uses the
+  return check. If the sample were tax-exempt, A would be even
+  weaker, not stronger; the stem is taxable to make the tax
+  alternative available and then fail.
+references:
+  - key: odean1998
+    claim_supported: >
+      Investors realise gains more readily than losses; the pattern
+      is the opposite of tax-loss selling and is not explained by
+      subsequent returns of sold winners.
+verification:
+  primary_solution: >
+    Compare the observed realisation inequality with the tax-timing
+    inequality.
+  independent_check: >
+    Sign table: tax harvest ⇒ realise losses; disposition ⇒ realise
+    gains. They cannot both describe the same inequality.
+  invariant_or_boundary_check: >
+    In a pure mark-to-market tax system with no realisation
+    election, the tax alternative vanishes; disposition can remain.
+    That corner is not needed to key this stem.
+revision_notes: >
+  None.

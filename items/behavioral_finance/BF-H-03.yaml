@@ -1,0 +1,171 @@
+id: BF-H-03
+domain: behavioral_finance_experimental_economics
+subdomain: experimenter_demand
+difficulty: HARD
+learning_objective: >
+  Treat experimenter demand as an internal-validity threat distinct
+  from external validity, attrition, and a failed first stage.
+stem: >
+  A laboratory framing experiment randomises wording (gain versus
+  loss frame) of an otherwise identical lottery. The protocol is
+  not incentive-compatible. Subjects can infer the hypothesis from
+  the wording. The estimated framing gap is large. A referee report
+  offers four comments: (1) "not externally valid, because it is a
+  lab"; (2) "attrition is the problem"; (3) "the first stage failed,
+  so there is no treatment"; (4) "experimenter demand can generate
+  the gap even if the frame does not change preferences." Which
+  comment is the one that matches the design as stated, and how
+  should it be ranked against the others?
+options:
+  A: >
+    Comment (1) is decisive: lab evidence never identifies a mechanism.
+  B: >
+    Comment (4) is the internal-validity threat that the protocol actually invites. Demand can produce a gap without a preference change. (1) is a different question (transport). (2) is not licensed: no attrition is described. (3) is not licensed: the wording was delivered. A large gap is not a proof of a clean preference effect.
+  C: >
+    Comment (3) is right because hypothetical payment means the treatment never occurred.
+  D: >
+    Comment (2) is right because hypothetical studies always have hidden attrition.
+  E: >
+    All four comments are the same threat under different names.
+  F: >
+    Comment (4) is impossible in a randomised design, because randomisation balances demand.
+  G: >
+    External validity is a prerequisite for internal validity, so (1) outranks (4) whenever the setting is a lab.
+  H: >
+    Demand effects require deception, and the stem does not use deception, so (4) is empty.
+  I: >
+    A large gap proves the first stage worked, which refutes (3) and (4) together.
+  J: >
+    The right ranking is (2) then (1); demand is a field-experiment issue only.
+correct_option: B
+solution_summary: >
+  Demand is the threat the protocol is built to invite: unincentivised
+  choices plus a readable hypothesis. The other three comments are
+  either a different object or not licensed by the stem.
+solution_derivation: >
+  Internal validity: did the treatment cause the outcome in this
+  sample through the intended channel? Experimenter demand is a
+  channel: subjects produce the gap to confirm the inferred
+  hypothesis. Randomisation of wording randomises *which* demand
+  script they see; it does not balance demand away (F), it *is*
+  the treatment if demand is the channel. External validity is
+  about transporting a well-identified effect; it does not outrank
+  internal validity (G). Attrition is a selection-on-observability
+  problem; the stem does not describe drop-out (2). A failed first
+  stage would mean the wording was not delivered or not noticed;
+  the stem says it was delivered (3). Hypothetical payment is an
+  incentive problem (related, see BF-M-02), not a failed delivery
+  of the frame. Deception is not required for demand (H): a
+  transparent hypothesis is enough. Large effects are the opposite
+  of a demand-proof: they are what demand predicts (I).
+assumptions:
+  - >
+    The stem's protocol is as written: no payment, hypothesis readable from the wording, wording delivered.
+  - >
+    No unstated attrition.
+  - >
+    "Preferences" means a stable ranking over lotteries, not a demand-compliant report.
+distractor_rationales:
+  A:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Lab versus field is a familiar fight.
+    why_wrong: >
+      Mechanism identification can occur in a lab. Transport is
+      separate.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Ranks (4) as the licensed internal threat and rejects (1)–(3)
+      as stated.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Incentives and treatment delivery get fused.
+    why_wrong: >
+      The frame was delivered. Payment is a different design choice.
+  D:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Attrition is a fashionable validity word.
+    why_wrong: >
+      Not in the stem.
+  E:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Validity vocabulary collapses in casual talk.
+    why_wrong: >
+      Internal, external, attrition, and first-stage are different.
+  F:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Randomisation is treated as a universal solvent.
+    why_wrong: >
+      Randomising the demand-laden script identifies the script
+      effect, which may be demand.
+  G:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      External validity is often listed first in applied work.
+    why_wrong: >
+      Transporting a confounded gap is not a virtue.
+  H:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Demand is associated with deception scandals.
+    why_wrong: >
+      Transparent hypotheses generate demand without deception.
+  I:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      Large effects look like strong first stages.
+    why_wrong: >
+      Demand produces large effects.
+  J:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Demand is discussed in field work too.
+    why_wrong: >
+      The laboratory protocol in the stem is the classic demand
+      setting.
+misconception_tags:
+  - WRONG_INFORMATION_SET
+  - NECESSARY_VS_SUFFICIENT
+  - INCORRECT_NORMALIZATION
+difficulty_rationale: >
+  Requires ranking four referee comments that all sound "valid."
+  The difficulty is classification, not algebra.
+ambiguity_audit: >
+  Incentive incompatibility is noted and used as a cousin of
+  demand, not as comment (3). No attrition numbers are invented.
+uniqueness_check: >
+  B is the only option that picks (4) and correctly dismisses
+  (1)–(3) as stated. If the protocol had paid choices and a
+  double-blind script, (4) would be weaker and the item would
+  need a different key.
+references:
+  - key: zizzo2010
+    claim_supported: >
+      Experimenter demand as an internal-validity problem:
+      subjects infer the hypothesis and supply the desired
+      behaviour.
+  - key: harrisonlist2004
+    claim_supported: >
+      Distinguishes internal validity, external validity, and
+      design features of experiments, including incentives.
+verification:
+  primary_solution: >
+    Map each comment onto a named threat and check which the
+    protocol actually invites.
+  independent_check: >
+    If the hypothesis is unreadable and choices are paid, the
+    demand channel shrinks while the wording treatment remains.
+    The stem is the opposite configuration.
+  invariant_or_boundary_check: >
+    If wording were not delivered, (3) would be right. It is
+    delivered.
+revision_notes: >
+  Needed a cite that is not Wikipedia. Zizzo (2010) Experimental
+  Economics is the demand-effects survey.

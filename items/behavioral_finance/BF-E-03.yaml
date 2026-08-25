@@ -1,0 +1,187 @@
+id: BF-E-03
+domain: behavioral_finance_experimental_economics
+subdomain: overconfidence_identification
+difficulty: EXPERT
+learning_objective: >
+  Separate overconfidence as a mechanism for excess trading from
+  lower risk aversion and from heterogeneous beliefs, using the
+  performance implication that overconfident high-turnover traders
+  should do worse, not merely trade more.
+stem: >
+  In a discount-brokerage panel, high-turnover accounts trade more
+  and earn lower net returns than low-turnover accounts, after a
+  simple size and style adjustment. Three mechanisms are on the
+  table: (M1) overconfidence — traders overstate the precision of
+  their information and take negative-NPV trades; (M2) lower risk
+  aversion — more trading is a correlate of holding more systematic
+  risk, which a mean return comparison might miss; (M3)
+  heterogeneous beliefs with no overconfidence — people trade
+  because they disagree, and disagreement is not a mistake. A
+  commentator says turnover *is* overconfidence, so the return gap
+  is optional. Which statement is right?
+options:
+  A: >
+    The commentator is right. Volume is a sufficient statistic for overconfidence.
+  B: >
+    Turnover is an outcome, not a mechanism. M2 is challenged by a *net return* gap after a style adjustment: lower risk aversion that merely loads on compensated factors should not, by itself, produce lower residual net returns. M3 (disagreement) can generate volume without a mistake, so volume alone does not identify M1. The poorer net performance of high-turnover accounts is the observation that supports M1 over "volume is enough."
+  C: >
+    Lower risk aversion always lowers expected returns, so M2 explains the gap without overconfidence.
+  D: >
+    Heterogeneous beliefs cannot generate trade at all, by Milgrom–Stokey, so M3 is empty and M1 is identified by volume.
+  E: >
+    After any style adjustment, remaining return gaps are alpha and therefore overconfidence by definition.
+  F: >
+    Overconfidence predicts *higher* net returns, because confident traders demand compensation; the stem's gap contradicts M1.
+  G: >
+    The style adjustment absorbs overconfidence, so the remaining gap must be M2.
+  H: >
+    If short-sale constraints bind, high turnover is impossible, so the sample cannot speak to M1.
+  I: >
+    Net returns are the wrong object; overconfidence is about calibration of probabilities, which this panel can never see.
+  J: >
+    M1, M2, and M3 are observationally equivalent on this panel, so no statement about mechanisms is licensed.
+correct_option: B
+solution_summary: >
+  Volume does not identify overconfidence. The return underperformance
+  of high-turnover accounts is the Barber–Odean-type observation that
+  makes M1 more than a relabelling of turnover, while M3 remains a
+  volume-only alternative that the return gap is used to discipline.
+solution_derivation: >
+  Overconfidence (too much precision) generates trade *and* a
+  tendency to trade on noise, which, with costs, produces worse
+  net returns (Odean; Barber–Odean). That is why the stem's gap
+  is not optional for M1. Lower risk aversion (M2) generates more
+  holding of risk; a size/style adjustment is there to soak up
+  compensated factor exposure. It is not a theorem that the
+  adjustment is perfect (so M2 is not fully killed), but M2 does
+  not *predict* worse residual net returns as its main implication.
+  Heterogeneous beliefs (M3) generate trade once we leave
+  Milgrom–Stokey no-trade (which requires common knowledge of
+  rationality, a common prior, and no other motives). M3 does not
+  require those traders to lose on average after costs; they can
+  be swapping risk. Hence volume ≠ M1. Milgrom–Stokey (D) is not
+  a license to delete M3 in brokerage data. Style-adjusted gaps
+  are not "alpha = overconfidence" by definition (E).
+  Overconfidence does not predict higher net returns (F).
+  Calibration (I) is the laboratory object; field work uses the
+  return implication as a stand-in, which is exactly why the gap
+  is in the stem. Observational equivalence (J) is too strong:
+  the return gap is *informative*, not a complete proof.
+assumptions:
+  - >
+    Size and style adjustment as a linear control for common compensated factors, not a claim of a complete asset-pricing model.
+  - >
+    Net returns are after retail commissions/spreads as in the brokerage studies.
+  - >
+    No claim that this laboratory re-estimates Barber–Odean.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Turnover is the headline of the overconfidence papers.
+    why_wrong: >
+      It is the outcome those papers then discipline with returns.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Volume is not a mechanism; the net-return gap disciplines M1
+      versus M3/M2.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Risk aversion and expected return are linked in textbook
+      portfolio choice.
+    why_wrong: >
+      Lower risk aversion raises *desired* risk, which if
+      compensated raises expected *gross* factor returns, not a
+      residual net-return penalty.
+  D:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      No-trade theorems are memorable.
+    why_wrong: >
+      Retail panels do not satisfy the theorem's conditions.
+  E:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Residual = alpha = behavioral.
+    why_wrong: >
+      Residuals have many explanations; the mechanism still needs
+      the volume-plus-cost story.
+  F:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Confidence as a priced skill.
+    why_wrong: >
+      Overconfidence is a *bias*, predicting over-trading and
+      costs.
+  G:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Controls are treated as soaking the treatment.
+    why_wrong: >
+      Style is not overconfidence.
+  H:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Short-sale constraints are a common identification device.
+    why_wrong: >
+      High turnover is observed. The sample can speak.
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Calibration is the lab definition.
+    why_wrong: >
+      The field implication is the return gap, which is observed.
+  J:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Partial identification humility.
+    why_wrong: >
+      Humility does not make the return gap uninformative.
+misconception_tags:
+  - NECESSARY_VS_SUFFICIENT
+  - SIGN_REVERSAL
+  - CORRELATION_VS_IDENTIFICATION
+difficulty_rationale: >
+  Expert because three mechanisms generate volume and only one
+  naturally predicts a net-return penalty, which is an
+  identification argument rather than a definition.
+ambiguity_audit: >
+  The style adjustment is not claimed to be perfect, so M2 is
+  disciplined, not logically impossible. The item does not
+  re-estimate the brokerage panel.
+uniqueness_check: >
+  B is the only option that refuses volume-as-overconfidence and
+  uses the return gap without declaring full proof. If high
+  turnover had *higher* net returns, M1 would be in trouble and
+  the key would change.
+references:
+  - key: barberodean2000
+    claim_supported: >
+      High-turnover households earn lower net returns; the
+      interpretation is over-trading, not a sufficient-statistic
+      claim that volume *is* overconfidence without the return
+      evidence.
+  - key: odean1999
+    claim_supported: >
+      Trading based on overconfidence can be welfare-reducing;
+      volume is the behaviour, underperformance is the test.
+verification:
+  primary_solution: >
+    Compare implications of M1, M2, M3 for (volume, net residual
+    return).
+  independent_check: >
+    Implication table: M1 ⇒ volume up, net residual down; M3 ⇒
+    volume up, net residual not necessarily down; M2 ⇒ risk up,
+    residual net not necessarily down after factor adjustment.
+    The stem matches M1's extra implication.
+  invariant_or_boundary_check: >
+    If net returns did not differ, B's discipline of M1 would
+    weaken and A would still be wrong. The stem has the gap.
+revision_notes: >
+  Draft keyed A, which is how a casual reader remembers "Odean =
+  they trade too much." The return column is what makes it a
+  verification item.

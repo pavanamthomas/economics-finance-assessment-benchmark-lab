@@ -1,0 +1,189 @@
+id: MM-M-01
+domain: algorithmic_trading_market_microstructure
+subdomain: bid_ask_bounce
+difficulty: MEDIUM
+learning_objective: >
+  Distinguish trade-price returns contaminated by bid-ask bounce from
+  mid-quote returns when the efficient price is a martingale.
+stem: >
+  A liquid equity is quoted with a constant bid of 99.90 and a constant
+  ask of 100.10 throughout a one-hour window. The efficient mid-quote is
+  100.00 at every instant and does not move. Trades occur only at the
+  quoted bid or ask, alternating buy, sell, buy, sell, each of 100 shares.
+  A researcher computes simple returns from the sequence of trade prices
+  and reports a large negative first-order autocorrelation. A second
+  researcher computes returns from the mid-quote series and reports
+  autocorrelation near zero. Which statement is correct?
+options:
+  A: >
+    The negative trade-price autocorrelation is evidence that the market is inefficient, because a martingale cannot produce serial correlation.
+  B: >
+    Trade-price returns are contaminated by bid-ask bounce even when the mid-quote is a martingale; Roll's covariance identity is the relevant accounting for that bounce, not a rejection of informational efficiency.
+  C: >
+    Mid-quote returns should be discarded because the mid is not an executable price, so only last-trade returns are economically meaningful.
+  D: >
+    Bid-ask bounce affects price levels but cannot affect measured returns, because a return is a ratio and the spread cancels.
+  E: >
+    The two researchers must be using different samples of clock time; bounce is a calendar-time phenomenon and vanishes in event time.
+  F: >
+    Alternating trades at bid and ask imply that the specialist is manipulating prices, which is the only way to generate negative autocovariance.
+  G: >
+    The correct estimator of the efficient-price variance is the variance of trade-price returns, because those are the prices at which wealth changes.
+  H: >
+    Bounce can be removed by using the last trade of the day only, which is why close-to-close returns are bounce-free by construction.
+  I: >
+    Negative autocovariance of trade prices means that a simple reversal strategy at the mid-quote is an arbitrage.
+  J: >
+    The spread of 0.20 is too small to generate detectable autocorrelation, so the first researcher must have a coding error.
+correct_option: B
+solution_summary: >
+  With a fixed mid, trade prices jump between bid and ask. That mechanical
+  oscillation induces negative serial covariance in trade-price returns
+  (Roll 1984) without any inefficiency in the efficient price.
+solution_derivation: >
+  Write the observed trade price as P_t = M_t + (S/2) Q_t, where M_t is
+  the mid, S is the quoted spread, and Q_t ∈ {+1, −1} is the trade-sign
+  indicator. If M_t is constant (here a martingale with zero innovation)
+  and Q_t alternates, then ΔP_t = (S/2)(Q_t − Q_{t−1}) flips sign every
+  trade. Cov(ΔP_t, ΔP_{t−1}) = −(S/2)^2 < 0. That is Roll's identity in
+  the polar case of a constant efficient price. Mid-quote returns are
+  identically zero, so they show no bounce. Nothing in the example
+  requires a failure of informational efficiency: M_t is a martingale by
+  construction. Last-trade returns remain the right object for an
+  executed P&L, but they are the wrong object for inferring efficient-price
+  dynamics. Close-to-close returns still embed bounce if the closing print
+  is a trade at the bid or ask rather than a mid.
+assumptions:
+  - >
+    Quoted bid and ask are constant; there is no depth depletion and no mid-quote change.
+  - >
+    Trades occur only at the touch, alternating in sign.
+  - >
+    The mid is identified with the efficient price in this window.
+  - >
+    No hidden liquidity, no price improvement, no tick-size discreteness beyond the stated quotes.
+distractor_rationales:
+  A:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Serial correlation is often taught as a violation of the martingale
+      property, so a negative autocorrelation looks like inefficiency.
+    why_wrong: >
+      The martingale property is a statement about the efficient price, not
+      about transaction prices that include a bid-ask bounce term.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Separates the bounce component of trade prices from the efficient
+      mid and names Roll's covariance as accounting, not a market-failure
+      test.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+    why_chosen: >
+      The mid is not executable, so a careful student may refuse to use it
+      for anything.
+    why_wrong: >
+      Non-executability of the mid is a reason not to mark a live order at
+      the mid. It is not a reason to treat bounced trade-price returns as
+      the efficient-price process.
+  D:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Spreads are often described as a level friction, so they might seem
+      to cancel in a return.
+    why_wrong: >
+      Bounce is a change in which side of the spread is printed. That change
+      is a return. The spread does not cancel in ΔP.
+  E:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Event time versus clock time is a real microstructure distinction
+      and is easy to over-apply.
+    why_wrong: >
+      The example is already in event time (trade by trade). Bounce is a
+      property of signed prints, not of the calendar-time grid.
+  F:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Alternating prints look artificial, so manipulation is a tempting
+      narrative.
+    why_wrong: >
+      The example states a constant book and alternating flow. No
+      manipulation is required for Roll bounce.
+  G:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Wealth does change at trade prices, so those returns look like the
+      right variance.
+    why_wrong: >
+      Executed P&L variance mixes efficient-price variance with bounce.
+      Using it as σ² of the efficient price overstates that variance.
+  H:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Daily researchers often treat close-to-close as safe from
+      microstructure.
+    why_wrong: >
+      A closing auction or last print is still a signed trade. Bounce is
+      smaller relative to daily volatility, not identically zero.
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Negative autocovariance looks like a reversal signal.
+    why_wrong: >
+      Reversing at the mid against bounce in trade prices is not a
+      tradeable arbitrage: you cannot buy at the bid and sell at the ask
+      for free, and the mid itself does not move.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      20 cents on a 100 price looks small.
+    why_wrong: >
+      Roll's covariance is −(S/2)² per trade. Alternating 20-tick prints
+      produce large negative autocorrelation in trade-to-trade returns
+      even if S is modest relative to the price level.
+misconception_tags:
+  - CORRELATION_VS_IDENTIFICATION
+  - AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+  - TIMING_ERROR
+difficulty_rationale: >
+  One mechanism: transaction prices equal mid plus a signed half-spread.
+  Undergraduate market-microstructure, not a comparative-statics puzzle.
+ambiguity_audit: >
+  The window is specified as a constant book and alternating signs, so
+  there is no room to invent mid changes or hidden liquidity. "Correct"
+  is about inference from returns, not about how a live desk would mark
+  an order.
+uniqueness_check: >
+  Under the stated process the mid return is identically zero and the
+  trade-price autocovariance is strictly negative. No other option is
+  compatible with both facts. If the mid were allowed to jump, B would
+  remain directionally right but the numerical polar case would be lost;
+  that is why the stem freezes the book.
+references:
+  - key: roll1984
+    claim_supported: >
+      Serial covariance of trade-price returns equals −(S/2)² under a
+      constant efficient price and uncorrelated trade signs, which is the
+      accounting used in the derivation.
+  - key: hasbrouck2007
+    claim_supported: >
+      Distinguishes efficient-price dynamics from microstructure noise in
+      transaction prices, including bid-ask bounce.
+verification:
+  primary_solution: >
+    Algebraic decomposition P = M + (S/2)Q with M constant and Q
+    alternating.
+  independent_check: >
+    Direct computation on the stated sequence 100.10, 99.90, 100.10,
+    99.90 yields returns +/−0.002 and sample lag-1 autocorrelation of
+    −1 in the infinite alternating limit.
+  invariant_or_boundary_check: >
+    If S = 0, bounce covariance is zero. If Q_t is i.i.d. rather than
+    strictly alternating, Roll's −(S/2)² still holds in expectation
+    provided signs are uncorrelated with M.
+revision_notes: >
+  First draft treated close-to-close as bounce-free. That is an
+  approximation, not an identity, and is now distractor H.

@@ -1,0 +1,179 @@
+id: BF-H-01
+domain: behavioral_finance_experimental_economics
+subdomain: prospect_theory_fourfold
+difficulty: HARD
+learning_objective: >
+  Attribute the fourfold pattern of risk attitudes to the interaction
+  of probability weighting and the value-function kink, not to
+  "loss aversion" as a slogan for every fact.
+stem: >
+  A subject exhibits the fourfold pattern: risk-seeking for small
+  probability gains (lottery tickets), risk-averse for moderate-to-high
+  probability gains, risk-averse for small probability losses
+  (insurance), and risk-seeking for moderate-to-high probability
+  losses (throwing good money after bad on a likely loss). A
+  commentator says "that is just λ > 1 in the value function," i.e.
+  loss aversion alone. Which statement is right?
+options:
+  A: >
+    The commentator is right. λ > 1 generates all four cells.
+  B: >
+    Loss aversion (λ > 1) scales losses relative to gains at a given probability. The fourfold pattern's *probability* dimension — seeking on small-p gains and aversion on small-p losses — requires probability weighting (overweighting of small p) in Tversky–Kahneman CPT. The value function's concavity/convexity helps the high-p cells. λ alone, with linear probabilities, does not deliver the four cells.
+  C: >
+    Probability weighting alone, with a linear value function and λ = 1, is necessary and sufficient; the value function is ornamental.
+  D: >
+    The insurance cell contradicts prospect theory, because loss aversion forbids paying to avoid a loss.
+  E: >
+    Lottery tickets contradict prospect theory, because concavity in gains forbids risk-seeking.
+  F: >
+    The fourfold pattern is an expected-utility fact under increasing relative risk aversion, so CPT is redundant.
+  G: >
+    λ > 1 is not identified unless the reference point is the status quo, so the commentator's sentence is not even a well-posed claim.
+  H: >
+    Risk-seeking on losses is a sign error in the data, because prospect theory's value function is concave everywhere.
+  I: >
+    Small-p overweighting would make subjects buy both lotteries *and* decline insurance, which is the opposite of the stem, so weighting cannot be the mechanism.
+  J: >
+    The fourfold pattern requires rank-dependent weighting *and* a Bayesian update of the reference point; without the latter, CPT cannot speak.
+correct_option: B
+solution_summary: >
+  Four cells, two instruments: curvature of v plus π(p) overweighting
+  small p. λ > 1 is a third object (relative scaling of losses) and
+  is not a complete explanation of the probability pattern.
+solution_derivation: >
+  Tversky–Kahneman (1992) CPT: v concave on gains, convex on losses,
+  steeper on losses (λ > 1), and a weighting function π that
+  typically overweights small probabilities and underweights large
+  ones. Small-p gain seeking: π(p) v(G) > v(p G) can hold when π(p)
+  > p even with concave v. Small-p loss aversion / insurance:
+  π(p) λ v(L) can exceed the weighted value of a sure small loss,
+  generating willingness to insure. High-p loss seeking is helped
+  by convex v on losses (and underweighting of nearly-certain
+  losses). λ > 1 by itself, with π(p) = p and even with concave v,
+  does not produce lottery-ticket seeking in the gain domain. EU
+  with a single u cannot produce the fourfold pattern across
+  reflected lotteries in the way CPT does (Allais / reflection).
+  Insurance is not a contradiction: paying a sure premium to avoid
+  a small-p loss is one of the cells CPT is built to hit. The value
+  function is not ornamental: without convexity on losses, the
+  high-p loss cell is harder to get. I reverses the insurance
+  prediction of small-p overweighting. Reference-point identification
+  (G, J) is a real issue (Kőszegi–Rabin) but is not required to
+  reject "λ alone."
+assumptions:
+  - >
+    Fourfold pattern as in Tversky–Kahneman (1992), relative to a stated reference of 0 for the listed lotteries.
+  - >
+    λ is the loss-aversion coefficient in v, not a generic label for "behavioral."
+  - >
+    Linear probabilities means π(p) = p.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Loss aversion is the public face of prospect theory.
+    why_wrong: >
+      λ does not supply the probability dimension.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Splits λ, v-curvature, and π(p) across the cells.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      If λ is not enough, π might seem enough.
+    why_wrong: >
+      Curvature of v is used for the high-p cells. CPT is a package.
+  D:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Paying to avoid a loss looks like it contradicts "losses loom
+      larger."
+    why_wrong: >
+      Insurance *is* paying to avoid a loss; CPT wants that cell
+      at small p.
+  E:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Concave v on gains is remembered as "risk aversion."
+    why_wrong: >
+      Weighting can overturn concavity at small p. That is the
+      lottery cell.
+  F:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      EU with fancy u is the rational benchmark.
+    why_wrong: >
+      A single EU u cannot match the reflected fourfold pattern in
+      the CPT sense.
+  G:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Reference-point debates are live.
+    why_wrong: >
+      The commentator's claim can be rejected inside TK92's stated
+      reference of 0.
+  H:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Concavity is associated with risk aversion.
+    why_wrong: >
+      v is convex on losses in TK92.
+  I:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Overweighting small p looks like it should make all rare
+      events attractive.
+    why_wrong: >
+      In the loss domain, overweighting a small-p loss makes it
+      scarier, which supports insurance, not declining insurance.
+  J:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Rank dependence and KR expectations are both "modern CPT."
+    why_wrong: >
+      TK92 already has rank-dependent weighting. Bayesian
+      reference updating is not required for the fourfold tables.
+misconception_tags:
+  - NECESSARY_VS_SUFFICIENT
+  - SIGN_REVERSAL
+  - WRONG_INFORMATION_SET
+difficulty_rationale: >
+  Combines three CPT ingredients and assigns them to cells. Hard,
+  not expert: it is advanced undergraduate behavioral, not a
+  reference-point identification proof.
+ambiguity_audit: >
+  "Just λ > 1" is the commentator's claim. The item does not claim
+  that TK92 is the last word on reference points.
+uniqueness_check: >
+  B rejects λ-alone without claiming π-alone. C is the over-correction.
+  If the stem had only the gain/loss kink at p = 1 (sure gains vs
+  sure losses), λ would be more nearly sufficient; the stem is
+  fourfold, which is about p.
+references:
+  - key: tverskykahneman1992
+    claim_supported: >
+      Cumulative prospect theory: value function with λ and
+      curvature, plus probability weighting, fitted to the fourfold
+      pattern.
+  - key: kahnemantversky1979
+    claim_supported: >
+      Original prospect theory's value function and the reflection
+      effect; not, by itself, the full 1992 weighting account.
+verification:
+  primary_solution: >
+    Assign π(p) to the small-p cells and v-curvature to the high-p
+    cells; refuse λ as a complete explanation.
+  independent_check: >
+    Thought experiment: set π(p) = p, keep λ > 1 and TK curvature.
+    Lottery-ticket seeking in the gain domain is not delivered.
+    That is the independent rejection of A.
+  invariant_or_boundary_check: >
+    At p = 1, weighting is normalised to 1 and the remaining
+    gain/loss gap is about v and λ. The fourfold pattern is about
+    p ≠ 1.
+revision_notes: >
+  Draft cited only 1979 for weighting. The fourfold/CPT weighting
+  belongs in 1992; 1979 remains as the value-function ancestor.

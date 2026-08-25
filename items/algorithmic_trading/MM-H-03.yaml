@@ -1,0 +1,193 @@
+id: MM-H-03
+domain: algorithmic_trading_market_microstructure
+subdomain: vwap_versus_impact
+difficulty: HARD
+learning_objective: >
+  State when VWAP ceases to be an appropriate execution benchmark,
+  distinguishing temporary impact, permanent impact, and participation.
+stem: >
+  A fund gives a desk a parent order to buy 8 percent of expected day's
+  volume in a name that will announce earnings after the close. The
+  desk's mandate, as written, is "minimise shortfall versus VWAP." The
+  desk can choose when to trade inside the day. Three facts are on the
+  table: (i) the parent is large relative to depth at the touch;
+  (ii) buying itself moves the mid (permanent impact) and also pays
+  a transitory spread-plus-depletion component; (iii) the desk can
+  concentrate prints in high-volume minutes, which pulls the fund's
+  average price toward VWAP by construction. When is VWAP the wrong
+  benchmark for this order, and why?
+options:
+  A: >
+    VWAP is always the right benchmark because it is what the client wrote in the mandate, and a mandate cannot be economically wrong.
+  B: >
+    VWAP is wrong here because a large, timed, alpha-exposed order is not a participation instruction. Beating VWAP can be achieved by trading where volume is, which does not control arrival shortfall or information leakage, and the desk's own prints help determine the VWAP it is measured against.
+  C: >
+    VWAP is wrong only because of temporary impact; permanent impact is already in the mid and so is already in VWAP.
+  D: >
+    VWAP is the right benchmark precisely when the order is large, because then the desk *is* the market and should match it.
+  E: >
+    Temporary and permanent impact are accounting labels for the same number, so the benchmark choice cannot depend on that distinction.
+  F: >
+    VWAP is wrong because earnings are after the close; any intraday benchmark is invalid when overnight information exists.
+  G: >
+    The right benchmark is always the close, because that is the official settlement price.
+  H: >
+    VWAP remains appropriate if the desk excludes its own prints from the benchmark, which restores exogeneity.
+  I: >
+    Permanent impact should be ignored in any benchmark because it is a sunk cost once the decision to buy has been made.
+  J: >
+    VWAP is inappropriate only on low-volume days; at 8 percent of expected volume the order is still small.
+correct_option: B
+solution_summary: >
+  VWAP is a participation benchmark. It ceases to be the right yardstick
+  when the trader has timing discretion correlated with volume, when the
+  order is large enough to *set* VWAP, or when the economic objective is
+  arrival shortfall / information-sensitive completion. This order has
+  all three features.
+solution_derivation: >
+  Write the fill price as a quantity-weighted average of the desk's
+  prints. Market VWAP is the volume-weighted average of *all* prints,
+  including the desk. If the desk's share of volume in a minute is s_t,
+  then as s_t → 1 the desk's price and VWAP coincide regardless of the
+  level at which it trades. That is the self-benchmarking problem.
+  Separately, an earnings-day buy with timing discretion will tend to
+  put volume into minutes that already have volume (opening auction,
+  close). Matching those minutes improves the VWAP residual and can
+  worsen implementation shortfall if those minutes are expensive
+  relative to the arrival mid, or if delaying past an information event
+  is costly. Temporary impact (spread, depletion that mean-reverts) and
+  permanent impact (information / inventory that stays in the mid) are
+  not the same object: VWAP folds both into the same average, which is
+  why "VWAP contains permanent impact, so impact is handled" is false.
+  Excluding own prints reduces mechanical correlation but does not
+  restore the arrival objective. Overnight earnings make an *arrival*
+  benchmark even more, not less, relevant: the decision is to be long
+  before the announcement. A close benchmark answers a different
+  (index-settlement) question.
+assumptions:
+  - >
+    The economic objective is to acquire a long position before the earnings print, not to match volume for its own sake.
+  - >
+    The desk has discretion over the intraday schedule.
+  - >
+    Permanent impact means a component of the mid that does not immediately mean-revert; temporary impact mean-reverts.
+  - >
+    Expected day's volume is a forecast, not a known path.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Clients write VWAP into tickets, so the mandate looks decisive.
+    why_wrong: >
+      A written mandate can still be the wrong economic objective. The
+      question is when VWAP ceases to be appropriate, not what was typed.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Names the three failures: not a participation order, self-impacted
+      VWAP, and arrival/leakage not controlled by a VWAP residual.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: STATIC_VS_DYNAMIC_EFFECT
+    why_chosen: >
+      Permanent impact sits in the mid, and VWAP is built from prices
+      that include the mid, so it looks handled.
+    why_wrong: >
+      That the mid embeds permanent impact does not make VWAP the right
+      *objective*. It means VWAP and the arrival mid both move with the
+      desk, which is the problem.
+  D:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Large orders are "the market," so matching the market sounds right.
+    why_wrong: >
+      Large is exactly when self-benchmarking is worst. Matching VWAP
+      then ratifies whatever price the desk printed.
+  E:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Impact is one word in many broker reports.
+    why_wrong: >
+      Temporary versus permanent is a dynamic distinction with different
+      optimal schedules (Almgren–Chriss). Collapsing them is the error.
+  F:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Overnight information looks like it invalidates all intraday marks.
+    why_wrong: >
+      Overnight information is why one may want to finish *before* the
+      close, which is an arrival/completion objective, not a reason that
+      "any intraday benchmark is invalid."
+  G:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Official close is a salient settlement price.
+    why_wrong: >
+      Close is the right benchmark for some indexers and for
+      close-settled derivatives, not for a pre-earnings acquisition.
+  H:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Excluding own prints is a real operational patch.
+    why_wrong: >
+      It reduces mechanical correlation. It does not make VWAP the right
+      objective for an alpha-exposed parent, and volume still correlates
+      with the desk's schedule.
+  I:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      Sunk-cost reasoning: the decision to buy is already made.
+    why_wrong: >
+      Permanent impact is part of the cost of *how* one buys. It is not
+      sunk at the moment of scheduling.
+  J:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      8 percent can be described as "not huge" in a liquid name.
+    why_wrong: >
+      8 percent of expected daily volume is large relative to touch
+      depth. The stem already says the parent is large relative to
+      depth.
+misconception_tags:
+  - STATIC_VS_DYNAMIC_EFFECT
+  - SIGN_REVERSAL
+  - TIMING_ERROR
+difficulty_rationale: >
+  Combines benchmark design, self-impact, and the temporary/permanent
+  split. Not a formula; the branching is economic.
+ambiguity_audit: >
+  The mandate as written is acknowledged and then set aside: the question
+  is appropriateness, not contract law. Earnings-after-close dates the
+  information event without requiring a numerical alpha.
+uniqueness_check: >
+  Once the order is large, timed, and alpha-exposed, VWAP is the wrong
+  objective. C, D, H, I each salvage VWAP under a false extra assumption.
+  No second option states the three failures together.
+references:
+  - key: almgrenchriss2000
+    claim_supported: >
+      Distinguishes temporary and permanent impact in an execution
+      programme whose objective is shortfall versus an arrival price,
+      not versus VWAP.
+  - key: perold1988
+    claim_supported: >
+      Implementation shortfall is defined against a decision-time paper
+      portfolio, which is the relevant object when the decision is to be
+      long before an information event.
+verification:
+  primary_solution: >
+    Compare the economic objective (pre-earnings long) with the VWAP
+    residual, including the mechanical correlation with own prints.
+  independent_check: >
+    Limit argument: as the desk's share of volume → 1, cost versus VWAP
+    → 0 regardless of the price path. That identity does not require
+    simulation.
+  invariant_or_boundary_check: >
+    If the order is infinitesimal, has no timing discretion, and has no
+    alpha, VWAP and arrival shortfall differ only by the half-spread and
+    exogenous drift. The stem is far from that boundary.
+revision_notes: >
+  First draft attacked VWAP only for "being gameable," which is true but
+  incomplete. The self-benchmarking limit (share of volume → 1) was
+  added as the independent check.

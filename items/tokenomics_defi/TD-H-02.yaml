@@ -1,0 +1,168 @@
+id: TD-H-02
+domain: tokenomics_defi
+subdomain: health_factor_liquidation
+difficulty: HARD
+learning_objective: >
+  Compute an Aave-style health factor and the liquidation threshold
+  as HF < 1, distinct from origination LTV and from a 100 percent
+  collateral ratio.
+stem: >
+  A lending position has collateral marked at 150 (in the same
+  unit as debt), a liquidation threshold of 80 percent, and debt
+  of 100. Interest has already been accrued into the 100. There
+  is no new borrowing. The protocol's health factor is
+  HF = (collateral × liquidationThreshold) / debt. A commentator
+  says the position is already liquidatable "because 100/150 is
+  a 67 percent LTV, which is high," and also that liquidation
+  starts at a 100 percent collateral ratio. Which statement is
+  right?
+options:
+  A: >
+    The commentator is right on both counts.
+  B: >
+    HF = 150 × 0.80 / 100 = 1.20 > 1, so the position is not liquidatable on this definition. Origination LTV and the liquidation threshold are different numbers; liquidation is not the event "collateral = debt."
+  C: >
+    HF = 150/100 = 1.50, ignoring the 80 percent, and liquidation is at HF < 1.50.
+  D: >
+    HF = 0.80, the threshold itself, so any position with that threshold is always at the knife edge.
+  E: >
+    Because interest is already in the 100, the position must be liquidated to stop further accrual.
+  F: >
+    LTV = 100/150 ≈ 67 percent is above 80 percent, so HF must be below 1; the 1.20 figure is a units error.
+  G: >
+    Liquidation threshold 80 percent means the protocol seizes 80 percent of collateral now, which is the liquidation.
+  H: >
+    HF uses the origination collateral, not the mark of 150, so the number cannot be computed from the stem.
+  I: >
+    A position with HF > 1 can still be liquidated if the oracle is current; HF is only a display.
+  J: >
+    Collateral 150 and debt 100 is a 50 percent buffer, which equals 1 − 0.80, so the position is exactly at the liquidation point.
+correct_option: B
+solution_summary: >
+  HF = 1.20. Liquidation when HF < 1. 67 percent LTV is not
+  compared to the 80 percent threshold as a like-for-like, and
+  100 percent collateralisation is not the trigger.
+solution_derivation: >
+  HF = (150 × 0.80) / 100 = 1.20. Liquidation admissible when
+  HF < 1, i.e. when collateral × LT < debt, or collateral/debt
+  < 1/LT = 1.25, i.e. when LTV > 0.80. Current LTV = 100/150
+  ≈ 0.667 < 0.80, which is why HF > 1. The commentator compared
+  "67 percent is high" to an unspecified bar and identified
+  liquidation with collateral = debt (LTV = 100 percent), which
+  would correspond to LT = 1, not 0.80. Interest already in the
+  100 is the stock of debt; it does not by itself trigger
+  liquidation (E). F inverts the comparison: 67 percent is
+  *below* 80 percent. G treats LT as a seizure fraction to be
+  applied immediately. H: the mark of 150 *is* the current
+  collateral value. I: HF is the protocol rule in the stem, not
+  a decoration. J confuses 1 − LT = 0.20 with a 50 percent
+  buffer (150/100 − 1 = 0.50).
+assumptions:
+  - >
+    Aave-style HF as written; single collateral, single debt.
+  - >
+    Liquidation threshold 80 percent is the protocol parameter, not an origination max LTV (which is typically tighter).
+  - >
+    Oracle marks are as given; no staleness in this item (see TD-E-02).
+numerical_check:
+  kind: health_factor
+  params:
+    collateral: 150.0
+    debt: 100.0
+    liq_threshold: 0.8
+  expected:
+    value: 1.2
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Any LTV above 50 percent looks "high."
+    why_wrong: >
+      The rule is HF < 1, not "LTV feels high."
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      HF = 1.20, distinct from origination LTV and from 100
+      percent collateral.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Drop the threshold.
+    why_wrong: >
+      HF includes LT.
+  D:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      The 0.80 is salient.
+    why_wrong: >
+      LT is a parameter, not the HF.
+  E:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Accrual as an emergency.
+    why_wrong: >
+      Accrual is already in the 100. HF still 1.20.
+  F:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Compare 67 to 80 with the wrong inequality.
+    why_wrong: >
+      67 < 80; safer, not tighter.
+  G:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Threshold as a haircut to apply now.
+    why_wrong: >
+      It is a trigger parameter.
+  H:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Origination versus mark.
+    why_wrong: >
+      HF uses current marks.
+  I:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Display versus rule.
+    why_wrong: >
+      The stem defines HF as the rule.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Buffers that both involve 0.8 and 150/100.
+    why_wrong: >
+      50 percent extra collateral is not 1 − LT.
+misconception_tags:
+  - INCORRECT_NORMALIZATION
+  - SIGN_REVERSAL
+  - STOCK_VS_FLOW
+difficulty_rationale: >
+  One formula plus two distinct ratios (LTV vs LT). Hard because
+  of the commentator's double error, not because the algebra is
+  long.
+ambiguity_audit: >
+  Origination max LTV is mentioned as typically tighter, not
+  given as a number, so it cannot be a second key. Single-asset
+  HF.
+uniqueness_check: >
+  B is the only option with HF = 1.20 and the right trigger.
+  If LT were 0.60, HF would be 0.90 and liquidation would be
+  admissible; the stem is 0.80.
+references:
+  - key: aavev2
+    claim_supported: >
+      Health factor as collateral × liquidation threshold over
+      debt; liquidation when HF < 1.
+verification:
+  primary_solution: >
+    150 × 0.8 / 100 = 1.2.
+  independent_check: >
+    Equivalent inequality: liquidatable iff LTV > LT. 0.667 >
+    0.80 is false. aave_health_factor in the package returns 1.2.
+  invariant_or_boundary_check: >
+    Debt → 120 ⇒ HF = 1.0, the knife edge. Debt = 100 is below
+    that. Collateral = debt = 100 with LT = 0.8 ⇒ HF = 0.8 < 1.
+revision_notes: >
+  None.

@@ -1,0 +1,38 @@
+id: RJ-03-incorrect_key
+defect_class: incorrect_key
+domain: tokenomics_defi
+difficulty_as_drafted: HARD
+stem: >
+  Fee-free CPAMM LP, external price ratio r = 4 after arb. IL
+  relative to holding the original inventory equals which number?
+options:
+  A: "0"
+  B: "+0.20"
+  C: "-0.20"
+  D: "-0.75"
+  E: "+0.75"
+  F: "-0.50"
+  G: "+0.50"
+  H: "-1"
+  I: "+1"
+  J: "2"
+drafted_key: B
+defect: >
+  The drafted key is +0.20 (long-vol slogan). The formula
+  IL = 2√r/(1+r) − 1 at r = 4 is −0.20. The key is simply wrong.
+  The stem is otherwise well-posed.
+why_it_matters: >
+  An incorrect key is the most expensive verification failure in
+  an assessment-authoring job. It trains the wrong construct and
+  it is detectable by an independent numerical check.
+repairable: true
+correction: >
+  Key C. That is TD-H-01. Add the independent hold-versus-LP
+  value comparison so the sign cannot drift again. The long-vol
+  story belongs in a distractor rationale, not in the key.
+key_changes: true
+difficulty_changes: false
+references:
+  - key: evans2020
+    claim_supported: >
+      IL is non-positive in the fee-free CPAMM hold comparison.

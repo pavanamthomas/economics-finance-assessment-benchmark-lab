@@ -1,0 +1,201 @@
+id: MM-E-01
+domain: algorithmic_trading_market_microstructure
+subdomain: executable_backtest
+difficulty: EXPERT
+learning_objective: >
+  Show that a statistically valid mid-quote forecast need not be an
+  executable edge once the spread, then impact, then timing are imposed.
+stem: >
+  A researcher estimates, on a 2019–2024 sample of a large-cap name,
+  that a one-minute order-flow imbalance forecast of the mid-quote
+  change has out-of-sample R² of 0.04 and a mean predicted mid move of
+  +2.0 basis points on the "buy" signal. Transaction data are
+  timestamped to the microsecond and are not revised. The quoted
+  half-spread at signal time is 3.0 basis points. Depth at the touch
+  is smaller than the backtest's assumed 10,000-share order on 35
+  percent of signal events. The strategy is marked in three books:
+  (1) at the contemporaneous mid; (2) at the contemporaneous ask on
+  buys (bid on sells), ignoring impact; (3) at a walk-the-book fill
+  that consumes the displayed depth and, when depth is short, delays
+  the residual one second. Which conclusion is licensed?
+options:
+  A: >
+    Because timestamps are correct and the R² is out-of-sample, book (1) is an executable expected profit of +2.0 bp.
+  B: >
+    Book (1) can be positive while book (2) is negative, and book (3) can be worse still. A correct clock does not make a mid-price fill feasible, and a quote-touch fill is not feasible when the order exceeds displayed depth.
+  C: >
+    The half-spread of 3 bp is a transitory bounce and therefore should not be charged to a one-minute holding period; book (1) remains the right P&L.
+  D: >
+    Out-of-sample R² of 0.04 is large enough that even after 3 bp of spread the strategy has positive expectancy, because 2 / 3 of the spread is "covered."
+  E: >
+    Book (3) is conservative to the point of uselessness; regulators mark to mid, so mid is the economically relevant price.
+  F: >
+    If the residual is delayed one second, the forecast R² still applies to that later mid, so book (3) has the same +2.0 bp as book (1).
+  G: >
+    Microsecond timestamps eliminate look-ahead, therefore any remaining negative P&L in book (3) must be a coding error.
+  H: >
+    The strategy should be evaluated at the microprice, which always lies inside the spread and is therefore executable.
+  I: >
+    Positive predicted mid moves mean the ask will have moved up by 2 bp before the order arrives, so the executable buy price is the old ask plus 2 bp and the edge is unchanged.
+  J: >
+    Depth being short 35 percent of the time is a liquidity event that can be ignored by restricting the sample to the other 65 percent, which restores book (2) as the population result.
+correct_option: B
+solution_summary: >
+  Mid-marking is a paper fill. Touch-marking charges the spread.
+  Walking the book and delaying the residual charges impact and timing.
+  Timestamp integrity is necessary for a backtest and not sufficient
+  for executability.
+solution_derivation: >
+  Book (1) P&L ≈ +2.0 bp by construction of the forecast, ignoring
+  that a buy cannot lift the mid. Book (2) P&L ≈ +2.0 − 3.0 = −1.0 bp
+  on a full fill at the posted ask: the forecast is of the mid, not of
+  the ask, and with a sticky book the ask sits 3 bp above the mid.
+  (If the mid forecast is realized as a subsequent mid move, the
+  executable buy still paid the ask first.) Book (3) is weakly worse
+  than book (2), strictly worse on the 35 percent of events where
+  depth is short: the residual either pays a worse price deeper in the
+  book or waits, in which case the one-minute forecast is no longer
+  the relevant conditional mean. Microsecond timestamps rule out a
+  class of look-ahead bugs; they do not create hidden size at the
+  touch. R² is a fit statistic for the mid residual, not a conversion
+  of 2 bp into a 3 bp budget. The microprice (size-weighted mid) is
+  still not a take price. Restricting to the 65 percent deep-enough
+  events is a selected subsample and is not the strategy as stated.
+  None of this is a claim that the forecast is statistically false.
+assumptions:
+  - >
+    The +2.0 bp is a conditional mean of the mid change, not of the executable P&L.
+  - >
+    Quoted half-spread 3.0 bp is the relevant take cost when depth suffices.
+  - >
+    No hidden liquidity is assumed; only displayed depth is executable at the touch.
+  - >
+    One-second delay of the residual is a modelling choice, not a market rule; the qualitative ranking book (1) > (2) ≥ (3) is what is claimed.
+  - >
+    No financing, fees, or short-locate costs.
+distractor_rationales:
+  A:
+    taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+    why_chosen: >
+      Out-of-sample R² plus clean timestamps is what many backtest
+      checklists stop at.
+    why_wrong: >
+      Those are statistical hygiene. They do not make the mid executable.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Ranks the three books and states that a correct clock is not a
+      feasible fill.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: STATIC_VS_DYNAMIC_EFFECT
+    why_chosen: >
+      Spread as bounce is the lesson of MM-M-01, mis-applied to a take
+      order.
+    why_wrong: >
+      A marketable buy *pays* the half-spread. Bounce is a property of
+      signed prints around a mid, not a rebate to the taker.
+  D:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Comparing 2 bp of forecast to 3 bp of spread as a coverage ratio.
+    why_wrong: >
+      2 − 3 = −1. Ratios of the two numbers are not expectancies.
+      R² does not rescale the conditional mean.
+  E:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Mid-marking is used in some dealer and fund NAV contexts.
+    why_wrong: >
+      NAV marks are not execution prices. The question is executability
+      of a 10,000-share take.
+  F:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      The same forecast equation looks like it can be shifted by one
+      second.
+    why_wrong: >
+      The estimated conditional mean is for a one-minute horizon from
+      the signal time, not from the delayed residual's time, and the
+      residual faces a different book.
+  G:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Look-ahead is the usual reason a backtest is "too good."
+    why_wrong: >
+      Absence of look-ahead is necessary, not sufficient. Feasible
+      prices can still erase the paper edge.
+  H:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Microprice is a better efficient-price proxy than the raw mid
+      and lies inside the spread.
+    why_wrong: >
+      Inside the spread is not a take price. There is no standing
+      size at the microprice.
+  I:
+    taxonomy: EQUILIBRIUM_FEEDBACK_IGNORED
+    why_chosen: >
+      If the mid is going to rise 2 bp, quotes should already be
+      adjusting.
+    why_wrong: >
+      That is a joint hypothesis on quote updating. The stem's book (2)
+      uses contemporaneous quotes. Even if quotes jump, the taker still
+      cannot collect the mid.
+  J:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Conditioning on adequate depth looks like a reasonable filter.
+    why_wrong: >
+      Depth is not independent of the signal. Thin books are often
+      exactly the states where imbalance "predicts" a mid move.
+      Dropping them is a selected population.
+misconception_tags:
+  - AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+  - NECESSARY_VS_SUFFICIENT
+  - TIMING_ERROR
+difficulty_rationale: >
+  Expert because the item stacks three nested feasibility constraints
+  (mid, touch, depth-plus-delay) and requires refusing a statistically
+  clean forecast as a trading result. The algebra is one subtraction;
+  the identification is the point.
+ambiguity_audit: >
+  No claim is made that book (3) is the unique realistic simulator —
+  only that (1) is not executable and (3) is weakly worse than (2).
+  Hidden liquidity is assumed absent; if icebergs were allowed, B
+  would need a qualifier, so they are excluded in the assumptions.
+uniqueness_check: >
+  The licensed conclusion is the ranking and the feasibility statement
+  in B. A is the paper-profit claim. No other option both (i) allows
+  book (1) to be statistically fine and (ii) denies executability.
+  If the half-spread were 0.5 bp instead of 3, book (2) could be
+  positive; the stem's numbers close that door, and B is still right
+  as a qualitative ranking.
+references:
+  - key: hasbrouck2007
+    claim_supported: >
+      Transaction prices and quotes are distinct objects; efficient-price
+      inference is not a fill simulator.
+  - key: contkukanovstoikov2014
+    claim_supported: >
+      Order-book imbalance can forecast short-horizon mid-quote changes
+      without that forecast being a post-cost expected profit.
+verification:
+  primary_solution: >
+    Subtract the 3 bp half-spread from the 2 bp mid forecast; then note
+    that walking the book is weakly more expensive on a subset of events.
+  independent_check: >
+    Arithmetic on the stem: 2.0 − 3.0 = −1.0 bp for a full touch fill.
+    The 35 percent depth-short frequency is a lower bound on how often
+    book (3) differs from book (2).
+  invariant_or_boundary_check: >
+    If half-spread = 0 and depth is infinite at the mid, books (1)–(3)
+    coincide. The stem is far from that boundary. If the delay is zero
+    and depth is always sufficient, (3) collapses to (2), and (2) is
+    still not (1).
+revision_notes: >
+  An earlier stem used "profitable after costs" as the key without
+  ranking the three books. That allowed a fight over the one-second
+  delay. The key is now the ranking and the feasibility claim, which
+  does not require defending the delay as optimal.

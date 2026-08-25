@@ -1,0 +1,170 @@
+id: TD-H-01
+domain: tokenomics_defi
+subdomain: impermanent_loss
+difficulty: HARD
+learning_objective: >
+  Apply the fee-free constant-product impermanent-loss formula
+  IL(r) = 2√r/(1+r) − 1, including IL(1)=0, symmetry, and the
+  hold-versus-LP comparison.
+stem: >
+  A liquidity provider deposits into a fee-free 50/50 constant-product
+  pool when the external price of X in Y is p0. Later the external
+  price is p1 = 4 p0, and arbitrage has restored the pool to that
+  new spot. Fees are zero throughout. IL is defined as the LP's
+  mark-to-market value relative to having held the original inventory
+  outside the pool. Which statement is right?
+options:
+  A: >
+    IL = 0, because k is constant, so the LP cannot lose.
+  B: >
+    IL = 2√4 / (1+4) − 1 = 4/5 − 1 = −20 percent. Holding the original inventory outperforms the LP position when prices move and fees are zero. IL(1) = 0, and IL(r) = IL(1/r).
+  C: >
+    IL = +20 percent, because the LP is long volatility.
+  D: >
+    IL = −75 percent, which is 1 − 1/4, the cash loss on the X inventory.
+  E: >
+    IL = −50 percent, half the price move, by a linear approximation that is exact at r = 4.
+  F: >
+    IL is undefined when r ≠ 1, because "impermanent" means it only exists while the price is moving.
+  G: >
+    The hold-versus-LP comparison is invalid, because the LP could not have held the original inventory without a pool.
+  H: >
+    IL = 2√4 / (1+4) − 1 is the LP *fee income*, not a loss.
+  I: >
+    At r = 4 the LP has more of the depreciating asset, which is a gain, so IL is positive.
+  J: >
+    IL = −20 percent only if the LP deposited a single asset; a 50/50 deposit is immune.
+correct_option: B
+solution_summary: >
+  Closed form IL(4) = −1/5. Zero fees, restored spot. Holding
+  beats LP when r ≠ 1.
+solution_derivation: >
+  Start with x0, y0, p0 = y0/x0. After arb to p1 = r p0,
+  x1 = sqrt(k / p1), y1 = sqrt(k p1), k = x0 y0.
+  LP value in Y: V_LP = x1 p1 + y1 = 2 sqrt(k p1).
+  Hold value: V_H = x0 p1 + y0 = x0 r p0 + x0 p0 = x0 p0 (r+1)
+  = 2 y0 (r+1)/2 wait: y0 = p0 x0, so V_H = x0 r p0 + p0 x0
+  = x0 p0 (r+1). V_LP = 2 sqrt(x0 y0 r p0) = 2 sqrt(x0 (p0 x0) r p0)
+  = 2 x0 p0 sqrt(r). Hence V_LP / V_H = 2 sqrt(r) / (1+r).
+  IL = 2 sqrt(r)/(1+r) − 1. At r=4, 2·2 / 5 − 1 = −0.20.
+  At r=1, IL=0. At r=1/4, same −0.20 (symmetry). Constant k does
+  not freeze value in Y when p changes (A). Sign: IL is ≤ 0 with
+  zero fees (C, I). 1−1/r is not the formula (D). Linear half
+  (E) is not exact. "Impermanent" is a name for a gap that
+  vanishes if p returns to p0, not a reason the number is
+  undefined at r=4 (F). The hold comparison is the definition
+  of IL (G). Fees are zero here, so the formula is not fee
+  income (H). 50/50 is the case the formula is for (J).
+assumptions:
+  - >
+    Fee-free CPAMM, 50/50 at the original spot, arb restores the pool spot to the external price.
+  - >
+    Values in units of Y.
+  - >
+    No concentrated liquidity.
+numerical_check:
+  kind: impermanent_loss
+  params:
+    price_ratio: 4.0
+    x: 100.0
+    y: 100.0
+  expected:
+    value: -0.2
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      k as a value invariant.
+    why_wrong: >
+      k is a quantity product. Value in Y is 2 sqrt(k p).
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      IL(4)=−20 percent, IL(1)=0, symmetry.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      LPs as long vol in some option analogies.
+    why_wrong: >
+      Fee-free IL is non-positive. Fees are the premium.
+  D:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      The X side halved in price.
+    why_wrong: >
+      The LP is not a 100 percent X position.
+  E:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Linearisation in r−1.
+    why_wrong: >
+      At r=4 the linearisation is poor; the closed form is
+      exact.
+  F:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      The word "impermanent."
+    why_wrong: >
+      The gap is well-defined at any r; it is reversed if r
+      returns to 1.
+  G:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Counterfactual as illegitimate.
+    why_wrong: >
+      The counterfactual *is* the definition.
+  H:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      2√r/(1+r) looks like a return.
+    why_wrong: >
+      Minus one makes it a loss; fees are zero in the stem.
+  I:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      More of the asset that moved.
+    why_wrong: >
+      The LP sells the appreciating asset to arb; that is the
+      loss versus hold.
+  J:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Diversification as immunity.
+    why_wrong: >
+      50/50 is the standard IL case.
+misconception_tags:
+  - SIGN_REVERSAL
+  - WRONG_DENOMINATOR
+  - INCORRECT_NORMALIZATION
+difficulty_rationale: >
+  Closed form plus the hold counterfactual. Hard: algebra plus
+  the sign, not expert identification.
+ambiguity_audit: >
+  Fees are zero. External price path is a once-and-for-all move
+  to 4p0 with arb. IL is LP versus hold, not versus cash.
+uniqueness_check: >
+  B is the only option with −20 percent and the two invariants.
+  If fees were large, IL + fees could be positive and C would
+  be a different item; fees are zero.
+references:
+  - key: angerisetal2021
+    claim_supported: >
+      LP value versus holding, and the geometry of constant-product
+      reserves after a price move.
+  - key: evans2020
+    claim_supported: >
+      Analytic return of geometric-mean market makers / CPAMM
+      LPs relative to holding, the IL object.
+verification:
+  primary_solution: >
+    V_LP / V_H = 2√r/(1+r) at r=4.
+  independent_check: >
+    hold_vs_lp_values in efablab.checks.amm matches the closed
+    form at r=4 to numerical precision.
+  invariant_or_boundary_check: >
+    r=1 ⇒ IL=0. r→∞ ⇒ IL→−1. IL(r)=IL(1/r).
+revision_notes: >
+  An early sign error keyed +20 percent (long-vol slogan). Caught
+  by the hold-versus-LP numerical identity.

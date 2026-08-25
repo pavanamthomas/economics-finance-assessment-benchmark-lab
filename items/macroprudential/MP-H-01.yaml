@@ -1,0 +1,178 @@
+id: MP-H-01
+domain: macroprudential_policy
+subdomain: countercyclical_capital_buffer
+difficulty: HARD
+learning_objective: >
+  Time the countercyclical capital buffer (CCyB) to the credit cycle:
+  build in booms, release in stress — not the reverse — and treat the
+  credit-to-GDP gap as a guide, not a sufficient statistic.
+stem: >
+  Private credit relative to GDP is well above its long-run trend.
+  Bank capital ratios are currently high, asset prices have risen, and
+  non-performing loans are low. A committee is deciding the
+  countercyclical capital buffer. One member argues for *releasing*
+  the CCyB "because banks are already strong, so we can return capital
+  to shareholders and support lending." Another member argues for
+  *raising* it, citing the credit-to-GDP gap as a guide. Which
+  position matches the design of the CCyB, and with what caveat?
+options:
+  A: >
+    Release. The buffer exists to be used whenever capital ratios look strong, which is now.
+  B: >
+    Raise. The CCyB is built when systemic vulnerabilities accumulate (credit boom, rising asset prices, low NPLs) so that it can be released in a subsequent stress. The credit-to-GDP gap is a useful guide, not a mechanical rule, and a release is for a downturn or a materialisation of risk, not for a boom with high capital.
+  C: >
+    Raise, and the credit-to-GDP gap is a sufficient statistic: if the gap is positive the CCyB must be at its regulatory maximum.
+  D: >
+    Leave the CCyB at zero forever if micro minima are already high, because CCyB and CET1 are interchangeable.
+  E: >
+    Release, because low NPLs prove that the credit is not risky.
+  F: >
+    Raise, because CCyB is a monetary-policy instrument for inflation and credit-to-GDP is a Phillips-curve gap.
+  G: >
+    The CCyB should be raised in stress to prevent banks from failing, which is when capital is most needed.
+  H: >
+    Neither member is right: CCyB is set once at Basel and is not time-varying.
+  I: >
+    Raise only if the gap is driven by household mortgages; corporate credit booms are outside the CCyB's mandate.
+  J: >
+    Release now and raise automatically if GDP falls, which is a symmetric rule around potential output.
+correct_option: B
+solution_summary: >
+  CCyB is procyclical-correction: accumulate in the boom, release when
+  losses hit so that banks do not cut lending to protect ratios. High
+  current capital and low NPLs are typical *boom* readings, not
+  release triggers.
+solution_derivation: >
+  The Basel CCyB is a time-varying add-on to capital, guided by the
+  credit-to-GDP gap (BCBS; Drehmann–Tsatsaronis) and by other
+  indicators (asset prices, underwriting, RRE). The point of building
+  in the boom is that capital is cheap to retain when earnings are
+  strong and that the boom is when leverage externalities grow. Release
+  is for a stress, so that the binding constraint does not force
+  a credit crunch (Hanson–Kashyap–Stein). Low NPLs in a boom are
+  lagging; they are not a proof that credit is safe. High capital
+  ratios in a boom are compatible with rising vulnerabilities if
+  denominators (RWA, assets) are also inflated. The gap is a guide:
+  it can misread financial deepening or a GDP collapse (the
+  denominator). It is not a sufficient statistic and does not force
+  the maximum buffer. CCyB is not monetary policy. It is time-varying
+  by design. Raising in a stress (G) is the procyclical error the
+  tool exists to avoid. Mortgage-only mandates are not the BCBS
+  design. A symmetric output-gap rule is a different instrument.
+assumptions:
+  - >
+    The jurisdiction has a CCyB in the Basel sense, with a credit-to-GDP guide and discretion.
+  - >
+    "Release" means lowering the buffer rate, returning capital capacity to banks.
+  - >
+    Current high capital and low NPLs are contemporaneous boom readings, not a post-crisis repair already completed.
+  - >
+    No claim that the gap should be followed blindly.
+distractor_rationales:
+  A:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Buffers are "there to be used," and capital looks abundant.
+    why_wrong: >
+      Use is for the stress. Abundance in a boom is when one builds.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Build in the boom, release in stress, gap as guide not rule.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      The gap is the headline indicator.
+    why_wrong: >
+      BCBS presents it as a guide. Mechanical maximisation is not
+      the design.
+  D:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      CET1 is CET1.
+    why_wrong: >
+      The time profile is the point of a CCyB. A static micro minimum
+      does not release in a bust.
+  E:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      NPLs are the public measure of bad credit.
+    why_wrong: >
+      NPLs lag. Credit booms look clean until they do not.
+  F:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Gaps and inflation sit in the same macro course.
+    why_wrong: >
+      CCyB is a capital tool for the credit cycle, not a Phillips-curve
+      instrument.
+  G:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Raise capital when risk realises, the micro instinct.
+    why_wrong: >
+      That is procyclical tightening. CCyB is designed to do the
+      opposite.
+  H:
+    taxonomy: STATIC_VS_DYNAMIC_EFFECT
+    why_chosen: >
+      Basel numbers are often memorised as fixed.
+    why_wrong: >
+      CCyB is the time-varying piece.
+  I:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Some national buffers focus on mortgages.
+    why_wrong: >
+      The BCBS CCyB guide is the aggregate credit-to-GDP gap, not a
+      mortgage-only mandate.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Symmetry around potential output is a monetary-policy habit.
+    why_wrong: >
+      The relevant cycle is credit/financial, and the release is
+      asymmetric (build slowly, release when losses hit).
+misconception_tags:
+  - TIMING_ERROR
+  - SIGN_REVERSAL
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Combines the timing of the buffer with the status of the gap as a
+  guide. The trap is reading high capital and low NPLs as a release
+  signal.
+ambiguity_audit: >
+  The two members' positions are quoted. The item does not require a
+  numerical buffer rate. National add-ons (sectoral CCyB) are
+  acknowledged in I as not the BCBS aggregate design.
+uniqueness_check: >
+  B raises now and refuses to treat the gap as a sufficient statistic.
+  C raises for the wrong reason (mechanical maximum). If the stem
+  described a crash already underway, release would be right and B
+  would fail; the stem is a boom.
+references:
+  - key: drehmanntsatsaronis2014
+    claim_supported: >
+      Credit-to-GDP gap as a guide for the CCyB, with explicit
+      discussion of its limitations as a mechanical rule.
+  - key: hansonkashyapstein2011
+    claim_supported: >
+      Time-varying capital to lean against boom-bust credit
+      externalities, as distinct from a static micro minimum.
+verification:
+  primary_solution: >
+    Map the described state onto the boom phase of the CCyB cycle.
+  independent_check: >
+    Indicator check: high credit-to-GDP gap, rising asset prices, low
+    NPLs, high current ratios — this is the build region in the BCBS
+    guide, not the release region (which is associated with losses
+    and a tightening of credit supply).
+  invariant_or_boundary_check: >
+    If NPLs and credit spreads were already jumping and lending
+    standards tightening, the same high capital ratios would support
+    a release discussion. That is not the stem.
+revision_notes: >
+  Draft keyed C. The gap-as-sufficient-statistic claim is a common
+  over-read of Drehmann–Tsatsaronis and was demoted to a distractor.

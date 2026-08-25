@@ -1,0 +1,162 @@
+id: UE-H-02
+domain: urban_economics
+subdomain: housing_supply_incidence
+difficulty: HARD
+learning_objective: >
+  Place the incidence of a housing demand shock on prices versus
+  quantities according to supply elasticity (Saiz / zoning).
+stem: >
+  Two otherwise similar cities face the same outward shift in
+  housing demand (a productivity boom). City E has elastic housing
+  supply (flat land, permissive regulation). City I has inelastic
+  supply (steep terrain, binding zoning). A commentator says house
+  prices must rise by the same amount in both, "because it is the
+  same demand shock," and that quantities cannot respond in either
+  because "housing is a stock." Which statement is right?
+options:
+  A: >
+    The commentator is right. Demand shocks set prices; supply only sets the composition of buyers.
+  B: >
+    Incidence depends on supply elasticity. In I, the shock shows up mainly as higher prices (and rents); in E, mainly as more units and more households. Housing is a stock, but the *flow* of permits and the intensive margin of density are the supply response. Same demand shift does not imply the same ΔP.
+  C: >
+    Elastic supply cities must have *larger* price increases, because more construction is inflationary.
+  D: >
+    Zoning cannot affect prices, because a regulation that does not appear in the demand curve cannot shift equilibrium P.
+  E: >
+    Terrain is a demand amenity, so I's prices were already higher and the shock cannot raise them further.
+  F: >
+    In both cities the long-run supply of housing is perfectly elastic at construction cost, so ΔP = 0 in both after adjustment.
+  G: >
+    Quantities cannot rise in E either, because households are a stock like houses.
+  H: >
+    The right comparison is wages, not house prices; housing markets do not capitalise productivity.
+  I: >
+    Inelastic supply implies a quantity response and no price response, by the usual tax-incidence diagram with a vertical demand curve.
+  J: >
+    Binding zoning is a quantity cap that makes demand shocks irrelevant to prices as well as to quantities.
+correct_option: B
+solution_summary: >
+  Same demand shift, different supply elasticities, different
+  ΔP versus ΔQ. Zoning and terrain operate through supply, not
+  by "being absent from demand."
+solution_derivation: >
+  Standard incidence: a parallel demand shift with supply
+  elasticity η_S puts more of the shock into P when η_S is small
+  and more into Q when η_S is large. Saiz (2010): geographic
+  constraints flatten η_S; Glaeser–Gyourko: regulatory
+  constraints do the same. Housing stock versus flow: the stock
+  is slow, but new construction, conversion, and density are
+  flows that differ across E and I. F's perfectly elastic
+  long-run supply is a *coastal-unconstrained* benchmark, not
+  I. C reverses incidence. D: a supply shifter changes P when
+  demand is not perfectly elastic. I flips the diagram (vertical
+  *supply* is the inelastic case, which raises ΔP). A quantity
+  cap (J) makes demand shocks *more* about prices, not
+  irrelevant. Wages (H) also move in a Roback system, but that
+  is not a reason that house prices do not capitalise
+  productivity; they typically do, more so where supply is
+  inelastic. Households as a stock (G) ignores migration, which
+  is the open-city quantity response.
+assumptions:
+  - >
+    The productivity boom is a demand shifter for housing (through income and in-migration), not a construction-cost shifter.
+  - >
+    E and I differ in η_S, not in the size of the demand shift.
+  - >
+    No claim that zoning is the only reason I is inelastic.
+distractor_rationales:
+  A:
+    taxonomy: PARTIAL_VS_GENERAL_EQUILIBRIUM
+    why_chosen: >
+      "Demand drives prices" as a slogan.
+    why_wrong: >
+      Supply elasticity splits ΔP and ΔQ.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Incidence by η_S and the stock/flow clarification.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Construction as inflation.
+    why_wrong: >
+      Elastic supply *limits* the price increase.
+  D:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Only demand-curve objects affect P in a confused reading
+      of "shift versus move along."
+    why_wrong: >
+      Supply constraints move equilibrium along demand.
+  E:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Levels versus shocks.
+    why_wrong: >
+      A high level does not cap a further demand-driven ΔP.
+  F:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Glaeser's construction-cost benchmark for elastic places.
+    why_wrong: >
+      That is E's long run, not I's, and not "both."
+  G:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Stocks cannot respond.
+    why_wrong: >
+      Migration is a flow of households.
+  H:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Roback wages.
+    why_wrong: >
+      Productivity hits housing prices, especially in I.
+  I:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Incidence diagrams with a vertical curve.
+    why_wrong: >
+      Vertical *supply* ⇒ large ΔP, small ΔQ.
+  J:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Caps as "nothing can happen."
+    why_wrong: >
+      Caps make P the clearing variable.
+misconception_tags:
+  - STOCK_VS_FLOW
+  - SIGN_REVERSAL
+  - PARTIAL_VS_GENERAL_EQUILIBRIUM
+difficulty_rationale: >
+  Incidence plus the stock/flow housing confusion. Hard
+  undergraduate.
+ambiguity_audit: >
+  "Same demand shock" is a parallel shifter of equal size, not
+  equal ΔP. Productivity as a housing-demand shifter is stated.
+uniqueness_check: >
+  B is the only option with the correct ΔP/ΔQ split. If supply
+  elasticities were equal, A would be closer on ΔP; they are
+  not.
+references:
+  - key: saiz2010
+    claim_supported: >
+      Geographic constraints flatten housing supply and raise the
+      price response to demand.
+  - key: glaesergyourko2018
+    claim_supported: >
+      Housing supply elasticity, regulation, and the incidence of
+      demand on prices versus quantities.
+verification:
+  primary_solution: >
+    Apply standard incidence with η_S^E > η_S^I.
+  independent_check: >
+    Diagram identity: for a given demand shift, ΔP is decreasing
+    in η_S and ΔQ is increasing in η_S. No estimation required.
+  invariant_or_boundary_check: >
+    η_S → ∞ ⇒ ΔP → 0, ΔQ large. η_S → 0 ⇒ ΔQ → 0, ΔP = demand
+    shift in price units.
+revision_notes: >
+  None.

@@ -1,0 +1,172 @@
+id: UE-E-03
+domain: urban_economics
+subdomain: wage_premium_incidence
+difficulty: EXPERT
+learning_objective: >
+  Show that an urban productivity (agglomeration) gain is captured
+  by landowners rather than workers when housing supply is
+  inelastic, so the urban wage premium is not a sufficient
+  statistic for worker welfare.
+stem: >
+  A tradable-sector productivity improvement hits a city with
+  highly inelastic housing supply. Wages in the tradable sector
+  rise. Rents rise by more than wages in the sense that real
+  consumption wages of mobile workers are bid back to the national
+  outside option. A commentator says "workers captured the
+  agglomeration gain, because the urban wage premium increased."
+  Which statement is right?
+options:
+  A: >
+    The commentator is right. The wage premium is the gain.
+  B: >
+    With mobile workers and inelastic housing, the productivity gain is capitalised into land. The wage may rise (firms pay more out of higher MPL, and rents take it back from workers). The urban wage premium is not a sufficient statistic for worker welfare; landowners are the residual claimants in this corner.
+  C: >
+    Inelastic housing prevents wages from rising, so the commentator's wage-premium fact cannot occur.
+  D: >
+    If wages rose, housing must have been elastic; the stem is inconsistent.
+  E: >
+    Landowners cannot capture a tradable-sector gain, because land is nontradable.
+  F: >
+    Real consumption wages of mobile workers must rise one-for-one with the productivity shock, or migration would not occur.
+  G: >
+    Agglomeration is a local increasing return, which is always a worker surplus, not a land surplus.
+  H: >
+    The national outside option cannot bind if the city's wages rose, so the city is closed and workers capture the gain.
+  I: >
+    Incidence on land requires a property tax, otherwise workers keep the wage.
+  J: >
+    The wage premium increased, therefore both workers and landowners gained, which is Pareto and sufficient for the commentator.
+correct_option: B
+solution_summary: >
+  Open-city incidence with inelastic housing: land takes the
+  surplus. A higher observed wage premium can coexist with
+  unchanged mobile-worker utility.
+solution_derivation: >
+  Firms: higher productivity raises MPL and labour demand. Workers:
+  u(w, R) = u_bar if open. Inelastic housing: extra labour demand
+  mainly raises R. Wages can still rise because firms' willingness
+  to pay for labour rose; the worker indifference is in (w, R)
+  space, not in w alone. Real consumption wages (w deflated by
+  local housing) can be unchanged for mobile workers even as
+  nominal w and the "urban wage premium" versus other cities rise
+  (other cities did not get this shock). C and D treat Δw = 0 as
+  implied by inelastic housing; that is a confusion with a
+  vertical *labour* supply in a single market without rents.
+  Land is nontradable (E) and that is *why* it can capture a
+  local surplus. Migration occurs up to indifference, not up to
+  a strict utility gain (F). Agglomeration surplus can be
+  incident on land (G). A rise in w does not make the city closed
+  (H). Property tax (I) is a redistribution of the land rent, not
+  a precondition for incidence on land. Pareto (J) is not implied:
+  landowners gain, mobile workers may not, incumbent renters lose.
+assumptions:
+  - >
+    Open city relative to a large system; housing supply highly inelastic but not a literal zero everywhere.
+  - >
+    Workers are mobile; some landowners are not (or own locally).
+  - >
+    The "urban wage premium" is a nominal (or national-CPI) comparison, not a local-housing-deflated real wage.
+distractor_rationales:
+  A:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Wage premia as welfare.
+    why_wrong: >
+      Missing rents.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Capitalisation into land; wage premium not worker welfare.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Inelastic housing as no wage change.
+    why_wrong: >
+      Firms' MPL rose. w can rise with R.
+  D:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Δw as a test for elasticity.
+    why_wrong: >
+      Compatible with inelastic housing in Roback/AMM.
+  E:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Tradable versus nontradable.
+    why_wrong: >
+      Nontradable land is the sink for the local surplus.
+  F:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Strict gain for migration.
+    why_wrong: >
+      Indifference at the margin.
+  G:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      Agglomeration as worker human-capital.
+    why_wrong: >
+      Incidence is about who owns the scarce factor.
+  H:
+    taxonomy: PARTIAL_VS_GENERAL_EQUILIBRIUM
+    why_chosen: >
+      Rising w as evidence the outside option failed.
+    why_wrong: >
+      w and R jointly meet the outside option.
+  I:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Taxes as the only land instrument.
+    why_wrong: >
+      Market rents already assign the surplus.
+  J:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      Two prices up as Pareto.
+    why_wrong: >
+      Renters can lose; mobile workers can be indifferent.
+misconception_tags:
+  - WRONG_DENOMINATOR
+  - PARTIAL_VS_GENERAL_EQUILIBRIUM
+  - SIGN_REVERSAL
+difficulty_rationale: >
+  Expert: incidence in (w, R) space, not a slogan about
+  agglomeration. The wage premium is a tempting sufficient
+  statistic and is not.
+ambiguity_audit: >
+  "Rents rise by more than wages in the sense that real
+  consumption wages are bid back" is the open-city pin, not a
+  numerical ratio that must be estimated. Owner-occupiers mix
+  worker and land claims; the commentator still cannot read
+  worker welfare from the wage premium alone.
+uniqueness_check: >
+  B is the only option that allows Δw > 0 and still puts the
+  surplus on land. If housing were perfectly elastic, workers
+  (and new residents) would capture more of the surplus and the
+  commentator would be closer; the stem is inelastic.
+references:
+  - key: glaesergyourko2018
+    claim_supported: >
+      Inelastic housing supply changes who captures urban
+      productivity gains; prices rather than quantities do the
+      work.
+  - key: roback1982
+    claim_supported: >
+      Mobile workers' utility pinned by spatial equilibrium;
+      local productivity shows up in factor prices, not as a
+      utility surplus for residents.
+verification:
+  primary_solution: >
+    Open-city u(w, R) = u_bar plus inelastic housing as the
+    land-incidence corner.
+  independent_check: >
+    If η_S → 0, ΔQ → 0, so extra firm willingness to pay cannot
+    be absorbed by more units and must show up in R (and possibly
+    w). Worker utility remains on u_bar.
+  invariant_or_boundary_check: >
+    η_S → ∞: rents move little, population absorbs the shock,
+    commentator closer on worker capture for new residents.
+revision_notes: >
+  None.

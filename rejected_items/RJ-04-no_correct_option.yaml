@@ -1,0 +1,38 @@
+id: RJ-04-no_correct_option
+defect_class: no_correct_option
+domain: algorithmic_trading_market_microstructure
+difficulty_as_drafted: HARD
+stem: >
+  One-shot Kyle, σ_v = 2, σ_u = 4. What is λ?
+options:
+  A: "0.50"
+  B: "2.00"
+  C: "0.125"
+  D: "8.00"
+  E: "4.00"
+  F: "1.00"
+  G: "0.0625"
+  H: "16.00"
+  I: "0"
+  J: >
+    "undefined without a tick size"
+drafted_key: A
+defect: >
+  λ = σ_v/(2σ_u) = 0.25, which is not among the options. Every
+  listed number is a distractor (dropped 2, swapped β, etc.).
+  There is no correct option. The drafted key A is σ_v/σ_u.
+why_it_matters: >
+  A 10-option item with no key is unsolvable. Examinees who
+  derive 0.25 are forced to pick a wrong number. This is a
+  completeness failure, not a difficulty issue.
+repairable: true
+correction: >
+  Put 0.25 in the option list and key it. That is MM-H-01. Keep
+  0.50 as a distractor (dropped factor of 2). Do not "fix" by
+  redefining λ to be σ_v/σ_u.
+key_changes: true
+difficulty_changes: false
+references:
+  - key: kyle1985
+    claim_supported: >
+      λ = σ_v/(2σ_u) in the one-shot linear-normal model.

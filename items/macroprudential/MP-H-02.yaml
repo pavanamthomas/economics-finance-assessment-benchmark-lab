@@ -1,0 +1,182 @@
+id: MP-H-02
+domain: macroprudential_policy
+subdomain: ltv_dti_complementarity
+difficulty: HARD
+learning_objective: >
+  Treat loan-to-value (stock/collateral) and debt-service-to-income
+  (flow/ability-to-pay) as complementary borrower-based tools, not as
+  substitutes.
+stem: >
+  A housing boom is under way. Two applicant profiles reach the same
+  bank. Profile L: high current income, small down payment, so a high
+  loan-to-value ratio but a low debt-service-to-income ratio. Profile
+  D: modest income, large down payment, so a low LTV but a high DTI
+  (or DSTI). A policymaker proposes to use *only* a tight LTV cap,
+  arguing that "collateral is what matters in a crash, so DTI is
+  redundant." Which statement is right?
+options:
+  A: >
+    The policymaker is right. Default is a function of negative equity only, so LTV is sufficient.
+  B: >
+    LTV binds on collateral (a stock). DTI/DSTI binds on servicing (a flow). Profile L can still be fragile to a price decline; profile D can still be fragile to an income or rate shock. A single LTV cap does not price both margins.
+  C: >
+    DTI is just LTV times the interest rate, so one instrument determines the other.
+  D: >
+    High-income borrowers cannot generate systemic risk, so Profile L should be unconstrained.
+  E: >
+    Low LTV is always safer than low DTI, so the cap should be on DTI only, the reverse of the proposal.
+  F: >
+    Both tools are redundant if capital requirements on mortgages are risk-weighted, because RWAs already see LTV and income.
+  G: >
+    DTI caps are microprudential consumer-protection rules and have no macroprudential content.
+  H: >
+    In a boom, only LTV matters, because incomes are high; DTI is for recessions.
+  I: >
+    Profile L and Profile D have the same default probability if the loans have the same origination amount, so the split is cosmetic.
+  J: >
+    LTV caps cause credit to migrate to Profile D, which proves that DTI is the wrong object to add.
+correct_option: B
+solution_summary: >
+  Negative equity and cash-flow inability are different default
+  triggers. LTV and DTI constrain different applicant regions. Using
+  only LTV leaves the high-DTI region open and is not a complete
+  response to a housing boom.
+solution_derivation: >
+  Write a simple default rule: default can occur if (i) the put on
+  the house is in the money (value < principal, a stock) and the
+  borrower is willing to walk, or (ii) the servicing flow exceeds
+  income plus buffers (a flow), even with positive equity. Profile L
+  is (i)-fragile: a price drop wipes the small down payment. Profile
+  D is (ii)-fragile: a rate reset or income dip breaks the payment,
+  and a large down payment does not create cash. LTV = loan / value
+  at origination. DTI = service / income. They are related through
+  the rate, term, and amortisation, not by an identity that would
+  make one a function of the other for all households (C). Risk
+  weights on mortgages typically depend on LTV bands, not on DTI;
+  they also do not internalise the system-wide house-price feedback
+  (F). Migration from L to D after an LTV cap (J) is exactly why a
+  complementary DTI cap is used: to stop the leak. Timing (H) is
+  backwards for DTI: booms are when incomes and credit scores look
+  good and DTI is the constraint that still sees the payment. These
+  tools have a consumer-protection history; they are also
+  macroprudential because they slow aggregate mortgage credit and
+  the house-price-credit loop.
+assumptions:
+  - >
+    LTV is origination loan over contemporaneous value; DTI/DSTI is servicing over income as in typical borrower-based measures.
+  - >
+    No claim about the optimal numerical caps.
+  - >
+    Mortgages can default through equity or through cash flow, or both.
+  - >
+    The boom is a housing-credit boom, not a commercial-real-estate only boom.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Strategic default on underwater mortgages is a famous US fact.
+    why_wrong: >
+      It is not the only default mode, and it is not the only
+      systemic channel (servicing distress, fire sales of homes).
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Stock versus flow, two profiles, two shocks.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Service ≈ rate × loan, LTV = loan/value, so DTI looks like
+      rate × LTV × (value/income).
+    why_wrong: >
+      Value/income, term, amortisation, and rate type vary across
+      households. The identity does not collapse the two caps.
+  D:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      High income looks like a buffer.
+    why_wrong: >
+      High-income, high-LTV leverage still feeds house prices.
+  E:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      If LTV-only is wrong, DTI-only might seem right.
+    why_wrong: >
+      The point is complementarity, not swapping the single cap.
+  F:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Capital is the universal prudential tool.
+    why_wrong: >
+      RWAs do not substitute for borrower-based quantity constraints
+      on the origination margin.
+  G:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      DTI sits in consumer-credit regulation.
+    why_wrong: >
+      A tool can have two purposes. Aggregate DTI is a
+      macroprudential indicator.
+  H:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Incomes are cyclically high in booms.
+    why_wrong: >
+      That is when DTI looks deceptively fine at origination and
+      still needs a cap.
+  I:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Loan amount is a common size measure.
+    why_wrong: >
+      Default models that ignore the split between collateral and
+      service miss both profiles in the stem.
+  J:
+    taxonomy: EQUILIBRIUM_FEEDBACK_IGNORED
+    why_chosen: >
+      Leakage is used as an argument against adding tools.
+    why_wrong: >
+      Leakage is the argument *for* the complementary tool.
+misconception_tags:
+  - STOCK_VS_FLOW
+  - NECESSARY_VS_SUFFICIENT
+  - EQUILIBRIUM_FEEDBACK_IGNORED
+difficulty_rationale: >
+  Two instruments, two default margins, and a leakage argument.
+  Advanced undergraduate policy.
+ambiguity_audit: >
+  DTI and DSTI are treated as the same family (service over income).
+  No numerical caps. "Crash" in the policymaker's quote is granted as
+  a house-price crash, not a rate shock.
+uniqueness_check: >
+  B is the complementarity claim. E is the opposite single-instrument
+  claim. If default were literally only possible with negative equity
+  and no fire-sale or demand feedback, A would be closer; the stem's
+  two profiles exist to deny that.
+references:
+  - key: hansonkashyapstein2011
+    claim_supported: >
+      Macroprudential toolkit includes borrower-based constraints, not
+      only bank capital.
+  - key: cerutticlaessenslaeven2017
+    claim_supported: >
+      LTV and DTI/DSTI used as complementary borrower-based
+      macroprudential tools, with leakage as a practical issue.
+verification:
+  primary_solution: >
+    Map Profile L to a price shock and Profile D to an income/rate
+    shock.
+  independent_check: >
+    Counterexample to C: two loans with the same LTV and different
+    terms (interest-only versus 15-year amortising) have different
+    DTI. The instruments are not one-to-one.
+  invariant_or_boundary_check: >
+    If all mortgages were floating-rate, short-term, and
+    full-recourse with no strategic default, cash-flow still matters
+    and DTI still binds. If all were 30-year fixed with huge
+    down payments, LTV still sees a price crash. The two margins
+    survive those corners.
+revision_notes: >
+  Added the leakage distractor (J) after a dry run in which a reader
+  treated migration to Profile D as a reason to stop at LTV.

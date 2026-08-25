@@ -1,0 +1,179 @@
+id: MP-H-03
+domain: macroprudential_policy
+subdomain: covar_versus_var
+difficulty: HARD
+learning_objective: >
+  Distinguish an institution's standalone VaR from ΔCoVaR, which
+  conditions system distress on the institution's distress (not the
+  reverse).
+stem: >
+  Institution A has a small standalone Value-at-Risk: its own 1 percent
+  loss quantile is modest relative to its book. Institution B has a
+  large standalone VaR. In a CoVaR exercise, the system's 1 percent
+  loss quantile *conditional on A being at its own VaR* is much worse
+  than the system's quantile conditional on A being at its median;
+  the corresponding ΔCoVaR for B is small. A commentator ranks B as
+  more systemically important "because VaR is the risk measure."
+  Which statement is right?
+options:
+  A: >
+    The commentator is right. Systemic importance is standalone tail size, and CoVaR is a relabelling of VaR.
+  B: >
+    ΔCoVaR(system | i) measures how much worse the system's tail is when i is in its own tail rather than at its median. A can be systemically important in that sense while remaining small in standalone VaR; B can be the reverse. VaR and ΔCoVaR are not interchangeable, and neither is a sufficient statistic for every policy tool.
+  C: >
+    CoVaR conditions i's distress on the system's distress, so the commentator should have used MES, which is the same as VaR.
+  D: >
+    If A's ΔCoVaR is large, A must have a large VaR; the numbers in the stem cannot occur.
+  E: >
+    ΔCoVaR is just a correlation, so a large ΔCoVaR for A means A is caused by the system, not the reverse, and A should be ignored.
+  F: >
+    The right ranking is always by size of assets; CoVaR and VaR are both distractions.
+  G: >
+    Because CoVaR uses quantiles, it is robust to identification problems that affect mean-based MES, so ΔCoVaR is the unique correct systemic-risk ranking.
+  H: >
+    A's small VaR means A cannot be in its tail at the same time as the system, so ΔCoVaR is unidentified for A.
+  I: >
+    The commentator is right for capital surcharges but wrong for resolution; CoVaR is a resolution tool only.
+  J: >
+    ΔCoVaR for A is large only because A is small, and small institutions should receive a *negative* capital surcharge.
+correct_option: B
+solution_summary: >
+  Adrian–Brunnermeier ΔCoVaR is a system-tail object conditional on
+  the institution, not the institution's own VaR. The stem is the
+  case that makes the distinction bite.
+solution_derivation: >
+  VaR_i(q) = −Q_q(X_i), a standalone quantile. CoVaR_{system|i}(q) is
+  the q-quantile of system returns (or losses) conditional on X_i
+  being at its VaR. ΔCoVaR_i = CoVaR_{system | i at VaR} −
+  CoVaR_{system | i at median}. Large ΔCoVaR_i with small VaR_i is
+  possible if i is a pivot in a tail-dependence network without
+  having a large own book (a hedge fund, a CCP-like node in a toy
+  example, a highly interconnected medium bank). Large VaR_i with
+  small ΔCoVaR_i is possible if i is a large idiosyncratic book.
+  Conditioning is system | i, not i | system. MES / SRISK reverse
+  the conditioning (institution's shortfall given a system event).
+  Correlation-versus-causation: ΔCoVaR is an association in the
+  tail, not an identified structural causal effect, which is why B
+  refuses to treat it as a sufficient statistic. It is still not "a
+  correlation that means A is caused by the system" (E). The stem's
+  configuration is possible; D is false. Quantile robustness (G)
+  does not make the ranking unique or causal. Size is a different
+  indicator (BCBS G-SIB), not a reason to discard both objects.
+assumptions:
+  - >
+    ΔCoVaR is the Adrian–Brunnermeier difference of system quantiles given i at VaR versus at median.
+  - >
+    The reported ranking of ΔCoVaR and VaR is taken as computed, not as an estimation puzzle.
+  - >
+    No claim that ΔCoVaR should mechanically set a surcharge.
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      VaR is the familiar tail measure.
+    why_wrong: >
+      Different conditioning, different object.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Defines ΔCoVaR, allows A to outrank B on that object, and
+      limits what the ranking establishes.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      SRISK/MES condition the firm on the system; the names get
+      swapped.
+    why_wrong: >
+      CoVaR conditions the system on the firm. MES is not VaR.
+  D:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Tails feel like they must line up.
+    why_wrong: >
+      Own tail size is not a necessary condition for tail
+      co-movement of the system with i.
+  E:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      "Conditional on A" is read as "A is the victim."
+    why_wrong: >
+      The conditioning is an association. It does not identify
+      direction, and it does not license ignoring A.
+  F:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      G-SIB buckets are size-heavy.
+    why_wrong: >
+      Size is one indicator. It does not collapse VaR and ΔCoVaR
+      into irrelevance.
+  G:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Quantiles are sold as robust.
+    why_wrong: >
+      Robustness to some outliers is not uniqueness or causality.
+  H:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Small VaR looks like no tail events.
+    why_wrong: >
+      A has a 1 percent quantile; it is just a small loss relative
+      to its book. The event {A at its VaR} is defined.
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Different tools for going-concern versus gone-concern.
+    why_wrong: >
+      The stem is about the ranking claim, not a mapping onto one
+      instrument.
+  J:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Smallness plus large ΔCoVaR is a confusing pair.
+    why_wrong: >
+      A negative surcharge would subsidise the externality.
+misconception_tags:
+  - INCORRECT_NORMALIZATION
+  - SIGN_REVERSAL
+  - CORRELATION_VS_IDENTIFICATION
+difficulty_rationale: >
+  Requires the direction of conditioning and a configuration where
+  VaR and ΔCoVaR disagree. Not a definition recitation.
+ambiguity_audit: >
+  "System" is the financial system loss used in the CoVaR exercise
+  as stated. No numerical CoVaR is required. Causality is explicitly
+  not claimed.
+uniqueness_check: >
+  B is the only option that (i) gets the conditioning right, (ii)
+  allows the stem's ranking, and (iii) refuses sufficiency for
+  policy. C reverses conditioning. If ΔCoVaR were defined as
+  VaR_i | system, the names would clash with Adrian–Brunnermeier;
+  the item uses their definition.
+references:
+  - key: adrianbrunnermeier2016
+    claim_supported: >
+      ΔCoVaR as the change in the system's VaR when institution i
+      moves from median to its VaR; distinct from standalone VaR.
+  - key: acharyaetal2017
+    claim_supported: >
+      SRISK/MES as capital shortfall given a *system* decline —
+      the other direction of conditioning, used to keep C honest.
+verification:
+  primary_solution: >
+    Write the two definitions and note they need not rank A and B
+    the same way.
+  independent_check: >
+    Two-asset numerical sketch: let the system be A+B, A small but
+    perfectly tail-dependent with B, B large but with idiosyncratic
+    Gaussian noise. A's VaR can be small while ΔCoVaR_A is large.
+    The laboratory does not need that sketch to key the item; it is
+    a possibility check.
+  invariant_or_boundary_check: >
+    If all institutions are identical and independent, ΔCoVaR is
+    near zero and VaR ranks by size of book. The stem is not that
+    case.
+revision_notes: >
+  Draft treated ΔCoVaR as a causal "contribution." The key now
+  refuses that upgrade (and E's reverse-causal reading).

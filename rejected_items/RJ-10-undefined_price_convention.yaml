@@ -1,0 +1,52 @@
+id: RJ-10-undefined_price_convention
+defect_class: undefined_price_convention
+domain: algorithmic_trading_market_microstructure
+difficulty_as_drafted: EXPERT
+stem: >
+  A forecast of the "price" change over the next minute is +2 bp.
+  The half-spread is 3 bp. Is the forecast an executable edge?
+options:
+  A: >
+    Yes, because 2 bp is out-of-sample.
+  B: >
+    No, if "price" is the mid; a take pays the half-spread.
+  C: >
+    Yes, if "price" is the last trade.
+  D: >
+    Yes, if "price" is the microprice.
+  E: >
+    Yes, if "price" is the ask on a buy.
+  F: >
+    No, never, because forecasts cannot be edges.
+  G: >
+    Yes, because timestamps are in microseconds.
+  H: >
+    Only if VWAP is the mark.
+  I: >
+    Only if the close is the mark.
+  J: >
+    Undefined.
+drafted_key: B
+defect: >
+  "Price" is not defined: mid, last trade, microprice, bid/ask,
+  VWAP. B is right *if* price is the mid. C–E can be right under
+  other conventions (and some are still not executable). The
+  drafted key assumes a mid. That convention is the whole
+  question and is not in the stem. J is then also defensible.
+why_it_matters: >
+  Executability is a convention-dependent claim. An undefined
+  price is the microstructure analogue of RJ-01's undefined AMM
+  price.
+repairable: true
+correction: >
+  State that the forecast is of the mid-quote, and introduce
+  nested books (mid, touch, walk-the-book). That is MM-E-01.
+  Do not repair by keying J: "undefined" is a meta-answer that
+  dodges the construct once the convention is supplied.
+key_changes: true
+difficulty_changes: false
+references:
+  - key: hasbrouck2007
+    claim_supported: >
+      Quote mid, trade price, and efficient price are different
+      objects — the conventions the draft left unnamed.

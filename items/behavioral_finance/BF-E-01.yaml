@@ -1,0 +1,179 @@
+id: BF-E-01
+domain: behavioral_finance_experimental_economics
+subdomain: reference_dependence
+difficulty: EXPERT
+learning_objective: >
+  Show that changing the reference point can reverse whether an
+  outcome is coded as a gain or a loss, and therefore can reverse
+  the predicted risk attitude, so uniqueness of a CPT prediction
+  requires a stated reference.
+stem: >
+  A trader bought a stock at 100. It now trades at 80. Three
+  candidate reference points are on the table: (R1) purchase price
+  100; (R2) the expected price at this date from yesterday's
+  information, which was 80; (R3) a goal of 110. The trader is
+  considering a 50-50 gamble that will move the price to 70 or 90
+  by tomorrow, versus locking 80. Under TK92 value-function
+  curvature (concave gains, convex losses) and a given λ, the
+  predicted choice between the gamble and the lock-in is not the
+  same for every R. A commentator says the prediction is unique
+  because "the stock is at 80, so the reference is 80." Which
+  statement is right?
+options:
+  A: >
+    The commentator is right. The current price is always the reference, so R2 is mandatory and R1, R3 are not models.
+  B: >
+    Coding of 70, 80, 90 as gains or losses depends on R. Under R1 the lock-in at 80 is still a loss relative to 100, and the gamble is in the loss domain (convex v, risk-seeking). Under R2 both the lock-in and the gamble are evaluated around 80 (mixed or small-gain/small-loss). Under R3 everything is still a shortfall from 110. The commentator's uniqueness claim is false; a CPT prediction without a stated reference is not a unique key.
+  C: >
+    λ > 1 forces the lock-in at 80 regardless of R, which restores uniqueness.
+  D: >
+    Purchase price is the only theoretically admissible reference, so R1 is mandatory.
+  E: >
+    Kőszegi–Rabin expectations-based references make R2 the unique rational reference, so the commentator is right after a relabelling.
+  F: >
+    Goals cannot be references because they are not prices, so R3 is incoherent.
+  G: >
+    If the gamble is 50-50, probability weighting is symmetric and the reference cannot matter.
+  H: >
+    Convexity on losses implies risk *aversion* on losses, so R1 predicts locking 80, which matches R2, restoring uniqueness.
+  I: >
+    The problem is unidentified because we do not observe λ, not because of R.
+  J: >
+    Tomorrow's 70/90 are both below 100, so every R agrees that the trader will gamble.
+correct_option: B
+solution_summary: >
+  Reference dependence is not a unique map from the current price
+  to a choice. Different R recode the same cash outcomes. A keyed
+  CPT item must state R.
+solution_derivation: >
+  Outcomes in money: lock-in 80, gamble {70, 90}.
+  Relative to R1 = 100: lock-in is −20; gamble is {−30, −10}, both
+  in the loss domain. Convex v on losses plus λ applies to all
+  three numbers; the usual prediction is risk-seeking in that
+  domain (disposition: hold/gamble rather than realise the −20).
+  Relative to R2 = 80: lock-in is 0; gamble is {−10, +10}, a mixed
+  gamble where λ on the loss side looms larger, often predicting
+  rejection of the gamble. Relative to R3 = 110: lock-in is −30;
+  gamble {−40, −20}, again a pure-loss comparison, not the same
+  as the mixed gamble at R2. The commentator's "price is 80 so R
+  is 80" smuggles R2. KR (2006) *can* make expected prices the
+  reference, but that is a specific theory, not a reason that R1
+  and R3 are "not models" (A, E). Purchase-price references are
+  the disposition literature's working assumption, not a theorem
+  that other R are illegal (D). Goals are used as references in
+  the realisation-utility and aspiration literature (F). 50-50
+  does not cancel reference coding (G). Convexity on losses is
+  risk-*seeking*, not aversion (H). λ unknown (I) is a second
+  identification problem; it does not erase the first. J claims
+  every R agrees on gambling; R2 typically does not.
+assumptions:
+  - >
+    TK92 curvature as stated; no claim about a particular numerical λ beyond "given."
+  - >
+    The 50-50 is on the future price, with lock-in available now.
+  - >
+    No transaction costs or taxes.
+distractor_rationales:
+  A:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Mark-to-market thinking sets R at the current price.
+    why_wrong: >
+      That is one model of R, not uniqueness.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Recodes 70/80/90 under three R and denies a unique CPT key.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      λ is the hammer.
+    why_wrong: >
+      λ scales losses; it does not erase domain coding.
+  D:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Purchase-price references are common in brokerage data.
+    why_wrong: >
+      Common is not mandatory.
+  E:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      KR is the leading expectations-based theory.
+    why_wrong: >
+      KR is a candidate for R, not a proof that the commentator's
+      uniqueness is true of "CPT."
+  F:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      References are associated with traded prices.
+    why_wrong: >
+      A reference is a comparison point, not necessarily a quote.
+  G:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      50-50 looks symmetric.
+    why_wrong: >
+      Symmetry of p does not cancel a kink at R.
+  H:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Convex/concave signs are easy to flip.
+    why_wrong: >
+      Convex v on losses ⇒ risk-seeking in that domain.
+  I:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      λ is unidentified in many data sets.
+    why_wrong: >
+      Even at known λ, R still moves the prediction.
+  J:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      All numbers below 100 look like one loss domain.
+    why_wrong: >
+      Not under R2.
+misconception_tags:
+  - WRONG_INFORMATION_SET
+  - SIGN_REVERSAL
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Expert because uniqueness of the prediction *is* the question,
+  and because KR versus purchase-price versus goals is a live
+  modelling choice, not a definition.
+ambiguity_audit: >
+  The item does not key a particular choice under R1; it keys the
+  non-uniqueness claim. "Often predicting" under R2 is flagged as
+  the usual mixed-gamble / λ effect, not as a calibrated number.
+uniqueness_check: >
+  B is the only option that treats R as part of the model and
+  shows two different domain codings. If the stem had fixed R = 100
+  in the assumptions, a unique (risk-seeking) prediction would be
+  possible and this item would be mis-keyed. It does not.
+references:
+  - key: tverskykahneman1992
+    claim_supported: >
+      Value function defined on gains and losses relative to a
+      reference; curvature differs across the reference.
+  - key: koszegirabin2006
+    claim_supported: >
+      Expectations as reference points — a rival to purchase-price
+      and status-quo references, used here as R2, not as the unique
+      truth.
+verification:
+  primary_solution: >
+    Recode {70, 80, 90} under R ∈ {100, 80, 110} and compare
+    domains.
+  independent_check: >
+    Domain table: R1 puts all three in losses; R2 puts the gamble
+    across the kink. Those tables do not match, so the predicted
+    choice need not match.
+  invariant_or_boundary_check: >
+    If R is fixed in the question, uniqueness can be restored.
+    That is the item-writing implication.
+revision_notes: >
+  This item exists because a draft CPT question keyed "gamble"
+  without stating R. That draft is in rejected_items as a hidden
+  assumption that changes the key.

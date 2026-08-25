@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: If you use this assessment corpus, please cite it as below.
+type: dataset
+title: "Economics and Finance Assessment Benchmark Lab"
+abstract: >-
+  A laboratory for authoring and verifying 10-option economics and finance
+  assessment items. The corpus includes accepted items with uniqueness
+  audits and a rejected-item file for each major verification defect.
+authors:
+  - family-names: Thomas
+    given-names: Pavanam
+    email: thomaspavanam@gmail.com
+license: MIT
+keywords:
+  - assessment
+  - economics
+  - finance
+  - market microstructure
+  - macroprudential policy
+  - behavioral finance
+  - urban economics
+  - tokenomics
+  - verification
+repository-code: "https://github.com/pavanamthomas/economics-finance-assessment-benchmark-lab"
+year: 2026
+copyright: "Copyright 2026 Dr. Pavanam Thomas"

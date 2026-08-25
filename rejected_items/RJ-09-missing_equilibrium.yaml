@@ -1,0 +1,53 @@
+id: RJ-09-missing_equilibrium
+defect_class: missing_equilibrium_condition
+domain: urban_economics
+difficulty_as_drafted: MEDIUM
+stem: >
+  Why do land rents fall with distance from the CBD?
+options:
+  A: >
+    Because commuting is costly and utility must be equalised across locations, so R'(d) = −t/q(d).
+  B: >
+    Because distant land is physically inferior dirt.
+  C: >
+    Because developers' cost functions decline with d.
+  D: >
+    Because wages fall with d.
+  E: >
+    Because Tiebout sorting requires a rent gradient.
+  F: >
+    Because the city is closed.
+  G: >
+    Because the city is open.
+  H: >
+    Because housing supply is inelastic.
+  I: >
+    Because of zoning.
+  J: >
+    Because of agglomeration.
+drafted_key: A
+defect: >
+  A is the right mechanism *if* spatial equilibrium (common u*)
+  is granted. The stem never states that households can move and
+  must be indifferent. Without that equilibrium condition, B–J
+  include stories that could be true in a non-equilibrium
+  snapshot (zoning, supply, inferior land). The drafted key
+  smuggles AMM equilibrium into the stem.
+why_it_matters: >
+  Assessment items in urban economics are about equilibrium
+  reasoning. If the equilibrium condition is missing, the item
+  tests whether the examinee will invent it, which is a different
+  construct (and makes B harder to reject).
+repairable: true
+correction: >
+  State utility equalisation (or "spatial equilibrium") in the
+  stem. That is UE-M-01. F and G remain distractors there because
+  the gradient formula holds in both once u* is the equilibrium
+  utility.
+key_changes: false
+difficulty_changes: false
+references:
+  - key: brueckner1987
+    claim_supported: >
+      The bid-rent gradient is an equilibrium envelope, not a
+      physical ranking of land.

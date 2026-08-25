@@ -1,0 +1,183 @@
+id: MP-E-03
+domain: macroprudential_policy
+subdomain: too_big_to_fail
+difficulty: EXPERT
+learning_objective: >
+  Separate systemic-importance measurement (size, interconnectedness,
+  substitutability) from the moral-hazard subsidy, and from the
+  incidence of a capital surcharge.
+stem: >
+  A bank is designated a G-SIB. Three numbers are on the table:
+  (1) a size/interconnectedness/substitutability score that put it
+  over the threshold; (2) an estimated funding-cost subsidy relative
+  to non-designated peers, sometimes labelled a TBTF subsidy;
+  (3) a higher CET1 surcharge that the designation triggers. A
+  commentator claims that "because we measure systemic importance in
+  (1) and charge (3), the subsidy in (2) must already be zero, and
+  the designation cannot increase moral hazard." Which statement is
+  right?
+options:
+  A: >
+    The commentator is right. Measurement plus a surcharge is a sufficient statistic for eliminating the implicit guarantee.
+  B: >
+    (1) is a designation score, (2) is an inferred funding advantage under a believed implicit backstop, and (3) is a going-concern capital add-on. Charging (3) can reduce leverage and expected taxpayer loss without driving (2) to zero, and the act of designation can *raise* perceived backstop probability even as (3) rises. None of the three is a sufficient statistic for the other two.
+  C: >
+    The subsidy (2) is identically the surcharge (3) expressed in basis points, so they cannot move in opposite directions.
+  D: >
+    If (2) is positive after designation, the score (1) was miscalculated and the bank should be undesignated.
+  E: >
+    Moral hazard is a time-inconsistency problem that capital cannot touch; only a legally credible no-bailout rule can, so (3) is irrelevant.
+  F: >
+    Designation cannot raise moral hazard because G-SIB lists are public already, so there is no information in the label.
+  G: >
+    Substitutability in (1) is a resolution concept, so (3) should be a gone-concern TLAC number only, which would zero (2) automatically.
+  H: >
+    The funding subsidy is a fiscal transfer and therefore not an object for prudential policy; (2) should be ignored.
+  I: >
+    Interconnectedness in (1) is ΔCoVaR, so this item reduces to MP-H-03 and the surcharge should equal ΔCoVaR.
+  J: >
+    If the surcharge (3) is positive, leverage must fall one-for-one with (3), which zeros expected taxpayer loss and therefore zeros (2).
+correct_option: B
+solution_summary: >
+  Designation, subsidy, and surcharge are related but not identical.
+  A surcharge can be useful and still not eliminate an implicit
+  guarantee; a designation can even strengthen the guarantee's
+  perceived probability.
+solution_derivation: >
+  Let p be the market's perceived probability of a loss-absorbing
+  public backstop, LGD the expected public loss given that event,
+  and r the funding spread. A TBTF subsidy is a statement about r
+  relative to a peer, attributed to p × LGD. A G-SIB score is a
+  regulatory indicator of size, interconnectedness, substitutability,
+  complexity, and cross-border activity (BCBS). A CET1 surcharge is
+  a going-concern capital add-on. Raising capital can lower LGD and
+  the probability of the trigger, which can compress the subsidy,
+  but p is a political-economy object: putting a bank on a public
+  list can raise p even as LGD falls. There is no identity that
+  forces (2) = 0 once (3) > 0. There is also no identity that (2)
+  equals (3) in basis points. Undesignating because a subsidy
+  remains would treat (2) as a measurement error in (1); it can
+  instead be evidence that the backstop is still believed. A
+  legally credible no-bailout (E) would attack p directly; it is
+  not the only instrument, and it is not time-consistent merely by
+  being written. TLAC/gone-concern (G) is a complement, not an
+  automatic zero of (2). Leverage does not fall one-for-one with a
+  surcharge if the bank issues more debt, shrinks assets
+  selectively, or is already above the new constraint. This
+  laboratory does not estimate (2); it refuses the commentator's
+  "must already be zero."
+assumptions:
+  - >
+    G-SIB designation follows a BCBS-style indicator score, not a CoVaR formula.
+  - >
+    The funding-cost subsidy is an inferred spread difference, not an observed cheque from the Treasury.
+  - >
+    No claim about the empirical size of TBTF subsidies.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Policy packages are sold as solving the problem they name.
+    why_wrong: >
+      Three different objects. Sufficiency does not follow.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Separates score, subsidy, surcharge, and allows designation to
+      raise perceived backstop probability.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Both are "the cost of being big."
+    why_wrong: >
+      One is a capital ratio add-on, the other is a funding spread.
+  D:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Residual subsidy looks like a mis-score.
+    why_wrong: >
+      The residual can be p remaining positive.
+  E:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Time-inconsistency of no-bailout is a real argument
+      (Kydland–Prescott style applied to resolution).
+    why_wrong: >
+      It does not make capital irrelevant to LGD or to incentives.
+  F:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Lists are public.
+    why_wrong: >
+      Official designation is still a signal about the backstop set,
+      even if size was already observed.
+  G:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Substitutability is a resolution word.
+    why_wrong: >
+      Gone-concern capacity is complementary. It does not
+      automatically zero a going-concern funding subsidy.
+  H:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      Fiscal versus prudential silo.
+    why_wrong: >
+      The subsidy is the market price of an implicit guarantee, which
+      is a prudential incentive problem.
+  I:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Interconnectedness is one G-SIB bucket and also a CoVaR story.
+    why_wrong: >
+      The BCBS score is not ΔCoVaR, and the surcharge is not set
+      equal to ΔCoVaR.
+  J:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Capital and leverage are often treated as one-for-one.
+    why_wrong: >
+      Bindingness and incidence are empirical. Even a leverage drop
+      does not force p = 0.
+misconception_tags:
+  - NECESSARY_VS_SUFFICIENT
+  - INCORRECT_NORMALIZATION
+  - CORRELATION_VS_IDENTIFICATION
+difficulty_rationale: >
+  Expert because it requires three objects, political-economy p, and
+  refusing a package-sufficiency claim. Not a G-SIB bucket recitation.
+ambiguity_audit: >
+  No numerical subsidy is asserted as a fact about a real bank. The
+  commentator's "must already be zero" is the claim under review.
+uniqueness_check: >
+  B is the only option that keeps all three numbers and denies the
+  two "musts" (subsidy zero, designation cannot raise moral hazard).
+  E attacks p only; it over-deletes (3). If designation were secret,
+  F would be closer on information; it is not.
+references:
+  - key: hansonkashyapstein2011
+    claim_supported: >
+      Capital surcharges as a tool against leverage externalities,
+      distinct from eliminating implicit guarantees.
+  - key: fsb2011gsib
+    claim_supported: >
+      G-SIB designation uses an indicator-based score (size,
+      interconnectedness, substitutability, complexity, cross-border)
+      plus a capital surcharge — the objects (1) and (3).
+verification:
+  primary_solution: >
+    Decompose the commentator's claim into identities that do not
+    hold among (1), (2), and (3).
+  independent_check: >
+    Logical counterexample: raise (3) while announcing a public list
+    that raises p. LGD may fall and r need not fall to the peer
+    level. No calibration required.
+  invariant_or_boundary_check: >
+    If p is legally and politically zero, (2) is zero regardless of
+    (1) and (3). That is E's corner, not the stem.
+revision_notes: >
+  Avoided any numerical "X bp subsidy" that would look like a fake
+  empirical finding. The item is about objects, not a measured
+  spread.

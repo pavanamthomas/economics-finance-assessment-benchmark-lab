@@ -1,0 +1,182 @@
+id: TD-E-01
+domain: tokenomics_defi
+subdomain: amm_average_versus_marginal
+difficulty: EXPERT
+learning_objective: >
+  Distinguish the constant-product marginal (spot) price from the
+  average execution price of a finite trade, including the
+  geometric-mean identity, and treat the confusion as a source of
+  a plausible wrong MCQ key.
+stem: >
+  A fee-free constant-product pool has reserves (x, y) = (100, 100),
+  so k = 10,000 and the spot price of X in Y is p = y/x = 1. A
+  trader sells Δx = 10 of X into the pool (X in, Y out). Three
+  numbers are on the table: (i) the pre-trade spot, 1; (ii) the
+  post-trade spot, y'/x' = (1000/11)/110 = 100/121 ≈ 0.8264;
+  (iii) the average execution price Δy/Δx. A draft assessment item
+  asked "what price does the trader receive?" and keyed 1, citing
+  p = y/x. An examinee who keyed the post-trade spot argued that
+  "the trade happens at the new price." Which object is the
+  execution price of this finite sale, and why are the other two
+  attractive wrong keys?
+options:
+  A: >
+    The execution price is the pre-trade spot 1, because that is the quoted price at which the pool stands ready.
+  B: >
+    The execution price is Δy/Δx = y/(x+Δx) = 100/110 = 10/11 ≈ 0.9091, which equals the geometric mean of the pre- and post-trade spots. The pre-trade spot is the derivative, not a fill. The post-trade spot is the new derivative, also not the fill. Both are the usual wrong keys when "price" is left undefined.
+  C: >
+    The execution price is the post-trade spot ≈ 0.8264, because constant-product trades are settled at the end-of-trade marginal.
+  D: >
+    The three numbers are identical at these reserves, so the draft item's key of 1 is harmless.
+  E: >
+    The execution price is the arithmetic mean of 1 and 0.8264 ≈ 0.9132, which is the integral of a linear demand curve.
+  F: >
+    Geometric-mean identity holds only with fees, so at fee zero the fill is the pre-trade spot.
+  G: >
+    Δy/Δx is a slippage statistic, not a price; the only price is p = y/x.
+  H: >
+    The trader receives the harmonic mean of 1 and 0.8264, which is 0.8264, so the examinee who keyed the post-trade spot was right.
+  I: >
+    Because k is preserved, the trader transacts at p = 1 exactly for any Δx; slippage is an off-chain reporting convention.
+  J: >
+    The execution price is undefined until an external oracle quotes Y, so none of (i)–(iii) is admissible.
+correct_option: B
+solution_summary: >
+  Finite-sale execution price is 10/11, the geometric mean of
+  spots, strictly between them. Pre- and post-trade spots are
+  the two distractors this laboratory exists to document.
+solution_derivation: >
+  x' = 110, y' = 10,000/110 = 1,000/11, Δy = 100 − 1,000/11 =
+  100/11, Δy/Δx = (100/11)/10 = 10/11.
+  Closed form: Δy/Δx = y/(x+Δx) = 100/110 = 10/11.
+  Post spot p' = y'/x' = (1000/11)/110 = 100/121.
+  Geometric mean: sqrt(p p') = sqrt(1 · 100/121) = 10/11.
+  Independent integral: p(s) = k/s² along s ∈ [100, 110],
+  (1/Δx) ∫ p(s) ds = k (1/x − 1/x') / Δx = y Δx / (x x' Δx) wait:
+  ∫_x^{x'} k/s² ds = k (1/x − 1/x') = y − y' = Δy, so the average
+  is Δy/Δx again. Arithmetic mean of spots is not that integral
+  because p(s) is not linear in s. Harmonic mean of 1 and 100/121
+  is 2 / (1 + 121/100) = 2 / (2.21) ≈ 0.905, not 0.8264; H's
+  arithmetic is wrong as well as the claim. Fees would break the
+  exact geom-mean identity (F has the implication backwards).
+  k preserved does not freeze p (I). The pool itself defines a
+  price in Y per X without an external oracle for this trade (J).
+  The draft item keyed (i) and the examinee keyed (ii): both are
+  the defects in rejected_items/RJ-10 and the flagship write-up.
+assumptions:
+  - >
+    Fee-free CPAMM, sale of X into the pool, price in Y per X.
+  - >
+    No concentrated liquidity, no tick spacing.
+numerical_check:
+  kind: amm_execution
+  params:
+    x: 100.0
+    y: 100.0
+    dx: 10.0
+  expected:
+    value: 0.9090909090909091
+    spot0: 1.0
+    spot1: 0.8264462809917356
+distractor_rationales:
+  A:
+    taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+    why_chosen: >
+      The quoted spot is what order books call "the" price.
+    why_wrong: >
+      The CPAMM does not fill a finite Δx at the derivative.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      10/11, geom-mean identity, and why (i) and (ii) attract.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+    why_chosen: >
+      End-of-trade marking.
+    why_wrong: >
+      The fill is the path average, not the new derivative.
+  D:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      10 on 100 looks small.
+    why_wrong: >
+      1, 0.909, and 0.826 are distinct. The infinitesimal
+      approximation is the Δx → 0 limit.
+  E:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Linear demand integral.
+    why_wrong: >
+      p(s) = k/s² is not linear. Arithmetic mean ≠ 10/11.
+  F:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Fees as the source of all wedges.
+    why_wrong: >
+      The geom-mean identity is a fee-zero fact. Fees break it.
+  G:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Slippage as a separate object from price.
+    why_wrong: >
+      Average execution *is* the price the trader received.
+  H:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Harmonic means appear in some average-price lore.
+    why_wrong: >
+      The identity is geometric, and 0.8264 is p', not a harmonic
+      mean of p and p'.
+  I:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      k as a value invariant.
+    why_wrong: >
+      k constant implies p changes when x changes.
+  J:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Oracles as the only price.
+    why_wrong: >
+      The pool defines an internal price in Y per X.
+misconception_tags:
+  - AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+  - APPROXIMATION_OUTSIDE_RANGE
+  - INCORRECT_NORMALIZATION
+difficulty_rationale: >
+  Expert because the item is about uniqueness of "price" as a
+  word, the integral versus the two spots, and a documented
+  wrong key — not because the algebra is long. This is the
+  flagship assessment-authoring case.
+ambiguity_audit: >
+  "What price does the trader receive?" is quoted as the defective
+  stem. This item's stem names (i), (ii), (iii) so the object is
+  not ambiguous. Sale of X, fee zero, numeraire Y.
+uniqueness_check: >
+  Under those conventions, (iii) is 10/11. If the stem had asked
+  for the quoted spot, A would be right. If it had asked for the
+  new mid, C would be right. That is why the draft item was
+  rejected: it did not name the object. This item does.
+references:
+  - key: angerisetal2021
+    claim_supported: >
+      Geometry of constant-product trades: execution away from
+      the spot along the reserve curve.
+  - key: uniswapv2
+    claim_supported: >
+      Uniswap v2: fee-free limit of the x*y=k trade.
+verification:
+  primary_solution: >
+    Δy/Δx = y/(x+Δx) = 10/11.
+  independent_check: >
+    Three routes in efablab.checks.amm: closed form, quadrature
+    of k/s², geometric mean of spots. They agree.
+  invariant_or_boundary_check: >
+    Δx → 0 ⇒ all three numbers → 1. At Δx = 10 they split, which
+    is the teaching case. IL identity is not required here.
+revision_notes: >
+  The first draft of this laboratory keyed the spot for a finite
+  trade. The quadrature check disagreed. That failure is recorded
+  in FAILURES_AND_CORRECTIONS.md and in rejected_items.

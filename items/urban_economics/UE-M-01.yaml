@@ -1,0 +1,166 @@
+id: UE-M-01
+domain: urban_economics
+subdomain: bid_rent_gradient
+difficulty: MEDIUM
+learning_objective: >
+  Derive the Alonso–Muth–Mills bid-rent gradient R'(d) = −t/q(d) as
+  a spatial-equilibrium envelope, not as a statement that distant
+  land is physically inferior.
+stem: >
+  In a monocentric city, households have income y, pay commuting
+  cost t per unit distance d from the CBD, consume a lot of size q
+  and a numeraire c, and must attain a common utility level u* in
+  equilibrium. Land rent is R(d). A commentator says land further
+  from the CBD is cheaper "because it is worse land." Which
+  statement is right?
+options:
+  A: >
+    The commentator is right. Distance is a quality ranking of land, like a hedonic defect.
+  B: >
+    Spatial equilibrium equalises utility. Differentiating the budget c + R(d) q + t d = y at the optimal q gives R'(d) = −t/q(d) < 0. Distant land is cheaper because commuting eats the budget, not because the dirt is inferior. If t = 0, the gradient is zero even if "views" differ, which they do not in this model.
+  C: >
+    R'(d) = −t, independent of lot size, because commuting is a lump-sum tax.
+  D: >
+    R'(d) = −t q(d), multiplying by lot size rather than dividing.
+  E: >
+    Utility equalisation is optional; the gradient comes from developers' cost functions alone.
+  F: >
+    The gradient is positive for rich households, who bid more for distant land, so the sign is ambiguous.
+  G: >
+    R(d) is an accounting identity from construction costs, so commuting cannot enter.
+  H: >
+    q(d) must be constant, otherwise R'(d) is unidentified.
+  I: >
+    The right gradient is in wages, not rents, because Roback showed that amenities are paid in wages.
+  J: >
+    If u* is common, rents must be common, so R'(d) = 0.
+correct_option: B
+solution_summary: >
+  The bid-rent slope is commuting cost per unit land, from utility
+  equalisation plus the household FOC. Distance is a cost, not a
+  quality ranking of the land itself.
+solution_derivation: >
+  Budget: c + R(d) q + t d = y. Indirect utility V(y − t d, R(d))
+  = u* at every occupied d. Envelope / Roy: ∂V/∂R = −q ∂V/∂I, so
+  differentiating u* along the city gives
+  −q R'(d) − t = 0, hence R'(d) = −t/q(d). The same relation comes
+  from the household's first-order condition on d treating q as
+  chosen. Land is homogeneous in the basic AMM model; "worse land"
+  is not in the production function. t = 0 ⇒ R' = 0. Dividing by
+  q, not multiplying, because the commuting cost t d is a household
+  cost spread over the lot. Developers' costs set the height/density
+  schedule given R, they do not by themselves sign R'(d). Rich
+  households may live further out if the income elasticity of q is
+  high (a different AMM prediction about sorting), which does not
+  make R' positive. Roback is a system of wages *and* rents; it
+  does not delete the AMM gradient inside the city. Common u* does
+  not imply common R; it is what *produces* the offsetting R(d).
+assumptions:
+  - >
+    Monocentric CBD, linear commuting cost t d, homogeneous land.
+  - >
+    Interior lot-size choice, no corner of q = 0.
+  - >
+    Open or closed city: u* is either given (open) or determined (closed); the gradient formula holds either way at the equilibrium u*.
+numerical_check:
+  kind: rent_gradient
+  params:
+    t: 2.0
+    q: 0.5
+  expected:
+    value: -4.0
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Hedonic "worse" language.
+    why_wrong: >
+      The land is homogeneous. Distance is a commuting cost.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Envelope derivation and the t = 0 boundary.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      t is the salient parameter.
+    why_wrong: >
+      Missing 1/q.
+  D:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Costs scale with q in some housing models.
+    why_wrong: >
+      Commuting is per household, not per unit land. Divide by q.
+  E:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Supply-side urban models exist.
+    why_wrong: >
+      The household envelope is what signs the bid-rent.
+  F:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Suburbanisation of the rich is a real AMM possibility.
+    why_wrong: >
+      That is a statement about who occupies which d, not about
+      R'(d) > 0. Rents still fall with d in the basic model.
+  G:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Construction cost as the only rent theory.
+    why_wrong: >
+      Location rent is a residual.
+  H:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Variable q looks like a missing equation.
+    why_wrong: >
+      The formula holds at the chosen q(d).
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Roback is the other spatial-equilibrium model.
+    why_wrong: >
+      Roback does not cancel intra-city bid-rent.
+  J:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Equal utility as equal prices.
+    why_wrong: >
+      Equal utility is achieved *by* unequal rents.
+misconception_tags:
+  - WRONG_DENOMINATOR
+  - LEVEL_VS_MARGINAL
+  - SIGN_REVERSAL
+difficulty_rationale: >
+  One envelope theorem. Medium undergraduate urban.
+ambiguity_audit: >
+  Open versus closed city is flagged as not changing the gradient
+  formula. No amenity gradient is in the model.
+uniqueness_check: >
+  B is the only option with R' = −t/q and the right interpretation.
+  If t were a cost per unit land rather than per household, C would
+  be closer; it is not.
+references:
+  - key: brueckner1987
+    claim_supported: >
+      Handbook derivation of the urban bid-rent gradient
+      R'(d) = −t/q(d) from spatial equilibrium.
+  - key: alonso1964
+    claim_supported: >
+      Location and land use: bid-rent as the household's willingness
+      to pay for access, not as a physical quality ranking of land.
+verification:
+  primary_solution: >
+    Envelope of V(y − t d, R(d)) = u*.
+  independent_check: >
+    efablab.checks.bid_rent.rent_gradient(2, 0.5) = −4, which is
+    −t/q, not −t and not −t q.
+  invariant_or_boundary_check: >
+    t = 0 ⇒ R' = 0. q → ∞ ⇒ R' → 0 (commuting spread over a huge
+    lot).
+revision_notes: >
+  None.

@@ -1,0 +1,181 @@
+id: BF-E-02
+domain: behavioral_finance_experimental_economics
+subdomain: field_experiment_inference
+difficulty: EXPERT
+learning_objective: >
+  Treat multiple testing and treatment-correlated attrition as
+  threats that can manufacture "significant" field-experiment
+  effects, distinct from experimenter demand.
+stem: >
+  A field experiment randomises a savings-nudge SMS. The pre-analysis
+  plan listed one primary outcome. The paper reports 20 outcomes,
+  three of which are significant at 5 percent, including a secondary
+  "financial literacy score" collected only for subjects who answered
+  a follow-up survey. Follow-up response is 70 percent in treatment
+  and 45 percent in control. The primary outcome, measured
+  administratively for everyone, is insignificant. A commentator says
+  the three significant outcomes "replicate the treatment" and that
+  attrition is "just a smaller sample." Which statement is right?
+options:
+  A: >
+    The commentator is right. Three rejections at 5 percent are stronger than one planned test.
+  B: >
+    The primary, fully observed outcome is the object the design identified. Three uncorrected secondaries, one of them on a selected survey sample whose response co-moves with treatment, do not restore that object. Attrition here is not a smaller i.i.d. sample; it is differential selection. Multiple testing plus selected outcomes can manufacture three 5 percent stars.
+  C: >
+    Differential attrition is always solvable by inverse-probability weights on the survey, which would make the literacy result the new primary.
+  D: >
+    Because randomisation was clean, all 20 outcomes are internally valid by construction.
+  E: >
+    The insignificant primary is a failed first stage, so the experiment should be discarded entirely, including as a null.
+  F: >
+    Survey outcomes are more reliable than administrative ones because people "know their own literacy."
+  G: >
+    A 5 percent test on 20 outcomes expects about one false positive, so three significant results prove a real effect.
+  H: >
+    Pre-analysis plans are optional writing; reporting 20 outcomes is more transparent and therefore more credible.
+  I: >
+    Treatment-correlated attrition can be ignored if the survey question is not about the nudge, and literacy is not about the nudge.
+  J: >
+    The right correction is to multiply every p-value by 20, after which any remaining star on the selected survey is causal.
+correct_option: B
+solution_summary: >
+  The identified object is the planned, fully observed primary.
+  Stars on selected secondaries are not a replication of that
+  object. Attrition that differs by arm is selection, not merely
+  n ↓.
+solution_derivation: >
+  Randomisation identifies ITT on outcomes observed for every
+  assigned unit (here, the administrative primary). It does not,
+  by itself, identify treatment effects on survey outcomes when
+  response is a post-treatment variable correlated with the
+  assignment (Lee; Heckman). 70 versus 45 percent is that
+  correlation. Inverse-probability weights (C) require a selection
+  model; they are not a free lunch that promotes literacy to
+  primary. Multiple testing: 20 uncorrected 5 percent tests have
+  family-wise error well above 5 percent; three stars are not a
+  miracle (G's Poisson intuition of one expected false positive
+  already makes three only moderately surprising, and that
+  calculation assumes independent tests and no selection).
+  Bonferroni (J) would be a conservative correction on a complete
+  sample; it does not fix selection. A null primary is a result,
+  not a failed first stage (E): the first stage is the SMS, which
+  was sent. Transparency of reporting 20 outcomes (H) is not a
+  substitute for the plan. Literacy "not about the nudge" (I)
+  does not make response independent of treatment.
+assumptions:
+  - >
+    The pre-analysis plan's primary is as stated and was not switched.
+  - >
+    Administrative outcome is observed for all assigned units.
+  - >
+    Follow-up response rates are as stated.
+  - >
+    No claim about the sign of the selection (who answers).
+distractor_rationales:
+  A:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      More stars look like more evidence.
+    why_wrong: >
+      Uncorrected multiplicity plus selection.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Primary fully observed versus selected secondaries, and
+      attrition as differential selection.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      IPW is a real tool.
+    why_wrong: >
+      It does not make the survey the planned primary, and it is
+      not assumption-free.
+  D:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Randomisation is treated as covering all downstream objects.
+    why_wrong: >
+      Post-treatment selection is not covered.
+  E:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Nulls are treated as failed experiments.
+    why_wrong: >
+      A null ITT on the primary is informative.
+  F:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Self-reports as privileged.
+    why_wrong: >
+      Selected self-reports are the problem.
+  G:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      Expected false positives ≈ 1 under 20 independent tests.
+    why_wrong: >
+      Three is not "proof," tests are not independent, and
+      selection is extra.
+  H:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Garden-of-forking-paths rhetoric flipped into a virtue.
+    why_wrong: >
+      Reporting is not the same as controlling error rates.
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Outcome content is confused with selection on response.
+    why_wrong: >
+      The selection is on *who answers*, not on whether the
+      question text mentions the SMS.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Bonferroni as a ritual cleanser.
+    why_wrong: >
+      Multiplicity correction does not repair differential
+      attrition.
+misconception_tags:
+  - RANKING_VS_PROBABILITY
+  - CORRELATION_VS_IDENTIFICATION
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Expert because two threats (multiplicity and selected outcomes)
+  interact, and because a null primary must be read as a result.
+ambiguity_audit: >
+  No Lee bounds are computed; the item only refuses to treat
+  attrition as i.i.d. sample-size loss. The plan's existence is
+  granted.
+uniqueness_check: >
+  B is the only option that keeps the primary as the identified
+  object and names both threats. If response rates had been equal
+  and the three stars had been on administrative secondaries with
+  a pre-specified multiple-testing correction, the item would be
+  a different (weaker) multiplicity question.
+references:
+  - key: listshaikhxu2019
+    claim_supported: >
+      Multiple-testing corrections in experimental economics;
+      uncorrected families inflate false positives.
+  - key: lee2009
+    claim_supported: >
+      Tight bounds under monotonicity for treatment effects when
+      sample selection is affected by treatment — the attrition
+      object, not "smaller n."
+verification:
+  primary_solution: >
+    Identify the ITT on the administrative primary; reject the
+    commentator's use of selected secondaries.
+  independent_check: >
+    If response rates were 100 percent in both arms, the attrition
+    half of B would shut and multiplicity would remain. The stem
+    has both.
+  invariant_or_boundary_check: >
+    If only the planned primary were reported, multiplicity would
+    shut. It is not.
+revision_notes: >
+  Draft used "p-hacking" as a motive word. Replaced with the
+  mechanical threats, which is what a verification job can stand
+  on.

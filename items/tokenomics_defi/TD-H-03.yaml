@@ -1,0 +1,169 @@
+id: TD-H-03
+domain: tokenomics_defi
+subdomain: token_weighted_governance
+difficulty: HARD
+learning_objective: >
+  Separate token-weighted voting, quorum, and concentration /
+  delegation as distinct governance objects, and refuse "51 percent
+  of turnout" as a majority of token supply.
+stem: >
+  A protocol uses 1-token-1-vote. Quorum is 40 percent of total
+  token supply. A proposal passes if it meets quorum and receives
+  a simple majority of *votes cast*. One whale holds 30 percent of
+  supply and is not known to have delegated it away. Turnout on a
+  proposal is 42 percent of supply, of which 22 percentage points
+  of supply vote yes and 20 vote no. A commentator says the
+  proposal "failed because it did not get 51 percent of the
+  token supply, and whales cannot meet quorum alone." Which
+  statement is right?
+options:
+  A: >
+    The commentator is right on both the pass rule and the whale.
+  B: >
+    The proposal met quorum (42 ≥ 40) and a majority of votes cast (22 > 20), so it passed under the stated rule. 51 percent of *supply* is a different threshold. The whale's 30 percent cannot meet a 40 percent quorum *alone*, which is true, but that fact does not imply the proposal failed, and it does not imply the whale is powerless: 30 percent is large relative to 42 percent turnout.
+  C: >
+    Quorum is a majority of turnout, so 42 percent turnout is already a pass without looking at yes/no.
+  D: >
+    The whale can meet quorum alone because 30 > 40/2.
+  E: >
+    Simple majority of votes cast always requires 51 percent of supply, by an accounting identity.
+  F: >
+    Delegation is illegal in token-weighted systems, so the whale's 30 percent is the maximum any address can ever coordinate.
+  G: >
+    Because 22 percent of supply said yes, the proposal failed a 40 percent yes-of-supply rule that is what "quorum" means.
+  H: >
+    Token-weighted voting is equivalent to one-address-one-vote if Sybil-resistance is perfect, so the whale is one vote.
+  I: >
+    A 30 percent whale makes every vote illegitimate, so pass versus fail is undefined.
+  J: >
+    The proposal passed only if the whale voted yes, which the stem does not say, so the result is unidentified.
+correct_option: B
+solution_summary: >
+  Quorum is on turnout versus supply; the pass margin is on
+  votes cast. 51 percent of supply is not the rule. The whale
+  cannot solo-quorum but remains first-order at this turnout.
+solution_derivation: >
+  Rule as stated: (turnout ≥ 0.40) and (yes > no among votes
+  cast). 0.42 ≥ 0.40 and 22 > 20, so pass. Yes as a share of
+  *supply* is 22 percent, which would fail a 51 percent-of-supply
+  rule that the commentator invented. Whale 30 percent < 40
+  percent, so the whale cannot hit quorum alone (the
+  commentator's second clause is true as arithmetic and is
+  kept in B). At 42 percent turnout, 30/42 ≈ 71 percent of
+  votes could be the whale if the whale voted — concentration,
+  not illegitimacy (I). Delegation (F) is a standard part of
+  token voting, not illegal; it can concentrate further. Quorum
+  is not "majority of turnout" (C) and not "yes ≥ 40 percent of
+  supply" (G). 40/2 (D) is not a quorum identity. Sybil
+  resistance (H) is why 1-token-1-vote exists; it does not
+  convert the whale into one vote. The pass result is identified
+  from turnout and yes/no totals without knowing the whale's
+  ballot (J); the whale remark is about power, not about this
+  proposal's arithmetic.
+assumptions:
+  - >
+    The pass rule is exactly as in the stem.
+  - >
+    Percentages of supply add: 22 + 20 = 42.
+  - >
+    No veto, no supermajority, no timelock in the item.
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Majority as 51 percent of everything.
+    why_wrong: >
+      Majority of votes *cast*, after quorum.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Pass arithmetic plus a correct, limited whale remark.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Quorum as the whole vote.
+    why_wrong: >
+      Quorum is a participation floor, not a yes.
+  D:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Half of quorum as a whale test.
+    why_wrong: >
+      30 < 40.
+  E:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      51 percent as a universal majority.
+    why_wrong: >
+      22/42 ≈ 52 percent of *cast* votes, not of supply.
+  F:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Delegation as a bug.
+    why_wrong: >
+      Delegation is a design choice that often *raises*
+      concentration.
+  G:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Quorum as a yes-of-supply hurdle.
+    why_wrong: >
+      Quorum is turnout-of-supply in the stem.
+  H:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Sybil resistance as personhood.
+    why_wrong: >
+      1-token-1-vote is wealth-weighted, not person-weighted.
+  I:
+    taxonomy: RISK_VS_UNCERTAINTY
+    why_chosen: >
+      Concentration as invalidating the vote.
+    why_wrong: >
+      It is an incentive problem, not undefined arithmetic.
+  J:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Whale as a hidden ballot.
+    why_wrong: >
+      Pass/fail uses the totals given.
+misconception_tags:
+  - INCORRECT_NORMALIZATION
+  - WRONG_DENOMINATOR
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Three objects (quorum, majority of cast, concentration) that
+  casual commentary collapses. Hard.
+ambiguity_audit: >
+  "Simple majority of votes cast" is explicit. Ties are not at
+  issue (22 > 20). The whale's vote is not needed for pass/fail.
+uniqueness_check: >
+  B is the only option that both (i) passes the proposal under
+  the stated rule and (ii) keeps the true 30 < 40 quorum remark
+  without making the whale powerless. If quorum had been 50
+  percent, the proposal would fail on turnout and the key would
+  change.
+references:
+  - key: buterin2017notes
+    claim_supported: >
+      Notes on blockchain governance: token voting, turnout,
+      and concentration / plutocracy as distinct design problems.
+  - key: leshnerhayes2019
+    claim_supported: >
+      Compound-style governance: a quorum defined on token supply
+      together with a majority of votes cast — the two thresholds
+      the commentator mixes.
+verification:
+  primary_solution: >
+    Check 42 ≥ 40 and 22 > 20.
+  independent_check: >
+    Yes share of cast = 22/42 > 1/2. Yes share of supply = 0.22
+    < 1/2. Those two inequalities are the commentator's mix-up.
+  invariant_or_boundary_check: >
+    Turnout 39 percent ⇒ fail quorum regardless of yes/no.
+    Yes = no ⇒ fail majority of cast even with quorum.
+revision_notes: >
+  Compound governor docs are a mechanism reference; no claim of
+  affiliation with Compound.

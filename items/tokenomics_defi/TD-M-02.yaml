@@ -1,0 +1,170 @@
+id: TD-M-02
+domain: tokenomics_defi
+subdomain: stablecoin_mechanisms
+difficulty: MEDIUM
+learning_objective: >
+  Separate fiat-backed, crypto-overcollateralised, and
+  algorithmic/mechanism-based stablecoins by their failure modes,
+  rather than treating "depeg" as one object.
+stem: >
+  Three arrangements all target a $1 peg. F: each token is a claim
+  on a custodied dollar (or T-bill) held by an identifiable issuer.
+  C: each token is minted against on-chain crypto collateral with
+  a required overcollateralisation ratio and a liquidation rule.
+  A: the peg is supposed to be maintained by a mint/redeem or
+  seigniorage mechanism with no (or thin) exogenous collateral.
+  A commentator says a 5 percent depeg in any of the three is
+  "the same event: the peg broke, so they are the same object."
+  Which statement is right?
+options:
+  A: >
+    The commentator is right. A peg is a peg.
+  B: >
+    The three fail differently. F is a custody, banking, and redemption-run object (reserves, gates, issuer risk). C is a collateral-and-liquidation object (price of collateral, liquidation design, oracle). A is a mechanism-design object (whether the mint/redeem or seigniorage mapping has a stable equilibrium). A common 5 percent print is not identification of a common mechanism.
+  C: >
+    Only F is a stablecoin; C and A are just leveraged tokens.
+  D: >
+    Only A can depeg, because F and C are fully backed by definition.
+  E: >
+    C cannot depeg as long as the collateral ratio is above 100 percent at origination, regardless of later prices.
+  F: >
+    Algorithmic mechanisms cannot fail if the mint/redeem is on-chain, because on-chain is incentive-compatible.
+  G: >
+    A 5 percent depeg in F is impossible if the issuer is a regulated bank, which makes F and C identical.
+  H: >
+    Liquidation in C is the same mechanism as seigniorage in A, so C and A are one object.
+  I: >
+    The only economically relevant split is whether the token is on a blockchain; F, C, and A are therefore the same.
+  J: >
+    Depegs are always oracle failures, so the typology is cosmetic.
+correct_option: B
+solution_summary: >
+  Same peg target, three constraint sets. A depeg print is a
+  reduced-form event, not a sufficient statistic for the
+  mechanism.
+solution_derivation: >
+  F's $1 is a claim on a portfolio and a legal issuer. Failure:
+  the portfolio is not there, redemption is gated, or the issuer
+  is frozen. C's $1 is an overcollateralised loan against crypto
+  (Maker-style). Failure: collateral crash plus slow or
+  ill-designed liquidation, or oracle error, can leave the system
+  undercollateralised even if origination LTV was conservative.
+  A's $1 is a mapping that must have an equilibrium at 1 without
+  a sufficient exogenous asset; death spirals and multiple
+  equilibria are the design risk (not a custody audit). On-chain
+  mint/redeem (F in the distractor sense) does not create a
+  stable equilibrium by itself. Origination overcollateralisation
+  (E) is a stock at t0, not a guarantee after a price path.
+  Regulation (G) changes F's failure probabilities, it does not
+  make F = C. Liquidation ≠ seigniorage (H). The blockchain (I)
+  is a settlement layer, not the backing. Oracles (J) matter
+  especially for C; they are not the only depeg channel.
+assumptions:
+  - >
+    The labels F, C, A match the stem's three paragraphs.
+  - >
+    No claim about any named live token's current reserves.
+  - >
+    "5 percent depeg" is a secondary-market print versus $1.
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      One price gap, one name.
+    why_wrong: >
+      Mechanism is the object.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Three failure modes, depeg as reduced form.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      "True" stablecoin as bank money.
+    why_wrong: >
+      C is a standard crypto-collateral design; the typology
+      still applies.
+  D:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Backing as a tautology of the peg.
+    why_wrong: >
+      F can fail on custody; C can fail on collateral crash.
+  E:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Origination ratio as a perpetual floor.
+    why_wrong: >
+      Prices move after origination.
+  F:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      On-chain as a magic incentive compatibility.
+    why_wrong: >
+      The mapping can still have a bad equilibrium.
+  G:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Bank regulation as a perfect peg.
+    why_wrong: >
+      Gates, duration mismatch, and issuer risk remain F-objects.
+  H:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Both are "the mechanism that defends the peg."
+    why_wrong: >
+      Liquidation sells collateral; seigniorage expands/contracts
+      a weakly backed claim.
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Blockchain as the category.
+    why_wrong: >
+      Settlement layer ≠ backing.
+  J:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Oracles as the universal DeFi failure.
+    why_wrong: >
+      F can depeg with a perfect USD price if reserves are missing.
+misconception_tags:
+  - INCORRECT_NORMALIZATION
+  - STOCK_VS_FLOW
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Typology plus failure modes, not a protocol recitation. Medium.
+ambiguity_audit: >
+  No live issuer is named, so the item is not a claim about a
+  particular reserve attestation. Hybrid designs exist; the stem
+  is three polar cases.
+uniqueness_check: >
+  B is the only option that keeps all three as pegging
+  arrangements and splits their failures. If the commentator had
+  said "all three can depeg," that would be true and not the
+  claim under review; the claim is "same object."
+references:
+  - key: makerdao2017
+    claim_supported: >
+      Crypto-overcollateralised stablecoin with liquidation — the
+      C polar case.
+  - key: klagesmundtminca2021
+    claim_supported: >
+      Mechanism-design analysis of (weakly) collateralised and
+      algorithmic stablecoin designs, including failure modes
+      that are not custody runs.
+verification:
+  primary_solution: >
+    Map F/C/A to custody, collateral/liquidation, and
+    equilibrium-of-a-mapping.
+  independent_check: >
+    Counterexamples to "same object": F depegs with collateral
+    intact if redemptions gate; C depegs with an honest issuer if
+    collateral crashes; A depegs with no custodian at all.
+  invariant_or_boundary_check: >
+    If A is fully exogenous-collateralised, it becomes C or F.
+    The stem's A is thin/no exogenous collateral.
+revision_notes: >
+  Avoided naming a failed algorithmic coin as if this laboratory
+  had audited it.
