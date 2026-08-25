@@ -76,11 +76,15 @@ python examples/inspect_flagship.py
 
 CI runs the same four commands (the last two as validate + inventory).
 
-## Related work, not modified
+## Related work, not a substitute
 
-- [ai-response-evaluation-benchmarks](https://github.com/pavanamthomas/ai-response-evaluation-benchmarks) — scoring AI answers. A *proposed* later extension is in `docs/proposed_ai_eval_extension.md`. Not committed to that repository.
-- [econometrics-causal-inference-lab](https://github.com/pavanamthomas/econometrics-causal-inference-lab) — identification designs, not MCQ authoring.
-- Five standalone implementation labs (microstructure, macroprudential, behavioral finance, urban economics, tokenomics) are *not* this repository. This one is the assessment object. Each of the five posting domains has both a folder under `items/` and a companion lab in the table above.
+Each posting domain has a folder under `items/` *and* a companion lab in the table above. Methods repositories on the same GitHub account are not those domains:
+
+- [econometrics-causal-inference-lab](https://github.com/pavanamthomas/econometrics-causal-inference-lab) — DiD / IV / RD. Not urban economics.
+- [quantitative-finance-models](https://github.com/pavanamthomas/quantitative-finance-models) — TVM / parity / VaR. Not market microstructure.
+- [ai-response-evaluation-benchmarks](https://github.com/pavanamthomas/ai-response-evaluation-benchmarks) — scoring AI *answers*. A *proposed* later extension is in `docs/proposed_ai_eval_extension.md`. Not committed to that repository. Not 10-option authoring.
+
+The five companion labs implement the mechanisms. This repository is the assessment object (stems, keys, rejected drafts).
 
 ## Boundaries
 
