@@ -36,13 +36,13 @@ It does **not** mean the economics is true. Economic correctness is the written 
 
 40 accepted items (10 Medium, 15 Hard, 15 Expert), eight in each domain:
 
-| Prefix | Domain | Flagship inside the domain |
-| --- | --- | --- |
-| MM | Algorithmic trading / market microstructure | `MM-E-01` mid-mark versus executable books |
-| MP | Macroprudential policy | `MP-E-01` Nash fire sale versus coordinated freeze |
-| BF | Behavioral finance / experimental economics | `BF-E-01` reference point changes the CPT key |
-| UE | Urban economics | `UE-H-01` open versus closed city amenity shock |
-| TD | Tokenomics / DeFi | `TD-E-01` AMM average versus marginal price |
+| Prefix | Domain | Flagship inside the domain | Executable companion |
+| --- | --- | --- | --- |
+| MM | Algorithmic trading / market microstructure | `MM-E-01` mid-mark versus executable books | [market-microstructure-algorithmic-trading-lab](https://github.com/pavanamthomas/market-microstructure-algorithmic-trading-lab) |
+| MP | Macroprudential policy | `MP-E-01` Nash fire sale versus coordinated freeze | [macroprudential-systemic-risk-lab](https://github.com/pavanamthomas/macroprudential-systemic-risk-lab) |
+| BF | Behavioral finance / experimental economics | `BF-E-01` reference point changes the CPT key | [behavioral-finance-experimental-economics-lab](https://github.com/pavanamthomas/behavioral-finance-experimental-economics-lab) |
+| UE | Urban economics | `UE-H-01` open versus closed city amenity shock | [urban-economics-spatial-equilibrium-lab](https://github.com/pavanamthomas/urban-economics-spatial-equilibrium-lab) |
+| TD | Tokenomics / DeFi | `TD-E-01` AMM average versus marginal price | [tokenomics-defi-mechanism-design-lab](https://github.com/pavanamthomas/tokenomics-defi-mechanism-design-lab) |
 
 Rejected drafts live in `rejected_items/`. Each one names a defect class (multiple keys, hidden assumption, wrong key, no correct option, unsupported reference, difficulty miscalibration, joke distractors, timing ambiguity, missing equilibrium, undefined price, ambiguous information set), whether it is repairable, and whether the key changes.
 
@@ -80,7 +80,7 @@ CI runs the same four commands (the last two as validate + inventory).
 
 - [ai-response-evaluation-benchmarks](https://github.com/pavanamthomas/ai-response-evaluation-benchmarks) — scoring AI answers. A *proposed* later extension is in `docs/proposed_ai_eval_extension.md`. Not committed to that repository.
 - [econometrics-causal-inference-lab](https://github.com/pavanamthomas/econometrics-causal-inference-lab) — identification designs, not MCQ authoring.
-- Standalone market-microstructure, tokenomics, and macroprudential implementation labs are *not* this repository. This one is the assessment object.
+- Five standalone implementation labs (microstructure, macroprudential, behavioral finance, urban economics, tokenomics) are *not* this repository. This one is the assessment object. Each of the five posting domains has both a folder under `items/` and a companion lab in the table above.
 
 ## Boundaries
 
