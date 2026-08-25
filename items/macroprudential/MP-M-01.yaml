@@ -1,0 +1,181 @@
+id: MP-M-01
+domain: macroprudential_policy
+subdomain: micro_versus_macroprudential
+difficulty: MEDIUM
+learning_objective: >
+  Distinguish microprudential solvency of each bank from macroprudential
+  stability of the system when individually reasonable actions impose
+  fire-sale externalities.
+stem: >
+  After a common decline in the price of a traded security, every bank
+  in a stylised system still has a positive capital ratio above its
+  microprudential minimum. Each bank then sells a portion of that
+  security to restore its own leverage target. The sales are small from
+  each bank's point of view. The market for the security is the same
+  market for all of them. A supervisor who looks only at each bank's
+  post-shock, pre-sale capital ratio concludes that "no policy action
+  is required, because every institution is solvent." Which statement
+  is right?
+options:
+  A: >
+    The supervisor is right. If every capital ratio is above the minimum, systemic risk is zero by addition.
+  B: >
+    Individually reasonable deleveraging can still depress the common price, impose mark-to-market losses on others, and produce a second round that no single bank internalises. Macroprudential policy is aimed at that externality, not at catching a hidden micro violation.
+  C: >
+    The conclusion is right whenever sales are small; only a large trade by a single bank can move prices.
+  D: >
+    Fire sales are a liquidity problem, not a capital problem, so capital ratios are the wrong object and LCR is sufficient.
+  E: >
+    If every bank is above the minimum, the system is by definition not too-big-to-fail, which is the only macroprudential concern.
+  F: >
+    Second-round losses cannot occur if the first-round capital ratios are positive, because insolvency is required to force sales.
+  G: >
+    Macroprudential policy is just a more conservative micro minimum applied to each bank in isolation; the supervisor already has it.
+  H: >
+    The common security is a diversification benefit, so common holdings reduce systemic risk.
+  I: >
+    Mark-to-market is an accounting fiction; if banks hold to maturity, prices do not matter and no externality exists.
+  J: >
+    The supervisor should wait until at least one bank is below the minimum; acting earlier is micro-managing solvent firms.
+correct_option: B
+solution_summary: >
+  Micro solvency of each book does not imply that simultaneous
+  leverage targeting is a system Nash equilibrium without price
+  spirals. The missing object is the pecuniary externality.
+solution_derivation: >
+  Bank i's sale s_i is optimal given the price P it takes as given
+  (or as weakly dependent on s_i). The market price P(∑ s_j) depends
+  on the sum. Bank i does not internalise ∂P/∂s_i on bank k's
+  mark-to-market equity. After the first round of sales, capital
+  ratios that looked comfortable can fall through the same security.
+  That is the fire-sale / Brunnermeier–Pedersen / Shleifer–Vishny
+  mechanism in a two-round sketch. Microprudential minima can all
+  bind in the second round even if none bound in the first. A
+  tighter micro minimum applied in isolation (G) does not, by itself,
+  make bank i internalise k's loss; a systemic capital buffer, a
+  leverage cap that bites in the boom, or a restriction on common
+  exposure can. LCR addresses short-horizon outflow risk, a different
+  object. Hold-to-maturity accounting can hide the price, it does not
+  remove the constraint if the bank must repo the security or meet a
+  leverage target in market values. Common holdings are a common
+  shock, not a diversification benefit at the system level.
+assumptions:
+  - >
+    Banks have leverage or capital targets that respond to market prices of a common security.
+  - >
+    The security's price falls when aggregate sales rise.
+  - >
+    No deposit-insurance resolution is required for the first-round sales; they are voluntary deleveraging.
+  - >
+    "Solvent" means book equity above a micro minimum at the post-shock, pre-sale mark.
+distractor_rationales:
+  A:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      Solvency looks additive.
+    why_wrong: >
+      Addition ignores the price that couples the books.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Names the uninternalised price feedback as the macroprudential
+      object.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Price impact is taught as a property of large trades.
+    why_wrong: >
+      Many small trades are a large trade in the same book.
+  D:
+    taxonomy: LIQUIDITY_VS_SOLVENCY
+    why_chosen: >
+      Fire sale sounds like a liquidity event.
+    why_wrong: >
+      The mechanism here is capital targeting through a price. LCR is
+      not a sufficient statistic for that externality.
+  E:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      TBTF is the public face of macroprudential policy.
+    why_wrong: >
+      Common-exposure spirals can involve many small banks.
+  F:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Forced sales are associated with default.
+    why_wrong: >
+      Leverage targeting generates sales without default.
+  G:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Higher capital looks like the whole toolkit.
+    why_wrong: >
+      A higher isolated minimum does not price the externality.
+  H:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Diversification is usually good.
+    why_wrong: >
+      Diversification at the bank level into the *same* security is
+      correlation at the system level.
+  I:
+    taxonomy: NOMINAL_VS_REAL
+    why_chosen: >
+      Accounting versus economic value is a real distinction.
+    why_wrong: >
+      If the constraint is in market values, or if repo haircuts
+      follow prices, the accounting fiction does not remove the
+      feedback.
+  J:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Supervisors are told not to interfere with solvent banks.
+    why_wrong: >
+      Macroprudential action is timed to the cycle and to the
+      externality, often while micro ratios still look fine.
+misconception_tags:
+  - PRIVATE_VS_SOCIAL_COST
+  - LIQUIDITY_VS_SOLVENCY
+  - PARTIAL_VS_GENERAL_EQUILIBRIUM
+difficulty_rationale: >
+  One mechanism: pecuniary externality of simultaneous deleveraging.
+  Undergraduate financial-stability reasoning.
+ambiguity_audit: >
+  Pre-sale capital ratios are above the minimum by statement, so the
+  supervisor's micro fact is granted. The disagreement is system versus
+  institution.
+uniqueness_check: >
+  B is the only option that accepts micro solvency and still rejects
+  the policy conclusion. If the security were in perfectly elastic
+  supply, the externality would vanish and A would be right; the stem
+  requires a common price that moves with sales.
+references:
+  - key: hansonkashyapstein2011
+    claim_supported: >
+      Macroprudential policy is motivated by externalities of
+      leverage and fire sales that microprudential solvency does not
+      internalise.
+  - key: shleifervishny2011
+    claim_supported: >
+      Fire sales: asset prices pushed below fundamental value by
+      forced or quasi-forced holders, with feedback onto other
+      holders of the same asset.
+verification:
+  primary_solution: >
+    Two-round sketch: common shock, individual leverage targeting,
+    price impact of the sum of sales, second-round marks.
+  independent_check: >
+    Accounting: if every bank sells the same security and the price
+    is a decreasing function of aggregate sales, then each bank's
+    post-sale equity includes a term P'(∑ s) that does not appear in
+    its private first-order condition for s_i. That is the externality
+    identity, not a calibration.
+  invariant_or_boundary_check: >
+    If P is independent of ∑ s, the second round is zero. If banks
+    have no leverage target, sales need not occur. Both are outside
+    the stem.
+revision_notes: >
+  Draft used "systemic risk" as a primitive. Replaced with the
+  fire-sale externality so the key is a mechanism, not a label.

@@ -1,0 +1,192 @@
+id: MM-M-02
+domain: algorithmic_trading_market_microstructure
+subdomain: implementation_shortfall
+difficulty: MEDIUM
+learning_objective: >
+  Separate implementation shortfall (decision-time paper versus executed
+  portfolio) from a VWAP participation benchmark.
+stem: >
+  At 10:00 a desk decides to buy 50,000 shares. The 10:00 mid-quote is
+  40.00. The order is fully filled by 10:40 at an average purchase price
+  of 40.12. Over the same 40 minutes the volume-weighted average price
+  of all prints in the stock is 40.07. The mid at 10:40 is 40.09. The
+  desk's report quotes two numbers: 12 cents of "cost versus arrival"
+  and 5 cents of "cost versus VWAP." Which statement is the right
+  description of those objects?
+options:
+  A: >
+    Both numbers are implementation shortfall. VWAP is just the arrival price expressed in a volume-weighted unit.
+  B: >
+    Implementation shortfall is the gap between the decision-time paper portfolio and the executed portfolio. VWAP is a participation benchmark, not a definition of shortfall, and beating VWAP does not imply a cheap arrival decision.
+  C: >
+    The economically relevant cost is always the gap versus the 10:40 mid, because marking to mid is how dealers mark inventory.
+  D: >
+    Because the order was fully filled, there is no shortfall; shortfall exists only when an order expires unfilled.
+  E: >
+    Cost versus VWAP is the right object for an impatient alpha-decaying order, and cost versus arrival is appropriate only for indexers.
+  F: >
+    The 12 cent figure double-counts the spread, so the only valid cost is the 5 cent VWAP gap.
+  G: >
+    Implementation shortfall and VWAP cost coincide whenever the trader is a small fraction of volume.
+  H: >
+    The arrival mid is not executable, therefore implementation shortfall is not well-defined and should be replaced by cost versus the 10:00 ask.
+  I: >
+    A positive cost versus VWAP means the desk leaked information; a positive cost versus arrival does not.
+  J: >
+    The two numbers cannot both be right because a single fill cannot have two costs.
+correct_option: B
+solution_summary: >
+  Perold's implementation shortfall compares a paper portfolio marked at
+  the decision price with the actual executed portfolio. VWAP is a
+  different question: how the desk's prints sit relative to contemporaneous
+  volume. They answer different decisions.
+solution_derivation: >
+  Let the decision time be t0 and the arrival mid be M_{t0}. A paper buy
+  of Q shares at M_{t0} has value Q M_{t0} (or at the ask, if one insists
+  on an executable paper fill; the definition must be stated). The real
+  portfolio pays ∑ q_i P_i. Implementation shortfall for a buy is
+  ∑ q_i P_i − Q M_{t0}, here 50,000 × 0.12. That number mixes spread,
+  impact, drift, and timing. Separately, VWAP = ∑_{market} v_j P_j /
+  ∑ v_j over the execution window. Cost versus VWAP is
+  ∑ q_i P_i / Q − VWAP, here 0.05. This second number can be small
+  because the desk traded with volume even if the stock drifted up after
+  t0, in which case arrival shortfall is large. Conversely, a desk can
+  beat VWAP by trading early in a falling window and still show a poor
+  arrival gap if it paid the spread. Neither number is a profit forecast.
+  The 10:40 mid is a mark, not a cost definition. Full fill does not
+  zero shortfall; it zeros unfilled residual, which is a different
+  component in some decompositions (Perold; Almgren–Chriss).
+assumptions:
+  - >
+    Decision time and the arrival mid are observed and agreed.
+  - >
+    The 50,000 share parent is the intended paper size (no cancelled residual).
+  - >
+    VWAP is computed on the same stock over the same window, including the desk's own prints.
+  - >
+    No currency, borrow, or settlement residual.
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Both numbers are called "cost," so they look like two units of one
+      object.
+    why_wrong: >
+      Arrival and VWAP are different reference prices. Changing the
+      denominator changes the economic question.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Names Perold's paper-versus-real definition and keeps VWAP as a
+      benchmark, not a synonym.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      End-of-window mids are how some books are marked.
+    why_wrong: >
+      Marking inventory at 10:40 answers a different question (current
+      replacement cost), not the cost of having decided to buy at 10:00.
+  D:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      "Shortfall" sounds like a residual quantity left unfilled.
+    why_wrong: >
+      Unfilled residual is one component in some decompositions. The
+      original Perold object is a cost on the executed and paper books,
+      and it is still defined when the fill rate is 100 percent.
+  E:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      VWAP is associated with participation algorithms, arrival with
+      implementation-shortfall algorithms, and those associations get
+      reversed.
+    why_wrong: >
+      Impatient alpha is why one *minimizes arrival shortfall*. VWAP is
+      the benchmark for a trader whose instruction is to participate, not
+      to finish immediately.
+  F:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Arrival cost includes the half-spread, VWAP cost may look "cleaner."
+    why_wrong: >
+      Including the half-spread is a feature of arrival shortfall, not
+      double-counting. A buy decided at the mid and filled at the ask
+      has paid that half-spread once.
+  G:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Small orders are often treated as price-takers, so the two
+      benchmarks might seem to collapse.
+    why_wrong: >
+      Even a tiny order has an arrival gap equal to the half-spread plus
+      drift. VWAP can differ from the arrival mid whenever the stock
+      moves. Smallness does not identify the two numbers.
+  H:
+    taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+    why_chosen: >
+      The mid is not executable, a point this laboratory insists on
+      elsewhere.
+    why_wrong: >
+      Non-executability of the mid means a paper fill at the mid is an
+      idealized benchmark, which is exactly how implementation shortfall
+      is defined. Replacing it with the 10:00 ask is a different, also
+      legitimate, convention — but then the 12 cent figure would be
+      recomputed, not declared undefined.
+  I:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Trading above VWAP is popularly read as information leakage.
+    why_wrong: >
+      Both gaps have many components (spread, drift, impact, timing).
+      Neither is a sufficient statistic for leakage.
+  J:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      One fill, one cash outlay, so one cost.
+    why_wrong: >
+      Cost is a comparison. The cash outlay is unique; the reference
+      portfolio is not.
+misconception_tags:
+  - INCORRECT_NORMALIZATION
+  - WRONG_INFORMATION_SET
+  - AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+difficulty_rationale: >
+  Direct application of Perold's definition versus a VWAP benchmark.
+  One distinction, little branching.
+ambiguity_audit: >
+  The stem gives both numbers and asks which description is right, not
+  which number the desk "should" optimize. Arrival mid versus arrival
+  ask is flagged in H as a convention, not as a second key.
+uniqueness_check: >
+  Under Perold's definition the 12 cent figure is implementation
+  shortfall relative to the stated arrival mid. The 5 cent figure is a
+  VWAP residual. No other option preserves both identities. If the
+  paper price were restated as the 10:00 ask, the shortfall number
+  would change but it would still not become a VWAP residual.
+references:
+  - key: perold1988
+    claim_supported: >
+      Implementation shortfall is the difference between a paper portfolio
+      at the decision price and the real executed portfolio.
+  - key: almgrenchriss2000
+    claim_supported: >
+      Execution cost relative to an arrival benchmark is the objective in
+      an optimal-execution programme, distinct from a VWAP residual.
+verification:
+  primary_solution: >
+    Apply Perold's paper-versus-real definition to the stated 10:00 mid
+    and the stated average fill; apply the VWAP identity to the same fill.
+  independent_check: >
+    40.12 − 40.00 = 0.12 and 40.12 − 40.07 = 0.05 are arithmetic
+    identities on the stem's numbers. The economic claim is the naming,
+    not the subtraction.
+  invariant_or_boundary_check: >
+    If the window contains no drift and the desk is infinitesimal, arrival
+    shortfall still includes the half-spread while the VWAP gap can be
+    near zero. The objects remain distinct at that boundary.
+revision_notes: >
+  Draft keyed H, treating a non-executable mid as making shortfall
+  undefined. That over-applies the mid-versus-touch distinction. H is
+  now a distractor; the paper portfolio is allowed to be a benchmark.

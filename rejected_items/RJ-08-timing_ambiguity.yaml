@@ -1,0 +1,52 @@
+id: RJ-08-timing_ambiguity
+defect_class: timing_ambiguity
+domain: macroprudential_policy
+difficulty_as_drafted: HARD
+stem: >
+  Credit-to-GDP is above trend and bank capital ratios are high.
+  What should happen to the CCyB now?
+options:
+  A: >
+    Raise it.
+  B: >
+    Release it.
+  C: >
+    Set it to zero forever.
+  D: >
+    Set it to the regulatory maximum forever.
+  E: >
+    Replace it with LCR.
+  F: >
+    Replace it with monetary-policy rates.
+  G: >
+    Raise it only if NPLs are already high.
+  H: >
+    Release it only if NPLs are already high.
+  I: >
+    Do nothing; CCyB is not time-varying.
+  J: >
+    Raise it in a stress, not now.
+drafted_key: B
+defect: >
+  "Now" is not dated to a boom versus a bust. High capital ratios
+  occur in both a late boom (build the buffer) and a post-repair
+  recovery (maybe hold). The drafted key B (release) reads "high
+  capital" as a release trigger, which is the timing error the
+  CCyB exists to avoid *if* the state is a boom. Without that
+  dating, A and B are both arguable.
+why_it_matters: >
+  Timing is the construct. An ambiguous clock makes the key a
+  coin flip. This is the CCyB analogue of an unspecified
+  information set.
+repairable: true
+correction: >
+  Date the state: credit boom, rising asset prices, low NPLs.
+  Then raise, not release. That is MP-H-01. The drafted key B
+  becomes a distractor (TIMING_ERROR).
+key_changes: true
+difficulty_changes: false
+references:
+  - key: drehmanntsatsaronis2014
+    claim_supported: >
+      CCyB timing relative to the credit cycle, which requires
+      stating which phase "now" is.

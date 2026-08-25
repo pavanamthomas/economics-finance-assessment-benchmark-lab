@@ -1,0 +1,51 @@
+id: RJ-02-hidden_assumption_changes_key
+defect_class: hidden_assumption_changes_key
+domain: urban_economics
+difficulty_as_drafted: EXPERT
+stem: >
+  A city receives a permanent amenity improvement. Housing supply
+  is upward-sloping. Do rents rise, and are residents better off?
+options:
+  A: >
+    Rents rise and residents are better off.
+  B: >
+    Rents rise and mobile residents' utility is unchanged.
+  C: >
+    Rents fall and residents are better off.
+  D: >
+    Rents fall and utility is unchanged.
+  E: >
+    Rents unchanged, utility rises.
+  F: >
+    Rents unchanged, utility unchanged.
+  G: >
+    Rents rise, owners worse off.
+  H: >
+    The amenity cannot affect rents.
+  I: >
+    Only wages change.
+  J: >
+    The question is unidentified without more data.
+drafted_key: A
+defect: >
+  Closed versus open city is not stated. Under a closed city, A is
+  the usual comparative static. Under an open city, B is. The
+  drafted key treats A as unique. The hidden assumption (fixed N
+  versus pinned u*) changes the key.
+why_it_matters: >
+  This is the urban-economics version of an unidentified reference
+  point. An expert examinee who assumes the open-city model — the
+  model in which amenities are capitalised — is marked wrong.
+repairable: true
+correction: >
+  State the equilibrium concept. The repaired pair is UE-H-01,
+  which asks for the split rather than a single (ΔR, Δu) pair.
+  J is tempting but too vague: "more data" is not the right
+  repair; the missing object is the model, not a dataset.
+key_changes: true
+difficulty_changes: false
+references:
+  - key: brueckner1987
+    claim_supported: >
+      Closed versus open city comparative statics differ for
+      amenity shocks.

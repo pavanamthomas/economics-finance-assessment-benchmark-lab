@@ -1,0 +1,51 @@
+id: RJ-07-implausible_distractors
+defect_class: implausible_distractors
+domain: algorithmic_trading_market_microstructure
+difficulty_as_drafted: MEDIUM
+stem: >
+  With a constant mid and alternating trade prints at bid and ask,
+  trade-price returns show negative autocovariance. Why?
+options:
+  A: >
+    Bid-ask bounce (Roll).
+  B: >
+    The Fed is printing money, so AMMs do not apply.
+  C: >
+    Because Bitcoin's block time is 10 minutes.
+  D: >
+    Because the specialist is a Keynesian.
+  E: >
+    Because CAPM alpha is always positive.
+  F: >
+    Because the ticker symbol has an even number of letters.
+  G: >
+    Because the stock is in the S&P 500.
+  H: >
+    Because dividends were paid in 1998.
+  I: >
+    Because the researcher used Stata rather than R.
+  J: >
+    Because high-frequency traders are illegal in this window.
+drafted_key: A
+defect: >
+  Nine of ten options are jokes or category errors (macro, crypto
+  settlement, software, listings). They do not correspond to a
+  realistic misconception an otherwise competent examinee would
+  have. The item cannot diagnose bounce versus inefficiency versus
+  event-time, because those rivals are not on the list.
+why_it_matters: >
+  Implausible distractors convert a 10-option item into a 1-option
+  item. They also make the corpus look unserious. The taxonomy
+  exists to stop this.
+repairable: true
+correction: >
+  Rewrite the nine options as genuine rivals (inefficiency,
+  mid-not-executable, bounce-cancels-in-returns, event-time,
+  manipulation, etc.). That is MM-M-01.
+key_changes: false
+difficulty_changes: false
+references:
+  - key: roll1984
+    claim_supported: >
+      The construct the item was trying to test, which the
+      distractors failed to probe.

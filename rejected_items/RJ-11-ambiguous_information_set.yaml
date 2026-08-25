@@ -1,0 +1,54 @@
+id: RJ-11-ambiguous_information_set
+defect_class: ambiguous_information_set
+domain: algorithmic_trading_market_microstructure
+difficulty_as_drafted: HARD
+stem: >
+  In Kyle's one-shot model the insider "knows the price" and
+  trades. What is the insider's optimal demand?
+options:
+  A: >
+    x = (v − p0) / (2λ)
+  B: >
+    x = (v − p) / (2λ) where p is the realised transaction price.
+  C: >
+    x = 0, because knowing the price removes the incentive to trade (Milgrom–Stokey).
+  D: >
+    x = σ_u / σ_v
+  E: >
+    x = λ y
+  F: >
+    x = y − u
+  G: >
+    Infinite, because the insider is risk-neutral.
+  H: >
+    x = v
+  I: >
+    x = p0
+  J: >
+    The demand is not identified.
+drafted_key: B
+defect: >
+  "Knows the price" is ambiguous: the insider in Kyle observes
+  the *value* v, not the transaction price p, which is determined
+  after y = x+u is seen by the market maker. If "price" means v,
+  A is the FOC (with p0 the prior mean). If it means p, B is a
+  wrong information set (the insider would be conditioning on an
+  object that depends on x). If it means a public quote in a
+  no-trade theorem, C is a different model. The drafted key B
+  uses the wrong information set and treats it as Kyle.
+why_it_matters: >
+  Information sets are the construct in microstructure. An
+  ambiguous "knows the price" makes Kyle, a rational-expectations
+  FOC, and a no-trade theorem look like one item.
+repairable: true
+correction: >
+  State: the insider observes v, not y or p, and p = p0 + λ y.
+  Then A is the FOC. That content is in MM-H-01. Do not key B
+  by redefining the insider as observing p.
+key_changes: true
+difficulty_changes: false
+references:
+  - key: kyle1985
+    claim_supported: >
+      Insider observes v; market maker observes y; p is the
+      pricing rule, not the insider's signal.

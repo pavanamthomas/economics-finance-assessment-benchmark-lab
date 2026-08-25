@@ -1,0 +1,160 @@
+id: UE-M-02
+domain: urban_economics
+subdomain: tiebout_sorting
+difficulty: MEDIUM
+learning_objective: >
+  State Tiebout's conditions (mobility, many jurisdictions, no
+  spillovers) and refuse "voting with feet" as identified when
+  mobility or jurisdictions are missing.
+stem: >
+  A metropolitan area has two municipalities with different local
+  public-good packages and tax rates. Moving costs between them are
+  high, and a factory in one town pollutes the other. A commentator
+  says the observed pairing of households to towns is a Tiebout
+  equilibrium, "so the local public goods are efficient and the
+  tax-package differences are willingness to pay." Which statement
+  is right?
+options:
+  A: >
+    The commentator is right. Two towns are enough for Tiebout, and pollution is a local public good.
+  B: >
+    Tiebout sorting as an efficiency theorem needs (among other things) costless mobility, many jurisdictions, and no inter-jurisdictional spillovers. High moving costs and cross-border pollution violate those conditions. Observed pairing is not, by itself, a revealed-WTP equilibrium of that theorem.
+  C: >
+    Pollution spillovers make Tiebout *more* applicable, because they are public goods.
+  D: >
+    Two jurisdictions are the Tiebout minimum; more towns would destroy the equilibrium.
+  E: >
+    High moving costs are equivalent to a capitalised house-price differential, which restores efficiency.
+  F: >
+    Tiebout is a political-economy voting theorem and does not require mobility.
+  G: >
+    If taxes differ, Tiebout cannot hold, because Tiebout towns must have identical tax rates.
+  H: >
+    Efficiency of local public goods is guaranteed by the median voter theorem, which replaces Tiebout here.
+  I: >
+    The commentator is right whenever house prices differ, because capitalisation is Tiebout.
+  J: >
+    Cross-border pollution is a federal problem, so Tiebout is vacuously true inside each town.
+correct_option: B
+solution_summary: >
+  Tiebout is not "people live in towns." It is a set of conditions
+  under which sorting can support an efficient local-public-good
+  allocation. This metro misses mobility and no-spillovers.
+solution_derivation: >
+  Tiebout (1956): households shop among many jurisdictions, mobility
+  is cheap, jurisdictions compete, and local public goods do not
+  spill. Then sorting can mimic a market for those goods. Two towns
+  is not "many" in the sense of a fine type-space. High moving
+  costs mean the observed assignment can be historical, not a
+  current WTP. Cross-border pollution is a spillover: the factory
+  town does not internalise the other town's loss, so the local
+  package is not a complete price of the public bad. House-price
+  capitalisation (E, I) can occur *without* Tiebout efficiency;
+  capitalisation is a price gradient, not the theorem. Median-voter
+  (H) is a different political aggregation, and it does not restore
+  inter-jurisdictional efficiency with spillovers. Tiebout requires
+  mobility; it is not a pure voting theorem (F). Different tax
+  rates are *part of* the Tiebout package, not a contradiction (G).
+assumptions:
+  - >
+    Two towns, high moving costs, cross-border pollution, as stated.
+  - >
+    "Tiebout equilibrium" means the efficiency/sorting theorem, not the mere existence of towns.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Any sorting is labelled Tiebout in casual talk.
+    why_wrong: >
+      Conditions fail.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Names mobility, many jurisdictions, no spillovers, and
+      refuses WTP identification.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Pollution is a public good/bad.
+    why_wrong: >
+      Spillovers are what Tiebout needs to be absent.
+  D:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Two is the smallest interesting case.
+    why_wrong: >
+      The theorem wants many competing packages.
+  E:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Capitalisation can offset moving costs in some models.
+    why_wrong: >
+      It does not restore the Tiebout first best under spillovers
+      and coarse choice sets.
+  F:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Tiebout is in public-finance voting chapters.
+    why_wrong: >
+      The mechanism is mobility ("voting with feet").
+  G:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Equal treatment looks like equal tax rates.
+    why_wrong: >
+      Packages differ on purpose.
+  H:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Median voter is the other local-public-good workhorse.
+    why_wrong: >
+      It does not replace Tiebout's conditions here.
+  I:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      House prices differ, so WTP looks identified.
+    why_wrong: >
+      Capitalisation ≠ Tiebout efficiency.
+  J:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      Federalise the spillover and declare local Tiebout saved.
+    why_wrong: >
+      The spillover is still in the data-generating process of
+      the two-town pairing.
+misconception_tags:
+  - NECESSARY_VS_SUFFICIENT
+  - CORRELATION_VS_IDENTIFICATION
+  - SIGN_REVERSAL
+difficulty_rationale: >
+  Direct application of Tiebout's conditions to a stated violation.
+  Medium.
+ambiguity_audit: >
+  "Efficient" is the first-best Tiebout claim, not a second-best
+  constrained efficiency. Two towns and pollution are explicit.
+uniqueness_check: >
+  B is the only option that lists the failed conditions and
+  refuses WTP identification. If moving costs were zero, many
+  towns existed, and pollution did not spill, A would be closer;
+  the stem is the opposite.
+references:
+  - key: tiebout1956
+    claim_supported: >
+      Consumer mobility across many jurisdictions as a mechanism
+      for revealing demand for local public goods, under conditions
+      that include no spillovers.
+verification:
+  primary_solution: >
+    Match the stem's facts to failed Tiebout conditions.
+  independent_check: >
+    If pollution did not spill and mobility were costless and the
+    number of towns were large, the commentator's claim would be
+    the theorem. Two of those three are failed here (and "many"
+    is failed too).
+  invariant_or_boundary_check: >
+    One town ⇒ no Tiebout shopping. The stem has two, which is
+    still not the theorem's "many."
+revision_notes: >
+  None.

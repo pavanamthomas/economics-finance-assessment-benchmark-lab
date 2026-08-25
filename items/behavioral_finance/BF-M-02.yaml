@@ -1,0 +1,169 @@
+id: BF-M-02
+domain: behavioral_finance_experimental_economics
+subdomain: incentive_compatibility
+difficulty: MEDIUM
+learning_objective: >
+  Separate hypothetical survey responses from incentive-compatible
+  choices, and experimenter-demand from the treatment of interest.
+stem: >
+  Two studies claim that a framing treatment raises "risk aversion."
+  Study H asks hypothetically how much a subject would pay for a
+  lottery, with no payment. Study I uses a random-lottery incentive
+  protocol in which one choice is paid for real, and the framing is
+  delivered by a computer with no stated hypothesis. Study H shows a
+  large framing gap; Study I shows a small one. A commentator takes
+  H as the better estimate "because it is uncontaminated by money."
+  Which statement is right?
+options:
+  A: >
+    The commentator is right. Money distorts true preferences, so hypothetical answers are the revealed-preference object.
+  B: >
+    Hypothetical questions are not incentive-compatible. Study I's random-lottery payment is a standard way to make choices consequential, and stripping the hypothesis from the script is a way to limit experimenter demand. H can be larger because of cheap talk and demand, not because it is cleaner.
+  C: >
+    Random-lottery incentives identify nothing, because only one choice is paid, so all other choices are hypothetical anyway.
+  D: >
+    If the computer does not state the hypothesis, demand effects are impossible, so I's small gap must be a failed manipulation.
+  E: >
+    Framing effects cannot exist under real stakes, so I is biased toward zero by construction.
+  F: >
+    Study H is an experiment and Study I is not, because I uses money, which makes it a market.
+  G: >
+    The right design is a survey with a cheap-talk script asking subjects to answer as if paid, which dominates both H and I.
+  H: >
+    Incentive compatibility is only required in games with more than one player; individual choice needs no payment.
+  I: >
+    The larger gap is always the better estimate because it is easier to detect.
+  J: >
+    Study I is incentive-compatible only if every choice is paid, which would bankrupt the lab; therefore H is the feasible gold standard.
+correct_option: B
+solution_summary: >
+  Smith's induced-value logic: payoffs must be tied to choices.
+  Hypothetical WTP is cheap talk. Random-lottery payment of one
+  choice is a standard (if debated) incentive protocol; it is not
+  equivalent to paying nothing.
+solution_derivation: >
+  Incentive compatibility here means the reported choice can change
+  the subject's money. Study H has no such link. Study I has a
+  positive probability that the choice is paid, which is the
+  random-lottery method. Whether that method is fully
+  incentive-compatible under non-EU preferences is a real debate;
+  it is still closer to a paid choice than H, and the commentator's
+  "money contaminates" claim is the reverse of the experimental
+  rationale. Experimenter demand: if subjects infer the desired
+  framing effect, H is especially exposed because talk is cheap.
+  A computer script that does not state the hypothesis reduces
+  that channel; it does not make demand impossible (D). Paying
+  every choice (J) is not required for the random-lottery logic
+  under EU (each choice is paid with positive probability, and
+  isolation is the extra assumption). Individual choice still
+  needs incentives if the object is preference, not cheap talk
+  (H). Larger effects are not better (I). Cheap-talk scripts (G)
+  are not known to dominate paid choice.
+assumptions:
+  - >
+    "Random-lottery incentive protocol" means one randomly selected choice is paid at the stated terms.
+  - >
+    The framing treatment is the same verbal/computer frame in both studies; only payment and hypothesis-salience differ.
+  - >
+    No claim that I's gap is the population parameter.
+distractor_rationales:
+  A:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Money as contamination is a lay intuition.
+    why_wrong: >
+      In experimental economics, money is how one induces value.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Incentive compatibility plus demand as explanations of H > I.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Unpaid rows look hypothetical.
+    why_wrong: >
+      Under the protocol, each row has a chance of being the paid
+      one at the time of choice.
+  D:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Blinding is treated as perfect.
+    why_wrong: >
+      Demand can remain. A small gap is not proof of a failed
+      manipulation.
+  E:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Some critics claim framing is hypothetical-only.
+    why_wrong: >
+      That is a hypothesis, not a construction of I. I can be
+      small for many reasons, including a true smaller effect
+      under stakes.
+  F:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      "Experiment" versus "market."
+    why_wrong: >
+      I is still a randomised framing study.
+  G:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Cheap-talk scripts exist in contingent valuation.
+    why_wrong: >
+      They are not known to dominate a paid protocol here.
+  H:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Mechanism design is associated with multi-player games.
+    why_wrong: >
+      Individual stated WTP is the original cheap-talk problem.
+  I:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      Statistical detection is confused with bias.
+    why_wrong: >
+      A biased-upward gap is easier to detect and still biased.
+  J:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Paying all choices is the naive gold standard.
+    why_wrong: >
+      Random lottery exists because paying all is expensive; under
+      EU it can still incentivise each choice.
+misconception_tags:
+  - SIGN_REVERSAL
+  - WRONG_INFORMATION_SET
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Direct application of incentive compatibility versus hypothetical
+  talk, plus a demand remark. Medium.
+ambiguity_audit: >
+  The item does not take a side in the "random lottery is invalid
+  under non-EU" literature beyond saying I is still not H.
+uniqueness_check: >
+  B is the only option that rejects the commentator and gives both
+  incentives and demand. If H and I had the same gap, B's
+  "H can be larger because..." would be idle but still not false;
+  the stem has H larger.
+references:
+  - key: smith1982
+    claim_supported: >
+      Induced-value / incentive compatibility as the rationale for
+      paying choices in experiments.
+  - key: harrisonlist2004
+    claim_supported: >
+      Field and lab design issues, including incentives and the
+      interpretation of hypothetical versus paid responses.
+verification:
+  primary_solution: >
+    Compare the payment link in H versus I.
+  independent_check: >
+    If the payment probability in I is zero, I collapses to H. It
+    is not zero by statement.
+  invariant_or_boundary_check: >
+    As payment probability → 1, I approaches a fully paid design.
+    Demand can still remain. That is why B mentions both.
+revision_notes: >
+  None.

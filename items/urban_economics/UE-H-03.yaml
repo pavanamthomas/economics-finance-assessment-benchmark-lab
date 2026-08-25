@@ -1,0 +1,177 @@
+id: UE-H-03
+domain: urban_economics
+subdomain: hedonic_identification
+difficulty: HARD
+learning_objective: >
+  Refuse a cross-section house-price-on-test-score regression as the
+  causal willingness to pay for school quality when amenities are
+  omitted and households sort.
+stem: >
+  A researcher regresses log house prices on a school's mean test
+  score, with no other controls, across neighbourhoods of a metro
+  area. The coefficient is large and positive. A commentator says
+  this is "the" willingness to pay for school quality, "because
+  Rosen's hedonic theory says prices reveal amenity values." Which
+  statement is right?
+options:
+  A: >
+    The commentator is right. A positive coefficient in a hedonic regression is WTP by definition of Rosen (1974).
+  B: >
+    Rosen's theory is an equilibrium relationship between prices and a *vector* of attributes, under conditions. A univariate regression of price on test scores confounds school quality with correlated amenities and with sorting on unobserved household tastes and income. The coefficient is not identified as WTP for schools. Boundary discontinuity designs (Black 1999 style) exist because of this problem, not as decoration.
+  C: >
+    If the coefficient is positive, omitted amenities can only bias it toward zero, so the estimate is a lower bound on WTP.
+  D: >
+    Sorting proves that the coefficient is WTP, because only people who value schools live near good schools, which is the Rosen demand curve.
+  E: >
+    Test scores are an output, not an amenity, so hedonics cannot apply and the coefficient must be zero in theory.
+  F: >
+    Log prices make the coefficient an elasticity, which is WTP after multiplying by mean price, so identification is a units issue.
+  G: >
+    A metro-wide regression is better than a boundary design, because it uses more variation.
+  H: >
+    Rosen requires a perfectly competitive housing market, which is enough to make omitted amenities irrelevant.
+  I: >
+    The commentator is right if the R² is high.
+  J: >
+    Household sorting is a Tiebout virtue and therefore cannot bias a hedonic coefficient.
+correct_option: B
+solution_summary: >
+  Hedonic theory is not a license for a univariate regression.
+  Omitted amenities and sorting are why school-quality papers use
+  assignment-boundary designs.
+solution_derivation: >
+  Rosen (1974): in equilibrium, the price function p(z) for a
+  vector of attributes z is such that the gradient ∂p/∂z_k equals
+  the marginal WTP of the occupant *for that attribute, holding
+  other z fixed*, under conditions (smoothness, interior choice,
+  etc.). Estimating that gradient requires variation in z_k that
+  is not bundled with other z and not assigned by sorting on
+  unobservables in a way that the researcher cannot control.
+  Neighbourhood test scores are bundled with parks, crime, peers,
+  and income. Sorting: high-WTP / high-income households occupy
+  high-score neighbourhoods, so the univariate coefficient mixes
+  WTP with the price of the bundle and with selection. Black
+  (1999) compares houses on opposite sides of an attendance
+  boundary, holding the neighbourhood bundle closer to fixed.
+  C signs the omitted-variable bias without justification; the
+  omitted amenities are typically positive correlates, which
+  *inflates* the school coefficient. D confuses the equilibrium
+  occupancy with identification of the gradient. More variation
+  (G) that is more confounded is not better. High R² (I) is
+  fit, not identification. Tiebout sorting (J) is a reason the
+  cross-section is *harder*, not easier.
+assumptions:
+  - >
+    The regression is univariate as stated.
+  - >
+    Test scores are a proxy for school quality, possibly contaminated by peer composition.
+  - >
+    No claim that any particular boundary design is perfect (manipulation of boundaries, still-unobserved house characteristics).
+distractor_rationales:
+  A:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Rosen is taught as "prices reveal values."
+    why_wrong: >
+      The theorem is not a univariate OLS license.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Vector of attributes, omitted amenities, sorting, and why
+      boundary designs exist.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Attenuation as the default omitted-variable story.
+    why_wrong: >
+      Positive confounders inflate the school coefficient.
+  D:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Sorting is how hedonic demand is revealed in theory.
+    why_wrong: >
+      Sorting without controls is how the univariate regression
+      fails to hold other z fixed.
+  E:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Outputs versus attributes.
+    why_wrong: >
+      Parents still pay for the proxy. The issue is confounding,
+      not a forced zero.
+  F:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Elasticity arithmetic.
+    why_wrong: >
+      Units are not identification.
+  G:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      More variation as more information.
+    why_wrong: >
+      Confounded variation is not the Rosen gradient.
+  H:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Competition as a universal identifying assumption.
+    why_wrong: >
+      Competition does not unbundle amenities.
+  I:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      High R² as truth.
+    why_wrong: >
+      A bundled amenity index can fit well and still not isolate
+      schools.
+  J:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Tiebout as a blessing.
+    why_wrong: >
+      Tiebout sorting is a source of the confounding.
+misconception_tags:
+  - CORRELATION_VS_IDENTIFICATION
+  - SIGN_REVERSAL
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Combines Rosen's theorem with a standard identification failure.
+  Hard: not name-recall of Black, but why that design exists.
+ambiguity_audit: >
+  Boundary designs are cited as motivation, not as a claim that
+  they identify perfectly. The univariate regression is the object
+  under review.
+uniqueness_check: >
+  B is the only option that both (i) states Rosen correctly as a
+  vector gradient and (ii) denies the univariate WTP reading. If
+  the researcher had already run a boundary design, A would still
+  be too strong ("the" WTP) but the item would be different.
+references:
+  - key: rosen1974
+    claim_supported: >
+      Hedonic prices as an equilibrium map from a vector of
+      attributes; the gradient as marginal WTP under conditions.
+  - key: black1999
+    claim_supported: >
+      School-quality valuation using attendance-boundary
+      discontinuities, motivated by omitted neighbourhood
+      amenities in a naive hedonic.
+verification:
+  primary_solution: >
+    Contrast Rosen's ∂p/∂z_k |_{other z} with univariate OLS on
+    test scores.
+  independent_check: >
+    Omitted-variable formula: if crime, parks, and income
+    correlate positively with scores and with prices, the
+    univariate coefficient exceeds the ceteris-paribus school
+    gradient. That sign is the usual bundle, not a theorem about
+    all metros, which is why C is rejected as a general lower
+    bound.
+  invariant_or_boundary_check: >
+    If school quality were randomly assigned and all other z were
+    observed, the commentator would be closer. The stem is the
+    opposite regression.
+revision_notes: >
+  None.

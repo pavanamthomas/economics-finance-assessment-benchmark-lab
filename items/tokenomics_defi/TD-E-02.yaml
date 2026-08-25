@@ -1,0 +1,177 @@
+id: TD-E-02
+domain: tokenomics_defi
+subdomain: oracle_risk
+difficulty: EXPERT
+learning_objective: >
+  Separate stale-oracle risk from manipulable-spot risk, and show
+  that a lending protocol's liquidation rule is only as timely as
+  the oracle it reads.
+stem: >
+  A lending protocol liquidates when HF < 1 using an oracle price,
+  not the AMM spot. Two incidents are described. Incident S: the
+  AMM spot of the collateral falls 40 percent in two minutes; the
+  oracle is a 30-minute TWAP that has not yet moved; HF computed
+  on the oracle remains above 1; HF computed on the spot would be
+  0.7. Incident M: the AMM spot is pushed up for 15 minutes by a
+  thin-pool trade; a 5-minute TWAP follows it; HF on that TWAP
+  looks healthy enough to borrow more, then the spot reverts.
+  A commentator says "oracles exist to report the truth, so both
+  incidents are protocol bugs, and a faster oracle would fix
+  both." Which statement is right?
+options:
+  A: >
+    The commentator is right. The only good oracle is the last AMM trade, and both incidents are implementation bugs.
+  B: >
+    S is staleness: the oracle is designed not to follow a two-minute crash, so liquidations do not fire while the collateral has already cheapened on the spot. M is manipulation: a short-window oracle that tracks a thin spot can be moved to induce borrowing or unfair liquidation. Faster is not a joint repair — it eases S and tightens M. Neither incident is, by itself, "the oracle failed to report truth" as a single bug class.
+  C: >
+    TWAPs cannot be stale, because an average of honest trades is honest.
+  D: >
+    Incident M is impossible if the pool is constant-product, because k protects the price.
+  E: >
+    Incident S cannot threaten the protocol, because users can always repay at the AMM spot even if the oracle is stale.
+  F: >
+    The two incidents are the same object (oracle error) and should be scored as one defect class.
+  G: >
+    A 30-minute TWAP is always dominated by a Chainlink-style median of many venues, which would have prevented both incidents by construction.
+  H: >
+    If HF on the spot is 0.7, the protocol has already undercollateralised regardless of the oracle, so S is not an oracle issue but a capital-ratio issue like MP-M-01.
+  I: >
+    Manipulation requires a majority of token votes, so M is a governance incident, not an oracle incident.
+  J: >
+    Faster oracles fix M as well as S, because a 1-second TWAP cannot be manipulated.
+correct_option: B
+solution_summary: >
+  Staleness and manipulation trade off in the oracle window.
+  "Faster" is not a sufficient statistic. Spot-truth is not the
+  protocol's only design goal.
+solution_derivation: >
+  The protocol's state variable is the *oracle* price, by
+  statement. In S, that variable is behind a crash: liquidations
+  that would restore HF on the spot do not trigger, so the
+  protocol's collateral, marked its way, is fine while marked
+  at spot it is not. That is a designed robustness to spikes
+  *and* a lag in genuine crashes. In M, a short window inherits
+  a thin-pool print: the oracle is "working" and still produces
+  a bad economic state (extra borrowing against a fake price).
+  k does not prevent a finite-size price move in a thin pool
+  (D); it prices the move. Users cannot always repay at spot
+  (E) if they are not there, if gas is scarce, or if the
+  protocol will not accept the spot as the debt unit. Calling
+  both "bugs" (A, F) erases the window trade-off. A multi-venue
+  median (G) can help M and can still lag (S); it is not a
+  construction that "prevents both." H: the capital-ratio
+  language is right that the *spot* book is underwater; the
+  design question is still which price the rule reads. M is
+  not a token-vote (I). A 1-second TWAP (J) is almost the spot
+  and is the most manipulable of the TWAP family in a thin
+  pool, which is the opposite of "cannot be manipulated."
+assumptions:
+  - >
+    Oracle versus AMM spot as stated; no claim about a named vendor's robustness.
+  - >
+    Thin pool in M means finite cost to move the spot for 15 minutes.
+  - >
+    Educational model only; not an exploit recipe.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Last trade as truth.
+    why_wrong: >
+      Last trade is the most manipulable object in a thin pool.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      S vs M, and faster as a trade-off not a joint fix.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Averages as truth-extractors.
+    why_wrong: >
+      Averages of a delayed or manipulated path inherit the path.
+  D:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      k as a price lock.
+    why_wrong: >
+      k prices the manipulation; it does not forbid it.
+  E:
+    taxonomy: EQUILIBRIUM_FEEDBACK_IGNORED
+    why_chosen: >
+      Repay as a free option.
+    why_wrong: >
+      Who repays, at what gas, under what rule.
+  F:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      One word, "oracle."
+    why_wrong: >
+      Opposite window problems.
+  G:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Multi-venue medians as a universal solvent.
+    why_wrong: >
+      Helps manipulation, does not erase lag, and is not in the
+      stem as a construction that "prevents both."
+  H:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Spot mark as the true capital ratio.
+    why_wrong: >
+      The protocol does not mark that way. That *is* the oracle
+      choice.
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Governance as all DeFi politics.
+    why_wrong: >
+      M is a price-path incident.
+  J:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Faster as uniformly better.
+    why_wrong: >
+      Faster tightens manipulation.
+misconception_tags:
+  - NECESSARY_VS_SUFFICIENT
+  - SIGN_REVERSAL
+  - WRONG_INFORMATION_SET
+difficulty_rationale: >
+  Expert: two failure modes that move in opposite directions with
+  the same design parameter (window length).
+ambiguity_audit: >
+  No vendor is named. No step-by-step of how to move a pool.
+  "Pushed up by a thin-pool trade" is a description of an
+  economic possibility, not a procedure.
+uniqueness_check: >
+  B is the only option that splits S and M and denies a joint
+  faster-fix. If both incidents had been 30-minute TWAPs, M
+  would be weaker; M is a 5-minute window on purpose.
+references:
+  - key: liuszalachowskizhou2021
+    claim_supported: >
+      On-chain and TWAP-style DeFi oracles: freshness versus
+      manipulation, the window trade-off in S versus M.
+  - key: qinzhoulivshits2021
+    claim_supported: >
+      Attacks on DeFi that use price manipulation of on-chain
+      markets — the M polar case — as an economic phenomenon,
+      cited for the existence of the channel, not as a how-to.
+verification:
+  primary_solution: >
+    Classify S as lag and M as a short-window inherited print;
+    note the opposite comparative static in window length.
+  independent_check: >
+    Comparative static: lengthening the TWAP window raises
+    staleness in S and raises the cost/duration of M. That
+    monotonicity is the independent check that "faster fixes
+    both" is false.
+  invariant_or_boundary_check: >
+    Window → 0: S vanishes, M becomes the spot. Window → ∞: M
+    vanishes, S becomes a frozen price.
+revision_notes: >
+  Removed any numerical "cost to move the pool" that would look
+  like an exploit calibration.

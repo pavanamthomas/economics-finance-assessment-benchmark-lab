@@ -1,0 +1,175 @@
+id: UE-H-01
+domain: urban_economics
+subdomain: open_versus_closed_city
+difficulty: HARD
+learning_objective: >
+  Contrast closed-city (fixed population, endogenous utility) and
+  open-city (endogenous population, utility pinned by an outside
+  option) comparative statics of an amenity shock.
+stem: >
+  A city receives a permanent amenity improvement (cleaner air).
+  Housing supply is upward-sloping but not perfectly elastic. In a
+  *closed* city, population is fixed. In an *open* city, people can
+  enter from a large outside system that pins reservation utility.
+  A commentator says "rents rise and residents are better off" in
+  both models, "because amenities are good." Which statement is
+  right?
+options:
+  A: >
+    The commentator is right. Amenities raise utility and rents in both models by the same amounts.
+  B: >
+    Closed city: population fixed, u* rises, rents rise with the willingness to pay of the incumbents. Open city: u* is pinned by the outside option, in-migration bids up rents (and housing input prices) until the utility gain is capitalised away from mobile residents; landowners capture the rent. "Residents are better off" is not a common prediction.
+  C: >
+    Open city: utility of residents must rise, otherwise nobody would migrate in.
+  D: >
+    Closed city: rents cannot rise, because population is fixed and so is housing demand.
+  E: >
+    Perfectly elastic housing supply would make rents rise more in the open city, which is the opposite of the usual incidence.
+  F: >
+    The two models are identical if housing supply has any positive slope.
+  G: >
+    Amenity improvements cannot raise rents, because rent is a function of construction cost only.
+  H: >
+    Open-city in-migration lowers rents by increasing supply of labour, which dominates housing demand.
+  I: >
+    Closed-city incumbents are worse off because they pay higher rents for the same land, with no migration valve.
+  J: >
+    The commentator is right for owners and wrong for renters in both models equally, so the open/closed split is irrelevant.
+correct_option: B
+solution_summary: >
+  Who is on the margin differs. Closed: the household is the
+  residual claimant on the amenity. Open: land is. Rents rise in
+  both typical cases; utility of mobile residents does not.
+solution_derivation: >
+  Closed city: N fixed, u* endogenous. An amenity a ↑ raises
+  willingness to pay for locations. With upward-sloping housing
+  supply, R rises and u* still rises because N cannot bid the
+  gain away (Brueckner handbook). Open city: u* = u_bar from the
+  outside option. In-migration raises N until the combination of
+  higher R and any congestion restores u_bar. Mobile residents
+  end at the same utility; the amenity is in the land price.
+  C gets the migration inequality wrong: people migrate until
+  indifference, not until incumbents are strictly better off.
+  D: demand for *quality-adjusted* housing rises even at fixed N
+  because a is an argument of WTP; also density/lot size can
+  adjust. Elastic supply (E): more elastic supply *reduces* the
+  rent increase and, in the open city, increases the quantity
+  (population) response — incidence on land falls. G is the
+  construction-cost-only error. H signs labour-supply as a rent
+  reducer and ignores the housing-demand channel that is first
+  order in AMM/Roback. I: closed-city incumbents can be better
+  off in utility even as they pay higher rents, because they get
+  the amenity; owners additionally get capital gains. J: owners
+  versus renters is real but is *not* the same split as open
+  versus closed, and it does not make the commentator right.
+assumptions:
+  - >
+    Amenity is not fully offset by a new congestion or crime disamenity in the closed city (partial offset allowed, not full).
+  - >
+    Housing supply elasticity in (0, ∞).
+  - >
+    Open city's outside option is unchanged by this one city's amenity (small city in a large system).
+distractor_rationales:
+  A:
+    taxonomy: PARTIAL_VS_GENERAL_EQUILIBRIUM
+    why_chosen: >
+      Amenities are good, so everyone is better off.
+    why_wrong: >
+      Open-city GE capitalises the gain into land.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Closed: Δu* > 0. Open: Δu* = 0 for mobile residents, ΔR > 0.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Strict inequality for migration.
+    why_wrong: >
+      Interior migration is an indifference condition.
+  D:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Fixed N as fixed housing demand.
+    why_wrong: >
+      WTP shifts at given N.
+  E:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Elasticity incidence is easy to flip.
+    why_wrong: >
+      More elastic supply ⇒ smaller rent increase.
+  F:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Any slope looks like "some supply response."
+    why_wrong: >
+      The residual claimant still differs.
+  G:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Construction-cost theory of rent.
+    why_wrong: >
+      Location rent is a residual.
+  H:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Labour supply as a price reducer.
+    why_wrong: >
+      The housing-demand channel from in-migration raises R.
+  I:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Higher rents as a utility loss.
+    why_wrong: >
+      Misses the amenity in the utility function.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Owners vs renters is a real incidence split.
+    why_wrong: >
+      It is not a substitute for the open/closed split, and it
+      does not salvage the commentator.
+misconception_tags:
+  - PARTIAL_VS_GENERAL_EQUILIBRIUM
+  - SIGN_REVERSAL
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Comparative statics in two equilibrium concepts. Hard
+  undergraduate urban.
+ambiguity_audit: >
+  "Residents" in the commentator's quote is read as mobile
+  households, not landowners. Owner-occupiers mix the two, which
+  is why J is a distractor rather than a second key.
+uniqueness_check: >
+  B is the only option that splits Δu* across the two models.
+  If the city were large enough to move the national u_bar, the
+  open-city pin would weaken; the stem says a large outside
+  system.
+references:
+  - key: brueckner1987
+    claim_supported: >
+      Closed versus open city comparative statics: who captures
+      an amenity or productivity shock.
+  - key: roback1982
+    claim_supported: >
+      Spatial equilibrium with mobile workers: amenities
+      capitalised into rents (and wages) rather than left as a
+      utility surplus for residents.
+verification:
+  primary_solution: >
+    Compare the residual claimant: households (closed) versus
+    land (open).
+  independent_check: >
+    Open-city equilibrium condition u(R, a, …) = u_bar. da > 0
+    with u_bar fixed requires dR > 0 (and/or congestion) to hold
+    the equality. Closed city has no such equality to an outside
+    u_bar.
+  invariant_or_boundary_check: >
+    Perfectly inelastic housing in the open city: population
+    still rises until rents absorb the amenity (unless a capacity
+    constraint binds). Perfectly elastic housing: rent increase
+    shrinks, population response grows.
+revision_notes: >
+  None.

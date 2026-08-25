@@ -1,0 +1,175 @@
+id: BF-H-02
+domain: behavioral_finance_experimental_economics
+subdomain: limits_to_arbitrage
+difficulty: HARD
+learning_objective: >
+  Explain why an identified mispricing need not be corrected when
+  professional arbitrageurs face performance-based capital and noise
+  trader risk.
+stem: >
+  A mispricing is identified: a twin security trades at a 15 percent
+  discount to an economically equivalent claim, with no binding
+  short-sale ban. Professional arbitrageurs are long the cheap twin
+  and short the rich one, but their capital is withdrawn if the
+  discount *widens* over the next quarter (performance-based
+  capital). Noise traders can push the discount to 25 percent before
+  any convergence. A commentator says "if the mispricing is real,
+  arbitrageurs will correct it immediately; remaining gaps are
+  therefore not mispricings." Which statement is right?
+options:
+  A: >
+    The commentator is right. Costless arbitrage is the definition of market efficiency, so a remaining gap is a hidden risk factor.
+  B: >
+    With performance-based capital, a widening of the gap before convergence can force liquidation at the worst time. Noise trader risk is then a reason a real mispricing can persist. Identification of the gap is not sufficient for immediate correction.
+  C: >
+    A 15 percent gap is too large to be noise-trader risk; it must be a short-sale constraint the stem missed.
+  D: >
+    Professional arbitrageurs do not face noise trader risk, because they are diversified.
+  E: >
+    If there is no short-sale ban, the short leg is riskless, so the long-short book cannot lose when the discount widens.
+  F: >
+    Performance-based capital is an agency problem that markets would not use if it constrained arbitrage, so the premise is self-contradictory.
+  G: >
+    The gap must be closed in expectation in the next quarter, otherwise the arbitrageurs would not have entered; therefore forced liquidation has probability zero.
+  H: >
+    Limits to arbitrage apply only to retail investors; the professionals in the stem are the reason the commentator is right.
+  I: >
+    Twin-security discounts are always stale prices, not mispricings, so noise traders are irrelevant.
+  J: >
+    The correct model is CAPM: a 15 percent discount is a beta difference, and adding noise traders is unnecessary.
+correct_option: B
+solution_summary: >
+  Shleifer–Vishny: arbitrageurs can be right and still be taken
+  out by a deepening gap when capital is performance-sensitive.
+  Efficiency-as-immediate-correction does not follow from
+  "identified gap plus no short ban."
+solution_derivation: >
+  The textbook arbitrage P&L on a twin is (P_rich − P_cheap) at
+  convergence. If the gap widens first, mark-to-market is negative.
+  If outside capital is withdrawn on that mark, the position is
+  closed before convergence and the loss is realised. Noise traders
+  who can move the gap are then a first-order risk even when the
+  long-run equivalence is known. A short-sale ban is a different
+  friction; its absence does not make the short leg mark-to-market
+  safe (E). Diversification (D) does not remove a common noise-trader
+  factor across delegated funds. Agency (F) is the point of the
+  model, not a contradiction: the capital providers do not share the
+  arbitrageur's information. Entry (G) can occur with a positive
+  probability of liquidation; it does not require that probability
+  to be zero. CAPM (J) can always relabel a gap as a factor; the
+  stem's economic equivalence of the twins is there to make that
+  relabelling unattractive. The commentator's "therefore not a
+  mispricing" is the non sequitur.
+assumptions:
+  - >
+    Economic equivalence of the twins is granted as in the stem (no hidden cash-flow difference).
+  - >
+    Performance-based withdrawals are a real constraint, not a metaphor.
+  - >
+    Noise traders can move the gap in finite time.
+  - >
+    No claim about the empirical 15 percent being a particular historical episode.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Residual pricing gaps are often called risk.
+    why_wrong: >
+      A gap can be a mispricing that is risky to attack.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Performance capital plus a possible widening before
+      convergence.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Large numbers feel like hard constraints.
+    why_wrong: >
+      Size of the gap does not identify a short ban.
+  D:
+    taxonomy: RISK_VS_UNCERTAINTY
+    why_chosen: >
+      Diversification is the usual eraser of idiosyncratic noise.
+    why_wrong: >
+      Delegated capital can be correlated across funds when the
+      gap is a public mark.
+  E:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Short bans are the public limits-to-arbitrage story.
+    why_wrong: >
+      Mark-to-market on the long-short book can lose when both
+      legs move apart, ban or not.
+  F:
+    taxonomy: EQUILIBRIUM_FEEDBACK_IGNORED
+    why_chosen: >
+      Equilibrium would seem to select better contracts.
+    why_wrong: >
+      The uninformed capital providers *cannot* write the first-best
+      contract if they cannot verify the mispricing.
+  G:
+    taxonomy: RANKING_VS_PROBABILITY
+    why_chosen: >
+      Participation is read as probability-zero failure.
+    why_wrong: >
+      Expected profit can be positive with a liquidation tail.
+  H:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Professionals are "the arbitrageurs."
+    why_wrong: >
+      They are exactly the constrained agents in SV97.
+  I:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Stale quotes are a real microstructure issue.
+    why_wrong: >
+      The stem grants an economic discount, not a stale print.
+  J:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Beta can always be fitted.
+    why_wrong: >
+      Twin equivalence is there to block a casual factor story.
+misconception_tags:
+  - NECESSARY_VS_SUFFICIENT
+  - RISK_VS_UNCERTAINTY
+  - EQUILIBRIUM_FEEDBACK_IGNORED
+difficulty_rationale: >
+  Combines identified mispricing with an agency/capital constraint.
+  Hard: not a formula, but a standard SV97 mechanism.
+ambiguity_audit: >
+  "Economically equivalent claim" rules out a hidden cash-flow
+  story as the key. 15 and 25 percent are illustrative.
+uniqueness_check: >
+  B is the only option that accepts the mispricing and still
+  explains persistence. A denies the mispricing. If capital were
+  locked until convergence, B's mechanism would be shut and the
+  commentator would be closer; the stem has quarterly withdrawals.
+references:
+  - key: shleifervishny1997
+    claim_supported: >
+      Delegated arbitrage with performance-based capital can be
+      forced to liquidate when mispricing deepens; noise trader
+      risk then limits correction.
+  - key: barberisthaler2003
+    claim_supported: >
+      Survey statement of limits to arbitrage as the other half of
+      behavioral finance, alongside psychology.
+verification:
+  primary_solution: >
+    Write the mark-to-market loss when the discount widens and the
+    capital constraint that realises it.
+  independent_check: >
+    If withdrawal sensitivity is zero, the forced-liquidation
+    channel shuts and the commentator's correction claim is
+    restored (other frictions aside). The stem has non-zero
+    sensitivity.
+  invariant_or_boundary_check: >
+    If noise traders cannot move the gap, the widening never
+    arrives. The stem says they can.
+revision_notes: >
+  None.

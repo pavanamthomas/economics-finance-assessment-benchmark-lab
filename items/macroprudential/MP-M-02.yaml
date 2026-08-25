@@ -1,0 +1,174 @@
+id: MP-M-02
+domain: macroprudential_policy
+subdomain: lcr_versus_nsfr
+difficulty: MEDIUM
+learning_objective: >
+  Distinguish the Liquidity Coverage Ratio (30-day stress stock of HQLA)
+  from the Net Stable Funding Ratio (structural stable-funding
+  requirement) as complementary, not substitute, liquidity tools.
+stem: >
+  A bank has a 30-day Liquidity Coverage Ratio well above 100 percent:
+  high-quality liquid assets cover the prescribed net cash outflows in
+  a 30-day stress. The same bank funds a large book of five-year
+  corporate loans with overnight wholesale deposits. Its Net Stable
+  Funding Ratio is below 100 percent. A commentator says the LCR
+  already "takes care of liquidity," so the NSFR is redundant
+  bookkeeping. Which statement is right?
+options:
+  A: >
+    The commentator is right. Any 30-day liquidity standard implies a one-year funding standard by compounding.
+  B: >
+    LCR is a short-horizon stock of liquid assets against prescribed outflows. NSFR is a structural match between available stable funding and required stable funding over a one-year horizon. A bank can pass LCR while running a maturity-transformation book that NSFR is designed to limit.
+  C: >
+    NSFR is just LCR with a different name in jurisdictions that dislike the word "coverage."
+  D: >
+    Overnight wholesale funding is the most stable funding because it rolls daily by revealed preference.
+  E: >
+    Five-year loans are HQLA if the borrowers are investment-grade, so the LCR already captures them as inflows.
+  F: >
+    If LCR > 100 percent, fire sales cannot occur, which is all NSFR was meant to stop.
+  G: >
+    The NSFR should be ignored whenever the central bank offers standing facilities, because those facilities are perfect substitutes for stable funding.
+  H: >
+    LCR is a solvency ratio; NSFR is a liquidity ratio; the commentator mixed the labels but the redundancy claim is right.
+  I: >
+    A below-100 NSFR is impossible if LCR is above 100, so the stem describes an accounting error rather than a policy issue.
+  J: >
+    The right response is to raise the LCR minimum until the NSFR is implied, which is always feasible with a finite add-on.
+correct_option: B
+solution_summary: >
+  LCR and NSFR have different horizons, different numerators, and
+  different run-off factors. Passing one does not pass the other.
+  The example — long loans funded overnight, with a large HQLA buffer
+  against a 30-day outflow sheet — is the standard illustration.
+solution_derivation: >
+  LCR = HQLA / net cash outflows over 30 days, under a prescribed
+  stress (Basel III LCR). It can be satisfied by holding a stock of
+  government securities against a 30-day wholesale run-off factor
+  while still funding illiquid five-year loans short, provided the
+  30-day outflow number is covered. NSFR = available stable funding /
+  required stable funding, with loans to corporates carrying a high
+  required-stable-funding factor and overnight wholesale carrying a
+  low available-stable-funding factor (Basel III NSFR). The same
+  book can therefore fail NSFR. Compounding 30-day coverage 12 times
+  is not an identity: roll-over risk beyond 30 days, and the
+  composition of liabilities, are exactly what the 30-day stock does
+  not constrain. Standing facilities change the backstop, they do
+  not make overnight wholesale "stable" in the NSFR sense. Five-year
+  loans are not HQLA. LCR is a liquidity ratio, not a capital ratio.
+  The configuration in the stem is possible by construction of the
+  two definitions; it is not an accounting error.
+assumptions:
+  - >
+    Basel III definitional LCR and NSFR, not a jurisdiction-specific add-on.
+  - >
+    Overnight wholesale is not retail deposits with a low run-off factor.
+  - >
+    Corporate loans are not eligible HQLA.
+  - >
+    No claim about the optimal numerical minima.
+distractor_rationales:
+  A:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Time aggregation looks like a way to turn 30 days into a year.
+    why_wrong: >
+      The ratios are not the same object scaled. Factors and eligible
+      sets differ.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Horizon, numerator, and the long-loan / short-funding example.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Both are "Basel liquidity."
+    why_wrong: >
+      Different documents, different numbers, different failures.
+  D:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Daily rolling can look like a relationship.
+    why_wrong: >
+      Revealed overnight roll is not a commitment. NSFR treats it as
+      unstable.
+  E:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Credit quality is confused with market liquidity.
+    why_wrong: >
+      HQLA is a market-liquidity and central-bank-eligibility set, not
+      an investment-grade loan book.
+  F:
+    taxonomy: LIQUIDITY_VS_SOLVENCY
+    why_chosen: >
+      Fire sales are the rhetorical target of both tools.
+    why_wrong: >
+      LCR does not cap structural maturity transformation.
+  G:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Central-bank backstops are real.
+    why_wrong: >
+      NSFR is a going-concern structural rule, not a statement that
+      backstops do not exist.
+  H:
+    taxonomy: LIQUIDITY_VS_SOLVENCY
+    why_chosen: >
+      Coverage sounds like capital.
+    why_wrong: >
+      Both LCR and NSFR are liquidity/funding ratios. The redundancy
+      claim is still false.
+  I:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      One liquidity pass looks like it should imply the other.
+    why_wrong: >
+      The definitions do not nest.
+  J:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      A big enough HQLA buffer might seem to solve funding structure.
+    why_wrong: >
+      HQLA against 30-day outflows does not create one-year stable
+      funding of five-year loans.
+misconception_tags:
+  - STOCK_VS_FLOW
+  - LIQUIDITY_VS_SOLVENCY
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Direct application of two Basel definitions to one balance-sheet
+  configuration.
+ambiguity_audit: >
+  "Well above 100" and "below 100" are qualitative; no numerical
+  fight. Basel III names are the intended definitions.
+uniqueness_check: >
+  B states the two objects and the example. I claims the configuration
+  is impossible, which it is not. If overnight funding were term
+  wholesale above one year, NSFR would look better; the stem freezes
+  overnight.
+references:
+  - key: bcbs2013lcr
+    claim_supported: >
+      LCR is HQLA over 30-day prescribed net outflows.
+  - key: bcbs2014nsfr
+    claim_supported: >
+      NSFR is available versus required stable funding over a
+      one-year horizon, with low ASF for short wholesale and high RSF
+      for long loans.
+verification:
+  primary_solution: >
+    Compare the two definitional ratios on the stated book.
+  independent_check: >
+    Sketch numbers: 30-day wholesale run-off covered by HQLA can
+    coexist with required stable funding of long loans exceeding
+    available stable funding of overnight liabilities. The inequality
+    directions are definitional, not estimated.
+  invariant_or_boundary_check: >
+    If all assets were HQLA and all liabilities were equity, both
+    ratios would be comfortable. The stem is the opposite corner on
+    the asset-duration side.
+revision_notes: >
+  None. First keyed version stood.

@@ -1,0 +1,50 @@
+id: RJ-06-difficulty_miscalibration
+defect_class: difficulty_miscalibration
+domain: macroprudential_policy
+difficulty_as_drafted: EXPERT
+stem: >
+  In Basel III, the Liquidity Coverage Ratio is which of the
+  following?
+options:
+  A: >
+    HQLA over 30-day prescribed net cash outflows.
+  B: >
+    Available stable funding over required stable funding.
+  C: >
+    CET1 over RWA.
+  D: >
+    Leverage ratio (Tier 1 over exposure).
+  E: >
+    NSFR with a 30-day horizon.
+  F: >
+    VaR of the trading book.
+  G: >
+    CoVaR of the system.
+  H: >
+    Loan-to-value cap.
+  I: >
+    Debt-service-to-income cap.
+  J: >
+    The CCyB add-on.
+drafted_key: A
+defect: >
+  The stem is a definition lookup. The keyed answer is correct.
+  The drafted difficulty is EXPERT. Under this laboratory's
+  rubric, that is Medium at most (one object, no branching).
+  Expert is reserved for equilibrium / identification /
+  assumption-dependence, not for recalling a Basel acronym.
+why_it_matters: >
+  Difficulty inflation makes an Expert tag uninformative. A
+  verification job includes saying "this is not Expert."
+repairable: true
+correction: >
+  Either (i) drop the item as a glossary card, or (ii) rewrite it
+  as MP-M-02, which uses a balance-sheet configuration where LCR
+  passes and NSFR fails. The second is the repair used here.
+  Difficulty then becomes MEDIUM, not EXPERT.
+key_changes: false
+difficulty_changes: true
+references:
+  - key: bcbs2013lcr
+    claim_supported: >
+      LCR definition — correctly keyed, wrongly labelled Expert.

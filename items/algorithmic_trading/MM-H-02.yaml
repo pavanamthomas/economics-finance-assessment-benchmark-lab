@@ -1,0 +1,175 @@
+id: MM-H-02
+domain: algorithmic_trading_market_microstructure
+subdomain: glosten_milgrom_adverse_selection
+difficulty: HARD
+learning_objective: >
+  Compute a Glosten–Milgrom quoted spread generated only by adverse
+  selection, with no inventory motive.
+stem: >
+  A specialist quotes a one-share market in a Glosten–Milgrom setting.
+  The asset value v is 0 or 1 with equal probability. An informed trader
+  arrives with probability μ = 0.20 and trades in the direction of v.
+  Otherwise an uninformed trader arrives and buys or sells with equal
+  probability. The specialist is competitive, risk-neutral, and has no
+  inventory preference. Trades are one share. What is the quoted spread,
+  and what economic object does it represent?
+options:
+  A: >
+    Spread = 0, because a competitive specialist earns zero profit and therefore posts the unconditional expectation 0.5 on both sides.
+  B: >
+    Spread = 0.20, equal to μ, which is already the adverse-selection discount.
+  C: >
+    Spread = 0.40. Ask = E[v|buy] = 0.60 and bid = E[v|sell] = 0.20, using P(v=1|sell) = μ rather than Bayes.
+  D: >
+    Spread = 0.20. Ask = E[v|buy] = 0.60 and bid = E[v|sell] = 0.40. The spread is entirely an adverse-selection wedge; inventory risk is not required.
+  E: >
+    Spread = 0.50, the difference between the two possible values of v, which is the most the specialist can lose to the insider.
+  F: >
+    Spread = 0.04, which is μ times the uninformed probability 0.20, a "probability-weighted" tick.
+  G: >
+    The spread cannot be computed without an inventory penalty parameter of the Ho–Stoll type.
+  H: >
+    Spread = 0.20, but only as a transitory bid-ask bounce; the efficient price does not move when a buy arrives.
+  I: >
+    Ask = 1 and bid = 0, because the specialist must not lose to a possibly informed trader.
+  J: >
+    Spread = 0.10, half of μ, by analogy with Kyle's factor of 1/2.
+correct_option: D
+solution_summary: >
+  Bayes on the buy and sell events gives ask = 0.60, bid = 0.40, spread
+  = 0.20. Competitive quoting sets each side to the conditional
+  expectation of v. Inventory is not in the model.
+solution_derivation: >
+  P(buy | v=1) = μ·1 + (1−μ)·½ = 0.20 + 0.40 = 0.60.
+  P(buy | v=0) = (1−μ)·½ = 0.40.
+  P(buy) = ½·0.60 + ½·0.40 = 0.50.
+  P(v=1 | buy) = 0.60·½ / 0.50 = 0.60, so ask = 0.60.
+  By symmetry, bid = 0.40. Spread = 0.20.
+  Zero expected profit is already satisfied: the specialist sells at
+  E[v|buy] and buys at E[v|sell]. Setting both quotes to 0.50 would
+  lose money to the informed side. After a buy, the posterior on v
+  moves: the efficient price is not invariant to signed flow. That is
+  the opposite of pure bounce. Ho–Stoll inventory is a different model
+  and is not needed for a positive spread here.
+assumptions:
+  - >
+    Binary value, unit trades, competitive risk-neutral specialist.
+  - >
+    Informed traders arrive with probability μ and trade perfectly in the direction of v; uninformed trades are balanced.
+  - >
+    No inventory argument in the specialist's objective.
+  - >
+    No tick-size constraint.
+numerical_check:
+  kind: glosten_spread
+  params:
+    mu: 0.2
+    pi: 0.5
+  expected:
+    ask: 0.6
+    bid: 0.4
+    spread: 0.2
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Zero expected profit is a real GM condition.
+    why_wrong: >
+      Zero expected profit is imposed at the *conditional* expectation,
+      not by posting the unconditional mean on both sides.
+  B:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      μ = 0.20 numerically equals the spread, so μ looks like the answer.
+    why_wrong: >
+      Equality with μ is an artefact of π = ½ and v ∈ {0,1}. The object
+      is ask − bid = E[v|buy] − E[v|sell], not μ itself. If π were not
+      ½, the spread would not equal μ.
+  C:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      The informed-arrival probability is a tempting posterior for a sell.
+    why_wrong: >
+      P(v=1|sell) = 0.40, not 0.20. Skipping Bayes understates the bid.
+  D:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Correct Bayes quotes and the interpretation that the wedge is
+      adverse selection, not inventory.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  E:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      The range of v looks like a worst-case spread.
+    why_wrong: >
+      Competitive quotes are conditional means, not the support of v.
+  F:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      Multiplying two probabilities that both equal 0.20 is a common
+      exam move.
+    why_wrong: >
+      The spread is a difference of conditional expectations, not a
+      product of probabilities.
+  G:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Spreads are often taught as inventory plus adverse selection.
+    why_wrong: >
+      GM generates a spread with inventory weight zero. Adding Ho–Stoll
+      would change the model.
+  H:
+    taxonomy: STATIC_VS_DYNAMIC_EFFECT
+    why_chosen: >
+      Bid-ask bounce is the other half of undergraduate microstructure.
+    why_wrong: >
+      A buy updates E[v]. That is a permanent (information) component of
+      the quote revision, not pure bounce around a fixed mid.
+  I:
+    taxonomy: RISK_VS_UNCERTAINTY
+    why_chosen: >
+      Worst-case quoting against an insider looks prudent.
+    why_wrong: >
+      A competitive specialist is Bayesian, not minmax. Ask = 1 would
+      never trade with the uninformed.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Kyle's 1/2 is still in the reader's head from MM-H-01.
+    why_wrong: >
+      There is no such factor in this binary GM parameterisation.
+misconception_tags:
+  - NECESSARY_VS_SUFFICIENT
+  - WRONG_INFORMATION_SET
+  - STATIC_VS_DYNAMIC_EFFECT
+difficulty_rationale: >
+  Requires Bayes on the buy/sell events and the distinction between
+  adverse-selection and inventory spreads. Not a recall of the paper's
+  authors.
+ambiguity_audit: >
+  Unit trades, binary v, μ and π given. "Quoted spread" is ask − bid,
+  not an effective spread estimator. Inventory is explicitly absent.
+uniqueness_check: >
+  The unique competitive quotes are 0.60 and 0.40. B matches the
+  numerical spread but mis-identifies it as μ; uniqueness of the key
+  therefore requires the interpretation clause in D. If v were {99,101}
+  the numerical spread would scale by 2 and μ would no longer coincide
+  with the spread, which is noted in B's rationale.
+references:
+  - key: glostenmilgrom1985
+    claim_supported: >
+      Bid and ask equal E[v | sell] and E[v | buy] under competitive
+      specialists; the spread is an adverse-selection wedge.
+verification:
+  primary_solution: >
+    Bayes rule on {buy, sell} with μ = 0.20 and π = 0.50.
+  independent_check: >
+    efablab.checks.glosten_milgrom.quotes returns ask 0.6, bid 0.4.
+  invariant_or_boundary_check: >
+    μ → 0 ⇒ spread → 0. μ → 1 ⇒ ask → 1, bid → 0. π = ½ is used; the
+    code path also accepts other π.
+revision_notes: >
+  Draft keyed B because spread happened to equal μ. The independent
+  Bayes check still passed, which is why a numerical-only key is not
+  enough; the interpretation clause was added.

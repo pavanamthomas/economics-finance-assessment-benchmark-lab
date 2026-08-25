@@ -1,0 +1,177 @@
+id: UE-E-01
+domain: urban_economics
+subdomain: place_based_policy
+difficulty: EXPERT
+learning_objective: >
+  Separate a place-based treatment effect on stayers from the
+  effect on the place after sorting, and from capitalisation into
+  land.
+stem: >
+  A distressed city receives a place-based employment subsidy for
+  firms that locate inside a boundary. Five years later, employment
+  inside the boundary is higher, house prices are higher, and the
+  composition of residents has shifted toward higher-skill workers.
+  A commentator concludes that "the subsidy raised the welfare of
+  the original distressed residents by the employment gain." Which
+  statement is right?
+options:
+  A: >
+    The commentator is right. More jobs in the place is more welfare for the people who were there.
+  B: >
+    Place-based policy treats a location. Observed Δ employment mixes (i) effects on incumbent workers, (ii) in-migration of other workers, and (iii) possible displacement of unsubsidised jobs. Higher house prices are a capitalisation that can transfer gains to landowners, including absentee owners. Sorting means the people in the city at year five are not the original distressed residents. The commentator's welfare sentence is not identified.
+  C: >
+    Higher house prices prove the original residents are better off, because they own housing.
+  D: >
+    In-migration of higher-skill workers is the policy working as intended and is therefore a welfare gain for the original poor by definition.
+  E: >
+    If employment rose, displacement is impossible, because displacement would have lowered employment.
+  F: >
+    Capitalisation into land is a social loss, so the policy failed even if incumbents gained.
+  G: >
+    The right estimand is always the effect on land prices, which is the sufficient statistic for welfare.
+  H: >
+    Boundary designs identify the welfare of original residents automatically, because a boundary is a local experiment.
+  I: >
+    Higher-skill sorting means the employment gain is entirely compositional and therefore zero as a treatment effect on anyone.
+  J: >
+    Place-based and people-based policies are identical if both are targeted at poverty, so the commentator's sentence is the people-based estimand.
+correct_option: B
+solution_summary: >
+  Kline–Moretti distinction: people versus places. Employment
+  inside a boundary is not the welfare of the original poor, once
+  sorting and land capitalisation are allowed.
+solution_derivation: >
+  Let the policy be D = 1 inside the boundary. Observed employment
+  E_1 − E_0 = effect on incumbents' labour demand + net in-migrants
+  + displacement of other jobs. Original residents' welfare depends
+  on their wages, their rents, their employment probabilities, and
+  whether they still live there. If they rent, higher house prices
+  / rents are a loss; if they own, a gain; if landlords are
+  absentee, the gain leaves the original poor. In-migration of
+  higher-skill workers can raise average outcomes without raising
+  incumbents' outcomes (composition). Displacement can make
+  *inside* employment rise while metro employment does not (E is
+  false: local ΔE > 0 is compatible with displacement from just
+  outside, or of unsubsidised firms inside). Land-price
+  capitalisation is a transfer, not automatically a social loss
+  (F) or a sufficient welfare statistic (G) when there are
+  unemployment, agglomeration, or targeting motives. A boundary
+  (H) identifies a spatial discontinuity in outcomes, not the
+  original-resident welfare object. Composition (I) does not make
+  every treatment effect zero; it makes the *average among
+  residents at t=5* the wrong object for the commentator's
+  sentence. People-based versus place-based (J) are different
+  targeting instruments (Kline–Moretti).
+assumptions:
+  - >
+    Some original residents are renters or do not own the appreciated land; some landlords may be absentee.
+  - >
+    Migration is possible over five years.
+  - >
+    The employment count is a place total, not a panel of original residents.
+distractor_rationales:
+  A:
+    taxonomy: PARTIAL_VS_GENERAL_EQUILIBRIUM
+    why_chosen: >
+      Jobs as a welfare sufficient statistic.
+    why_wrong: >
+      Whose jobs, at what rents, after which moves.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Incumbents vs in-migrants vs displacement vs land.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Homeownership as a universal incidence.
+    why_wrong: >
+      Distressed cities have renters and absentee owners.
+  D:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Gentrification as success.
+    why_wrong: >
+      That is a different social objective than the commentator's
+      sentence about original distressed residents.
+  E:
+    taxonomy: STOCK_VS_FLOW
+    why_chosen: >
+      Local employment as a closed system.
+    why_wrong: >
+      Jobs can move across the boundary.
+  F:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      Transfers as losses.
+    why_wrong: >
+      Capitalisation is a transfer. Social surplus can still
+      exist (or not) on other margins.
+  G:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Land prices as a sufficient statistic in some Roback
+      settings.
+    why_wrong: >
+      Not when the policy's motive is unemployment or targeting
+      of a non-landowning group.
+  H:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Boundaries as the gold-standard design.
+    why_wrong: >
+      Design ≠ the original-resident welfare estimand.
+  I:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Composition as "all selection."
+    why_wrong: >
+      Composition contaminates the *place average*; it does not
+      prove a zero treatment effect on incumbents.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Poverty targeting as a single object.
+    why_wrong: >
+      People-based tools follow people; place-based tools follow
+      land and firms.
+misconception_tags:
+  - PARTIAL_VS_GENERAL_EQUILIBRIUM
+  - CORRELATION_VS_IDENTIFICATION
+  - PRIVATE_VS_SOCIAL_COST
+difficulty_rationale: >
+  Expert: several GE channels and a welfare object that is not
+  the observed place average.
+ambiguity_audit: >
+  The item does not claim the subsidy failed. It claims the
+  commentator's welfare sentence is not identified. Owner-occupier
+  incumbents can gain; that is why C is a distractor, not a
+  second key.
+uniqueness_check: >
+  B is the only option that lists the mix of channels and denies
+  identification of original-resident welfare. If the paper had a
+  panel of original residents' consumption and rents, the
+  commentator could be testable; the stem has place aggregates.
+references:
+  - key: klinemoretti2014
+    claim_supported: >
+      People versus places: sorting, capitalisation, and the
+      distinction between effects on locations and effects on
+      original residents.
+verification:
+  primary_solution: >
+    Decompose observed Δ employment and Δ prices into incumbent,
+    migrant, displacement, and land-transfer pieces.
+  independent_check: >
+    Accounting: place employment at t=5 = remaining incumbents
+    employed + in-migrants employed + (net job creation). The
+    commentator's object is a subset of the first term, plus
+    rents. The three terms are not separately in the stem's
+    statistics.
+  invariant_or_boundary_check: >
+    Closed city, 100 percent owner-occupiers, no absentee land,
+    no displacement: the commentator is closer. The stem is a
+    distressed city over five years with compositional change.
+revision_notes: >
+  None.

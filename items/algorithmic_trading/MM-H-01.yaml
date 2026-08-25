@@ -1,0 +1,179 @@
+id: MM-H-01
+domain: algorithmic_trading_market_microstructure
+subdomain: kyle_lambda
+difficulty: HARD
+learning_objective: >
+  Compute Kyle's one-shot λ and distinguish it from the insider's trading
+  intensity β and from a raw volatility ratio.
+stem: >
+  Consider Kyle's (1985) one-shot linear-normal model. The asset value is
+  v ~ N(p0, σ_v²) with σ_v = 2. Noise-trader demand is u ~ N(0, σ_u²)
+  with σ_u = 4, independent of v. The insider observes v and submits
+  x = β(v − p0). The market maker observes the total order y = x + u
+  and sets p = p0 + λ y. In the unique linear equilibrium, what is λ,
+  and what does that number measure?
+options:
+  A: >
+    λ = 0.50. It is the ratio of fundamental volatility to noise-trader volatility, σ_v / σ_u, and is the insider's trading intensity.
+  B: >
+    λ = 0.25. It is the equilibrium price impact of a unit of net order flow, σ_v / (2 σ_u), not a profit forecast and not β.
+  C: >
+    λ = 2.00. It equals β, because market clearing forces impact and intensity to be reciprocals that coincide.
+  D: >
+    λ = 0.125. The factor 2 in the denominator is applied twice, once in the projection and once in the insider's first-order condition.
+  E: >
+    λ = 8.00. Impact is σ_u / (σ_v / 2), which grows with noise.
+  F: >
+    λ = 0.25, and it is the expected profit of the insider per unit variance of v.
+  G: >
+    λ is not identified from σ_v and σ_u alone; one also needs a discrete tick size.
+  H: >
+    λ = 0.25, but only as an approximation for small orders; the exact impact of a large y is quadratic.
+  I: >
+    λ = 4.00, the noise standard deviation, because the market maker charges the noise traders' scale as a spread.
+  J: >
+    λ = 0. It must be, because a competitive market maker earns zero expected profit, which forces zero impact.
+correct_option: B
+solution_summary: >
+  In the one-shot linear-normal Kyle model, λ = σ_v / (2 σ_u) = 2/8 =
+  0.25 and β = σ_u / σ_v = 2. λ is the slope of the pricing rule, the
+  price impact of net order flow.
+solution_derivation: >
+  The market maker's projection is p = p0 + λ y with
+  λ = Cov(v, y) / Var(y). In equilibrium y = β(v − p0) + u, so
+  Cov(v, y) = β σ_v² and Var(y) = β² σ_v² + σ_u², hence
+  λ = β σ_v² / (β² σ_v² + σ_u²). The insider, taking λ as given,
+  maximises E[(v − p) x | v] = (v − p0) x − λ x² because
+  E[u | v] = 0, so x = (v − p0) / (2λ) and β = 1/(2λ). Substitute
+  β = 1/(2λ) into the projection to obtain λ = σ_v / (2 σ_u) and
+  β = σ_u / σ_v. Numerically λ = 2 / 8 = 0.25 and β = 4 / 2 = 2.
+  Zero expected profit for the market maker is already imposed by
+  setting p = E[v | y]; it does not force λ = 0. The pricing rule is
+  linear in this model, so impact of y is λ y, not a quadratic. Tick
+  size is not in the model.
+assumptions:
+  - >
+    One-shot batch auction, not Kyle's continuous-time limit.
+  - >
+    Joint normality, linear strategies, risk-neutral insider and competitive market maker.
+  - >
+    Noise u independent of v; insider observes v, not y.
+  - >
+    No inventory preference and no bid-ask spread as a separate object.
+numerical_check:
+  kind: kyle_lambda
+  params:
+    sigma_v: 2.0
+    sigma_u: 4.0
+  expected:
+    lambda: 0.25
+    beta: 2.0
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      σ_v / σ_u is the natural scale ratio and equals 0.5 here.
+    why_wrong: >
+      The insider's first-order condition puts a 2 in the denominator of
+      λ. Dropping it confuses λ with a volatility ratio and with β.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      States λ = σ_v/(2σ_u) = 0.25 and interprets it as impact of net
+      flow, not as profit or as β.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      β = 1/(2λ) looks like a reciprocal, and 1/0.5 or σ_u/σ_v = 2 is
+      sitting in the problem.
+    why_wrong: >
+      λ and β are reciprocals up to the factor 2, but they are not equal.
+      β = 2, λ = 0.25.
+  D:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Students who remember "there is a 2" sometimes square it.
+    why_wrong: >
+      The 2 appears once, in the insider's FOC x = (v−p0)/(2λ).
+  E:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      More noise feels like it should make prices move more.
+    why_wrong: >
+      More noise-trader variance camouflages the insider, which lowers λ.
+      λ falls in σ_u.
+  F:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      λ is "the" Kyle number, so it gets used as a profit statistic.
+    why_wrong: >
+      Expected insider profit given v is (v−p0)² / (4λ), which involves
+      λ but is not λ.
+  G:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Real books have ticks, so identification might seem incomplete.
+    why_wrong: >
+      The model as stated identifies λ from (σ_v, σ_u). Tick size is
+      outside the model.
+  H:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Impact is often described as linear-plus-quadratic in execution
+      practice.
+    why_wrong: >
+      In this model the pricing rule is exactly linear. Quadratic impact
+      is a different specification (e.g. Almgren–Chriss temporary impact).
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      σ_u = 4 is a salient number.
+    why_wrong: >
+      The market maker does not post σ_u as a spread. Impact is the
+      regression coefficient of v on y.
+  J:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Zero expected MM profit is a genuine equilibrium condition.
+    why_wrong: >
+      Zero expected profit is imposed by p = E[v|y], which produces a
+      strictly positive λ whenever σ_v > 0.
+misconception_tags:
+  - INCORRECT_NORMALIZATION
+  - SIGN_REVERSAL
+  - LEVEL_VS_MARGINAL
+difficulty_rationale: >
+  Combines the projection formula with the insider's FOC. The algebra is
+  short; the difficulty is keeping λ, β, and σ_v/σ_u apart and not
+  reading λ as a profit.
+ambiguity_audit: >
+  The stem specifies the one-shot linear-normal model with named
+  parameters, so continuous-auction Kyle and inventory models are out of
+  scope. "What λ measures" is answered in the same option to block a
+  numerically right, conceptually wrong key.
+uniqueness_check: >
+  The unique linear equilibrium gives λ = 0.25 and β = 2. Among options
+  that state 0.25, only B interprets λ as impact of net flow rather than
+  as expected profit or as a small-order approximation. A second key
+  would appear if one adopted a different normalization of the pricing
+  rule (price = λ y without p0, or a two-period model); those are not
+  this stem.
+references:
+  - key: kyle1985
+    claim_supported: >
+      One-shot linear-normal equilibrium with λ = σ_v/(2σ_u) and
+      β = σ_u/σ_v (Kyle's batch-auction section).
+verification:
+  primary_solution: >
+    Substitute β = 1/(2λ) into the market maker's projection.
+  independent_check: >
+    efablab.checks.kyle.lambda_star on (σ_v, σ_u) = (2, 4) returns 0.25,
+    and beta_star returns 2, which satisfies β = 1/(2λ).
+  invariant_or_boundary_check: >
+    As σ_u → ∞, λ → 0 (noise camouflage). As σ_v → 0, λ → 0 (nothing to
+    learn). Doubling both σ_v and σ_u leaves λ unchanged.
+revision_notes: >
+  An early draft keyed A (σ_v/σ_u). The missing 2 was caught by the
+  closed-form check against beta_star * 2 * lambda_star = 1.

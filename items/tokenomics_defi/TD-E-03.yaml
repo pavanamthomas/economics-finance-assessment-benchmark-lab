@@ -1,0 +1,182 @@
+id: TD-E-03
+domain: tokenomics_defi
+subdomain: mev_ordering
+difficulty: EXPERT
+learning_objective: >
+  Treat sandwiching as extraction of a victim's slippage along an
+  AMM path under a transparent mempool, not as a smart-contract
+  bug and not as a licensed exploit recipe.
+stem: >
+  A user submits a fee-free CPAMM buy of Y with a large Δx and a
+  loose slippage bound. While the transaction sits in a public
+  mempool, a searcher can (in a textbook ordering model) place a
+  buy before it and a sell after it. The user's fill is worse than
+  the pre-trade spot by approximately the user's own price impact;
+  the searcher's round-trip collects a corresponding wedge.
+  A commentator says this is "hacking the AMM" and that a correct
+  x*y=k implementation would make it impossible. Which statement
+  is right?
+options:
+  A: >
+    The commentator is right. Sandwiching is a violation of k.
+  B: >
+    The AMM identity can hold on every trade. Sandwiching is an *ordering* phenomenon: two extra trades around the user move the user along the reserve curve to a worse fill, transferring part of the slippage the user authorised. It is not a bug in x*y=k, and a loose slippage bound is a necessary condition for that transfer to clear. This laboratory does not treat that description as an instruction to build a searcher.
+  C: >
+    If k holds, the user cannot receive a worse fill than the pre-trade spot.
+  D: >
+    Sandwiching requires a broken random-number generator in the pool contract.
+  E: >
+    The searcher's profit is a violation of no-arbitrage, so it cannot persist in any model with an external market.
+  F: >
+    Loose slippage bounds protect the user, which is why they are recommended.
+  G: >
+    Only cross-domain MEV (between two chains) can sandwich; a single pool is immune.
+  H: >
+    Because the user's trade is uninformed, sandwiching is illegal in the Glosten–Milgrom sense and therefore cannot occur in equilibrium.
+  I: >
+    If the mempool is public, the user is already filled at the mid, so there is no residual to extract.
+  J: >
+    Sandwiching is identical to Kyle's λ, so the user's worse fill is just efficient price discovery.
+correct_option: B
+solution_summary: >
+  k can hold throughout. The object is ordering plus a slippage
+  tolerance, not a broken invariant. Description is not a
+  builder's manual.
+solution_derivation: >
+  Let the user's trade be large. Alone, the user would move the
+  pool from (x, y) along the curve and receive Δy_user with
+  average price y/(x+Δx_user) (sale of X). A preceding buy of Y
+  (or sale of X, depending on the side) moves the spot against
+  the user; the user's fill is then at a worse portion of the
+  curve; a reversing trade after restores the searcher's
+  inventory and realises the wedge. Each leg can satisfy x y = k
+  (fee-free). The user's slippage bound, if tight, reverts the
+  sandwiched fill; if loose, it permits it. That is why F is
+  backwards. An external market (E) is what makes the reversing
+  trade sensible; it does not forbid the sandwich, it prices it.
+  GM (H) is a quote-adverse-selection model, not a mempool-order
+  prohibition. Public mempool (I) is why the user's transaction
+  is visible *before* it is filled, the opposite of "already
+  filled at the mid." Kyle (J) is a batch-impact model; calling
+  a sandwich "efficient discovery" is a category error even if
+  both involve order flow and prices. Single-pool sandwiches are
+  the textbook case (G is false). RNG (D) is unrelated. This
+  item stops at the economic classification; it does not specify
+  a searcher strategy, gas auction, or implementation.
+assumptions:
+  - >
+    Transparent mempool, atomic ordering of three trades in a textbook block, fee-free CPAMM.
+  - >
+    The user's slippage bound is loose enough that the sandwiched fill would not revert.
+  - >
+    Educational description only.
+distractor_rationales:
+  A:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Bad fill as a broken invariant.
+    why_wrong: >
+      k can hold on every leg.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Ordering plus authorised slippage; not a k bug; not a
+      how-to.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
+    why_chosen: >
+      Spot as a floor on fills.
+    why_wrong: >
+      Finite trades are already worse than spot; sandwiches make
+      them worse still.
+  D:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Contract bugs as the only extraction channel.
+    why_wrong: >
+      No RNG is required.
+  E:
+    taxonomy: EQUILIBRIUM_FEEDBACK_IGNORED
+    why_chosen: >
+      Arb as a force for good.
+    why_wrong: >
+      The sandwich *is* an arb on the user's impact.
+  F:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Slippage bounds as user protection — they are, when tight.
+    why_wrong: >
+      Loose bounds are what allow the sandwiched fill to land.
+  G:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Cross-domain MEV as the fashionable object.
+    why_wrong: >
+      Single-pool sandwiches are the basic case.
+  H:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      GM as the ethics of trading against the uninformed.
+    why_wrong: >
+      GM does not legislate mempool order.
+  I:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Public as already executed.
+    why_wrong: >
+      Public *pending* is the information set.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Impact as efficiency.
+    why_wrong: >
+      Different model, different object. A worse fill for a
+      given user trade is not "discovery" of v.
+misconception_tags:
+  - INCORRECT_NORMALIZATION
+  - SIGN_REVERSAL
+  - TIMING_ERROR
+difficulty_rationale: >
+  Expert: mechanism classification under a constraint that the
+  item must not become an exploit guide. The economics is
+  ordering versus invariant.
+ambiguity_audit: >
+  No code, no gas auction, no recommended pool, no size that
+  maximises a wedge. "Can place a buy before it and a sell after
+  it" is the definition of the ordering, not a procedure.
+uniqueness_check: >
+  B is the only option that keeps k, names ordering, and
+  attributes the transfer to the slippage bound. If the bound
+  were tight enough to revert, the sandwich would not land and
+  the commentator would still be wrong about k, but the transfer
+  would not occur; the stem has a loose bound.
+references:
+  - key: daianetal2020
+    claim_supported: >
+      Flash Boys 2.0: priority-gas and reordering around user
+      trades as an economic feature of transparent mempools, not
+      as a broken AMM invariant.
+  - key: angerisetal2021
+    claim_supported: >
+      CPAMM path prices: the user's finite trade already pays
+      impact; extra trades can move the starting point of that
+      path.
+verification:
+  primary_solution: >
+    Three fee-free CPAMM trades can each preserve k while the
+    middle (user) trade starts from a worse spot.
+  independent_check: >
+    Accounting: searcher buys, user buys (worse), searcher sells.
+    Sum of inventory changes can be near zero for the searcher
+    with a positive Y residual equal to the extra Δy the user
+    paid. No need for k to fail.
+  invariant_or_boundary_check: >
+    Slippage bound → 0: sandwiched user tx reverts; wedge → 0.
+    Mempool private: searcher does not see the pending trade;
+    the textbook sandwich information set shuts.
+revision_notes: >
+  Rewrote to remove any sizing formula for the surrounding
+  trades. The independent check is an accounting identity, not
+  a calibrated profit.

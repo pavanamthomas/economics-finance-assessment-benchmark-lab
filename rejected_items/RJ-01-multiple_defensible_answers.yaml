@@ -1,0 +1,43 @@
+id: RJ-01-multiple_defensible_answers
+defect_class: multiple_defensible_answers
+domain: tokenomics_defi
+difficulty_as_drafted: HARD
+stem: >
+  A fee-free constant-product pool has reserves (100, 100). A trader
+  sells 10 X into the pool. What is the price of X in units of Y?
+options:
+  A: "1"
+  B: "10/11"
+  C: "100/121"
+  D: "0"
+  E: "2"
+  F: "11/10"
+  G: "121/100"
+  H: "sqrt(100/121)"
+  I: "k"
+  J: "undefined"
+drafted_key: A
+defect: >
+  The stem asks for "the price" without saying whether that is the
+  pre-trade spot, the post-trade spot, or the average execution
+  price of the finite sale. A, B, and C are then all defensible
+  under a reasonable reading. The drafted key A picks the spot,
+  which is the usual confusion this laboratory exists to catch.
+why_it_matters: >
+  An item with three defensible keys cannot measure the construct
+  "does the examinee distinguish marginal from average execution."
+  It measures which reading of "price" they guessed. That is a
+  verification failure, not a difficulty-calibration issue.
+repairable: true
+correction: >
+  Name the object: "average execution price of the sale Δy/Δx."
+  Then B (10/11) is the unique key. That repaired item is TD-E-01.
+  Do not repair by adding "obviously the spot" in an assumption
+  buried after the options.
+key_changes: true
+difficulty_changes: true
+references:
+  - key: angerisetal2021
+    claim_supported: >
+      Multiple price objects along a CPAMM trade — the source of
+      the ambiguity.

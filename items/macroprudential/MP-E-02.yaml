@@ -1,0 +1,179 @@
+id: MP-E-02
+domain: macroprudential_policy
+subdomain: srisk_versus_covar
+difficulty: EXPERT
+learning_objective: >
+  Keep SRISK/MES (institution shortfall given a system event) distinct
+  from ΔCoVaR (system tail given an institution event), and refuse both
+  as a complete ranking for every tool.
+stem: >
+  In a crisis scenario in which the broad equity index falls 40 percent
+  in six months, bank X has a large model-implied capital shortfall
+  (SRISK): its estimated MES is high and its leverage is high. Bank Y
+  has small SRISK but, in a separate CoVaR exercise, a large ΔCoVaR:
+  the system's tail is much worse when Y is at its own VaR. A memo
+  concludes that "X is systemically important and Y is not, because
+  SRISK is the capital the taxpayer would have to inject." Which
+  statement is the right response?
+options:
+  A: >
+    The memo is right. SRISK is defined as the taxpayer injection, so it is the unique systemic-importance ranking.
+  B: >
+    SRISK/MES answers a different question from ΔCoVaR. SRISK is an estimated capital shortfall of the *institution given a system decline*. ΔCoVaR is a system-tail object given the *institution's* distress. X can be a large leveraged book that bleeds in a crash without moving the system; Y can be a node whose distress coincides with system-tail events without showing a large own shortfall in that index scenario. The taxpayer-injection sentence is not an identity, and neither statistic is a sufficient policy ranking.
+  C: >
+    SRISK and ΔCoVaR must rank banks the same way because both are tail co-movement measures.
+  D: >
+    Y's large ΔCoVaR is just Y being small, so Y should be dropped from any surcharge set.
+  E: >
+    The 40 percent index scenario identifies the causal effect of X's failure on the index, which is why SRISK is causal and CoVaR is not.
+  F: >
+    MES is a mean, CoVaR is a quantile, so MES is biased and should be discarded; the memo should be rewritten around Y only.
+  G: >
+    If X has large SRISK, X must have large ΔCoVaR, so the stem's configuration is a programming error.
+  H: >
+    Taxpayer injections are a fiscal object and cannot be discussed in a prudential memo at all; both statistics should be dropped.
+  I: >
+    The right ranking is CDS spreads, which already capitalise both SRISK and CoVaR.
+  J: >
+    Bank Y should be resolved first because ΔCoVaR is a gone-concern measure and SRISK is going-concern.
+correct_option: B
+solution_summary: >
+  Reverse the conditioning and the memo's "therefore" fails. SRISK is
+  not a taxpayer identity, and ΔCoVaR is not a reason to ignore Y or
+  to treat Y as the only node.
+solution_derivation: >
+  Acharya–Pedersen–Philippon–Richardson SRISK combines leverage with
+  the expected equity decline given a *system* crash (MES). It is an
+  accounting-style shortfall of i | system. Adrian–Brunnermeier
+  ΔCoVaR is a system quantile given i's tail. The two can disagree,
+  which is the point of the stem. The sentence "SRISK is the capital
+  the taxpayer would have to inject" is a rhetorical mapping: it
+  assumes a resolution regime, a loss-given-failure, no bail-in, and
+  that the index scenario is the event that would trigger the
+  injection. None of those is an identity from the MES number. The
+  40 percent path is a scenario, not an identified causal effect of
+  X's failure on the index (the index is the conditioning variable
+  for MES, not the outcome of X). Dropping Y because it is "small"
+  throws away the CoVaR information the stem supplied. CDS spreads
+  mix many risks and do not collapse the two objects. Going versus
+  gone concern is a real policy distinction; it is not aligned
+  one-for-one with SRISK versus ΔCoVaR.
+assumptions:
+  - >
+    SRISK/MES and ΔCoVaR are the published objects, not in-house variants with reversed conditioning.
+  - >
+    The 40 percent / six-month path is the SRISK scenario as in the NYU Stern style of exercise, used illustratively.
+  - >
+    No claim that either number should be the surcharge.
+distractor_rationales:
+  A:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      SRISK is often described in taxpayer language in speeches.
+    why_wrong: >
+      That language is an interpretation, not an identity, and it
+      does not make Y unimportant.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Reverses the conditioning, allows the stem's split, and limits
+      the taxpayer sentence.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Both have "system" and "tail" in the pitch.
+    why_wrong: >
+      Opposite conditioning. Rankings need not coincide.
+  D:
+    taxonomy: WRONG_DENOMINATOR
+    why_chosen: >
+      G-SIB logic is size-first.
+    why_wrong: >
+      The stem gave Y a large ΔCoVaR. Size is not a license to drop
+      it.
+  E:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Scenario plus "shortfall" sounds causal.
+    why_wrong: >
+      MES conditions on the index. It does not identify the effect of
+      X on the index.
+  F:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Means versus quantiles is a real statistical debate.
+    why_wrong: >
+      It does not decide which economic object is relevant, and it
+      does not license ignoring X.
+  G:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Tail measures are expected to comove.
+    why_wrong: >
+      The disagreement is possible and is the teaching case.
+  H:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Fiscal versus prudential silos.
+    why_wrong: >
+      The memo's error is the ranking claim, not the fact that a
+      fiscal sentence appeared.
+  I:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Market prices are sufficient statistics in some models.
+    why_wrong: >
+      CDS mix idiosyncratic default, liquidity, and sovereign
+      ceilings. They do not compute either object.
+  J:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Resolution versus going-concern capital is a real split.
+    why_wrong: >
+      The split does not map onto ΔCoVaR versus SRISK as "who to
+      resolve first."
+misconception_tags:
+  - WRONG_INFORMATION_SET
+  - CORRELATION_VS_IDENTIFICATION
+  - NECESSARY_VS_SUFFICIENT
+difficulty_rationale: >
+  Expert because it requires both the reversed conditioning and a
+  refusal to treat SRISK as a fiscal identity. Name-recall of the
+  papers is not enough.
+ambiguity_audit: >
+  "Taxpayer would have to inject" is quoted as the memo's claim, then
+  rejected as an identity. The item does not deny that SRISK was
+  *motivated* by recapitalisation costs.
+uniqueness_check: >
+  B is the only option that keeps both numbers, gets the
+  conditioning right, and rejects sufficiency. If the memo had said
+  "X has more SRISK than Y," that would be true as a ranking on that
+  one object and still would not license "Y is not systemically
+  important."
+references:
+  - key: acharyaetal2017
+    claim_supported: >
+      SRISK as capital shortfall given a market decline (MES plus
+      leverage), motivated by recapitalisation cost, not as a causal
+      effect of the bank on the index.
+  - key: adrianbrunnermeier2016
+    claim_supported: >
+      ΔCoVaR as system VaR given the institution's distress — the
+      opposite conditioning.
+verification:
+  primary_solution: >
+    Write MES = E[loss_i | system crash] versus ΔCoVaR = ΔVaR_system
+    | i in tail.
+  independent_check: >
+    Logical compatibility: a high-leverage commercial bank can have
+    high SRISK in an index crash while a smaller, more central node
+    has higher ΔCoVaR. No numerical contradiction in the stem.
+  invariant_or_boundary_check: >
+    If there is one bank that *is* the system, the two objects
+    collapse. The stem has at least X and Y.
+revision_notes: >
+  Draft accepted the taxpayer sentence as the definition of SRISK.
+  That is how the measure is *sold*; it is not what the formula
+  identifies. The key was rewritten.

@@ -1,0 +1,192 @@
+id: MM-E-03
+domain: algorithmic_trading_market_microstructure
+subdomain: queue_priority_adverse_selection
+difficulty: EXPERT
+learning_objective: >
+  Treat a fill at a given quoted price as a selected event: queue
+  priority and pick-off risk make fill-versus-cancel at the same quote
+  have different expected values.
+stem: >
+  A trader rests a buy limit order at the best bid, with displayed size
+  equal to the posted bid size (no hidden size). Time priority is strict.
+  Two paths are observed, both ending with the *same* quoted bid price
+  still posted: Path F, the order is fully filled by incoming sells;
+  Path C, the trader cancels after 50 milliseconds with no fill. A
+  research assistant values both paths at the quoted bid and concludes
+  they have the same expected P&L because "the price was the same."
+  Adverse-selection intensity is positive: marketable sells are more
+  likely when the efficient price is below the bid. Which statement is
+  right?
+options:
+  A: >
+    The assistant is right. Identical quotes imply identical continuation values; fills are just mechanical.
+  B: >
+    Path F is selected on incoming marketable sells. Those sells are more likely when the efficient price has moved against the resting bid, so a fill at the same quote is worse in expectation than a cancel at that quote. Queue position affects the probability of that selected fill, not just the waiting time.
+  C: >
+    Path F is better, because a fill at the bid earns the spread relative to the mid, and a cancel earns nothing.
+  D: >
+    Under strict time priority, the first order in the queue is never adversely selected; only the back of the queue is picked off.
+  E: >
+    Because the quoted bid did not change, the efficient price cannot have moved, so pick-off is impossible by construction.
+  F: >
+    Cancels should be valued at the microprice and fills at the bid, which restores equality after a relabelling.
+  G: >
+    The two paths have the same value in a Glosten–Milgrom model because the specialist, not the limit-order trader, bears adverse selection.
+  H: >
+    Time priority converts adverse selection into inventory risk, so the right model is Ho–Stoll, where fills and cancels are equivalent at the optimum.
+  I: >
+    If the order is displayed, pick-off cannot occur because the information is already public.
+  J: >
+    Expected P&L differs only because of fees and rebates; the informational value of fill versus cancel is zero at a fixed quote.
+correct_option: B
+solution_summary: >
+  A fill is not a random sample of moments at which the quote was
+  posted. It is a sample of moments at which a marketable sell arrived.
+  Those arrivals are correlated with negative efficient-price news.
+  Same quote, different information set.
+solution_derivation: >
+  Let the posted bid be B. The efficient price at event time is m.
+  The resting buy, if filled, pays B and is long an asset worth m, so
+  its mark-to-efficient P&L is m − B (gross of fees). E[m − B | fill]
+  is not equal to E[m − B | posted, no fill]. Marketable sells arrive
+  more often when m has drifted below B (or when informed sellers
+  arrive). That is the pick-off / winner's curse on standing limit
+  orders. Path C is a selected *non*-arrival of that flow. Valuing
+  both at B as if they were the same claim is a wrong information set:
+  the quote is the *terms* of the option, not the value of the realised
+  exercise. Queue position changes the probability of being hit by a
+  given sell and the residual size behind, so priority is not just
+  latency to fill; it changes the mix of fills one receives. Front-of-
+  queue still faces the first informed sell. Glosten–Milgrom is about
+  a specialist's quotes, not about making the limit-order fill
+  uninformative. Display does not remove pick-off; it can worsen it.
+  Fees shift levels; they are not the source of the inequality.
+assumptions:
+  - >
+    Strict time priority, displayed size only, no midpoint pegs.
+  - >
+    Positive adverse-selection intensity as stated: marketable sells are bad news for a resting bid.
+  - >
+    Valuation is expected mark-to-efficient-price, not a realised round-trip versus a later mid that might include bounce.
+  - >
+    Cancels are voluntary and not forced by a risk limit that itself depends on m.
+distractor_rationales:
+  A:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Price is the salient state variable, so equal prices look like
+      equal values.
+    why_wrong: >
+      The information set is {quote, fill} versus {quote, cancel}, not
+      {quote} alone.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Fill is a selected event; queue changes the fill mix, not just
+      waiting time.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: SIGN_REVERSAL
+    why_chosen: >
+      Maker-earned spread is the textbook reason to rest at the bid.
+    why_wrong: >
+      Conditional on a fill, the spread may be more than offset by the
+      move in m. Unconditional maker edge is a different object.
+  D:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      Time priority is often sold as "you get the good fills first."
+    why_wrong: >
+      The first fill is the first marketable sell, which can be the
+      informed one. Priority does not insure against pick-off.
+  E:
+    taxonomy: STATIC_VS_DYNAMIC_EFFECT
+    why_chosen: >
+      Quotes are a sufficient statistic in some models.
+    why_wrong: >
+      Quotes are discrete and sticky. m can move inside the spread
+      without a quote change.
+  F:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Microprice is a better mark, so a relabelling might seem to fix
+      the comparison.
+    why_wrong: >
+      Changing the numeraire on one path only is not an identity. Even
+      with a common mark, E[m | fill] ≠ E[m | cancel].
+  G:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      GM is the course's adverse-selection model.
+    why_wrong: >
+      A limit-order trader *is* the party being hit. GM does not make
+      that fill uninformative.
+  H:
+    taxonomy: RISK_VS_UNCERTAINTY
+    why_chosen: >
+      Inventory models also generate spreads.
+    why_wrong: >
+      Converting the problem into inventory risk changes the model.
+      Equivalence of fill and cancel is not an optimum identity in
+      Ho–Stoll either.
+  I:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Displayed size is public, so "the information is out."
+    why_wrong: >
+      The information that arrives is the *sell*, not the resting bid.
+      Public display of the bid does not reveal v.
+  J:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      Fees are a salient difference between maker and taker paths.
+    why_wrong: >
+      Fees are approximately symmetric across F and C only in the
+      sense that a cancel pays no fee. The informational gap remains.
+misconception_tags:
+  - WRONG_INFORMATION_SET
+  - SIGN_REVERSAL
+  - STATIC_VS_DYNAMIC_EFFECT
+difficulty_rationale: >
+  Expert because the trap is a same-price comparison that looks
+  airtight. The item requires selection, queue, and sticky quotes,
+  which is postgraduate market-microstructure rather than a spread
+  identity.
+ambiguity_audit: >
+  Both paths are required to end with the same still-posted bid, so
+  the assistant's "same price" premise is granted. Valuation is
+  expected efficient-price mark, stated in the derivation, so a
+  round-trip-versus-later-mid fight is out of scope.
+uniqueness_check: >
+  Under positive adverse-selection intensity, E[m | fill] < E[m | cancel]
+  at the same B. C can be true as an *unconditional* maker-spread slogan
+  and is still not this comparison. If adverse-selection intensity were
+  zero, B would fail; the stem states it is positive.
+references:
+  - key: glostenmilgrom1985
+    claim_supported: >
+      Signed flow is informative for v; a party that is filled by that
+      flow is on the wrong side in expectation. Used here for the
+      pick-off of standing bids, not as a specialist-only result.
+  - key: hasbrouck2007
+    claim_supported: >
+      Quotes can be sticky relative to efficient-price motion; trade
+      occurrence is itself information.
+verification:
+  primary_solution: >
+    Compare E[m − B | fill] with E[m − B | cancel] under the stated
+    positive correlation between marketable sells and low m.
+  independent_check: >
+    Selection identity: E[m | posted] = P(fill) E[m | fill] +
+    P(cancel) E[m | cancel] along these two paths (exhausting the
+    stem). If E[m | fill] = E[m | cancel], signed flow would be
+    uninformative, contradicting the stated intensity.
+  invariant_or_boundary_check: >
+    If marketable sells are independent of m, fill and cancel have the
+    same expected m and the assistant is right. That is the boundary
+    the stem rules out.
+revision_notes: >
+  Early version allowed the quoted bid to change on Path F, which
+  invited a "the price wasn't the same" dodge. Both paths now keep
+  the posted bid, so the disagreement is purely informational.

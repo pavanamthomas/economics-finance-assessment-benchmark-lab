@@ -1,0 +1,205 @@
+id: MP-E-01
+domain: macroprudential_policy
+subdomain: fire_sale_network
+difficulty: EXPERT
+learning_objective: >
+  Work a two-round fire-sale loop on a toy network and identify the
+  pecuniary externality, including a case where every private sale is
+  individually reasonable.
+stem: >
+  Three banks, identical ex ante, hold a common traded security marked
+  to market. After a 10 percent exogenous price drop, each bank's
+  capital ratio is still above its target. Each bank's rule is: sell
+  just enough of the security to restore the target leverage, taking
+  the current price as given. The inverse demand for the security is
+  downward-sloping in *aggregate* sales. In the Nash outcome, all three
+  sell, the price falls another 8 percent, and one bank's ratio then
+  breaches the micro minimum; in a coordinated freeze on sales, all
+  three would have remained above the minimum at the post-shock,
+  pre-sale price. Which statement is right?
+options:
+  A: >
+    The breach shows that the 10 percent shock was mismeasured; true shocks that leave ratios above target cannot produce defaults.
+  B: >
+    Each bank's sale is privately optimal given the price, but the price depends on the sum of sales. The Nash loop can violate a constraint that a coordinated no-sale would not. That is a pecuniary externality, not a demonstration that any one bank "mismanaged" the first round.
+  C: >
+    Inverse demand cannot slope down if markets are efficient, so the second round is impossible.
+  D: >
+    The bank that breaches is the only one that created the externality; the other two should not be in the policy set.
+  E: >
+    Because the first-round ratios were above target, the sales were not required and therefore cannot have been privately optimal.
+  F: >
+    A coordinated freeze is always feasible as a Nash equilibrium of the same game, so the loop is a knife-edge numerical accident.
+  G: >
+    The 8 percent second-round move is inventory risk, which is microprudential and should be charged as a VaR add-on to the one bank that failed.
+  H: >
+    Marking to market caused the problem; if all three used historical-cost accounting, leverage targets would not bind and efficiency would be restored.
+  I: >
+    Three is too few for a systemic event; pecuniary externalities require a continuum of banks.
+  J: >
+    The micro minimum that binds in the second round is the definition of the target leverage, so the example is contradictory.
+correct_option: B
+solution_summary: >
+  The example is a textbook fire-sale externality: individually
+  rational leverage targeting, a downward-sloping aggregate demand,
+  and a constraint that binds in Nash but not under coordination.
+solution_derivation: >
+  Let P1 be the post-shock, pre-sale price (down 10 percent). At P1
+  every ratio is above target and above the micro minimum. Bank i
+  chooses sales s_i to hit a leverage target taking P as given,
+  s_i(P) ≥ 0. Market clearing: P2 = P(s1+s2+s3) < P1. At P2, marks
+  fall another 8 percent; one book then fails the micro minimum. The
+  failure is an equilibrium outcome of best responses, not a proof
+  that the 10 percent shock was "really" 18 percent from the start
+  in a sense that each bank should have treated P2 as given in the
+  first move. A coordinated s = 0 leaves P at P1 and all ratios
+  above the minimum: the constraint set of the planner is larger
+  than the Nash constraint set because the planner internalises P.
+  Downward-sloping inverse demand is a market-liquidity assumption,
+  not a rejection of informational efficiency of the *fundamental*.
+  Accounting conventions can hide P (H); they do not remove repo
+  haircuts or binding market-value leverage rules if those are the
+  actual constraints. Three agents are enough for a pecuniary
+  externality. Target leverage and the micro minimum are different
+  numbers in the stem (target is hit by sales; minimum is breached
+  only after the second-round mark). A freeze is not a Nash best
+  response if each bank, taking others' sales as given, still wants
+  to sell a little — that is why the loop is not knife-edge.
+assumptions:
+  - >
+    Inverse demand depends on aggregate sales; each bank takes P as approximately given (Nash, not monopoly).
+  - >
+    Leverage target is a function of the market price of the common security.
+  - >
+    Coordinated freeze is a thought experiment, not a claim about legal authority.
+  - >
+    Default/breach is a capital-ratio event, not a simulated recovery rate.
+numerical_check:
+  kind: bank_shock
+  params:
+    cash: 10.0
+    securities: 40.0
+    loans: 50.0
+    deposits: 70.0
+    wholesale: 20.0
+    equity: 10.0
+    sec_return: -0.10
+  expected:
+    equity1: 6.0
+    assets1: 96.0
+distractor_rationales:
+  A:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Ex post price paths are often rewritten as the "true" shock.
+    why_wrong: >
+      The 8 percent is endogenous. Treating it as exogenous changes
+      the information set.
+  B:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Private optimality given P, social cost through P, Nash versus
+      freeze.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
+  C:
+    taxonomy: VIOLATED_ASSUMPTION
+    why_chosen: >
+      Efficient markets slogans.
+    why_wrong: >
+      Liquidity can be downward-sloping in quantity even if the
+      fundamental is a martingale.
+  D:
+    taxonomy: PRIVATE_VS_SOCIAL_COST
+    why_chosen: >
+      The bank that fails looks like the culprit.
+    why_wrong: >
+      All three sold. The breach is an outcome of the sum.
+  E:
+    taxonomy: NECESSARY_VS_SUFFICIENT
+    why_chosen: >
+      "Above target" sounds like no need to sell.
+    why_wrong: >
+      The target is defined at the *current* price. After the 10
+      percent drop, restoring the target requires sales even if the
+      ratio is still above the micro minimum.
+  F:
+    taxonomy: EQUILIBRIUM_FEEDBACK_IGNORED
+    why_chosen: >
+      Coordination looks like another equilibrium.
+    why_wrong: >
+      Freeze is typically not a best response if others freeze and
+      the private target still wants a small sale, or if others sell
+      and the private target wants to sell more. Either way, freeze
+      need not be Nash.
+  G:
+    taxonomy: LIQUIDITY_VS_SOLVENCY
+    why_chosen: >
+      VaR add-ons are the micro toolkit.
+    why_wrong: >
+      Charging the one failed bank is the wrong incidence for a
+      sum-of-sales externality.
+  H:
+    taxonomy: NOMINAL_VS_REAL
+    why_chosen: >
+      Fair-value accounting is a genuine controversy.
+    why_wrong: >
+      If the constraint is in market prices, hiding the mark does
+      not restore efficiency of the allocation.
+  I:
+    taxonomy: APPROXIMATION_OUTSIDE_RANGE
+    why_chosen: >
+      Systemic is associated with "many."
+    why_wrong: >
+      A pecuniary externality is well-defined with n = 3.
+  J:
+    taxonomy: INCORRECT_NORMALIZATION
+    why_chosen: >
+      Target and minimum are both capital numbers.
+    why_wrong: >
+      The stem separates them: target is the leverage rule that
+      generates sales; minimum is the regulatory floor that one bank
+      then breaches.
+misconception_tags:
+  - PRIVATE_VS_SOCIAL_COST
+  - EQUILIBRIUM_FEEDBACK_IGNORED
+  - WRONG_INFORMATION_SET
+difficulty_rationale: >
+  Expert because the item requires Nash versus planner constraint
+  sets, endogenous second-round prices, and refusing to rewrite the
+  endogenous move as a larger exogenous shock.
+ambiguity_audit: >
+  Numbers 10 percent and 8 percent are illustrative; the key does
+  not depend on a particular demand elasticity, only on the
+  qualitative ranking Nash-breach versus freeze-safe. The
+  numerical_check only verifies first-round accounting on a toy
+  book, not the 8 percent.
+uniqueness_check: >
+  B is the only option that keeps private optimality and still calls
+  the loop an externality. If inverse demand were flat, freeze and
+  Nash would coincide and B would fail; the stem says it slopes
+  down.
+references:
+  - key: shleifervishny2011
+    claim_supported: >
+      Fire sales with feedback onto other holders of the same asset.
+  - key: brunnermeierpedersen2009
+    claim_supported: >
+      Market liquidity and funding liquidity interact through prices
+      and margins; sales to meet constraints worsen prices.
+verification:
+  primary_solution: >
+    Nash leverage targeting versus coordinated freeze on a downward
+    sloping inverse demand.
+  independent_check: >
+    Accounting identity on a single book (numerical_check): a 10
+    percent securities loss is absorbed in equity and the book still
+    balances. The second round is not in that identity; it requires
+    the demand curve, which is stated not estimated.
+  invariant_or_boundary_check: >
+    If n = 1, the bank internalises its own price impact (monopoly)
+    and the externality on *others* is zero. The stem is n = 3.
+revision_notes: >
+  A first numerical sketch sold all three banks into default and
+  over-claimed a calibration. The item now only needs one breach
+  versus a freeze, which is the qualitative result.
