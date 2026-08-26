@@ -55,7 +55,7 @@ solution_derivation: >
   adjust. Elastic supply (E): more elastic supply *reduces* the
   rent increase and, in the open city, increases the quantity
   (population) response — incidence on land falls. G is the
-  construction-cost-only error. H signs labour-supply as a rent
+  construction-cost-only error. B signs labour-supply as a rent
   reducer and ignores the housing-demand channel that is first
   order in AMM/Roback. I: closed-city incumbents can be better
   off in utility even as they pay higher rents, because they get
@@ -143,7 +143,7 @@ ambiguity_audit: >
   households, not landowners. Owner-occupiers mix the two, which
   is why J is a distractor rather than a second key.
 uniqueness_check: >
-  B is the only option that splits Δu* across the two models.
+  H is the only option that splits Δu* across the two models.
   If the city were large enough to move the national u_bar, the
   open-city pin would weaken; the stem says a large outside
   system.

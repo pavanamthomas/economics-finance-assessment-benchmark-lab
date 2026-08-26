@@ -50,7 +50,7 @@ solution_derivation: >
   and a large down payment does not create cash. LTV = loan / value
   at origination. DSTI = service / income. They are related through
   the rate, term, and amortisation, not by an identity that would
-  make one a function of the other for all households (C). Risk
+  make one a function of the other for all households (B). Risk
   weights on mortgages typically depend on LTV bands, not on DSTI;
   they also do not internalise the system-wide house-price feedback
   (F). Migration from L to D after an LTV cap (J) is exactly why a
@@ -149,7 +149,7 @@ ambiguity_audit: >
   No numerical caps. "Crash" in the policymaker's quote is granted as
   a house-price crash, not a rate shock.
 uniqueness_check: >
-  B is the complementarity claim. E is the opposite single-instrument
+  C is the complementarity claim. E is the opposite single-instrument
   claim. If default were literally only possible with negative equity
   and no fire-sale or demand feedback, A would be closer; the stem's
   two profiles exist to deny that.
@@ -167,7 +167,7 @@ verification:
     Map Profile L to a price shock and Profile D to an income/rate
     shock.
   independent_check: >
-    Counterexample to C: two loans with the same LTV and different
+    Counterexample to B: two loans with the same LTV and different
     terms (interest-only versus 15-year amortising) have different
     DSTI. The instruments are not one-to-one.
   invariant_or_boundary_check: >

@@ -148,7 +148,7 @@ ambiguity_audit: >
   non-uniqueness claim. "Often predicting" under R2 is flagged as
   the usual mixed-gamble / λ effect, not as a calibrated number.
 uniqueness_check: >
-  B is the only option that treats R as part of the model and
+  C is the only option that treats R as part of the model and
   shows two different domain codings. If the stem had fixed R = 100
   in the assumptions, a unique (risk-seeking) prediction would be
   possible and this item would be mis-keyed. It does not.

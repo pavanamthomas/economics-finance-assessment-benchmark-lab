@@ -54,7 +54,7 @@ solution_derivation: >
   equilibria are the design risk (not a custody audit). On-chain
   mint/redeem (F in the distractor sense) does not create a
   stable equilibrium by itself. Origination overcollateralisation
-  (E) is a stock at t0, not a guarantee after a price path.
+  (B) is a stock at t0, not a guarantee after a price path.
   Regulation (G) changes F's failure probabilities, it does not
   make F = C. Liquidation ≠ seigniorage (H). The blockchain (I)
   is a settlement layer, not the backing. Oracles (J) matter
@@ -140,7 +140,7 @@ ambiguity_audit: >
   particular reserve attestation. Hybrid designs exist; the stem
   is three polar cases.
 uniqueness_check: >
-  B is the only option that keeps all three as pegging
+  E is the only option that keeps all three as pegging
   arrangements and splits their failures. If the commentator had
   said "all three can depeg," that would be true and not the
   claim under review; the claim is "same object."

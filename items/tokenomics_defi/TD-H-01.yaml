@@ -52,7 +52,7 @@ solution_derivation: >
   zero fees (C, I). 1−1/r is not the formula (D). Linear half
   (E) is not exact. "Impermanent" is a name for a gap that
   vanishes if p returns to p0, not a reason the number is
-  undefined at r=4 (F). The hold comparison is the definition
+  undefined at r=4 (B). The hold comparison is the definition
   of IL (G). Fees are zero here, so the formula is not fee
   income (H). 50/50 is the case the formula is for (J).
 assumptions:
@@ -145,7 +145,7 @@ ambiguity_audit: >
   Fees are zero. External price path is a once-and-for-all move
   to 4p0 with arb. IL is LP versus hold, not versus cash.
 uniqueness_check: >
-  B is the only option with −20 percent and the two invariants.
+  F is the only option with −20 percent and the two invariants.
   If fees were large, IL + fees could be positive and C would
   be a different item; fees are zero.
 references:

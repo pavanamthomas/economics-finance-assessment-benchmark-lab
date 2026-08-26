@@ -52,7 +52,7 @@ solution_derivation: >
   would correspond to LT = 1, not 0.80. Interest already in the
   100 is the stock of debt; it does not by itself trigger
   liquidation (E). F inverts the comparison: 67 percent is
-  *below* 80 percent. G treats LT as a seizure fraction to be
+  *below* 80 percent. B treats LT as a seizure fraction to be
   applied immediately. H: the mark of 150 *is* the current
   collateral value. I: HF is the protocol rule in the stem, not
   a decoration. J confuses 1 − LT = 0.20 with a 50 percent
@@ -147,7 +147,7 @@ ambiguity_audit: >
   given as a number, so it cannot be a second key. Single-asset
   HF.
 uniqueness_check: >
-  B is the only option with HF = 1.20 and the right trigger.
+  G is the only option with HF = 1.20 and the right trigger.
   If LT were 0.60, HF would be 0.90 and liquidation would be
   admissible; the stem is 0.80.
 references:

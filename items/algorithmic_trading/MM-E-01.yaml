@@ -163,14 +163,14 @@ difficulty_rationale: >
 ambiguity_audit: >
   No claim is made that book (3) is the unique realistic simulator —
   only that (1) is not executable and (3) is weakly worse than (2).
-  Hidden liquidity is assumed absent; if icebergs were allowed, B
+  Hidden liquidity is assumed absent; if icebergs were allowed, G
   would need a qualifier, so they are excluded in the assumptions.
 uniqueness_check: >
   The licensed conclusion is the ranking and the feasibility statement
-  in B. A is the paper-profit claim. No other option both (i) allows
+  in G. A is the paper-profit claim. No other option both (i) allows
   book (1) to be statistically fine and (ii) denies executability.
   If the half-spread were 0.5 bp instead of 3, book (2) could be
-  positive; the stem's numbers close that door, and B is still right
+  positive; the stem's numbers close that door, and G is still right
   as a qualitative ranking.
 references:
   - key: hasbrouck2007

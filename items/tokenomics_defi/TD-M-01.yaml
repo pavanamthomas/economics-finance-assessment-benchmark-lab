@@ -135,7 +135,7 @@ difficulty_rationale: >
 ambiguity_audit: >
   Price of X in Y is stated. 50 X is a sale into the pool.
 uniqueness_check: >
-  B is the only option with both the right spot and the right
+  D is the only option with both the right spot and the right
   finite fill. G almost sneaks a units dodge; the fill it quotes
   is still the spot, not the finite price.
 references:

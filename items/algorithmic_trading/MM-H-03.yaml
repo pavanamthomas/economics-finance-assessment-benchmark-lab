@@ -164,7 +164,7 @@ ambiguity_audit: >
   information event without requiring a numerical alpha.
 uniqueness_check: >
   Once the order is large, timed, and alpha-exposed, VWAP is the wrong
-  objective. C, D, H, I each salvage VWAP under a false extra assumption.
+  objective. C, D, B, I each salvage VWAP under a false extra assumption.
   No second option states the three failures together.
 references:
   - key: almgrenchriss2000

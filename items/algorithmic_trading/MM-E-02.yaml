@@ -157,11 +157,11 @@ ambiguity_audit: >
   fishing expedition about whether costs "might" wipe the edge. Maker
   strategies are discussed only to reject D as licensed.
 uniqueness_check: >
-  B is the only option that (i) accepts the mid regression, (ii) rejects
+  H is the only option that (i) accepts the mid regression, (ii) rejects
   the commentator, and (iii) uses the cost-adjusted regression as the
   relevant object. D proposes a different strategy the stem does not
   identify. If hidden size were large, take costs could be smaller;
-  the stem's cost adjustment already uses advertised depth, and B does
+  the stem's cost adjustment already uses advertised depth, and H does
   not require that 0.1 percent is the only relevant size.
 references:
   - key: contkukanovstoikov2014

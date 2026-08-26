@@ -148,7 +148,7 @@ ambiguity_audit: >
   attrition as i.i.d. sample-size loss. The plan's existence is
   granted.
 uniqueness_check: >
-  B is the only option that keeps the primary as the identified
+  D is the only option that keeps the primary as the identified
   object and names both threats. If response rates had been equal
   and the three stars had been on administrative secondaries with
   a pre-specified multiple-testing correction, the item would be
@@ -169,7 +169,7 @@ verification:
     commentator's use of selected secondaries.
   independent_check: >
     If response rates were 100 percent in both arms, the attrition
-    half of B would shut and multiplicity would remain. The stem
+    half of D would shut and multiplicity would remain. The stem
     has both.
   invariant_or_boundary_check: >
     If only the planned primary were reported, multiplicity would

@@ -62,7 +62,7 @@ solution_derivation: >
   construction that "prevents both." H: the capital-ratio
   language is right that the *spot* book is underwater; the
   design question is still which price the rule reads. M is
-  not a token-vote (I). A 1-second TWAP (J) is almost the spot
+  not a token-vote (I). A 1-second TWAP (B) is almost the spot
   and is the most manipulable of the TWAP family in a thin
   pool, which is the opposite of "cannot be manipulated."
 assumptions:
@@ -147,7 +147,7 @@ ambiguity_audit: >
   "Pushed up by a thin-pool trade" is a description of an
   economic possibility, not a procedure.
 uniqueness_check: >
-  B is the only option that splits S and M and denies a joint
+  J is the only option that splits S and M and denies a joint
   faster-fix. If both incidents had been 30-minute TWAPs, M
   would be weaker; M is a 5-minute window on purpose.
 references:

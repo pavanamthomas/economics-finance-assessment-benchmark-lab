@@ -162,7 +162,7 @@ uniqueness_check: >
   Under positive adverse-selection intensity, E[m | fill] < E[m | cancel]
   at the same B. C can be true as an *unconditional* maker-spread slogan
   and is still not this comparison. If adverse-selection intensity were
-  zero, B would fail; the stem states it is positive.
+  zero, I would fail; the stem states it is positive.
 references:
   - key: glostenmilgrom1985
     claim_supported: >

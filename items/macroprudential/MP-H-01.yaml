@@ -148,9 +148,9 @@ ambiguity_audit: >
   numerical buffer rate. National add-ons (sectoral CCyB) are
   acknowledged in I as not the BCBS aggregate design.
 uniqueness_check: >
-  B raises now and refuses to treat the gap as a sufficient statistic.
+  A raises now and refuses to treat the gap as a sufficient statistic.
   C raises for the wrong reason (mechanical maximum). If the stem
-  described a crash already underway, release would be right and B
+  described a crash already underway, release would be right and A
   would fail; the stem is a boom.
 references:
   - key: drehmanntsatsaronis2014

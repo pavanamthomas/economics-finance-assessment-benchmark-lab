@@ -49,13 +49,13 @@ solution_derivation: >
   rule that the commentator invented. Whale 15 percent < 40
   percent, so the whale cannot hit quorum alone (the
   commentator's second clause is true as arithmetic and is
-  kept in B). At 42 percent turnout, 15/42 ≈ 36 percent of
+  kept in H). At 42 percent turnout, 15/42 ≈ 36 percent of
   votes could be the whale if the whale voted — concentration,
   not illegitimacy (I). Delegation (F) is a standard part of
   token voting, not illegal; it can concentrate further. Quorum
   is not "majority of turnout" (C) and not "yes ≥ 40 percent of
   supply" (G). 40/2 (D) is not a quorum identity. Sybil
-  resistance (H) is why 1-token-1-vote exists; it does not
+  resistance (B) is why 1-token-1-vote exists; it does not
   convert the whale into one vote. The pass result is identified
   from turnout and yes/no totals without knowing the whale's
   ballot (J); the whale remark is about power, not about this
@@ -140,7 +140,7 @@ ambiguity_audit: >
   "Simple majority of votes cast" is explicit. Ties are not at
   issue (22 > 20). The whale's vote is not needed for pass/fail.
 uniqueness_check: >
-  B is the only option that both (i) passes the proposal under
+  H is the only option that both (i) passes the proposal under
   the stated rule and (ii) keeps the true 30 < 40 quorum remark
   without making the whale powerless. If quorum had been 50
   percent, the proposal would fail on turnout and the key would

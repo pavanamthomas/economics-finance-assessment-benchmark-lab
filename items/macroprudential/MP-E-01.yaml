@@ -176,9 +176,9 @@ ambiguity_audit: >
   numerical_check only verifies first-round accounting on a toy
   book, not the 8 percent.
 uniqueness_check: >
-  B is the only option that keeps private optimality and still calls
+  E is the only option that keeps private optimality and still calls
   the loop an externality. If inverse demand were flat, freeze and
-  Nash would coincide and B would fail; the stem says it slopes
+  Nash would coincide and E would fail; the stem says it slopes
   down.
 references:
   - key: shleifervishny2011

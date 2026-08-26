@@ -141,7 +141,7 @@ ambiguity_audit: >
   Open versus closed city is flagged as not changing the gradient
   formula. No amenity gradient is in the model.
 uniqueness_check: >
-  B is the only option with R' = −t/q and the right interpretation.
+  F is the only option with R' = −t/q and the right interpretation.
   If t were a cost per unit land rather than per household, C would
   be closer; it is not.
 references:

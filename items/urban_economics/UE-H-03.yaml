@@ -58,7 +58,7 @@ solution_derivation: >
   *inflates* the school coefficient. D confuses the equilibrium
   occupancy with identification of the gradient. More variation
   (G) that is more confounded is not better. High R² (I) is
-  fit, not identification. Tiebout sorting (J) is a reason the
+  fit, not identification. Tiebout sorting (B) is a reason the
   cross-section is *harder*, not easier.
 assumptions:
   - >
@@ -144,7 +144,7 @@ ambiguity_audit: >
   they identify perfectly. The univariate regression is the object
   under review.
 uniqueness_check: >
-  B is the only option that both (i) states Rosen correctly as a
+  J is the only option that both (i) states Rosen correctly as a
   vector gradient and (ii) denies the univariate WTP reading. If
   the researcher had already run a boundary design, A would still
   be too strong ("the" WTP) but the item would be different.

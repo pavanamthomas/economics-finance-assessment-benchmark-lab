@@ -142,8 +142,8 @@ ambiguity_audit: >
   housing" so that elastic-supply is not a second key. The
   commentator's ranking is still wrong.
 uniqueness_check: >
-  B is the only option that uses both prices and refuses a
-  wages-only productivity rank. If labour were immobile, A would
+  A is the only option that uses both prices and refuses a
+  wages-only productivity rank. If labour were immobile, B would
   be closer; Roback assumes mobility.
 references:
   - key: roback1982

@@ -159,7 +159,7 @@ ambiguity_audit: >
 uniqueness_check: >
   Under the stated process the mid return is identically zero and the
   trade-price autocovariance is strictly negative. No other option is
-  compatible with both facts. If the mid were allowed to jump, B would
+  compatible with both facts. If the mid were allowed to jump, A would
   remain directionally right but the numerical polar case would be lost;
   that is why the stem freezes the book.
 references:

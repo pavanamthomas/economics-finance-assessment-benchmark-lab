@@ -146,7 +146,7 @@ ambiguity_audit: >
   as stated. No numerical CoVaR is required. Causality is explicitly
   not claimed.
 uniqueness_check: >
-  B is the only option that (i) gets the conditioning right, (ii)
+  D is the only option that (i) gets the conditioning right, (ii)
   allows the stem's ranking, and (iii) refuses sufficiency for
   policy. C reverses conditioning. If ΔCoVaR were defined as
   VaR_i | system, the names would clash with Adrian–Brunnermeier;

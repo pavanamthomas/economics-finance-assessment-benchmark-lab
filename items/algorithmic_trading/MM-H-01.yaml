@@ -155,7 +155,7 @@ ambiguity_audit: >
   numerically right, conceptually wrong key.
 uniqueness_check: >
   The unique linear equilibrium gives λ = 0.25 and β = 2. Among options
-  that state 0.25, only B interprets λ as impact of net flow rather than
+  that state 0.25, only D interprets λ as impact of net flow rather than
   as expected profit or as a small-order approximation. A second key
   would appear if one adopted a different normalization of the pricing
   rule (price = λ y without p0, or a two-period model); those are not

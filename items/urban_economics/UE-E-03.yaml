@@ -49,7 +49,7 @@ solution_derivation: >
   space, not in w alone. Real consumption wages (w deflated by
   local housing) can be unchanged for mobile workers even as
   nominal w and the "urban wage premium" versus other cities rise
-  (other cities did not get this shock). C and D treat Δw = 0 as
+  (other cities did not get this shock). B and D treat Δw = 0 as
   implied by inelastic housing; that is a confusion with a
   vertical *labour* supply in a single market without rents.
   Land is nontradable (E) and that is *why* it can capture a
@@ -142,7 +142,7 @@ ambiguity_audit: >
   worker and land claims; the commentator still cannot read
   worker welfare from the wage premium alone.
 uniqueness_check: >
-  B is the only option that allows Δw > 0 and still puts the
+  C is the only option that allows Δw > 0 and still puts the
   surplus on land. If housing were perfectly elastic, workers
   (and new residents) would capture more of the surplus and the
   commentator would be closer; the stem is inelastic.

@@ -149,11 +149,11 @@ ambiguity_audit: >
   Unit trades, binary v, μ and π given. "Quoted spread" is ask − bid,
   not an effective spread estimator. Inventory is explicitly absent.
 uniqueness_check: >
-  The unique competitive quotes are 0.60 and 0.40. B matches the
+  The unique competitive quotes are 0.60 and 0.40. E matches the
   numerical spread but mis-identifies it as μ; uniqueness of the key
-  therefore requires the interpretation clause in D. If v were {99,101}
+  therefore requires the interpretation clause in B. If v were {99,101}
   the numerical spread would scale by 2 and μ would no longer coincide
-  with the spread, which is noted in B's rationale.
+  with the spread, which is noted in E's rationale.
 references:
   - key: glostenmilgrom1985
     claim_supported: >

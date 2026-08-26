@@ -143,8 +143,8 @@ ambiguity_audit: >
   The item does not take a side in the "random lottery is invalid
   under non-EU" literature beyond saying I is still not H.
 uniqueness_check: >
-  B is the only option that rejects the commentator and gives both
-  incentives and demand. If H and I had the same gap, B's
+  I is the only option that rejects the commentator and gives both
+  incentives and demand. If H and I had the same gap, I's
   "H can be larger because..." would be idle but still not false;
   the stem has H larger.
 references:
@@ -164,6 +164,6 @@ verification:
     is not zero by statement.
   invariant_or_boundary_check: >
     As payment probability → 1, I approaches a fully paid design.
-    Demand can still remain. That is why B mentions both.
+    Demand can still remain. That is why I mentions both.
 revision_notes: >
   None.
