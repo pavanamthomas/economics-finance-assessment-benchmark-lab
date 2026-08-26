@@ -2,14 +2,11 @@
 
 A 10-option assessment item is not a quiz. It is a claim that exactly one of ten statements is the unique implication of a stated model, and that the other nine are errors a technically competent person might actually make.
 
-This repository is a laboratory for **authoring** and **verifying** such items in five domains: market microstructure, macroprudential policy, behavioral finance / experimental economics, urban economics, and tokenomics / DeFi. It is self-directed technical study and benchmark-development practice. It is not employment at a trading desk, a supervisor, a protocol, or a test publisher, and it does not claim a CFA, FRM, or similar credential.
-
-Dr. Pavanam Thomas · [pavanamthomas](https://github.com/pavanamthomas) · thomaspavanam@gmail.com
-MIT License · Copyright 2026
+I use this repository to write and check such items in five domains: market microstructure, macroprudential policy, behavioral finance / experimental economics, urban economics, and tokenomics / DeFi. Constructed stems only. I do not have a licensed exam, a live book, or a second rater.
 
 The companion repository [ai-response-evaluation-benchmarks](https://github.com/pavanamthomas/ai-response-evaluation-benchmarks) scores *answers*. This laboratory writes the *questions*, including the ones that were rejected. That repository is not modified here.
 
-## 10-second signal
+## What's in the tree
 
 | Object | What is here |
 | --- | --- |
@@ -18,7 +15,7 @@ The companion repository [ai-response-evaluation-benchmarks](https://github.com/
 | Independently verified | AMM average execution by three routes (closed form, quadrature, geometric mean of spots); IL by formula versus hold-versus-LP values |
 | Failure mode on display | A draft that keyed the CPAMM *spot* as the fill of a finite trade; quadrature disagreed. See `FLAGSHIP_CASE_STUDY.md` and `rejected_items/RJ-01-*.yaml` |
 
-## 60-second evidence
+## The CPAMM miss
 
 Open [`FLAGSHIP_CASE_STUDY.md`](FLAGSHIP_CASE_STUDY.md) and [`items/tokenomics_defi/TD-E-01.yaml`](items/tokenomics_defi/TD-E-01.yaml).
 
@@ -30,7 +27,7 @@ That is the job analogue: uniqueness audit, not item count.
 
 `efablab` will refuse an item that has the wrong number of options, two keyed letters, a duplicate option after normalisation, a missing uniqueness write-up, or a citation count outside 1–5. Passing CI means the YAML is complete and the numerical blocks match the independent code.
 
-It does **not** mean the economics is true. Economic correctness is the written derivation, the uniqueness audit, `MANUAL_REVIEW_CHECKLIST.md`, and whoever reads them.
+It does **not** mean the economics is true. Economic correctness is the written derivation, the uniqueness audit, `MANUAL_REVIEW_CHECKLIST.md`, and whoever reads them. A unique-but-wrong key still sails through.
 
 ## Corpus
 
@@ -56,7 +53,7 @@ src/efablab/checks/     closed forms used by numerical_check blocks
 tests/                  corpus rules and economic identities
 examples/inspect_flagship.py
 FLAGSHIP_CASE_STUDY.md
-INTERVIEW_GUIDE.md
+questions.md
 FAILURES_AND_CORRECTIONS.md
 MANUAL_REVIEW_CHECKLIST.md
 REFERENCES.bib
@@ -86,10 +83,10 @@ Each posting domain has a folder under `items/` *and* a companion lab in the tab
 
 The five companion labs implement the mechanisms. This repository is the assessment object (stems, keys, rejected drafts).
 
-## Boundaries
+## Limits I am not papering over
 
 - Constructed items. Not licensed exam content, not a live trading system, not a supervisory model, not a mainnet deployment.
-- Numerical checks cover the items that have a closed form. The rest are audited on paper.
+- Numerical checks cover the items that have a closed form. The rest are audited on paper. `MM-H-03` (VWAP) and `TD-E-03` (ordering) are in that second pile.
 - One author wrote the keys. There is no second-rater study and no claimed inter-rater kappa on this corpus.
 - References are real papers and technical documents. A key in `REFERENCES.bib` is not a claim that the paper “finds” the MCQ.
 - Nothing here is a certificate, a client, AUM, or a production impact statistic.
