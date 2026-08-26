@@ -1,6 +1,6 @@
 # Roadmap
 
-Open technical work. Not a kanban of decorative chores.
+Open technical work.
 
 ## Uniqueness under an alternative risk-aversion convention
 

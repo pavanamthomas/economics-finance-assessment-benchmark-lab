@@ -6,6 +6,6 @@ Accepted and rejected items are constructed assessment fixtures. Numerical illus
 
 `python scripts/run_all.py` reprints those parameters. It does not download anything.
 
-Because there are no personal records, there is no PII workflow. Source is MIT-licensed. Copyright 2026 Dr. Pavanam Thomas.
+Because there are no personal records, there is no PII workflow. Source is MIT-licensed.
 
 Do not cite a printed number from an item stem as an empirical finding. Do not cite a passing CI run as evidence about a market.
