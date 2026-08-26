@@ -1,0 +1,38 @@
+name: Apply assessment integrity audit
+
+on:
+  push:
+    branches: [assessment-integrity-audit-2026-08-26]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[integrity-audit-applied]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: assessment-integrity-audit-2026-08-26
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Apply deterministic audit corrections
+        run: python scripts/apply_assessment_integrity_audit.py
+      - name: Install package
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+      - name: Run tests and validation
+        run: |
+          python -m pytest -q
+          python scripts/validate_items.py
+          python scripts/run_all.py
+      - name: Commit audited corpus
+        run: |
+          git config user.name "Pavanam Thomas"
+          git config user.email "thomaspavanam@gmail.com"
+          git add -A
+          git commit -m "audit assessment validity and answer-position leakage [integrity-audit-applied]"
+          git push origin HEAD:assessment-integrity-audit-2026-08-26
