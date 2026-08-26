@@ -19,9 +19,9 @@ options:
   A: >
     The commentator is right. The wage premium is the gain.
   B: >
-    With mobile workers and inelastic housing, the productivity gain is capitalised into land. The wage may rise (firms pay more out of higher MPL, and rents take it back from workers). The urban wage premium is not a sufficient statistic for worker welfare; landowners are the residual claimants in this corner.
-  C: >
     Inelastic housing prevents wages from rising, so the commentator's wage-premium fact cannot occur.
+  C: >
+    With mobile workers and inelastic housing, the productivity gain is capitalised into land. The wage may rise (firms pay more out of higher MPL, and rents take it back from workers). The urban wage premium is not a sufficient statistic for worker welfare; landowners are the residual claimants in this corner.
   D: >
     If wages rose, housing must have been elastic; the stem is inconsistent.
   E: >
@@ -36,7 +36,7 @@ options:
     Incidence on land requires a property tax, otherwise workers keep the wage.
   J: >
     The wage premium increased, therefore both workers and landowners gained, which is Pareto and sufficient for the commentator.
-correct_option: B
+correct_option: C
 solution_summary: >
   Open-city incidence with inelastic housing: land takes the
   surplus. A higher observed wage premium can coexist with
@@ -74,17 +74,17 @@ distractor_rationales:
     why_wrong: >
       Missing rents.
   B:
-    taxonomy: CORRECT_KEY
-    why_chosen: >
-      Capitalisation into land; wage premium not worker welfare.
-    why_wrong: >
-      This letter is the keyed option. It is not a distractor.
-  C:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
       Inelastic housing as no wage change.
     why_wrong: >
       Firms' MPL rose. w can rise with R.
+  C:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Capitalisation into land; wage premium not worker welfare.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
   D:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >

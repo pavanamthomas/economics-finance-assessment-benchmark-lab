@@ -3,29 +3,28 @@ domain: behavioral_finance_experimental_economics
 subdomain: reference_dependence
 difficulty: EXPERT
 learning_objective: >
-  Show that changing the reference point can reverse whether an
-  outcome is coded as a gain or a loss, and therefore can reverse
-  the predicted risk attitude, so uniqueness of a CPT prediction
-  requires a stated reference.
+  Show that changing the reference point changes gain/loss coding
+  and can change a CPT choice; a unique keyed prediction therefore
+  requires the reference point and the relevant curvature and
+  probability-weighting parameters to be stated.
 stem: >
   A trader bought a stock at 100. It now trades at 80. Three
   candidate reference points are on the table: (R1) purchase price
   100; (R2) the expected price at this date from yesterday's
   information, which was 80; (R3) a goal of 110. The trader is
   considering a 50-50 gamble that will move the price to 70 or 90
-  by tomorrow, versus locking 80. Under TK92 value-function
-  curvature (concave gains, convex losses) and a given λ, the
-  predicted choice between the gamble and the lock-in is not the
-  same for every R. A commentator says the prediction is unique
-  because "the stock is at 80, so the reference is 80." Which
-  statement is right?
+  by tomorrow, versus locking 80. Under TK92 value-function curvature (concave gains, convex losses)
+  the gain/loss coding changes with R. The exact curvature and probability-
+  weighting parameters are not otherwise supplied. A commentator says the
+  prediction is unique because "the stock is at 80, so the reference is 80."
+  Which statement is right?
 options:
   A: >
     The commentator is right. The current price is always the reference, so R2 is mandatory and R1, R3 are not models.
   B: >
-    Coding of 70, 80, 90 as gains or losses depends on R. Under R1 the lock-in at 80 is still a loss relative to 100, and the gamble is in the loss domain (convex v, risk-seeking). Under R2 both the lock-in and the gamble are evaluated around 80 (mixed or small-gain/small-loss). Under R3 everything is still a shortfall from 110. The commentator's uniqueness claim is false; a CPT prediction without a stated reference is not a unique key.
-  C: >
     λ > 1 forces the lock-in at 80 regardless of R, which restores uniqueness.
+  C: >
+    Coding of 70, 80, 90 depends on R. Under R1 = 100 and R3 = 110 all three outcomes are in the loss domain; under R2 = 80 the lock-in is zero and the gamble spans a loss and a gain. These are different CPT problems. The current price does not select the reference point by itself, and without a stated reference plus the relevant curvature and weighting parameters there is no unique choice key.
   D: >
     Purchase price is the only theoretically admissible reference, so R1 is mandatory.
   E: >
@@ -40,11 +39,12 @@ options:
     The problem is unidentified because we do not observe λ, not because of R.
   J: >
     Tomorrow's 70/90 are both below 100, so every R agrees that the trader will gamble.
-correct_option: B
+correct_option: C
 solution_summary: >
   Reference dependence is not a unique map from the current price
   to a choice. Different R recode the same cash outcomes. A keyed
-  CPT item must state R.
+  CPT item must state R and enough preference/weighting parameters
+  to make the resulting choice unique.
 solution_derivation: >
   Outcomes in money: lock-in 80, gamble {70, 90}.
   Relative to R1 = 100: lock-in is −20; gamble is {−30, −10}, both
@@ -81,17 +81,17 @@ distractor_rationales:
     why_wrong: >
       That is one model of R, not uniqueness.
   B:
-    taxonomy: CORRECT_KEY
-    why_chosen: >
-      Recodes 70/80/90 under three R and denies a unique CPT key.
-    why_wrong: >
-      This letter is the keyed option. It is not a distractor.
-  C:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
       λ is the hammer.
     why_wrong: >
       λ scales losses; it does not erase domain coding.
+  C:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Recodes 70/80/90 under three R and denies a unique CPT key.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
   D:
     taxonomy: VIOLATED_ASSUMPTION
     why_chosen: >

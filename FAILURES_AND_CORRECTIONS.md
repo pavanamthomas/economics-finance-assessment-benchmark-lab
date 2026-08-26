@@ -77,3 +77,20 @@ These are defects caught while writing the corpus, not a reconstructed history. 
 **How it was detected.** Reading it. Automated validation does not score plausibility.
 
 **What changed.** `RJ-07` documents the defect class. `MANUAL_REVIEW_CHECKLIST.md` includes a distractor-plausibility line. No test will ever fully own that line; claiming otherwise would be a new failure.
+
+## 9. Answer-position leakage across the retained corpus
+
+**What failed.** Every retained item used the same keyed letter. The economics could still be correct, but the corpus leaked the answer position and made letter-frequency guessing rational.
+
+**How it was detected.** A corpus-level adversarial audit counted `correct_option` rather than reading items one at a time.
+
+**What changed.** The 40 retained items were re-keyed without changing their substantive option sets: keyed and distractor bodies were permuted consistently, producing exactly four keys for each letter A–J. `validate_corpus` and `tests/test_corpus.py` now enforce the distribution.
+
+**Why this matters.** Item validity includes presentation. A perfect derivation does not rescue a benchmark whose answer positions reveal the key.
+
+## 10. Substantive wording and modelling repairs from the same audit
+
+The audit also repaired several model-level defects: internal-target versus regulatory-minimum language in `MP-E-01`; DSTI terminology in `MP-H-02`; the sign of the CPAMM derivative in `TD-M-01`; governance arithmetic in `TD-H-03`; a duplicated correct numerical spread in `MM-H-02`; benchmark-object visibility in `MM-H-03`; under-parameterised CPT language in `BF-E-01`; separation of multiplicity from attrition in `BF-E-02`; comparability assumptions in `UE-E-02`; hedonic-identification wording in `UE-H-03`; TWAP-lag wording in `TD-E-02`; and explicit cost/competition conditions in `TD-E-03`.
+
+These are recorded because a useful benchmark should expose its corrections rather than imply that the first draft was perfect.
+

@@ -18,7 +18,7 @@ options:
   A: >
     The commentator is right. Money distorts true preferences, so hypothetical answers are the revealed-preference object.
   B: >
-    Hypothetical questions are not incentive-compatible. Study I's random-lottery payment is a standard way to make choices consequential, and stripping the hypothesis from the script is a way to limit experimenter demand. H can be larger because of cheap talk and demand, not because it is cleaner.
+    The larger gap is always the better estimate because it is easier to detect.
   C: >
     Random-lottery incentives identify nothing, because only one choice is paid, so all other choices are hypothetical anyway.
   D: >
@@ -32,10 +32,10 @@ options:
   H: >
     Incentive compatibility is only required in games with more than one player; individual choice needs no payment.
   I: >
-    The larger gap is always the better estimate because it is easier to detect.
+    Hypothetical questions are not incentive-compatible. Study I's random-lottery payment is a standard way to make choices consequential, and stripping the hypothesis from the script is a way to limit experimenter demand. H can be larger because of cheap talk and demand, not because it is cleaner.
   J: >
     Study I is incentive-compatible only if every choice is paid, which would bankrupt the lab; therefore H is the feasible gold standard.
-correct_option: B
+correct_option: I
 solution_summary: >
   Smith's induced-value logic: payoffs must be tied to choices.
   Hypothetical WTP is cheap talk. Random-lottery payment of one
@@ -74,11 +74,11 @@ distractor_rationales:
     why_wrong: >
       In experimental economics, money is how one induces value.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: RANKING_VS_PROBABILITY
     why_chosen: >
-      Incentive compatibility plus demand as explanations of H > I.
+      Statistical detection is confused with bias.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      A biased-upward gap is easier to detect and still biased.
   C:
     taxonomy: WRONG_INFORMATION_SET
     why_chosen: >
@@ -120,11 +120,11 @@ distractor_rationales:
     why_wrong: >
       Individual stated WTP is the original cheap-talk problem.
   I:
-    taxonomy: RANKING_VS_PROBABILITY
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Statistical detection is confused with bias.
+      Incentive compatibility plus demand as explanations of H > I.
     why_wrong: >
-      A biased-upward gap is easier to detect and still biased.
+      This letter is the keyed option. It is not a distractor.
   J:
     taxonomy: WRONG_DENOMINATOR
     why_chosen: >

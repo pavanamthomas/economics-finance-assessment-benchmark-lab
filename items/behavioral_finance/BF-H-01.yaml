@@ -18,7 +18,7 @@ options:
   A: >
     The commentator is right. λ > 1 generates all four cells.
   B: >
-    Loss aversion (λ > 1) scales losses relative to gains at a given probability. The fourfold pattern's *probability* dimension — seeking on small-p gains and aversion on small-p losses — requires probability weighting (overweighting of small p) in Tversky–Kahneman CPT. The value function's concavity/convexity helps the high-p cells. λ alone, with linear probabilities, does not deliver the four cells.
+    The fourfold pattern requires rank-dependent weighting *and* a Bayesian update of the reference point; without the latter, CPT cannot speak.
   C: >
     Probability weighting alone, with a linear value function and λ = 1, is necessary and sufficient; the value function is ornamental.
   D: >
@@ -34,8 +34,8 @@ options:
   I: >
     Small-p overweighting would make subjects buy both lotteries *and* decline insurance, which is the opposite of the stem, so weighting cannot be the mechanism.
   J: >
-    The fourfold pattern requires rank-dependent weighting *and* a Bayesian update of the reference point; without the latter, CPT cannot speak.
-correct_option: B
+    Loss aversion (λ > 1) scales losses relative to gains at a given probability. The fourfold pattern's *probability* dimension — seeking on small-p gains and aversion on small-p losses — requires probability weighting (overweighting of small p) in Tversky–Kahneman CPT. The value function's concavity/convexity helps the high-p cells. λ alone, with linear probabilities, does not deliver the four cells.
+correct_option: J
 solution_summary: >
   Four cells, two instruments: curvature of v plus π(p) overweighting
   small p. λ > 1 is a third object (relative scaling of losses) and
@@ -75,11 +75,12 @@ distractor_rationales:
     why_wrong: >
       λ does not supply the probability dimension.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: VIOLATED_ASSUMPTION
     why_chosen: >
-      Splits λ, v-curvature, and π(p) across the cells.
+      Rank dependence and KR expectations are both "modern CPT."
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      TK92 already has rank-dependent weighting. Bayesian
+      reference updating is not required for the fourfold tables.
   C:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
@@ -130,12 +131,11 @@ distractor_rationales:
       In the loss domain, overweighting a small-p loss makes it
       scarier, which supports insurance, not declining insurance.
   J:
-    taxonomy: VIOLATED_ASSUMPTION
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Rank dependence and KR expectations are both "modern CPT."
+      Splits λ, v-curvature, and π(p) across the cells.
     why_wrong: >
-      TK92 already has rank-dependent weighting. Bayesian
-      reference updating is not required for the fourfold tables.
+      This letter is the keyed option. It is not a distractor.
 misconception_tags:
   - NECESSARY_VS_SUFFICIENT
   - SIGN_REVERSAL

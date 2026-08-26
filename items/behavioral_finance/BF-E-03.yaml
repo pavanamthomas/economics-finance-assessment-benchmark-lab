@@ -23,13 +23,13 @@ options:
   A: >
     The commentator is right. Volume is a sufficient statistic for overconfidence.
   B: >
-    Turnover is an outcome, not a mechanism. M2 is challenged by a *net return* gap after a style adjustment: lower risk aversion that merely loads on compensated factors should not, by itself, produce lower residual net returns. M3 (disagreement) can generate volume without a mistake, so volume alone does not identify M1. The poorer net performance of high-turnover accounts is the observation that supports M1 over "volume is enough."
+    After any style adjustment, remaining return gaps are alpha and therefore overconfidence by definition.
   C: >
     Lower risk aversion always lowers expected returns, so M2 explains the gap without overconfidence.
   D: >
     Heterogeneous beliefs cannot generate trade at all, by Milgrom–Stokey, so M3 is empty and M1 is identified by volume.
   E: >
-    After any style adjustment, remaining return gaps are alpha and therefore overconfidence by definition.
+    Turnover is an outcome, not a mechanism. M2 is challenged by a *net return* gap after a style adjustment: lower risk aversion that merely loads on compensated factors should not, by itself, produce lower residual net returns. M3 (disagreement) can generate volume without a mistake, so volume alone does not identify M1. The poorer net performance of high-turnover accounts is the observation that supports M1 over "volume is enough."
   F: >
     Overconfidence predicts *higher* net returns, because confident traders demand compensation; the stem's gap contradicts M1.
   G: >
@@ -40,7 +40,7 @@ options:
     Net returns are the wrong object; overconfidence is about calibration of probabilities, which this panel can never see.
   J: >
     M1, M2, and M3 are observationally equivalent on this panel, so no statement about mechanisms is licensed.
-correct_option: B
+correct_option: E
 solution_summary: >
   Volume does not identify overconfidence. The return underperformance
   of high-turnover accounts is the Barber–Odean-type observation that
@@ -82,12 +82,12 @@ distractor_rationales:
     why_wrong: >
       It is the outcome those papers then discipline with returns.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: CORRELATION_VS_IDENTIFICATION
     why_chosen: >
-      Volume is not a mechanism; the net-return gap disciplines M1
-      versus M3/M2.
+      Residual = alpha = behavioral.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Residuals have many explanations; the mechanism still needs
+      the volume-plus-cost story.
   C:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
@@ -104,12 +104,12 @@ distractor_rationales:
     why_wrong: >
       Retail panels do not satisfy the theorem's conditions.
   E:
-    taxonomy: CORRELATION_VS_IDENTIFICATION
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Residual = alpha = behavioral.
+      Volume is not a mechanism; the net-return gap disciplines M1
+      versus M3/M2.
     why_wrong: >
-      Residuals have many explanations; the mechanism still needs
-      the volume-plus-cost story.
+      This letter is the keyed option. It is not a distractor.
   F:
     taxonomy: SIGN_REVERSAL
     why_chosen: >

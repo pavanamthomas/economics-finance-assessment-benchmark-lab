@@ -17,7 +17,7 @@ options:
   A: >
     IL = 0, because k is constant, so the LP cannot lose.
   B: >
-    IL = 2√4 / (1+4) − 1 = 4/5 − 1 = −20 percent. Holding the original inventory outperforms the LP position when prices move and fees are zero. IL(1) = 0, and IL(r) = IL(1/r).
+    IL is undefined when r ≠ 1, because "impermanent" means it only exists while the price is moving.
   C: >
     IL = +20 percent, because the LP is long volatility.
   D: >
@@ -25,7 +25,7 @@ options:
   E: >
     IL = −50 percent, half the price move, by a linear approximation that is exact at r = 4.
   F: >
-    IL is undefined when r ≠ 1, because "impermanent" means it only exists while the price is moving.
+    IL = 2√4 / (1+4) − 1 = 4/5 − 1 = −20 percent. Holding the original inventory outperforms the LP position when prices move and fees are zero. IL(1) = 0, and IL(r) = IL(1/r).
   G: >
     The hold-versus-LP comparison is invalid, because the LP could not have held the original inventory without a pool.
   H: >
@@ -34,7 +34,7 @@ options:
     At r = 4 the LP has more of the depreciating asset, which is a gain, so IL is positive.
   J: >
     IL = −20 percent only if the LP deposited a single asset; a 50/50 deposit is immune.
-correct_option: B
+correct_option: F
 solution_summary: >
   Closed form IL(4) = −1/5. Zero fees, restored spot. Holding
   beats LP when r ≠ 1.
@@ -78,11 +78,12 @@ distractor_rationales:
     why_wrong: >
       k is a quantity product. Value in Y is 2 sqrt(k p).
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: TIMING_ERROR
     why_chosen: >
-      IL(4)=−20 percent, IL(1)=0, symmetry.
+      The word "impermanent."
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      The gap is well-defined at any r; it is reversed if r
+      returns to 1.
   C:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
@@ -103,12 +104,11 @@ distractor_rationales:
       At r=4 the linearisation is poor; the closed form is
       exact.
   F:
-    taxonomy: TIMING_ERROR
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      The word "impermanent."
+      IL(4)=−20 percent, IL(1)=0, symmetry.
     why_wrong: >
-      The gap is well-defined at any r; it is reversed if r
-      returns to 1.
+      This letter is the keyed option. It is not a distractor.
   G:
     taxonomy: VIOLATED_ASSUMPTION
     why_chosen: >

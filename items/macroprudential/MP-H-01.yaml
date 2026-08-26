@@ -17,9 +17,9 @@ stem: >
   position matches the design of the CCyB, and with what caveat?
 options:
   A: >
-    Release. The buffer exists to be used whenever capital ratios look strong, which is now.
-  B: >
     Raise. The CCyB is built when systemic vulnerabilities accumulate (credit boom, rising asset prices, low NPLs) so that it can be released in a subsequent stress. The credit-to-GDP gap is a useful guide, not a mechanical rule, and a release is for a downturn or a materialisation of risk, not for a boom with high capital.
+  B: >
+    Release. The buffer exists to be used whenever capital ratios look strong, which is now.
   C: >
     Raise, and the credit-to-GDP gap is a sufficient statistic: if the gap is positive the CCyB must be at its regulatory maximum.
   D: >
@@ -36,7 +36,7 @@ options:
     Raise only if the gap is driven by household mortgages; corporate credit booms are outside the CCyB's mandate.
   J: >
     Release now and raise automatically if GDP falls, which is a symmetric rule around potential output.
-correct_option: B
+correct_option: A
 solution_summary: >
   CCyB is procyclical-correction: accumulate in the boom, release when
   losses hit so that banks do not cut lending to protect ratios. High
@@ -70,17 +70,17 @@ assumptions:
     No claim that the gap should be followed blindly.
 distractor_rationales:
   A:
-    taxonomy: TIMING_ERROR
-    why_chosen: >
-      Buffers are "there to be used," and capital looks abundant.
-    why_wrong: >
-      Use is for the stress. Abundance in a boom is when one builds.
-  B:
     taxonomy: CORRECT_KEY
     why_chosen: >
       Build in the boom, release in stress, gap as guide not rule.
     why_wrong: >
       This letter is the keyed option. It is not a distractor.
+  B:
+    taxonomy: TIMING_ERROR
+    why_chosen: >
+      Buffers are "there to be used," and capital looks abundant.
+    why_wrong: >
+      Use is for the stress. Abundance in a boom is when one builds.
   C:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >

@@ -9,7 +9,9 @@ stem: >
   A fund gives a desk a parent order to buy 8 percent of expected day's
   volume in a name that will announce earnings after the close. The
   desk's mandate, as written, is "minimise shortfall versus VWAP." The
-  desk can choose when to trade inside the day. Three facts are on the
+  investment decision, however, is to complete the position before earnings
+  while minimising implementation shortfall relative to the arrival decision price.
+  The desk can choose when to trade inside the day. Three facts are on the
   table: (i) the parent is large relative to depth at the touch;
   (ii) buying itself moves the mid (permanent impact) and also pays
   a transitory spread-plus-depletion component; (iii) the desk can
@@ -20,7 +22,7 @@ options:
   A: >
     VWAP is always the right benchmark because it is what the client wrote in the mandate, and a mandate cannot be economically wrong.
   B: >
-    VWAP is wrong here because a large, timed, alpha-exposed order is not a participation instruction. Beating VWAP can be achieved by trading where volume is, which does not control arrival shortfall or information leakage, and the desk's own prints help determine the VWAP it is measured against.
+    VWAP is wrong because earnings are after the close; any intraday benchmark is invalid when overnight information exists.
   C: >
     VWAP is wrong only because of temporary impact; permanent impact is already in the mid and so is already in VWAP.
   D: >
@@ -28,7 +30,7 @@ options:
   E: >
     Temporary and permanent impact are accounting labels for the same number, so the benchmark choice cannot depend on that distinction.
   F: >
-    VWAP is wrong because earnings are after the close; any intraday benchmark is invalid when overnight information exists.
+    VWAP is wrong here because a large, timed, alpha-exposed order is not a participation instruction. Beating VWAP can be achieved by trading where volume is, which does not control arrival shortfall or information leakage, and the desk's own prints help determine the VWAP it is measured against.
   G: >
     The right benchmark is always the close, because that is the official settlement price.
   H: >
@@ -37,7 +39,7 @@ options:
     Permanent impact should be ignored in any benchmark because it is a sunk cost once the decision to buy has been made.
   J: >
     VWAP is inappropriate only on low-volume days; at 8 percent of expected volume the order is still small.
-correct_option: B
+correct_option: F
 solution_summary: >
   VWAP is a participation benchmark. It ceases to be the right yardstick
   when the trader has timing discretion correlated with volume, when the
@@ -82,12 +84,13 @@ distractor_rationales:
       A written mandate can still be the wrong economic objective. The
       question is when VWAP ceases to be appropriate, not what was typed.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: TIMING_ERROR
     why_chosen: >
-      Names the three failures: not a participation order, self-impacted
-      VWAP, and arrival/leakage not controlled by a VWAP residual.
+      Overnight information looks like it invalidates all intraday marks.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Overnight information is why one may want to finish *before* the
+      close, which is an arrival/completion objective, not a reason that
+      "any intraday benchmark is invalid."
   C:
     taxonomy: STATIC_VS_DYNAMIC_EFFECT
     why_chosen: >
@@ -112,13 +115,12 @@ distractor_rationales:
       Temporary versus permanent is a dynamic distinction with different
       optimal schedules (Almgren–Chriss). Collapsing them is the error.
   F:
-    taxonomy: TIMING_ERROR
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Overnight information looks like it invalidates all intraday marks.
+      Names the three failures: not a participation order, self-impacted
+      VWAP, and arrival/leakage not controlled by a VWAP residual.
     why_wrong: >
-      Overnight information is why one may want to finish *before* the
-      close, which is an arrival/completion objective, not a reason that
-      "any intraday benchmark is invalid."
+      This letter is the keyed option. It is not a distractor.
   G:
     taxonomy: WRONG_INFORMATION_SET
     why_chosen: >

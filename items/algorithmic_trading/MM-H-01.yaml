@@ -16,11 +16,11 @@ options:
   A: >
     λ = 0.50. It is the ratio of fundamental volatility to noise-trader volatility, σ_v / σ_u, and is the insider's trading intensity.
   B: >
-    λ = 0.25. It is the equilibrium price impact of a unit of net order flow, σ_v / (2 σ_u), not a profit forecast and not β.
+    λ = 0.125. The factor 2 in the denominator is applied twice, once in the projection and once in the insider's first-order condition.
   C: >
     λ = 2.00. It equals β, because market clearing forces impact and intensity to be reciprocals that coincide.
   D: >
-    λ = 0.125. The factor 2 in the denominator is applied twice, once in the projection and once in the insider's first-order condition.
+    λ = 0.25. It is the equilibrium price impact of a unit of net order flow, σ_v / (2 σ_u), not a profit forecast and not β.
   E: >
     λ = 8.00. Impact is σ_u / (σ_v / 2), which grows with noise.
   F: >
@@ -33,7 +33,7 @@ options:
     λ = 4.00, the noise standard deviation, because the market maker charges the noise traders' scale as a spread.
   J: >
     λ = 0. It must be, because a competitive market maker earns zero expected profit, which forces zero impact.
-correct_option: B
+correct_option: D
 solution_summary: >
   In the one-shot linear-normal Kyle model, λ = σ_v / (2 σ_u) = 2/8 =
   0.25 and β = σ_u / σ_v = 2. λ is the slope of the pricing rule, the
@@ -77,12 +77,11 @@ distractor_rationales:
       The insider's first-order condition puts a 2 in the denominator of
       λ. Dropping it confuses λ with a volatility ratio and with β.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
-      States λ = σ_v/(2σ_u) = 0.25 and interprets it as impact of net
-      flow, not as profit or as β.
+      Students who remember "there is a 2" sometimes square it.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      The 2 appears once, in the insider's FOC x = (v−p0)/(2λ).
   C:
     taxonomy: WRONG_DENOMINATOR
     why_chosen: >
@@ -92,11 +91,12 @@ distractor_rationales:
       λ and β are reciprocals up to the factor 2, but they are not equal.
       β = 2, λ = 0.25.
   D:
-    taxonomy: INCORRECT_NORMALIZATION
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Students who remember "there is a 2" sometimes square it.
+      States λ = σ_v/(2σ_u) = 0.25 and interprets it as impact of net
+      flow, not as profit or as β.
     why_wrong: >
-      The 2 appears once, in the insider's FOC x = (v−p0)/(2λ).
+      This letter is the keyed option. It is not a distractor.
   E:
     taxonomy: SIGN_REVERSAL
     why_chosen: >

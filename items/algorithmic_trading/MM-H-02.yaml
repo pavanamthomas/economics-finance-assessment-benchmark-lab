@@ -17,13 +17,13 @@ options:
   A: >
     Spread = 0, because a competitive specialist earns zero profit and therefore posts the unconditional expectation 0.5 on both sides.
   B: >
-    Spread = 0.20, equal to μ, which is already the adverse-selection discount.
+    Spread = 0.10, equal to μ/2, because only half of informed arrival probability belongs on each side of the quote.
   C: >
     Spread = 0.40. Ask = E[v|buy] = 0.60 and bid = E[v|sell] = 0.20, using P(v=1|sell) = μ rather than Bayes.
   D: >
-    Spread = 0.20. Ask = E[v|buy] = 0.60 and bid = E[v|sell] = 0.40. The spread is entirely an adverse-selection wedge; inventory risk is not required.
-  E: >
     Spread = 0.50, the difference between the two possible values of v, which is the most the specialist can lose to the insider.
+  E: >
+    Spread = 0.20. Ask = E[v|buy] = 0.60 and bid = E[v|sell] = 0.40. The spread is entirely an adverse-selection wedge; inventory risk is not required.
   F: >
     Spread = 0.04, which is μ times the uninformed probability 0.20, a "probability-weighted" tick.
   G: >
@@ -34,7 +34,7 @@ options:
     Ask = 1 and bid = 0, because the specialist must not lose to a possibly informed trader.
   J: >
     Spread = 0.10, half of μ, by analogy with Kyle's factor of 1/2.
-correct_option: D
+correct_option: E
 solution_summary: >
   Bayes on the buy and sell events gives ask = 0.60, bid = 0.40, spread
   = 0.20. Competitive quoting sets each side to the conditional
@@ -80,11 +80,9 @@ distractor_rationales:
   B:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
-      μ = 0.20 numerically equals the spread, so μ looks like the answer.
+      Splitting μ equally across bid and ask looks like a natural half-spread calculation.
     why_wrong: >
-      Equality with μ is an artefact of π = ½ and v ∈ {0,1}. The object
-      is ask − bid = E[v|buy] − E[v|sell], not μ itself. If π were not
-      ½, the spread would not equal μ.
+      The two conditional expectations must be computed by Bayes. The spread is 0.20; halving μ is not the quote-setting rule.
   C:
     taxonomy: WRONG_INFORMATION_SET
     why_chosen: >
@@ -92,18 +90,18 @@ distractor_rationales:
     why_wrong: >
       P(v=1|sell) = 0.40, not 0.20. Skipping Bayes understates the bid.
   D:
+    taxonomy: LEVEL_VS_MARGINAL
+    why_chosen: >
+      The range of v looks like a worst-case spread.
+    why_wrong: >
+      Competitive quotes are conditional means, not the support of v.
+  E:
     taxonomy: CORRECT_KEY
     why_chosen: >
       Correct Bayes quotes and the interpretation that the wedge is
       adverse selection, not inventory.
     why_wrong: >
       This letter is the keyed option. It is not a distractor.
-  E:
-    taxonomy: LEVEL_VS_MARGINAL
-    why_chosen: >
-      The range of v looks like a worst-case spread.
-    why_wrong: >
-      Competitive quotes are conditional means, not the support of v.
   F:
     taxonomy: WRONG_DENOMINATOR
     why_chosen: >

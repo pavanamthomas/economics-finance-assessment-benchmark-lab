@@ -9,9 +9,10 @@ learning_objective: >
 stem: >
   Three banks, identical ex ante, hold a common traded security marked
   to market. After a 10 percent exogenous price drop, each bank's
-  capital ratio is still above its target. Each bank's rule is: sell
-  just enough of the security to restore the target leverage, taking
-  the current price as given. The inverse demand for the security is
+  capital ratio remains above its regulatory minimum but falls below
+  its stricter internal target. Each bank's rule is: sell just enough
+  of the security to restore that internal target, taking the current
+  price as given. The inverse demand for the security is
   downward-sloping in *aggregate* sales. In the Nash outcome, all three
   sell, the price falls another 8 percent, and one bank's ratio then
   breaches the micro minimum; in a coordinated freeze on sales, all
@@ -21,13 +22,13 @@ options:
   A: >
     The breach shows that the 10 percent shock was mismeasured; true shocks that leave ratios above target cannot produce defaults.
   B: >
-    Each bank's sale is privately optimal given the price, but the price depends on the sum of sales. The Nash loop can violate a constraint that a coordinated no-sale would not. That is a pecuniary externality, not a demonstration that any one bank "mismanaged" the first round.
+    Because the first-round ratios were above target, the sales were not required and therefore cannot have been privately optimal.
   C: >
     Inverse demand cannot slope down if markets are efficient, so the second round is impossible.
   D: >
     The bank that breaches is the only one that created the externality; the other two should not be in the policy set.
   E: >
-    Because the first-round ratios were above target, the sales were not required and therefore cannot have been privately optimal.
+    Each bank's sale is privately optimal given the price, but the price depends on the sum of sales. The Nash loop can violate a constraint that a coordinated no-sale would not. That is a pecuniary externality, not a demonstration that any one bank "mismanaged" the first round.
   F: >
     A coordinated freeze is always feasible as a Nash equilibrium of the same game, so the loop is a knife-edge numerical accident.
   G: >
@@ -38,14 +39,14 @@ options:
     Three is too few for a systemic event; pecuniary externalities require a continuum of banks.
   J: >
     The micro minimum that binds in the second round is the definition of the target leverage, so the example is contradictory.
-correct_option: B
+correct_option: E
 solution_summary: >
   The example is a textbook fire-sale externality: individually
   rational leverage targeting, a downward-sloping aggregate demand,
   and a constraint that binds in Nash but not under coordination.
 solution_derivation: >
   Let P1 be the post-shock, pre-sale price (down 10 percent). At P1
-  every ratio is above target and above the micro minimum. Bank i
+  every ratio is above the micro minimum but below the stricter internal target. Bank i
   chooses sales s_i to hit a leverage target taking P as given,
   s_i(P) ≥ 0. Market clearing: P2 = P(s1+s2+s3) < P1. At P2, marks
   fall another 8 percent; one book then fails the micro minimum. The
@@ -96,12 +97,13 @@ distractor_rationales:
       The 8 percent is endogenous. Treating it as exogenous changes
       the information set.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
-      Private optimality given P, social cost through P, Nash versus
-      freeze.
+      "Above target" sounds like no need to sell.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      The target is defined at the *current* price. After the 10
+      percent drop, restoring the target requires sales even if the
+      ratio is still above the micro minimum.
   C:
     taxonomy: VIOLATED_ASSUMPTION
     why_chosen: >
@@ -116,13 +118,12 @@ distractor_rationales:
     why_wrong: >
       All three sold. The breach is an outcome of the sum.
   E:
-    taxonomy: NECESSARY_VS_SUFFICIENT
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      "Above target" sounds like no need to sell.
+      Private optimality given P, social cost through P, Nash versus
+      freeze.
     why_wrong: >
-      The target is defined at the *current* price. After the 10
-      percent drop, restoring the target requires sales even if the
-      ratio is still above the micro minimum.
+      This letter is the keyed option. It is not a distractor.
   F:
     taxonomy: EQUILIBRIUM_FEEDBACK_IGNORED
     why_chosen: >

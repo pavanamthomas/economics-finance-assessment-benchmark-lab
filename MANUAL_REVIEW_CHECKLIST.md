@@ -37,3 +37,13 @@ A passing CI run is not a substitute for this list. `FAILURES_AND_CORRECTIONS.md
 
 - [ ] No implied desk, supervisor, protocol employment, certificate, client, AUM, or live return.
 - [ ] No fabricated paper.
+
+## Answer-position and cue audit
+
+- [ ] Key positions are balanced at corpus level; a solver cannot gain information from letter frequency or same-letter streaks.
+- [ ] The correct option is not systematically longer, more qualified, more grammatical, or more numerically precise than the distractors.
+- [ ] The keyed option does not uniquely repeat wording from the stem or contain explanation that belongs in the solution.
+- [ ] Denominators, timing conventions, price conventions, and equilibrium concepts are explicit enough that a reasonable alternate reading cannot rescue another option.
+- [ ] Ask explicitly: what is the strongest alternative option, and what smallest assumption change would make it correct?
+- [ ] Claim-level citation check: the cited source supports the decisive proposition, not merely the topic.
+

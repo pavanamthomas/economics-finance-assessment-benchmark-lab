@@ -18,7 +18,7 @@ options:
   A: >
     The commentator is right. Taxable investors should realise gains and hold losses to defer tax.
   B: >
-    Tax-loss harvesting predicts realising *losses* and deferring gains. The observed pattern is the opposite, which is the disposition effect; it is not explained by that tax motive, and the subsequent-return check is there to reject a simple rebalancing-on-information story.
+    Subsequent returns of sold winners versus kept losers are irrelevant, because disposition is a statement about tastes only.
   C: >
     Realising winners is always rational because a gain is evidence that the stock's expected return has fallen.
   D: >
@@ -30,12 +30,12 @@ options:
   G: >
     The pattern is disposition only if every investor in the sample shows it; a sample mean is not a mechanism.
   H: >
-    Subsequent returns of sold winners versus kept losers are irrelevant, because disposition is a statement about tastes only.
+    Tax-loss harvesting predicts realising *losses* and deferring gains. The observed pattern is the opposite, which is the disposition effect; it is not explained by that tax motive, and the subsequent-return check is there to reject a simple rebalancing-on-information story.
   I: >
     The pattern is explained by transaction costs, which are higher for losers.
   J: >
     Disposition is just another name for momentum, so selling winners is the momentum strategy.
-correct_option: B
+correct_option: H
 solution_summary: >
   Odean's disposition pattern is the opposite of the tax-timing
   prediction. A tax story that got the sign right would realise
@@ -73,11 +73,11 @@ distractor_rationales:
     why_wrong: >
       Tax predicts the opposite sign.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: WRONG_INFORMATION_SET
     why_chosen: >
-      Sign of the tax prediction, December, and the return check.
+      Preferences versus beliefs split.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      The return check is how one tests a beliefs alternative.
   C:
     taxonomy: CORRELATION_VS_IDENTIFICATION
     why_chosen: >
@@ -112,11 +112,11 @@ distractor_rationales:
       A mechanism can appear as a sample average of realisation
       rates. Universality is not required.
   H:
-    taxonomy: WRONG_INFORMATION_SET
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Preferences versus beliefs split.
+      Sign of the tax prediction, December, and the return check.
     why_wrong: >
-      The return check is how one tests a beliefs alternative.
+      This letter is the keyed option. It is not a distractor.
   I:
     taxonomy: WRONG_DENOMINATOR
     why_chosen: >

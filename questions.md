@@ -24,7 +24,7 @@ If the AMM information set includes a fee, the geometric-mean identity fails. Th
 
 Risk-neutral agents in Kyle: the one-shot model already is. Inventory models are a different object (`MM-H-02` vs Ho–Stoll).
 
-A binding LTV cap that leaks into high-DTI loans is `MP-H-02`. The leakage is a distractor, not a simulation.
+A binding LTV cap that leaks into high-DSTI loans is `MP-H-02`. The leakage is a distractor, not a simulation.
 
 `MP-E-01` is Nash taking the price as given, with a downward-sloping *aggregate* inverse demand — a pecuniary externality, not a planner’s problem.
 
@@ -43,7 +43,7 @@ A G-SIB surcharge does not identify a zero TBTF subsidy (`MP-E-03`).
 1. **`TD-E-01`.** If \(\Delta x\to 0\), the three prices collapse. If a fee is taken on inbound X, \(k\) on displayed reserves rises and the geometric-mean identity fails.
 2. **`MM-E-01`.** If the half-spread is 0.5 bp rather than 3 bp, book (2) can be positive; book (1) is still not executable. If hidden size is assumed, book (3) needs a qualifier — that is why hidden size is excluded.
 3. **`MP-E-01`.** If inverse demand is flat, Nash and freeze coincide and the externality shuts. If \(n=1\), there is no externality *on others*.
-4. **`BF-E-01`.** If the reference is locked at the purchase price, a unique (loss-domain) prediction can be keyed. The item exists because that lock was missing in a draft.
+4. **`BF-E-01`.** Locking the reference at the purchase price fixes the gain/loss domain, but a unique choice still requires the relevant curvature and probability-weighting parameters. The item exists because reference-point ambiguity was one of the missing pieces in a draft.
 5. **`UE-H-01`.** If the city is large enough to move the national outside option, the open-city pin on \(u^\ast\) weakens. If housing supply is perfectly elastic, the rent increase shrinks and the population response grows.
 
 ## What I cannot close from YAML alone

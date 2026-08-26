@@ -20,7 +20,7 @@ options:
   A: >
     The commentator is right on both counts.
   B: >
-    HF = 150 × 0.80 / 100 = 1.20 > 1, so the position is not liquidatable on this definition. Origination LTV and the liquidation threshold are different numbers; liquidation is not the event "collateral = debt."
+    Liquidation threshold 80 percent means the protocol seizes 80 percent of collateral now, which is the liquidation.
   C: >
     HF = 150/100 = 1.50, ignoring the 80 percent, and liquidation is at HF < 1.50.
   D: >
@@ -30,14 +30,14 @@ options:
   F: >
     LTV = 100/150 ≈ 67 percent is above 80 percent, so HF must be below 1; the 1.20 figure is a units error.
   G: >
-    Liquidation threshold 80 percent means the protocol seizes 80 percent of collateral now, which is the liquidation.
+    HF = 150 × 0.80 / 100 = 1.20 > 1, so the position is not liquidatable on this definition. Origination LTV and the liquidation threshold are different numbers; liquidation is not the event "collateral = debt."
   H: >
     HF uses the origination collateral, not the mark of 150, so the number cannot be computed from the stem.
   I: >
     A position with HF > 1 can still be liquidated if the oracle is current; HF is only a display.
   J: >
     Collateral 150 and debt 100 is a 50 percent buffer, which equals 1 − 0.80, so the position is exactly at the liquidation point.
-correct_option: B
+correct_option: G
 solution_summary: >
   HF = 1.20. Liquidation when HF < 1. 67 percent LTV is not
   compared to the 80 percent threshold as a like-for-like, and
@@ -80,12 +80,11 @@ distractor_rationales:
     why_wrong: >
       The rule is HF < 1, not "LTV feels high."
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: WRONG_INFORMATION_SET
     why_chosen: >
-      HF = 1.20, distinct from origination LTV and from 100
-      percent collateral.
+      Threshold as a haircut to apply now.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      It is a trigger parameter.
   C:
     taxonomy: WRONG_DENOMINATOR
     why_chosen: >
@@ -111,11 +110,12 @@ distractor_rationales:
     why_wrong: >
       67 < 80; safer, not tighter.
   G:
-    taxonomy: WRONG_INFORMATION_SET
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Threshold as a haircut to apply now.
+      HF = 1.20, distinct from origination LTV and from 100
+      percent collateral.
     why_wrong: >
-      It is a trigger parameter.
+      This letter is the keyed option. It is not a distractor.
   H:
     taxonomy: STOCK_VS_FLOW
     why_chosen: >

@@ -22,7 +22,7 @@ options:
   A: >
     Because timestamps are correct and the R² is out-of-sample, book (1) is an executable expected profit of +2.0 bp.
   B: >
-    Book (1) can be positive while book (2) is negative, and book (3) can be worse still. A correct clock does not make a mid-price fill feasible, and a quote-touch fill is not feasible when the order exceeds displayed depth.
+    Microsecond timestamps eliminate look-ahead, therefore any remaining negative P&L in book (3) must be a coding error.
   C: >
     The half-spread of 3 bp is a transitory bounce and therefore should not be charged to a one-minute holding period; book (1) remains the right P&L.
   D: >
@@ -32,14 +32,14 @@ options:
   F: >
     If the residual is delayed one second, the forecast R² still applies to that later mid, so book (3) has the same +2.0 bp as book (1).
   G: >
-    Microsecond timestamps eliminate look-ahead, therefore any remaining negative P&L in book (3) must be a coding error.
+    Book (1) can be positive while book (2) is negative, and book (3) can be worse still. A correct clock does not make a mid-price fill feasible, and a quote-touch fill is not feasible when the order exceeds displayed depth.
   H: >
     The strategy should be evaluated at the microprice, which always lies inside the spread and is therefore executable.
   I: >
     Positive predicted mid moves mean the ask will have moved up by 2 bp before the order arrives, so the executable buy price is the old ask plus 2 bp and the edge is unchanged.
   J: >
     Depth being short 35 percent of the time is a liquidity event that can be ignored by restricting the sample to the other 65 percent, which restores book (2) as the population result.
-correct_option: B
+correct_option: G
 solution_summary: >
   Mid-marking is a paper fill. Touch-marking charges the spread.
   Walking the book and delaying the residual charges impact and timing.
@@ -82,12 +82,12 @@ distractor_rationales:
     why_wrong: >
       Those are statistical hygiene. They do not make the mid executable.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
-      Ranks the three books and states that a correct clock is not a
-      feasible fill.
+      Look-ahead is the usual reason a backtest is "too good."
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Absence of look-ahead is necessary, not sufficient. Feasible
+      prices can still erase the paper edge.
   C:
     taxonomy: STATIC_VS_DYNAMIC_EFFECT
     why_chosen: >
@@ -120,12 +120,12 @@ distractor_rationales:
       the signal time, not from the delayed residual's time, and the
       residual faces a different book.
   G:
-    taxonomy: NECESSARY_VS_SUFFICIENT
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Look-ahead is the usual reason a backtest is "too good."
+      Ranks the three books and states that a correct clock is not a
+      feasible fill.
     why_wrong: >
-      Absence of look-ahead is necessary, not sufficient. Feasible
-      prices can still erase the paper edge.
+      This letter is the keyed option. It is not a distractor.
   H:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
