@@ -20,6 +20,20 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Normalise one wrapped migration anchor
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/apply_assessment_integrity_audit.py')
+          t = p.read_text(encoding='utf-8')
+          old = '"The desk\'s mandate, as written, is \\"minimise shortfall versus VWAP.\\" The\\n  desk can choose when to trade inside the day.",'
+          new = '"The\\n  desk\'s mandate, as written, is \\"minimise shortfall versus VWAP.\\" The\\n  desk can choose when to trade inside the day.",'
+          old2 = '"The desk\'s mandate, as written, is \\"minimise shortfall versus VWAP.\\" The\\n  investment decision, however, is to complete the position before earnings\\n  while minimising implementation shortfall relative to the arrival decision price.\\n  The desk can choose when to trade inside the day.",'
+          new2 = '"The\\n  desk\'s mandate, as written, is \\"minimise shortfall versus VWAP.\\" The\\n  investment decision, however, is to complete the position before earnings\\n  while minimising implementation shortfall relative to the arrival decision price.\\n  The desk can choose when to trade inside the day.",'
+          if old not in t or old2 not in t:
+              raise SystemExit('migration anchor patch not found')
+          p.write_text(t.replace(old, new).replace(old2, new2), encoding='utf-8')
+          PY
       - name: Apply deterministic audit corrections
         run: python scripts/apply_assessment_integrity_audit.py
       - name: Install package
