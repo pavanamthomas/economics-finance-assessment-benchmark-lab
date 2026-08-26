@@ -19,11 +19,11 @@ options:
   A: >
     The commentator is right. Systemic importance is standalone tail size, and CoVaR is a relabelling of VaR.
   B: >
-    ΔCoVaR(system | i) measures how much worse the system's tail is when i is in its own tail rather than at its median. A can be systemically important in that sense while remaining small in standalone VaR; B can be the reverse. VaR and ΔCoVaR are not interchangeable, and neither is a sufficient statistic for every policy tool.
+    If A's ΔCoVaR is large, A must have a large VaR; the numbers in the stem cannot occur.
   C: >
     CoVaR conditions i's distress on the system's distress, so the commentator should have used MES, which is the same as VaR.
   D: >
-    If A's ΔCoVaR is large, A must have a large VaR; the numbers in the stem cannot occur.
+    ΔCoVaR(system | i) measures how much worse the system's tail is when i is in its own tail rather than at its median. A can be systemically important in that sense while remaining small in standalone VaR; B can be the reverse. VaR and ΔCoVaR are not interchangeable, and neither is a sufficient statistic for every policy tool.
   E: >
     ΔCoVaR is just a correlation, so a large ΔCoVaR for A means A is caused by the system, not the reverse, and A should be ignored.
   F: >
@@ -36,7 +36,7 @@ options:
     The commentator is right for capital surcharges but wrong for resolution; CoVaR is a resolution tool only.
   J: >
     ΔCoVaR for A is large only because A is small, and small institutions should receive a *negative* capital surcharge.
-correct_option: B
+correct_option: D
 solution_summary: >
   Adrian–Brunnermeier ΔCoVaR is a system-tail object conditional on
   the institution, not the institution's own VaR. The stem is the
@@ -74,12 +74,12 @@ distractor_rationales:
     why_wrong: >
       Different conditioning, different object.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
-      Defines ΔCoVaR, allows A to outrank B on that object, and
-      limits what the ranking establishes.
+      Tails feel like they must line up.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Own tail size is not a necessary condition for tail
+      co-movement of the system with i.
   C:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
@@ -88,12 +88,12 @@ distractor_rationales:
     why_wrong: >
       CoVaR conditions the system on the firm. MES is not VaR.
   D:
-    taxonomy: NECESSARY_VS_SUFFICIENT
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Tails feel like they must line up.
+      Defines ΔCoVaR, allows A to outrank B on that object, and
+      limits what the ranking establishes.
     why_wrong: >
-      Own tail size is not a necessary condition for tail
-      co-movement of the system with i.
+      This letter is the keyed option. It is not a distractor.
   E:
     taxonomy: CORRELATION_VS_IDENTIFICATION
     why_chosen: >
@@ -146,7 +146,7 @@ ambiguity_audit: >
   as stated. No numerical CoVaR is required. Causality is explicitly
   not claimed.
 uniqueness_check: >
-  B is the only option that (i) gets the conditioning right, (ii)
+  D is the only option that (i) gets the conditioning right, (ii)
   allows the stem's ranking, and (iii) refuses sufficiency for
   policy. C reverses conditioning. If ΔCoVaR were defined as
   VaR_i | system, the names would clash with Adrian–Brunnermeier;

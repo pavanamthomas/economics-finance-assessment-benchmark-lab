@@ -21,7 +21,7 @@ options:
   A: >
     The assistant is right. Identical quotes imply identical continuation values; fills are just mechanical.
   B: >
-    Path F is selected on incoming marketable sells. Those sells are more likely when the efficient price has moved against the resting bid, so a fill at the same quote is worse in expectation than a cancel at that quote. Queue position affects the probability of that selected fill, not just the waiting time.
+    If the order is displayed, pick-off cannot occur because the information is already public.
   C: >
     Path F is better, because a fill at the bid earns the spread relative to the mid, and a cancel earns nothing.
   D: >
@@ -35,10 +35,10 @@ options:
   H: >
     Time priority converts adverse selection into inventory risk, so the right model is Ho–Stoll, where fills and cancels are equivalent at the optimum.
   I: >
-    If the order is displayed, pick-off cannot occur because the information is already public.
+    Path F is selected on incoming marketable sells. Those sells are more likely when the efficient price has moved against the resting bid, so a fill at the same quote is worse in expectation than a cancel at that quote. Queue position affects the probability of that selected fill, not just the waiting time.
   J: >
     Expected P&L differs only because of fees and rebates; the informational value of fill versus cancel is zero at a fixed quote.
-correct_option: B
+correct_option: I
 solution_summary: >
   A fill is not a random sample of moments at which the quote was
   posted. It is a sample of moments at which a marketable sell arrived.
@@ -80,12 +80,12 @@ distractor_rationales:
       The information set is {quote, fill} versus {quote, cancel}, not
       {quote} alone.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: WRONG_INFORMATION_SET
     why_chosen: >
-      Fill is a selected event; queue changes the fill mix, not just
-      waiting time.
+      Displayed size is public, so "the information is out."
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      The information that arrives is the *sell*, not the resting bid.
+      Public display of the bid does not reveal v.
   C:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
@@ -131,12 +131,12 @@ distractor_rationales:
       Equivalence of fill and cancel is not an optimum identity in
       Ho–Stoll either.
   I:
-    taxonomy: WRONG_INFORMATION_SET
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Displayed size is public, so "the information is out."
+      Fill is a selected event; queue changes the fill mix, not just
+      waiting time.
     why_wrong: >
-      The information that arrives is the *sell*, not the resting bid.
-      Public display of the bid does not reveal v.
+      This letter is the keyed option. It is not a distractor.
   J:
     taxonomy: LEVEL_VS_MARGINAL
     why_chosen: >
@@ -162,7 +162,7 @@ uniqueness_check: >
   Under positive adverse-selection intensity, E[m | fill] < E[m | cancel]
   at the same B. C can be true as an *unconditional* maker-spread slogan
   and is still not this comparison. If adverse-selection intensity were
-  zero, B would fail; the stem states it is positive.
+  zero, I would fail; the stem states it is positive.
 references:
   - key: glostenmilgrom1985
     claim_supported: >

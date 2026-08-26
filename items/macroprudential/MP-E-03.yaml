@@ -20,7 +20,7 @@ options:
   A: >
     The commentator is right. Measurement plus a surcharge is a sufficient statistic for eliminating the implicit guarantee.
   B: >
-    (1) is a designation score, (2) is an inferred funding advantage under a believed implicit backstop, and (3) is a going-concern capital add-on. Charging (3) can reduce leverage and expected taxpayer loss without driving (2) to zero, and the act of designation can *raise* perceived backstop probability even as (3) rises. None of the three is a sufficient statistic for the other two.
+    Substitutability in (1) is a resolution concept, so (3) should be a gone-concern TLAC number only, which would zero (2) automatically.
   C: >
     The subsidy (2) is identically the surcharge (3) expressed in basis points, so they cannot move in opposite directions.
   D: >
@@ -30,14 +30,14 @@ options:
   F: >
     Designation cannot raise moral hazard because G-SIB lists are public already, so there is no information in the label.
   G: >
-    Substitutability in (1) is a resolution concept, so (3) should be a gone-concern TLAC number only, which would zero (2) automatically.
+    (1) is a designation score, (2) is an inferred funding advantage under a believed implicit backstop, and (3) is a going-concern capital add-on. Charging (3) can reduce leverage and expected taxpayer loss without driving (2) to zero, and the act of designation can *raise* perceived backstop probability even as (3) rises. None of the three is a sufficient statistic for the other two.
   H: >
     The funding subsidy is a fiscal transfer and therefore not an object for prudential policy; (2) should be ignored.
   I: >
     Interconnectedness in (1) is ΔCoVaR, so this item reduces to MP-H-03 and the surcharge should equal ΔCoVaR.
   J: >
     If the surcharge (3) is positive, leverage must fall one-for-one with (3), which zeros expected taxpayer loss and therefore zeros (2).
-correct_option: B
+correct_option: G
 solution_summary: >
   Designation, subsidy, and surcharge are related but not identical.
   A surcharge can be useful and still not eliminate an implicit
@@ -81,12 +81,12 @@ distractor_rationales:
     why_wrong: >
       Three different objects. Sufficiency does not follow.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: STOCK_VS_FLOW
     why_chosen: >
-      Separates score, subsidy, surcharge, and allows designation to
-      raise perceived backstop probability.
+      Substitutability is a resolution word.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Gone-concern capacity is complementary. It does not
+      automatically zero a going-concern funding subsidy.
   C:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
@@ -114,12 +114,12 @@ distractor_rationales:
       Official designation is still a signal about the backstop set,
       even if size was already observed.
   G:
-    taxonomy: STOCK_VS_FLOW
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Substitutability is a resolution word.
+      Separates score, subsidy, surcharge, and allows designation to
+      raise perceived backstop probability.
     why_wrong: >
-      Gone-concern capacity is complementary. It does not
-      automatically zero a going-concern funding subsidy.
+      This letter is the keyed option. It is not a distractor.
   H:
     taxonomy: PRIVATE_VS_SOCIAL_COST
     why_chosen: >
@@ -152,7 +152,7 @@ ambiguity_audit: >
   No numerical subsidy is asserted as a fact about a real bank. The
   commentator's "must already be zero" is the claim under review.
 uniqueness_check: >
-  B is the only option that keeps all three numbers and denies the
+  G is the only option that keeps all three numbers and denies the
   two "musts" (subsidy zero, designation cannot raise moral hazard).
   E attacks p only; it over-deletes (3). If designation were secret,
   F would be closer on information; it is not.

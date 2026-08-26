@@ -10,7 +10,7 @@ stem: >
   A lending protocol liquidates when HF < 1 using an oracle price,
   not the AMM spot. Two incidents are described. Incident S: the
   AMM spot of the collateral falls 40 percent in two minutes; the
-  oracle is a 30-minute TWAP that has not yet moved; HF computed
+  oracle is a 30-minute TWAP that has moved only slightly; HF computed
   on the oracle remains above 1; HF computed on the spot would be
   0.7. Incident M: the AMM spot is pushed up for 15 minutes by a
   thin-pool trade; a 5-minute TWAP follows it; HF on that TWAP
@@ -22,7 +22,7 @@ options:
   A: >
     The commentator is right. The only good oracle is the last AMM trade, and both incidents are implementation bugs.
   B: >
-    S is staleness: the oracle is designed not to follow a two-minute crash, so liquidations do not fire while the collateral has already cheapened on the spot. M is manipulation: a short-window oracle that tracks a thin spot can be moved to induce borrowing or unfair liquidation. Faster is not a joint repair — it eases S and tightens M. Neither incident is, by itself, "the oracle failed to report truth" as a single bug class.
+    Faster oracles fix M as well as S, because a 1-second TWAP cannot be manipulated.
   C: >
     TWAPs cannot be stale, because an average of honest trades is honest.
   D: >
@@ -38,16 +38,16 @@ options:
   I: >
     Manipulation requires a majority of token votes, so M is a governance incident, not an oracle incident.
   J: >
-    Faster oracles fix M as well as S, because a 1-second TWAP cannot be manipulated.
-correct_option: B
+    S is staleness: the long-window oracle is designed to damp a two-minute move and therefore lags a genuine crash, so liquidations do not fire while the collateral has already cheapened on the spot. M is manipulation: a short-window oracle that tracks a thin spot can be moved to induce borrowing or unfair liquidation. Faster is not a joint repair — it eases S and tightens M. Neither incident is, by itself, "the oracle failed to report truth" as a single bug class.
+correct_option: J
 solution_summary: >
   Staleness and manipulation trade off in the oracle window.
   "Faster" is not a sufficient statistic. Spot-truth is not the
   protocol's only design goal.
 solution_derivation: >
   The protocol's state variable is the *oracle* price, by
-  statement. In S, that variable is behind a crash: liquidations
-  that would restore HF on the spot do not trigger, so the
+  statement. In S, that variable lags a crash: liquidations
+  that would restore HF on the spot do not yet trigger, so the
   protocol's collateral, marked its way, is fine while marked
   at spot it is not. That is a designed robustness to spikes
   *and* a lag in genuine crashes. In M, a short window inherits
@@ -62,7 +62,7 @@ solution_derivation: >
   construction that "prevents both." H: the capital-ratio
   language is right that the *spot* book is underwater; the
   design question is still which price the rule reads. M is
-  not a token-vote (I). A 1-second TWAP (J) is almost the spot
+  not a token-vote (I). A 1-second TWAP (B) is almost the spot
   and is the most manipulable of the TWAP family in a thin
   pool, which is the opposite of "cannot be manipulated."
 assumptions:
@@ -80,11 +80,11 @@ distractor_rationales:
     why_wrong: >
       Last trade is the most manipulable object in a thin pool.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: SIGN_REVERSAL
     why_chosen: >
-      S vs M, and faster as a trade-off not a joint fix.
+      Faster as uniformly better.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Faster tightens manipulation.
   C:
     taxonomy: VIOLATED_ASSUMPTION
     why_chosen: >
@@ -130,11 +130,11 @@ distractor_rationales:
     why_wrong: >
       M is a price-path incident.
   J:
-    taxonomy: SIGN_REVERSAL
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Faster as uniformly better.
+      S vs M, and faster as a trade-off not a joint fix.
     why_wrong: >
-      Faster tightens manipulation.
+      This letter is the keyed option. It is not a distractor.
 misconception_tags:
   - NECESSARY_VS_SUFFICIENT
   - SIGN_REVERSAL
@@ -147,7 +147,7 @@ ambiguity_audit: >
   "Pushed up by a thin-pool trade" is a description of an
   economic possibility, not a procedure.
 uniqueness_check: >
-  B is the only option that splits S and M and denies a joint
+  J is the only option that splits S and M and denies a joint
   faster-fix. If both incidents had been 30-minute TWAPs, M
   would be weaker; M is a 5-minute window on purpose.
 references:

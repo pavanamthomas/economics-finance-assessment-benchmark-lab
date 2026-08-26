@@ -19,7 +19,7 @@ options:
   A: >
     The memo is right. SRISK is defined as the taxpayer injection, so it is the unique systemic-importance ranking.
   B: >
-    SRISK/MES answers a different question from ΔCoVaR. SRISK is an estimated capital shortfall of the *institution given a system decline*. ΔCoVaR is a system-tail object given the *institution's* distress. X can be a large leveraged book that bleeds in a crash without moving the system; Y can be a node whose distress coincides with system-tail events without showing a large own shortfall in that index scenario. The taxpayer-injection sentence is not an identity, and neither statistic is a sufficient policy ranking.
+    MES is a mean, CoVaR is a quantile, so MES is biased and should be discarded; the memo should be rewritten around Y only.
   C: >
     SRISK and ΔCoVaR must rank banks the same way because both are tail co-movement measures.
   D: >
@@ -27,7 +27,7 @@ options:
   E: >
     The 40 percent index scenario identifies the causal effect of X's failure on the index, which is why SRISK is causal and CoVaR is not.
   F: >
-    MES is a mean, CoVaR is a quantile, so MES is biased and should be discarded; the memo should be rewritten around Y only.
+    SRISK/MES answers a different question from ΔCoVaR. SRISK is an estimated capital shortfall of the *institution given a system decline*. ΔCoVaR is a system-tail object given the *institution's* distress. X can be a large leveraged book that bleeds in a crash without moving the system; Y can be a node whose distress coincides with system-tail events without showing a large own shortfall in that index scenario. The taxpayer-injection sentence is not an identity, and neither statistic is a sufficient policy ranking.
   G: >
     If X has large SRISK, X must have large ΔCoVaR, so the stem's configuration is a programming error.
   H: >
@@ -36,7 +36,7 @@ options:
     The right ranking is CDS spreads, which already capitalise both SRISK and CoVaR.
   J: >
     Bank Y should be resolved first because ΔCoVaR is a gone-concern measure and SRISK is going-concern.
-correct_option: B
+correct_option: F
 solution_summary: >
   Reverse the conditioning and the memo's "therefore" fails. SRISK is
   not a taxpayer identity, and ΔCoVaR is not a reason to ignore Y or
@@ -74,12 +74,12 @@ distractor_rationales:
       That language is an interpretation, not an identity, and it
       does not make Y unimportant.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: LEVEL_VS_MARGINAL
     why_chosen: >
-      Reverses the conditioning, allows the stem's split, and limits
-      the taxpayer sentence.
+      Means versus quantiles is a real statistical debate.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      It does not decide which economic object is relevant, and it
+      does not license ignoring X.
   C:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
@@ -101,12 +101,12 @@ distractor_rationales:
       MES conditions on the index. It does not identify the effect of
       X on the index.
   F:
-    taxonomy: LEVEL_VS_MARGINAL
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Means versus quantiles is a real statistical debate.
+      Reverses the conditioning, allows the stem's split, and limits
+      the taxpayer sentence.
     why_wrong: >
-      It does not decide which economic object is relevant, and it
-      does not license ignoring X.
+      This letter is the keyed option. It is not a distractor.
   G:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
@@ -147,7 +147,7 @@ ambiguity_audit: >
   rejected as an identity. The item does not deny that SRISK was
   *motivated* by recapitalisation costs.
 uniqueness_check: >
-  B is the only option that keeps both numbers, gets the
+  F is the only option that keeps both numbers, gets the
   conditioning right, and rejects sufficiency. If the memo had said
   "X has more SRISK than Y," that would be true as a ranking on that
   one object and still would not license "Y is not systemically

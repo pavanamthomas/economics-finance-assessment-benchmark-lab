@@ -15,11 +15,11 @@ options:
   A: >
     The commentator is right on both the price and the finite trade.
   B: >
-    The marginal (spot) price of X in Y is p = y/x = 0.50, not 2. A finite sale of 50 X is *not* executed at that spot: the average execution price is y/(x+Δx) = 100/250 = 0.40. Confusing the reserve ratio x/y with y/x, and confusing spot with a finite fill, are two separate errors.
+    The price is 2, but the finite trade cannot be 100 Y because of slippage; the spot is still 2.
   C: >
     The price is 0.50, and a finite sale of 50 X *is* filled at 0.50 because the pool is constant-product, which is linear.
   D: >
-    The price is 2, but the finite trade cannot be 100 Y because of slippage; the spot is still 2.
+    The marginal (spot) price of X in Y is p = y/x = 0.50, not 2. A finite sale of 50 X is *not* executed at that spot: the average execution price is y/(x+Δx) = 100/250 = 0.40. Confusing the reserve ratio x/y with y/x, and confusing spot with a finite fill, are two separate errors.
   E: >
     k = 20,000 already prices X at 20,000, which is the only economically meaningful number.
   F: >
@@ -32,12 +32,12 @@ options:
     Because k is constant, the product of the two prices y/x and x/y must be k, hence p = sqrt(k) ≈ 141.
   J: >
     A 50 X sale is large relative to x = 200, so the pool cannot trade at all; only infinitesimal trades exist.
-correct_option: B
+correct_option: D
 solution_summary: >
   Spot is y/x = 1/2. Finite sale of Δx executes at y/(x+Δx) < spot.
   The commentator inverted the ratio and ignored slippage.
 solution_derivation: >
-  p = dy/dx along x y = k is y/x. Here 100/200 = 0.50 Y per X.
+  For a sale of X into the pool, the marginal Y received per additional X is p = -dy/dx = y/x along x y = k. Here 100/200 = 0.50 Y per X.
   The inverted ratio x/y = 2 is Y's price in X, or "how many X per
   Y," not the price of X in Y. A sale of Δx = 50 sends x' = 250,
   y' = 20,000/250 = 80, so Δy = 20, not 100. Average price =
@@ -70,11 +70,11 @@ distractor_rationales:
     why_wrong: >
       More X, given k, means X is cheaper in Y.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: SIGN_REVERSAL
     why_chosen: >
-      p = y/x and finite fill at y/(x+Δx).
+      Slippage remembered, ratio still inverted.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Spot is 0.50, not 2.
   C:
     taxonomy: APPROXIMATION_OUTSIDE_RANGE
     why_chosen: >
@@ -82,11 +82,11 @@ distractor_rationales:
     why_wrong: >
       CPAMM is strictly concave in the trade size.
   D:
-    taxonomy: SIGN_REVERSAL
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Slippage remembered, ratio still inverted.
+      p = y/x and finite fill at y/(x+Δx).
     why_wrong: >
-      Spot is 0.50, not 2.
+      This letter is the keyed option. It is not a distractor.
   E:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
@@ -135,7 +135,7 @@ difficulty_rationale: >
 ambiguity_audit: >
   Price of X in Y is stated. 50 X is a sale into the pool.
 uniqueness_check: >
-  B is the only option with both the right spot and the right
+  D is the only option with both the right spot and the right
   finite fill. G almost sneaks a units dodge; the fill it quotes
   is still the spot, not the finite price.
 references:

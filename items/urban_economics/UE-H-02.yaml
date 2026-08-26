@@ -17,7 +17,7 @@ options:
   A: >
     The commentator is right. Demand shocks set prices; supply only sets the composition of buyers.
   B: >
-    Incidence depends on supply elasticity. In I, the shock shows up mainly as higher prices (and rents); in E, mainly as more units and more households. Housing is a stock, but the *flow* of permits and the intensive margin of density are the supply response. Same demand shift does not imply the same ΔP.
+    Inelastic supply implies a quantity response and no price response, by the usual tax-incidence diagram with a vertical demand curve.
   C: >
     Elastic supply cities must have *larger* price increases, because more construction is inflationary.
   D: >
@@ -31,10 +31,10 @@ options:
   H: >
     The right comparison is wages, not house prices; housing markets do not capitalise productivity.
   I: >
-    Inelastic supply implies a quantity response and no price response, by the usual tax-incidence diagram with a vertical demand curve.
+    Incidence depends on supply elasticity. In I, the shock shows up mainly as higher prices (and rents); in E, mainly as more units and more households. Housing is a stock, but the *flow* of permits and the intensive margin of density are the supply response. Same demand shift does not imply the same ΔP.
   J: >
     Binding zoning is a quantity cap that makes demand shocks irrelevant to prices as well as to quantities.
-correct_option: B
+correct_option: I
 solution_summary: >
   Same demand shift, different supply elasticities, different
   ΔP versus ΔQ. Zoning and terrain operate through supply, not
@@ -49,7 +49,7 @@ solution_derivation: >
   flows that differ across E and I. F's perfectly elastic
   long-run supply is a *coastal-unconstrained* benchmark, not
   I. C reverses incidence. D: a supply shifter changes P when
-  demand is not perfectly elastic. I flips the diagram (vertical
+  demand is not perfectly elastic. B flips the diagram (vertical
   *supply* is the inelastic case, which raises ΔP). A quantity
   cap (J) makes demand shocks *more* about prices, not
   irrelevant. Wages (H) also move in a Roback system, but that
@@ -72,11 +72,11 @@ distractor_rationales:
     why_wrong: >
       Supply elasticity splits ΔP and ΔQ.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: SIGN_REVERSAL
     why_chosen: >
-      Incidence by η_S and the stock/flow clarification.
+      Incidence diagrams with a vertical curve.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Vertical *supply* ⇒ large ΔP, small ΔQ.
   C:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
@@ -115,11 +115,11 @@ distractor_rationales:
     why_wrong: >
       Productivity hits housing prices, especially in I.
   I:
-    taxonomy: SIGN_REVERSAL
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Incidence diagrams with a vertical curve.
+      Incidence by η_S and the stock/flow clarification.
     why_wrong: >
-      Vertical *supply* ⇒ large ΔP, small ΔQ.
+      This letter is the keyed option. It is not a distractor.
   J:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
@@ -137,7 +137,7 @@ ambiguity_audit: >
   "Same demand shock" is a parallel shifter of equal size, not
   equal ΔP. Productivity as a housing-demand shifter is stated.
 uniqueness_check: >
-  B is the only option with the correct ΔP/ΔQ split. If supply
+  I is the only option with the correct ΔP/ΔQ split. If supply
   elasticities were equal, A would be closer on ΔP; they are
   not.
 references:

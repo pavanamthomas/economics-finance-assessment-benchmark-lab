@@ -17,9 +17,9 @@ options:
   A: >
     Both numbers are implementation shortfall. VWAP is just the arrival price expressed in a volume-weighted unit.
   B: >
-    Implementation shortfall is the gap between the decision-time paper portfolio and the executed portfolio. VWAP is a participation benchmark, not a definition of shortfall, and beating VWAP does not imply a cheap arrival decision.
-  C: >
     The economically relevant cost is always the gap versus the 10:40 mid, because marking to mid is how dealers mark inventory.
+  C: >
+    Implementation shortfall is the gap between the decision-time paper portfolio and the executed portfolio. VWAP is a participation benchmark, not a definition of shortfall, and beating VWAP does not imply a cheap arrival decision.
   D: >
     Because the order was fully filled, there is no shortfall; shortfall exists only when an order expires unfilled.
   E: >
@@ -34,7 +34,7 @@ options:
     A positive cost versus VWAP means the desk leaked information; a positive cost versus arrival does not.
   J: >
     The two numbers cannot both be right because a single fill cannot have two costs.
-correct_option: B
+correct_option: C
 solution_summary: >
   Perold's implementation shortfall compares a paper portfolio marked at
   the decision price with the actual executed portfolio. VWAP is a
@@ -75,19 +75,19 @@ distractor_rationales:
       Arrival and VWAP are different reference prices. Changing the
       denominator changes the economic question.
   B:
-    taxonomy: CORRECT_KEY
-    why_chosen: >
-      Names Perold's paper-versus-real definition and keeps VWAP as a
-      benchmark, not a synonym.
-    why_wrong: >
-      This letter is the keyed option. It is not a distractor.
-  C:
     taxonomy: WRONG_INFORMATION_SET
     why_chosen: >
       End-of-window mids are how some books are marked.
     why_wrong: >
       Marking inventory at 10:40 answers a different question (current
       replacement cost), not the cost of having decided to buy at 10:00.
+  C:
+    taxonomy: CORRECT_KEY
+    why_chosen: >
+      Names Perold's paper-versus-real definition and keeps VWAP as a
+      benchmark, not a synonym.
+    why_wrong: >
+      This letter is the keyed option. It is not a distractor.
   D:
     taxonomy: STOCK_VS_FLOW
     why_chosen: >

@@ -20,7 +20,7 @@ options:
   A: >
     The supervisor is right. If every capital ratio is above the minimum, systemic risk is zero by addition.
   B: >
-    Individually reasonable deleveraging can still depress the common price, impose mark-to-market losses on others, and produce a second round that no single bank internalises. Macroprudential policy is aimed at that externality, not at catching a hidden micro violation.
+    The supervisor should wait until at least one bank is below the minimum; acting earlier is micro-managing solvent firms.
   C: >
     The conclusion is right whenever sales are small; only a large trade by a single bank can move prices.
   D: >
@@ -36,8 +36,8 @@ options:
   I: >
     Mark-to-market is an accounting fiction; if banks hold to maturity, prices do not matter and no externality exists.
   J: >
-    The supervisor should wait until at least one bank is below the minimum; acting earlier is micro-managing solvent firms.
-correct_option: B
+    Individually reasonable deleveraging can still depress the common price, impose mark-to-market losses on others, and produce a second round that no single bank internalises. Macroprudential policy is aimed at that externality, not at catching a hidden micro violation.
+correct_option: J
 solution_summary: >
   Micro solvency of each book does not imply that simultaneous
   leverage targeting is a system Nash equilibrium without price
@@ -76,12 +76,12 @@ distractor_rationales:
     why_wrong: >
       Addition ignores the price that couples the books.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: TIMING_ERROR
     why_chosen: >
-      Names the uninternalised price feedback as the macroprudential
-      object.
+      Supervisors are told not to interfere with solvent banks.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Macroprudential action is timed to the cycle and to the
+      externality, often while micro ratios still look fine.
   C:
     taxonomy: APPROXIMATION_OUTSIDE_RANGE
     why_chosen: >
@@ -129,12 +129,12 @@ distractor_rationales:
       follow prices, the accounting fiction does not remove the
       feedback.
   J:
-    taxonomy: TIMING_ERROR
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Supervisors are told not to interfere with solvent banks.
+      Names the uninternalised price feedback as the macroprudential
+      object.
     why_wrong: >
-      Macroprudential action is timed to the cycle and to the
-      externality, often while micro ratios still look fine.
+      This letter is the keyed option. It is not a distractor.
 misconception_tags:
   - PRIVATE_VS_SOCIAL_COST
   - LIQUIDITY_VS_SOLVENCY
@@ -147,7 +147,7 @@ ambiguity_audit: >
   supervisor's micro fact is granted. The disagreement is system versus
   institution.
 uniqueness_check: >
-  B is the only option that accepts micro solvency and still rejects
+  J is the only option that accepts micro solvency and still rejects
   the policy conclusion. If the security were in perfectly elastic
   supply, the externality would vanish and A would be right; the stem
   requires a common price that moves with sales.

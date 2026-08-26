@@ -17,7 +17,7 @@ options:
   A: >
     The commentator is right. Distance is a quality ranking of land, like a hedonic defect.
   B: >
-    Spatial equilibrium equalises utility. Differentiating the budget c + R(d) q + t d = y at the optimal q gives R'(d) = −t/q(d) < 0. Distant land is cheaper because commuting eats the budget, not because the dirt is inferior. If t = 0, the gradient is zero even if "views" differ, which they do not in this model.
+    The gradient is positive for rich households, who bid more for distant land, so the sign is ambiguous.
   C: >
     R'(d) = −t, independent of lot size, because commuting is a lump-sum tax.
   D: >
@@ -25,7 +25,7 @@ options:
   E: >
     Utility equalisation is optional; the gradient comes from developers' cost functions alone.
   F: >
-    The gradient is positive for rich households, who bid more for distant land, so the sign is ambiguous.
+    Spatial equilibrium equalises utility. Differentiating the budget c + R(d) q + t d = y at the optimal q gives R'(d) = −t/q(d) < 0. Distant land is cheaper because commuting eats the budget, not because the dirt is inferior. If t = 0, the gradient is zero even if "views" differ, which they do not in this model.
   G: >
     R(d) is an accounting identity from construction costs, so commuting cannot enter.
   H: >
@@ -34,7 +34,7 @@ options:
     The right gradient is in wages, not rents, because Roback showed that amenities are paid in wages.
   J: >
     If u* is common, rents must be common, so R'(d) = 0.
-correct_option: B
+correct_option: F
 solution_summary: >
   The bid-rent slope is commuting cost per unit land, from utility
   equalisation plus the household FOC. Distance is a cost, not a
@@ -77,11 +77,12 @@ distractor_rationales:
     why_wrong: >
       The land is homogeneous. Distance is a commuting cost.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: SIGN_REVERSAL
     why_chosen: >
-      Envelope derivation and the t = 0 boundary.
+      Suburbanisation of the rich is a real AMM possibility.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      That is a statement about who occupies which d, not about
+      R'(d) > 0. Rents still fall with d in the basic model.
   C:
     taxonomy: WRONG_DENOMINATOR
     why_chosen: >
@@ -101,12 +102,11 @@ distractor_rationales:
     why_wrong: >
       The household envelope is what signs the bid-rent.
   F:
-    taxonomy: SIGN_REVERSAL
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Suburbanisation of the rich is a real AMM possibility.
+      Envelope derivation and the t = 0 boundary.
     why_wrong: >
-      That is a statement about who occupies which d, not about
-      R'(d) > 0. Rents still fall with d in the basic model.
+      This letter is the keyed option. It is not a distractor.
   G:
     taxonomy: STOCK_VS_FLOW
     why_chosen: >
@@ -141,7 +141,7 @@ ambiguity_audit: >
   Open versus closed city is flagged as not changing the gradient
   formula. No amenity gradient is in the model.
 uniqueness_check: >
-  B is the only option with R' = −t/q and the right interpretation.
+  F is the only option with R' = −t/q and the right interpretation.
   If t were a cost per unit land rather than per household, C would
   be closer; it is not.
 references:

@@ -23,7 +23,7 @@ options:
   A: >
     The execution price is the pre-trade spot 1, because that is the quoted price at which the pool stands ready.
   B: >
-    The execution price is Δy/Δx = y/(x+Δx) = 100/110 = 10/11 ≈ 0.9091, which equals the geometric mean of the pre- and post-trade spots. The pre-trade spot is the derivative, not a fill. The post-trade spot is the new derivative, also not the fill. Both are the usual wrong keys when "price" is left undefined.
+    Because k is preserved, the trader transacts at p = 1 exactly for any Δx; slippage is an off-chain reporting convention.
   C: >
     The execution price is the post-trade spot ≈ 0.8264, because constant-product trades are settled at the end-of-trade marginal.
   D: >
@@ -37,10 +37,10 @@ options:
   H: >
     The trader receives the harmonic mean of 1 and 0.8264, which is 0.8264, so the examinee who keyed the post-trade spot was right.
   I: >
-    Because k is preserved, the trader transacts at p = 1 exactly for any Δx; slippage is an off-chain reporting convention.
+    The execution price is Δy/Δx = y/(x+Δx) = 100/110 = 10/11 ≈ 0.9091, which equals the geometric mean of the pre- and post-trade spots. The pre-trade spot is the derivative, not a fill. The post-trade spot is the new derivative, also not the fill. Both are the usual wrong keys when "price" is left undefined.
   J: >
     The execution price is undefined until an external oracle quotes Y, so none of (i)–(iii) is admissible.
-correct_option: B
+correct_option: I
 solution_summary: >
   Finite-sale execution price is 10/11, the geometric mean of
   spots, strictly between them. Pre- and post-trade spots are
@@ -85,11 +85,11 @@ distractor_rationales:
     why_wrong: >
       The CPAMM does not fill a finite Δx at the derivative.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
-      10/11, geom-mean identity, and why (i) and (ii) attract.
+      k as a value invariant.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      k constant implies p changes when x changes.
   C:
     taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
     why_chosen: >
@@ -129,11 +129,11 @@ distractor_rationales:
       The identity is geometric, and 0.8264 is p', not a harmonic
       mean of p and p'.
   I:
-    taxonomy: INCORRECT_NORMALIZATION
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      k as a value invariant.
+      10/11, geom-mean identity, and why (i) and (ii) attract.
     why_wrong: >
-      k constant implies p changes when x changes.
+      This letter is the keyed option. It is not a distractor.
   J:
     taxonomy: WRONG_INFORMATION_SET
     why_chosen: >

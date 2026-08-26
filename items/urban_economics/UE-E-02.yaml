@@ -6,17 +6,19 @@ learning_objective: >
   Use wages *and* rents to separate amenity from productivity in
   a Roback spatial equilibrium; refuse wages alone as productivity.
 stem: >
-  City P has high wages and high rents. City A has low wages and
-  high rents. City U has high wages and low rents. A commentator
+  Three otherwise comparable cities have similar housing-supply
+  elasticities and one dominant local shock each. City P has high wages
+  and high rents. City A has low wages and high rents. City U has high
+  wages and low rents. A commentator
   ranks productivity by wages alone: P and U are "high
   productivity," A is "low productivity," and high rents are
   ignored as a housing-supply nuisance. Which statement is right
   in a Roback spatial-equilibrium reading?
 options:
   A: >
-    The commentator is right. Wages are the marginal product.
+    Mobile workers equalise utility. High wages can compensate for a disamenity or can reflect high productivity; high rents can capitalise an amenity or a productivity-driven demand for land. Under the stated comparability assumptions, P (high w, high R) is the productivity-like configuration, A (low w, high R) is amenity-like, and U (high w, low R) is disamenity-like. The wage-rent pair, not wages alone, carries the spatial-equilibrium information.
   B: >
-    Mobile workers equalise utility. High wages can compensate for a disamenity or can reflect high productivity; high rents can capitalise an amenity or a productivity-driven demand for land. P (high w, high R) is the productivity-like configuration. A (low w, high R) is amenity-like. U (high w, low R) is disamenity-like, or a productivity place with very elastic housing, and is *not* the same object as P. Wages alone do not rank productivity.
+    The commentator is right. Wages are the marginal product.
   C: >
     High rents always mean high amenities, so P is amenity-driven and cannot be productive.
   D: >
@@ -33,7 +35,7 @@ options:
     Spatial equilibrium cannot generate high wages and high rents together, because that would attract infinite migration.
   J: >
     Ranking by wages is valid if labour is immobile, which is the Roback assumption.
-correct_option: B
+correct_option: A
 solution_summary: >
   Roback uses the (w, R) pair. Productivity shocks raise both;
   amenity shocks raise R and lower (or do not raise) w;
@@ -64,21 +66,21 @@ assumptions:
   - >
     Labels P, A, U are configurations, not estimated residuals from a real system.
   - >
-    Housing supply elasticity can differ; that is why U is not a pure productivity ranking.
+    Housing-supply elasticity is comparable across the three stylised cities; relaxing that assumption would weaken this classification.
 distractor_rationales:
   A:
-    taxonomy: PARTIAL_VS_GENERAL_EQUILIBRIUM
-    why_chosen: >
-      MPL = w in a single-city firm problem.
-    why_wrong: >
-      Across cities, w also compensates for a and R.
-  B:
     taxonomy: CORRECT_KEY
     why_chosen: >
       Assigns P/A/U to productivity/amenity/disamenity-like
       cells and refuses wages-only ranking.
     why_wrong: >
       This letter is the keyed option. It is not a distractor.
+  B:
+    taxonomy: PARTIAL_VS_GENERAL_EQUILIBRIUM
+    why_chosen: >
+      MPL = w in a single-city firm problem.
+    why_wrong: >
+      Across cities, w also compensates for a and R.
   C:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
@@ -140,8 +142,8 @@ ambiguity_audit: >
   housing" so that elastic-supply is not a second key. The
   commentator's ranking is still wrong.
 uniqueness_check: >
-  B is the only option that uses both prices and refuses a
-  wages-only productivity rank. If labour were immobile, A would
+  A is the only option that uses both prices and refuses a
+  wages-only productivity rank. If labour were immobile, B would
   be closer; Roback assumes mobility.
 references:
   - key: roback1982

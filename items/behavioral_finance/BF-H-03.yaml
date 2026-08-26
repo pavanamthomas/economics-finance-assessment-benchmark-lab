@@ -18,9 +18,9 @@ stem: >
   should it be ranked against the others?
 options:
   A: >
-    Comment (1) is decisive: lab evidence never identifies a mechanism.
-  B: >
     Comment (4) is the internal-validity threat that the protocol actually invites. Demand can produce a gap without a preference change. (1) is a different question (transport). (2) is not licensed: no attrition is described. (3) is not licensed: the wording was delivered. A large gap is not a proof of a clean preference effect.
+  B: >
+    Comment (1) is decisive: lab evidence never identifies a mechanism.
   C: >
     Comment (3) is right because hypothetical payment means the treatment never occurred.
   D: >
@@ -37,7 +37,7 @@ options:
     A large gap proves the first stage worked, which refutes (3) and (4) together.
   J: >
     The right ranking is (2) then (1); demand is a field-experiment issue only.
-correct_option: B
+correct_option: A
 solution_summary: >
   Demand is the threat the protocol is built to invite: unincentivised
   choices plus a readable hypothesis. The other three comments are
@@ -67,19 +67,19 @@ assumptions:
     "Preferences" means a stable ranking over lotteries, not a demand-compliant report.
 distractor_rationales:
   A:
-    taxonomy: WRONG_INFORMATION_SET
-    why_chosen: >
-      Lab versus field is a familiar fight.
-    why_wrong: >
-      Mechanism identification can occur in a lab. Transport is
-      separate.
-  B:
     taxonomy: CORRECT_KEY
     why_chosen: >
       Ranks (4) as the licensed internal threat and rejects (1)–(3)
       as stated.
     why_wrong: >
       This letter is the keyed option. It is not a distractor.
+  B:
+    taxonomy: WRONG_INFORMATION_SET
+    why_chosen: >
+      Lab versus field is a familiar fight.
+    why_wrong: >
+      Mechanism identification can occur in a lab. Transport is
+      separate.
   C:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
@@ -141,7 +141,7 @@ ambiguity_audit: >
   Incentive incompatibility is noted and used as a cousin of
   demand, not as comment (3). No attrition numbers are invented.
 uniqueness_check: >
-  B is the only option that picks (4) and correctly dismisses
+  A is the only option that picks (4) and correctly dismisses
   (1)–(3) as stated. If the protocol had paid choices and a
   double-blind script, (4) would be weaker and the item would
   need a different key.

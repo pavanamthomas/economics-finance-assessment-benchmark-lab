@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from collections import Counter
 from pathlib import Path
 
 from efablab.loader import REPO_ROOT, load_items, load_rejected
@@ -42,3 +43,9 @@ def test_accepted_files_match_ids() -> None:
 def test_rejected_defect_classes_unique() -> None:
     classes = [it.defect_class for it in load_rejected()]
     assert len(classes) == len(set(classes))
+
+
+def test_key_positions_are_balanced() -> None:
+    counts = Counter(it.correct_option for it in load_items())
+    assert counts == Counter({letter: 4 for letter in "ABCDEFGHIJ"})
+

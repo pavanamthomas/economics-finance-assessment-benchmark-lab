@@ -17,7 +17,7 @@ options:
   A: >
     The commentator is right. A positive coefficient in a hedonic regression is WTP by definition of Rosen (1974).
   B: >
-    Rosen's theory is an equilibrium relationship between prices and a *vector* of attributes, under conditions. A univariate regression of price on test scores confounds school quality with correlated amenities and with sorting on unobserved household tastes and income. The coefficient is not identified as WTP for schools. Boundary discontinuity designs (Black 1999 style) exist because of this problem, not as decoration.
+    Household sorting is a Tiebout virtue and therefore cannot bias a hedonic coefficient.
   C: >
     If the coefficient is positive, omitted amenities can only bias it toward zero, so the estimate is a lower bound on WTP.
   D: >
@@ -33,8 +33,8 @@ options:
   I: >
     The commentator is right if the R² is high.
   J: >
-    Household sorting is a Tiebout virtue and therefore cannot bias a hedonic coefficient.
-correct_option: B
+    Rosen's theory is an equilibrium relationship between prices and a *vector* of attributes, under conditions. A univariate regression of price on test scores bundles school quality with correlated neighbourhood amenities and peer composition; household sorting contributes to that bundling. Rosen does not turn that reduced-form coefficient into causal marginal WTP. Boundary discontinuity designs (Black 1999 style) are used to obtain cleaner school-quality variation, not as decoration.
+correct_option: J
 solution_summary: >
   Hedonic theory is not a license for a univariate regression.
   Omitted amenities and sorting are why school-quality papers use
@@ -58,7 +58,7 @@ solution_derivation: >
   *inflates* the school coefficient. D confuses the equilibrium
   occupancy with identification of the gradient. More variation
   (G) that is more confounded is not better. High R² (I) is
-  fit, not identification. Tiebout sorting (J) is a reason the
+  fit, not identification. Tiebout sorting (B) is a reason the
   cross-section is *harder*, not easier.
 assumptions:
   - >
@@ -75,12 +75,11 @@ distractor_rationales:
     why_wrong: >
       The theorem is not a univariate OLS license.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: SIGN_REVERSAL
     why_chosen: >
-      Vector of attributes, omitted amenities, sorting, and why
-      boundary designs exist.
+      Tiebout as a blessing.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Tiebout sorting is a source of the confounding.
   C:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
@@ -127,11 +126,12 @@ distractor_rationales:
       A bundled amenity index can fit well and still not isolate
       schools.
   J:
-    taxonomy: SIGN_REVERSAL
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Tiebout as a blessing.
+      Vector of attributes, omitted amenities, sorting, and why
+      boundary designs exist.
     why_wrong: >
-      Tiebout sorting is a source of the confounding.
+      This letter is the keyed option. It is not a distractor.
 misconception_tags:
   - CORRELATION_VS_IDENTIFICATION
   - SIGN_REVERSAL
@@ -144,7 +144,7 @@ ambiguity_audit: >
   they identify perfectly. The univariate regression is the object
   under review.
 uniqueness_check: >
-  B is the only option that both (i) states Rosen correctly as a
+  J is the only option that both (i) states Rosen correctly as a
   vector gradient and (ii) denies the univariate WTP reading. If
   the researcher had already run a boundary design, A would still
   be too strong ("the" WTP) but the item would be different.

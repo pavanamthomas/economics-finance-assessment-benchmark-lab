@@ -20,11 +20,11 @@ options:
   A: >
     The commentator is right. Three rejections at 5 percent are stronger than one planned test.
   B: >
-    The primary, fully observed outcome is the object the design identified. Three uncorrected secondaries, one of them on a selected survey sample whose response co-moves with treatment, do not restore that object. Attrition here is not a smaller i.i.d. sample; it is differential selection. Multiple testing plus selected outcomes can manufacture three 5 percent stars.
+    Because randomisation was clean, all 20 outcomes are internally valid by construction.
   C: >
     Differential attrition is always solvable by inverse-probability weights on the survey, which would make the literacy result the new primary.
   D: >
-    Because randomisation was clean, all 20 outcomes are internally valid by construction.
+    Randomisation identifies the ITT for the fully observed primary outcome. The survey secondary is a different estimand and differential response makes its observed-sample contrast selection-sensitive. Testing 20 outcomes without a multiplicity plan separately inflates false-positive risk. Neither issue turns the three secondary stars into replications of the null primary result.
   E: >
     The insignificant primary is a failed first stage, so the experiment should be discarded entirely, including as a null.
   F: >
@@ -37,12 +37,11 @@ options:
     Treatment-correlated attrition can be ignored if the survey question is not about the nudge, and literacy is not about the nudge.
   J: >
     The right correction is to multiply every p-value by 20, after which any remaining star on the selected survey is causal.
-correct_option: B
+correct_option: D
 solution_summary: >
-  The identified object is the planned, fully observed primary.
-  Stars on selected secondaries are not a replication of that
-  object. Attrition that differs by arm is selection, not merely
-  n ↓.
+  Keep three questions separate: the ITT on the fully observed
+  primary, selection into the survey outcome, and multiplicity across
+  reported outcomes. None is repaired merely by counting three stars.
 solution_derivation: >
   Randomisation identifies ITT on outcomes observed for every
   assigned unit (here, the administrative primary). It does not,
@@ -79,12 +78,11 @@ distractor_rationales:
     why_wrong: >
       Uncorrected multiplicity plus selection.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
-      Primary fully observed versus selected secondaries, and
-      attrition as differential selection.
+      Randomisation is treated as covering all downstream objects.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Post-treatment selection is not covered.
   C:
     taxonomy: VIOLATED_ASSUMPTION
     why_chosen: >
@@ -93,11 +91,12 @@ distractor_rationales:
       It does not make the survey the planned primary, and it is
       not assumption-free.
   D:
-    taxonomy: NECESSARY_VS_SUFFICIENT
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Randomisation is treated as covering all downstream objects.
+      Primary fully observed versus selected secondaries, and
+      attrition as differential selection.
     why_wrong: >
-      Post-treatment selection is not covered.
+      This letter is the keyed option. It is not a distractor.
   E:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
@@ -149,7 +148,7 @@ ambiguity_audit: >
   attrition as i.i.d. sample-size loss. The plan's existence is
   granted.
 uniqueness_check: >
-  B is the only option that keeps the primary as the identified
+  D is the only option that keeps the primary as the identified
   object and names both threats. If response rates had been equal
   and the three stars had been on administrative secondaries with
   a pre-specified multiple-testing correction, the item would be
@@ -170,7 +169,7 @@ verification:
     commentator's use of selected secondaries.
   independent_check: >
     If response rates were 100 percent in both arms, the attrition
-    half of B would shut and multiplicity would remain. The stem
+    half of D would shut and multiplicity would remain. The stem
     has both.
   invariant_or_boundary_check: >
     If only the planned primary were reported, multiplicity would

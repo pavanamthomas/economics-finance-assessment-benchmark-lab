@@ -10,7 +10,7 @@ The companion repository [ai-response-evaluation-benchmarks](https://github.com/
 
 | Object | What is here |
 | --- | --- |
-| Exact technical object | 40 accepted 10-option items plus 11 rejected drafts, with a validator that does **not** pretend to prove economic correctness |
+| Exact technical object | 40-item self-directed 10-option corpus retained after internal validation, plus 11 rejected drafts, with a validator that does **not** pretend to prove economic correctness |
 | Implemented | Schema, distractor taxonomy, closed-form checks (Kyle λ, Glosten–Milgrom quotes, CPAMM execution, IL, health factor, bid-rent, bank-book identities) |
 | Independently verified | AMM average execution by three routes (closed form, quadrature, geometric mean of spots); IL by formula versus hold-versus-LP values |
 | Failure mode on display | A draft that keyed the CPAMM *spot* as the fill of a finite trade; quadrature disagreed. See `FLAGSHIP_CASE_STUDY.md` and `rejected_items/RJ-01-*.yaml` |
@@ -31,7 +31,7 @@ It does **not** mean the economics is true. Economic correctness is the written 
 
 ## Corpus
 
-40 accepted items (10 Medium, 15 Hard, 15 Expert), eight in each domain:
+40 retained items (10 Medium, 15 Hard, 15 Expert), eight in each domain. The answer-key positions are deliberately balanced across A–J to prevent positional leakage:
 
 | Prefix | Domain | Flagship inside the domain | Executable companion |
 | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Rejected drafts live in `rejected_items/`. Each one names a defect class (multip
 ## Layout
 
 ```
-items/                  accepted YAML, one file per id
+items/                  retained YAML, one file per id
 rejected_items/         drafts that failed verification
 src/efablab/            schema, loader, validator, taxonomy
 src/efablab/checks/     closed forms used by numerical_check blocks

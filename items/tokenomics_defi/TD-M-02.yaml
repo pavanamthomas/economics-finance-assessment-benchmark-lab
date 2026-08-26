@@ -20,13 +20,13 @@ options:
   A: >
     The commentator is right. A peg is a peg.
   B: >
-    The three fail differently. F is a custody, banking, and redemption-run object (reserves, gates, issuer risk). C is a collateral-and-liquidation object (price of collateral, liquidation design, oracle). A is a mechanism-design object (whether the mint/redeem or seigniorage mapping has a stable equilibrium). A common 5 percent print is not identification of a common mechanism.
+    C cannot depeg as long as the collateral ratio is above 100 percent at origination, regardless of later prices.
   C: >
     Only F is a stablecoin; C and A are just leveraged tokens.
   D: >
     Only A can depeg, because F and C are fully backed by definition.
   E: >
-    C cannot depeg as long as the collateral ratio is above 100 percent at origination, regardless of later prices.
+    The three fail differently. F is a custody, banking, and redemption-run object (reserves, gates, issuer risk). C is a collateral-and-liquidation object (price of collateral, liquidation design, oracle). A is a mechanism-design object (whether the mint/redeem or seigniorage mapping has a stable equilibrium). A common 5 percent print is not identification of a common mechanism.
   F: >
     Algorithmic mechanisms cannot fail if the mint/redeem is on-chain, because on-chain is incentive-compatible.
   G: >
@@ -37,7 +37,7 @@ options:
     The only economically relevant split is whether the token is on a blockchain; F, C, and A are therefore the same.
   J: >
     Depegs are always oracle failures, so the typology is cosmetic.
-correct_option: B
+correct_option: E
 solution_summary: >
   Same peg target, three constraint sets. A depeg print is a
   reduced-form event, not a sufficient statistic for the
@@ -54,7 +54,7 @@ solution_derivation: >
   equilibria are the design risk (not a custody audit). On-chain
   mint/redeem (F in the distractor sense) does not create a
   stable equilibrium by itself. Origination overcollateralisation
-  (E) is a stock at t0, not a guarantee after a price path.
+  (B) is a stock at t0, not a guarantee after a price path.
   Regulation (G) changes F's failure probabilities, it does not
   make F = C. Liquidation ≠ seigniorage (H). The blockchain (I)
   is a settlement layer, not the backing. Oracles (J) matter
@@ -74,11 +74,11 @@ distractor_rationales:
     why_wrong: >
       Mechanism is the object.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: STOCK_VS_FLOW
     why_chosen: >
-      Three failure modes, depeg as reduced form.
+      Origination ratio as a perpetual floor.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      Prices move after origination.
   C:
     taxonomy: INCORRECT_NORMALIZATION
     why_chosen: >
@@ -93,11 +93,11 @@ distractor_rationales:
     why_wrong: >
       F can fail on custody; C can fail on collateral crash.
   E:
-    taxonomy: STOCK_VS_FLOW
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Origination ratio as a perpetual floor.
+      Three failure modes, depeg as reduced form.
     why_wrong: >
-      Prices move after origination.
+      This letter is the keyed option. It is not a distractor.
   F:
     taxonomy: VIOLATED_ASSUMPTION
     why_chosen: >
@@ -140,7 +140,7 @@ ambiguity_audit: >
   particular reserve attestation. Hybrid designs exist; the stem
   is three polar cases.
 uniqueness_check: >
-  B is the only option that keeps all three as pegging
+  E is the only option that keeps all three as pegging
   arrangements and splits their failures. If the commentator had
   said "all three can depeg," that would be true and not the
   claim under review; the claim is "same object."

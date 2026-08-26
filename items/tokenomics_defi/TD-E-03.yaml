@@ -10,9 +10,10 @@ stem: >
   A user submits a fee-free CPAMM buy of Y with a large Δx and a
   loose slippage bound. While the transaction sits in a public
   mempool, a searcher can (in a textbook ordering model) place a
-  buy before it and a sell after it. The user's fill is worse than
-  the pre-trade spot by approximately the user's own price impact;
-  the searcher's round-trip collects a corresponding wedge.
+  buy before it and a sell after it. Abstracting from gas/priority fees
+  and competition, and provided the user's slippage bound leaves enough
+  room, the ordering can worsen the user's fill and let the searcher
+  extract part of the authorised slippage wedge.
   A commentator says this is "hacking the AMM" and that a correct
   x*y=k implementation would make it impossible. Which statement
   is right?
@@ -20,7 +21,7 @@ options:
   A: >
     The commentator is right. Sandwiching is a violation of k.
   B: >
-    The AMM identity can hold on every trade. Sandwiching is an *ordering* phenomenon: two extra trades around the user move the user along the reserve curve to a worse fill, transferring part of the slippage the user authorised. It is not a bug in x*y=k, and a loose slippage bound is a necessary condition for that transfer to clear. This laboratory does not treat that description as an instruction to build a searcher.
+    The AMM identity can hold on every trade. Sandwiching is an *ordering* phenomenon: two extra trades around the user move the user along the reserve curve to a worse fill, potentially transferring part of the slippage the user authorised, conditional on execution costs and competition. It is not a bug in x*y=k, and a loose slippage bound is a necessary condition for that transfer to clear. This laboratory does not treat that description as an instruction to build a searcher.
   C: >
     If k holds, the user cannot receive a worse fill than the pre-trade spot.
   D: >

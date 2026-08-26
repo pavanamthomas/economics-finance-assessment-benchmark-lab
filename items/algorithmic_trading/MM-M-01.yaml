@@ -16,9 +16,9 @@ stem: >
   autocorrelation near zero. Which statement is correct?
 options:
   A: >
-    The negative trade-price autocorrelation is evidence that the market is inefficient, because a martingale cannot produce serial correlation.
-  B: >
     Trade-price returns are contaminated by bid-ask bounce even when the mid-quote is a martingale; Roll's covariance identity is the relevant accounting for that bounce, not a rejection of informational efficiency.
+  B: >
+    The negative trade-price autocorrelation is evidence that the market is inefficient, because a martingale cannot produce serial correlation.
   C: >
     Mid-quote returns should be discarded because the mid is not an executable price, so only last-trade returns are economically meaningful.
   D: >
@@ -35,7 +35,7 @@ options:
     Negative autocovariance of trade prices means that a simple reversal strategy at the mid-quote is an arbitrage.
   J: >
     The spread of 0.20 is too small to generate detectable autocorrelation, so the first researcher must have a coding error.
-correct_option: B
+correct_option: A
 solution_summary: >
   With a fixed mid, trade prices jump between bid and ask. That mechanical
   oscillation induces negative serial covariance in trade-price returns
@@ -64,14 +64,6 @@ assumptions:
     No hidden liquidity, no price improvement, no tick-size discreteness beyond the stated quotes.
 distractor_rationales:
   A:
-    taxonomy: CORRELATION_VS_IDENTIFICATION
-    why_chosen: >
-      Serial correlation is often taught as a violation of the martingale
-      property, so a negative autocorrelation looks like inefficiency.
-    why_wrong: >
-      The martingale property is a statement about the efficient price, not
-      about transaction prices that include a bid-ask bounce term.
-  B:
     taxonomy: CORRECT_KEY
     why_chosen: >
       Separates the bounce component of trade prices from the efficient
@@ -79,6 +71,14 @@ distractor_rationales:
       test.
     why_wrong: >
       This letter is the keyed option. It is not a distractor.
+  B:
+    taxonomy: CORRELATION_VS_IDENTIFICATION
+    why_chosen: >
+      Serial correlation is often taught as a violation of the martingale
+      property, so a negative autocorrelation looks like inefficiency.
+    why_wrong: >
+      The martingale property is a statement about the efficient price, not
+      about transaction prices that include a bid-ask bounce term.
   C:
     taxonomy: AVERAGE_VS_MARGINAL_EXECUTION_PRICE
     why_chosen: >
@@ -159,7 +159,7 @@ ambiguity_audit: >
 uniqueness_check: >
   Under the stated process the mid return is identically zero and the
   trade-price autocovariance is strictly negative. No other option is
-  compatible with both facts. If the mid were allowed to jump, B would
+  compatible with both facts. If the mid were allowed to jump, A would
   remain directionally right but the numerical polar case would be lost;
   that is why the stem freezes the book.
 references:

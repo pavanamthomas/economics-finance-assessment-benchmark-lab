@@ -18,7 +18,7 @@ options:
   A: >
     The commentator is right. Amenities raise utility and rents in both models by the same amounts.
   B: >
-    Closed city: population fixed, u* rises, rents rise with the willingness to pay of the incumbents. Open city: u* is pinned by the outside option, in-migration bids up rents (and housing input prices) until the utility gain is capitalised away from mobile residents; landowners capture the rent. "Residents are better off" is not a common prediction.
+    Open-city in-migration lowers rents by increasing supply of labour, which dominates housing demand.
   C: >
     Open city: utility of residents must rise, otherwise nobody would migrate in.
   D: >
@@ -30,12 +30,12 @@ options:
   G: >
     Amenity improvements cannot raise rents, because rent is a function of construction cost only.
   H: >
-    Open-city in-migration lowers rents by increasing supply of labour, which dominates housing demand.
+    Closed city: population fixed, u* rises, rents rise with the willingness to pay of the incumbents. Open city: u* is pinned by the outside option, in-migration bids up rents (and housing input prices) until the utility gain is capitalised away from mobile residents; landowners capture the rent. "Residents are better off" is not a common prediction.
   I: >
     Closed-city incumbents are worse off because they pay higher rents for the same land, with no migration valve.
   J: >
     The commentator is right for owners and wrong for renters in both models equally, so the open/closed split is irrelevant.
-correct_option: B
+correct_option: H
 solution_summary: >
   Who is on the margin differs. Closed: the household is the
   residual claimant on the amenity. Open: land is. Rents rise in
@@ -55,7 +55,7 @@ solution_derivation: >
   adjust. Elastic supply (E): more elastic supply *reduces* the
   rent increase and, in the open city, increases the quantity
   (population) response — incidence on land falls. G is the
-  construction-cost-only error. H signs labour-supply as a rent
+  construction-cost-only error. B signs labour-supply as a rent
   reducer and ignores the housing-demand channel that is first
   order in AMM/Roback. I: closed-city incumbents can be better
   off in utility even as they pay higher rents, because they get
@@ -77,11 +77,11 @@ distractor_rationales:
     why_wrong: >
       Open-city GE capitalises the gain into land.
   B:
-    taxonomy: CORRECT_KEY
+    taxonomy: SIGN_REVERSAL
     why_chosen: >
-      Closed: Δu* > 0. Open: Δu* = 0 for mobile residents, ΔR > 0.
+      Labour supply as a price reducer.
     why_wrong: >
-      This letter is the keyed option. It is not a distractor.
+      The housing-demand channel from in-migration raises R.
   C:
     taxonomy: NECESSARY_VS_SUFFICIENT
     why_chosen: >
@@ -113,11 +113,11 @@ distractor_rationales:
     why_wrong: >
       Location rent is a residual.
   H:
-    taxonomy: SIGN_REVERSAL
+    taxonomy: CORRECT_KEY
     why_chosen: >
-      Labour supply as a price reducer.
+      Closed: Δu* > 0. Open: Δu* = 0 for mobile residents, ΔR > 0.
     why_wrong: >
-      The housing-demand channel from in-migration raises R.
+      This letter is the keyed option. It is not a distractor.
   I:
     taxonomy: SIGN_REVERSAL
     why_chosen: >
@@ -143,7 +143,7 @@ ambiguity_audit: >
   households, not landowners. Owner-occupiers mix the two, which
   is why J is a distractor rather than a second key.
 uniqueness_check: >
-  B is the only option that splits Δu* across the two models.
+  H is the only option that splits Δu* across the two models.
   If the city were large enough to move the national u_bar, the
   open-city pin would weaken; the stem says a large outside
   system.

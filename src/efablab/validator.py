@@ -219,6 +219,30 @@ def validate_corpus(
         if by_diff[diff] != n:
             issues.append(Issue("CORPUS", f"expected {n} {diff} items, found {by_diff[diff]}"))
 
+    # Answer-position leakage is a corpus-level assessment defect.
+    # With 40 retained items and ten letters, require four keys per position.
+    key_counts = Counter(it.correct_option for it in items)
+    expected_per_key = TARGET_COUNTS["total"] // len(OPTION_LETTERS)
+    for letter in OPTION_LETTERS:
+        if key_counts[letter] != expected_per_key:
+            issues.append(
+                Issue(
+                    "CORPUS",
+                    f"expected {expected_per_key} keyed items at {letter}, found {key_counts[letter]}",
+                )
+            )
+
+    ordered_keys = [it.correct_option for it in sorted(items, key=lambda x: x.id)]
+    longest_run = 0
+    run = 0
+    prev = None
+    for key in ordered_keys:
+        run = run + 1 if key == prev else 1
+        longest_run = max(longest_run, run)
+        prev = key
+    if longest_run > 2:
+        issues.append(Issue("CORPUS", f"answer-position streak too long: {longest_run}"))
+
     by_domain = Counter(it.domain for it in items)
     for domain, n in TARGET_COUNTS["by_domain"].items():
         if by_domain[domain] != n:
