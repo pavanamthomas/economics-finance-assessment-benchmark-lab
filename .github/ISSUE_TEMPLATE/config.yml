@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Roadmap and domain bounds
+    url: https://github.com/pavanamthomas/economics-finance-assessment-benchmark-lab/blob/main/ROADMAP.md
+    about: Uniqueness, companion labs, and what YAML alone cannot close.
