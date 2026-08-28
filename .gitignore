@@ -14,5 +14,3 @@ outputs/
 .DS_Store
 .idea/
 .vscode/
-agent-tools/
-.cursor/
